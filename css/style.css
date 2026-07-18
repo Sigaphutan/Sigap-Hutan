@@ -1,7 +1,9 @@
-/* ==========================
+/* =====================================================
    SIGAP HUTAN
-   STYLE.CSS
-========================== */
+   UPTD KPH WILAYAH VIII ACEH
+===================================================== */
+
+/* RESET */
 
 *{
     margin:0;
@@ -9,25 +11,26 @@
     box-sizing:border-box;
 }
 
+/* BODY */
+
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:#f4f7f2;
     color:#333;
+    line-height:1.6;
 }
 
-/* ==========================
-   HEADER
-========================== */
+/* ================= HEADER ================= */
 
 header{
     background:#1b5e20;
-    color:white;
+    color:#fff;
     text-align:center;
-    padding:30px 20px;
+    padding:35px 20px;
 }
 
 header h1{
-    font-size:48px;
+    font-size:52px;
     margin-bottom:10px;
 }
 
@@ -35,20 +38,18 @@ header p{
     font-size:20px;
 }
 
-/* ==========================
-   MENU
-========================== */
+/* ================= MENU ================= */
 
 nav{
     background:#2e7d32;
-    text-align:center;
     padding:18px;
+    text-align:center;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:0 20px;
+    margin:0 18px;
     font-size:18px;
     font-weight:bold;
     transition:.3s;
@@ -58,13 +59,15 @@ nav a:hover{
     color:#ffd54f;
 }
 
-/* ==========================
-   HERO
-========================== */
+/* ================= HERO ================= */
 
 .hero{
 
-    height:650px;
+    width:100%;
+    min-height:650px;
+
+    margin:0;
+    padding:40px;
 
     display:flex;
     flex-direction:column;
@@ -76,7 +79,7 @@ nav a:hover{
     background:
     linear-gradient(rgba(0,0,0,.45),
     rgba(0,0,0,.45)),
-    url("../images/hero.jpg");
+    url("/Sigap-Hutan/images/hero.jpg");
 
     background-size:cover;
     background-position:center;
@@ -84,50 +87,43 @@ nav a:hover{
 
     color:white;
 
-    padding:20px;
 }
-
-/* Judul */
 
 .hero h2{
 
     font-size:60px;
-
-    margin-bottom:25px;
-
     color:white;
 
-}
+    margin-bottom:30px;
 
-/* Paragraf */
+}
 
 .hero p{
 
-    font-size:24px;
-
     width:70%;
+    max-width:900px;
+
+    font-size:24px;
 
     line-height:1.8;
 
-    margin-bottom:40px;
+    margin-bottom:45px;
 
 }
 
-/* ==========================
-   BUTTON
-========================== */
+/* ================= BUTTON ================= */
 
 .btn{
 
     display:inline-block;
 
+    padding:18px 45px;
+
     background:#ffc107;
 
-    color:#1b1b1b;
+    color:#222;
 
     text-decoration:none;
-
-    padding:18px 45px;
 
     font-size:22px;
 
@@ -135,9 +131,9 @@ nav a:hover{
 
     border-radius:50px;
 
-    transition:.3s;
+    transition:.35s;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.30);
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 }
 
@@ -145,27 +141,36 @@ nav a:hover{
 
     background:#ffca28;
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
 }
 
-/* ==========================
-   SECTION
-========================== */
+/* ================= SECTION ================= */
 
-section{
+section:not(.hero){
 
     width:90%;
-
     max-width:1200px;
 
     margin:60px auto;
 
 }
 
-/* ==========================
-   JUDUL SECTION
-========================== */
+/* CARD */
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+/* JUDUL */
 
 section h2{
 
@@ -175,9 +180,7 @@ section h2{
 
 }
 
-/* ==========================
-   FOOTER
-========================== */
+/* ================= FOOTER ================= */
 
 footer{
 
@@ -189,25 +192,29 @@ footer{
 
     padding:25px;
 
-    margin-top:50px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+header h1{
+
+font-size:42px;
 
 }
 
-/* ==========================
-   RESPONSIVE
-========================== */
-
-@media(max-width:768px){
-
 .hero{
 
-height:500px;
+min-height:500px;
+
+padding:30px;
 
 }
 
 .hero h2{
 
-font-size:40px;
+font-size:42px;
 
 }
 
@@ -215,7 +222,39 @@ font-size:40px;
 
 width:90%;
 
-font-size:18px;
+font-size:19px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+nav a{
+
+display:block;
+
+margin:12px 0;
+
+}
+
+.hero{
+
+min-height:450px;
+
+}
+
+.hero h2{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+width:95%;
 
 }
 
@@ -227,11 +266,15 @@ padding:15px 30px;
 
 }
 
-nav a{
+header h1{
 
-display:block;
+font-size:36px;
 
-margin:10px 0;
+}
+
+header p{
+
+font-size:16px;
 
 }
 
