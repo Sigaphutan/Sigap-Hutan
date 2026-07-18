@@ -1,915 +1,305 @@
-/* ==================================================
+/* ===========================
    SIGAP HUTAN
-   UPTD KPH WILAYAH VIII ACEH
-==================================================*/
+   STYLE.CSS
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#f5f7f8;
+    background:#f7f9f8;
     color:#333;
     overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
+/*=========================
+ NAVBAR
+=========================*/
 
-header{
+.navbar{
+
     background:#ffffff;
-    padding:18px 40px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
 
-.header-container{
+    padding:14px 0;
 
-    max-width:1300px;
-    margin:auto;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-}
-
-.logo-box{
-
-    width:120px;
-    display:flex;
-    justify-content:center;
-
-}
-
-.logo{
-
-    width:85px;
-    height:85px;
-    object-fit:contain;
-
-}
-
-.title-box{
-
-    flex:1;
-    text-align:center;
-
-}
-
-.title-box h1{
-
-    color:#145A32;
-    font-size:50px;
-    font-weight:700;
-    letter-spacing:3px;
-
-}
-
-.title-box h2{
-
-    margin-top:10px;
-
-    color:#444;
-
-    font-size:20px;
-
-    font-weight:500;
-
-}
-
-.title-box p{
-
-    margin-top:8px;
-
-    color:#2E7D32;
-
-    font-weight:600;
-
-    font-size:18px;
-
-}
-
-/* ================= MENU ================= */
-
-nav{
-
-    position:sticky;
-    top:0;
+    transition:.4s;
 
     z-index:999;
 
-    background:#1B5E20;
+}
+
+.navbar-brand{
 
     display:flex;
 
-    justify-content:center;
+    align-items:center;
 
-    flex-wrap:wrap;
+    gap:12px;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#2E7D32!important;
 
 }
 
-nav a{
+.navbar-brand img{
 
-    color:#fff;
+    width:48px;
 
-    text-decoration:none;
+    height:48px;
 
-    padding:18px 22px;
+    background:#fff;
 
-    font-size:17px;
+    padding:6px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+
+}
+
+.nav-link{
+
+    color:#444!important;
+
+    font-weight:600;
+
+    margin-left:20px;
 
     transition:.3s;
 
 }
 
-nav a i{
+.nav-link:hover{
 
-    margin-right:8px;
-
-}
-
-nav a:hover{
-
-    background:#2E7D32;
+    color:#2E7D32!important;
 
 }
 
-/* ================= HERO ================= */
+.nav-link.active{
+
+    color:#2E7D32!important;
+
+}
+
+/*=========================
+ HERO
+=========================*/
 
 .hero{
 
-    height:90vh;
+    min-height:100vh;
 
-    background-image:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.45)),
-    url("../images/hero.png");
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+
+    url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=80");
 
     background-size:cover;
 
     background-position:center;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    color:#fff;
+    background-attachment:fixed;
 
 }
 
-.overlay{
+.hero h1{
 
-    width:90%;
-    max-width:900px;
+    font-size:68px;
 
-}
+    font-weight:800;
 
-.overlay h4{
+    letter-spacing:1px;
 
-    color:#FFC107;
-
-    letter-spacing:4px;
-
-    margin-bottom:15px;
+    margin-bottom:20px;
 
 }
 
-.overlay h1{
+.hero p{
 
-    font-size:72px;
+    max-width:760px;
 
-    margin-bottom:25px;
+    margin:auto;
 
-}
+    line-height:1.9;
 
-.overlay p{
+    font-size:21px;
 
-    font-size:22px;
-
-    line-height:1.8;
-
-    margin-bottom:40px;
+    color:#eeeeee;
 
 }
 
-/* ================= BUTTON ================= */
+.hero .btn{
 
-.hero-button{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
+    margin-top:30px;
 
 }
 
-.btn{
+/*=========================
+ BUTTON
+=========================*/
+
+.btn-custom{
 
     background:#2E7D32;
 
     color:#fff;
 
-    padding:18px 35px;
+    padding:15px 38px;
 
     border-radius:50px;
 
-    text-decoration:none;
+    border:none;
 
-    font-weight:bold;
-
-    transition:.3s;
-
-}
-
-.btn:hover{
-
-    background:#145A32;
-
-    transform:translateY(-5px);
-
-}
-
-.btn2{
-
-    background:#FFC107;
-
-    color:#000;
-
-    padding:18px 35px;
-
-    border-radius:50px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    transition:.3s;
-
-}
-
-.btn2:hover{
-
-    background:#ff9800;
-
-    transform:translateY(-5px);
-
-}
-/* ==========================================
-   TENTANG
-========================================== */
-
-.about{
-
-    background:#fff;
-
-    padding:80px 10%;
-
-    text-align:center;
-
-}
-
-.container{
-
-    max-width:1000px;
-
-    margin:auto;
-
-}
-
-.container h2{
-
-    font-size:40px;
-
-    color:#1B5E20;
-
-    margin-bottom:25px;
-
-}
-
-.container p{
-
-    font-size:18px;
-
-    line-height:1.9;
-
-    color:#555;
-
-}
-
-/* ==========================================
-   JUDUL SECTION
-========================================== */
-
-.section-title{
-
-    text-align:center;
-
-    margin-bottom:50px;
-
-}
-
-.section-title h2{
-
-    font-size:40px;
-
-    color:#1B5E20;
-
-    margin-bottom:10px;
-
-}
-
-.section-title p{
-
-    color:#666;
-
-    font-size:18px;
-
-}
-
-/* ==========================================
-   LAYANAN
-========================================== */
-
-.services{
-
-    padding:90px 8%;
-
-    background:#f4f8f4;
-
-}
-
-.service-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-    gap:30px;
-
-}
-
-.service-card{
-
-    background:#fff;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    font-weight:600;
 
     transition:.35s;
 
 }
 
-.service-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
-
-}
-
-.icon{
-
-    width:90px;
-
-    height:90px;
-
-    margin:auto;
-
-    margin-bottom:20px;
-
-    border-radius:50%;
-
-    background:#E8F5E9;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-.icon i{
-
-    font-size:38px;
-
-    color:#1B5E20;
-
-}
-
-.service-card h3{
-
-    margin-bottom:18px;
-
-    color:#1B5E20;
-
-}
-
-.service-card p{
-
-    color:#666;
-
-    line-height:1.8;
-
-    margin-bottom:25px;
-
-}
-
-.service-card a{
-
-    display:inline-block;
-
-    padding:12px 25px;
-
-    background:#2E7D32;
-
-    color:white;
-
-    border-radius:30px;
-
-    text-decoration:none;
-
-}
-
-.service-card a:hover{
-
-    background:#145A32;
-
-}
-
-/* ==========================================
-   STATISTIK
-========================================== */
-
-.statistics{
-
-    padding:90px 8%;
+.btn-custom:hover{
 
     background:#1B5E20;
 
+    transform:translateY(-4px);
+
     color:white;
 
 }
 
-.stats-grid{
+.btn-outline-light{
 
-    display:grid;
+    border-radius:50px;
 
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:30px;
-
-}
-
-.stat-box{
-
-    text-align:center;
-
-    background:rgba(255,255,255,.08);
-
-    padding:35px;
-
-    border-radius:15px;
-
-}
-
-.stat-box h1{
-
-    font-size:55px;
-
-    color:#FFC107;
-
-    margin-bottom:10px;
-
-}
-
-.stat-box p{
-
-    font-size:18px;
-
-}
-
-/* ==========================================
-   BERITA
-========================================== */
-
-.news{
-
-    padding:90px 8%;
-
-    background:white;
-
-}
-
-.news-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
-
-}
-
-.news-card{
-
-    background:white;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.news-card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.news-card img{
-
-    width:100%;
-
-    height:230px;
-
-    object-fit:cover;
-
-}
-
-.news-content{
-
-    padding:25px;
-
-}
-
-.news-content h3{
-
-    color:#1B5E20;
-
-    margin-bottom:15px;
-
-}
-
-.news-content p{
-
-    color:#666;
-
-    line-height:1.8;
-
-    margin-bottom:20px;
-
-}
-
-.news-content a{
-
-    color:#2E7D32;
+    padding:15px 35px;
 
     font-weight:600;
 
-    text-decoration:none;
+}
+
+/*=========================
+ SECTION
+=========================*/
+
+section{
+
+    padding:90px 0;
 
 }
 
-/* ==========================================
-   GALERI
-========================================== */
+.section-title{
 
-.gallery{
+    color:#2E7D32;
 
-    padding:90px 8%;
+    font-size:40px;
 
-    background:#f4f8f4;
+    font-weight:700;
 
 }
 
-.gallery-grid{
+.section-subtitle{
 
-    display:grid;
+    color:#777;
 
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:20px;
-
-}
-
-.gallery-grid img{
-
-    width:100%;
-
-    height:220px;
-
-    object-fit:cover;
-
-    border-radius:15px;
-
-    transition:.3s;
-
-}
-
-.gallery-grid img:hover{
-
-    transform:scale(1.05);
-
-}
-/* ==========================================
-   PETA
-========================================== */
-
-.map-section{
-
-    padding:90px 8%;
-
-    background:#ffffff;
-
-}
-
-.map-box{
-
-    width:100%;
-
-    max-width:1200px;
+    max-width:700px;
 
     margin:auto;
 
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.1);
-
-}
-
-.map-box iframe{
-
-    width:100%;
-
-    height:450px;
-
-    border:0;
-
-}
-
-/* ==========================================
-   KONTAK
-========================================== */
-
-.contact{
-
-    padding:90px 8%;
-
-    background:#f4f8f4;
-
-}
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-.contact-item{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.contact-item:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.contact-item i{
-
-    font-size:42px;
-
-    color:#1B5E20;
-
-    margin-bottom:20px;
-
-}
-
-.contact-item h3{
-
-    margin-bottom:15px;
-
-    color:#1B5E20;
-
-}
-
-.contact-item p{
-
-    color:#666;
+    margin-top:15px;
 
     line-height:1.8;
 
 }
 
-/* ==========================================
-   FOOTER
-========================================== */
+/*=========================
+ CARD
+=========================*/
 
-footer{
-
-    background:#12451A;
-
-    color:white;
-
-    padding:50px 20px;
-
-}
-
-.footer-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-.footer-logo{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:30px;
-
-}
-
-.footer-logo-img{
-
-    width:70px;
-
-    height:70px;
-
-    object-fit:contain;
-
-}
-
-.footer-container h2{
-
-    margin-bottom:10px;
-
-    font-size:32px;
-
-}
-
-.footer-container p{
-
-    line-height:1.8;
-
-    color:#ddd;
-
-}
-
-.footer-menu{
-
-    margin:30px 0;
-
-}
-
-.footer-menu a{
-
-    color:white;
-
-    text-decoration:none;
-
-    margin:0 15px;
-
-    transition:.3s;
-
-}
-
-.footer-menu a:hover{
-
-    color:#FFC107;
-
-}
-
-footer hr{
-
-    margin:30px auto;
-
-    width:80%;
+.card{
 
     border:none;
 
-    border-top:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+
+    transition:.4s;
 
 }
 
-.copyright{
+.card:hover{
 
-    font-size:15px;
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
 
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
+.card-body{
+
+    padding:35px;
+
+}
+
+/*=========================
+ IMAGE
+=========================*/
+
+img{
+
+    max-width:100%;
+
+    border-radius:18px;
+
+}
+
+.shadow{
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12)!important;
+
+}
+
+/*=========================
+ RESPONSIVE
+=========================*/
 
 @media(max-width:992px){
 
-.header-container{
+.hero h1{
 
-    flex-direction:column;
-
-    text-align:center;
+font-size:50px;
 
 }
 
-.logo{
+.hero p{
 
-    width:70px;
-
-    height:70px;
+font-size:18px;
 
 }
 
-.title-box h1{
+.section-title{
 
-    font-size:38px;
-
-}
-
-.title-box h2{
-
-    font-size:18px;
-
-}
-
-.title-box p{
-
-    font-size:16px;
-
-}
-
-.hero{
-
-    height:75vh;
-
-}
-
-.overlay h1{
-
-    font-size:48px;
-
-}
-
-.overlay p{
-
-    font-size:18px;
-
-}
-
-.hero-button{
-
-    flex-direction:column;
-
-    align-items:center;
+font-size:32px;
 
 }
 
@@ -917,1791 +307,379 @@ footer hr{
 
 @media(max-width:768px){
 
-nav{
+.navbar-brand{
 
-    flex-direction:column;
-
-}
-
-nav a{
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-.section-title h2{
-
-    font-size:30px;
-
-}
-
-.overlay h1{
-
-    font-size:36px;
-
-}
-
-.overlay p{
-
-    font-size:16px;
-
-}
-
-.container h2{
-
-    font-size:30px;
-
-}
-
-.news-grid,
-.service-grid,
-.stats-grid,
-.gallery-grid,
-.contact-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.map-box iframe{
-
-    height:300px;
-
-}
-
-.footer-logo{
-
-    flex-direction:column;
-
-}
-
-/* ==========================================
-   PETA
-========================================== */
-
-.map-section{
-
-    padding:90px 8%;
-
-    background:#ffffff;
-
-}
-
-.map-box{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.1);
-
-}
-
-.map-box iframe{
-
-    width:100%;
-
-    height:450px;
-
-    border:0;
-
-}
-
-/* ==========================================
-   KONTAK
-========================================== */
-
-.contact{
-
-    padding:90px 8%;
-
-    background:#f4f8f4;
-
-}
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-.contact-item{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.contact-item:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.contact-item i{
-
-    font-size:42px;
-
-    color:#1B5E20;
-
-    margin-bottom:20px;
-
-}
-
-.contact-item h3{
-
-    margin-bottom:15px;
-
-    color:#1B5E20;
-
-}
-
-.contact-item p{
-
-    color:#666;
-
-    line-height:1.8;
-
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-footer{
-
-    background:#12451A;
-
-    color:white;
-
-    padding:50px 20px;
-
-}
-
-.footer-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-.footer-logo{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:30px;
-
-}
-
-.footer-logo-img{
-
-    width:70px;
-
-    height:70px;
-
-    object-fit:contain;
-
-}
-
-.footer-container h2{
-
-    margin-bottom:10px;
-
-    font-size:32px;
-
-}
-
-.footer-container p{
-
-    line-height:1.8;
-
-    color:#ddd;
-
-}
-
-.footer-menu{
-
-    margin:30px 0;
-
-}
-
-.footer-menu a{
-
-    color:white;
-
-    text-decoration:none;
-
-    margin:0 15px;
-
-    transition:.3s;
-
-}
-
-.footer-menu a:hover{
-
-    color:#FFC107;
-
-}
-
-footer hr{
-
-    margin:30px auto;
-
-    width:80%;
-
-    border:none;
-
-    border-top:1px solid rgba(255,255,255,.2);
-
-}
-
-.copyright{
-
-    font-size:15px;
-
-}
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media(max-width:992px){
-
-.header-container{
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-.logo{
-
-    width:70px;
-
-    height:70px;
-
-}
-
-.title-box h1{
-
-    font-size:38px;
-
-}
-
-.title-box h2{
-
-    font-size:18px;
-
-}
-
-.title-box p{
-
-    font-size:16px;
+font-size:24px;
 
 }
 
 .hero{
 
-    height:75vh;
+padding:40px 20px;
 
 }
 
-.overlay h1{
+.hero h1{
 
-    font-size:48px;
+font-size:38px;
 
 }
 
-.overlay p{
+.hero p{
 
-    font-size:18px;
+font-size:16px;
 
 }
 
-.hero-button{
+.btn-custom{
 
-    flex-direction:column;
+padding:12px 30px;
 
-    align-items:center;
-
-}
-
-}
-
-@media(max-width:768px){
-
-nav{
-
-    flex-direction:column;
-
-}
-
-nav a{
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-.section-title h2{
-
-    font-size:30px;
-
-}
-
-.overlay h1{
-
-    font-size:36px;
-
-}
-
-.overlay p{
-
-    font-size:16px;
-
-}
-
-.container h2{
-
-    font-size:30px;
-
-}
-
-.news-grid,
-.service-grid,
-.stats-grid,
-.gallery-grid,
-.contact-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.map-box iframe{
-
-    height:300px;
-
-}
-
-.footer-logo{
-
-    flex-direction:column;
-
-}
-/* ==========================================
-   PETA
-========================================== */
-
-.map-section{
-
-    padding:90px 8%;
-
-    background:#ffffff;
-
-}
-
-.map-box{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.1);
-
-}
-
-.map-box iframe{
-
-    width:100%;
-
-    height:450px;
-
-    border:0;
-
-}
-
-/* ==========================================
-   KONTAK
-========================================== */
-
-.contact{
-
-    padding:90px 8%;
-
-    background:#f4f8f4;
-
-}
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-.contact-item{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.contact-item:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.contact-item i{
-
-    font-size:42px;
-
-    color:#1B5E20;
-
-    margin-bottom:20px;
-
-}
-
-.contact-item h3{
-
-    margin-bottom:15px;
-
-    color:#1B5E20;
-
-}
-
-.contact-item p{
-
-    color:#666;
-
-    line-height:1.8;
-
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-footer{
-
-    background:#12451A;
-
-    color:white;
-
-    padding:50px 20px;
-
-}
-
-.footer-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-.footer-logo{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:30px;
-
-}
-
-.footer-logo-img{
-
-    width:70px;
-
-    height:70px;
-
-    object-fit:contain;
-
-}
-
-.footer-container h2{
-
-    margin-bottom:10px;
-
-    font-size:32px;
-
-}
-
-.footer-container p{
-
-    line-height:1.8;
-
-    color:#ddd;
-
-}
-
-.footer-menu{
-
-    margin:30px 0;
-
-}
-
-.footer-menu a{
-
-    color:white;
-
-    text-decoration:none;
-
-    margin:0 15px;
-
-    transition:.3s;
-
-}
-
-.footer-menu a:hover{
-
-    color:#FFC107;
-
-}
-
-footer hr{
-
-    margin:30px auto;
-
-    width:80%;
-
-    border:none;
-
-    border-top:1px solid rgba(255,255,255,.2);
-
-}
-
-.copyright{
-
-    font-size:15px;
-
-}
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media(max-width:992px){
-
-.header-container{
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-.logo{
-
-    width:70px;
-
-    height:70px;
-
-}
-
-.title-box h1{
-
-    font-size:38px;
-
-}
-
-.title-box h2{
-
-    font-size:18px;
-
-}
-
-.title-box p{
-
-    font-size:16px;
-
-}
-
-.hero{
-
-    height:75vh;
-
-}
-
-.overlay h1{
-
-    font-size:48px;
-
-}
-
-.overlay p{
-
-    font-size:18px;
-
-}
-
-.hero-button{
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-}
-
-@media(max-width:768px){
-
-nav{
-
-    flex-direction:column;
-
-}
-
-nav a{
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-.section-title h2{
-
-    font-size:30px;
-
-}
-
-.overlay h1{
-
-    font-size:36px;
-
-}
-
-.overlay p{
-
-    font-size:16px;
-
-}
-
-.container h2{
-
-    font-size:30px;
-
-}
-
-.news-grid,
-.service-grid,
-.stats-grid,
-.gallery-grid,
-.contact-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.map-box iframe{
-
-    height:300px;
-
-}
-
-.footer-logo{
-
-    flex-direction:column;
-
-}
-
-/* ==========================================
-   PETA
-========================================== */
-
-.map-section{
-
-    padding:90px 8%;
-
-    background:#ffffff;
-
-}
-
-.map-box{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.1);
-
-}
-
-.map-box iframe{
-
-    width:100%;
-
-    height:450px;
-
-    border:0;
-
-}
-
-/* ==========================================
-   KONTAK
-========================================== */
-
-.contact{
-
-    padding:90px 8%;
-
-    background:#f4f8f4;
-
-}
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-.contact-item{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.contact-item:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.contact-item i{
-
-    font-size:42px;
-
-    color:#1B5E20;
-
-    margin-bottom:20px;
-
-}
-
-.contact-item h3{
-
-    margin-bottom:15px;
-
-    color:#1B5E20;
-
-}
-
-.contact-item p{
-
-    color:#666;
-
-    line-height:1.8;
-
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-footer{
-
-    background:#12451A;
-
-    color:white;
-
-    padding:50px 20px;
-
-}
-
-.footer-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-.footer-logo{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:30px;
-
-}
-
-.footer-logo-img{
-
-    width:70px;
-
-    height:70px;
-
-    object-fit:contain;
-
-}
-
-.footer-container h2{
-
-    margin-bottom:10px;
-
-    font-size:32px;
-
-}
-
-.footer-container p{
-
-    line-height:1.8;
-
-    color:#ddd;
-
-}
-
-.footer-menu{
-
-    margin:30px 0;
-
-}
-
-.footer-menu a{
-
-    color:white;
-
-    text-decoration:none;
-
-    margin:0 15px;
-
-    transition:.3s;
-
-}
-
-.footer-menu a:hover{
-
-    color:#FFC107;
-
-}
-
-footer hr{
-
-    margin:30px auto;
-
-    width:80%;
-
-    border:none;
-
-    border-top:1px solid rgba(255,255,255,.2);
-
-}
-
-.copyright{
-
-    font-size:15px;
-
-}
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media(max-width:992px){
-
-.header-container{
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-.logo{
-
-    width:70px;
-
-    height:70px;
-
-}
-
-.title-box h1{
-
-    font-size:38px;
-
-}
-
-.title-box h2{
-
-    font-size:18px;
-
-}
-
-.title-box p{
-
-    font-size:16px;
-
-}
-
-.hero{
-
-    height:75vh;
-
-}
-
-.overlay h1{
-
-    font-size:48px;
-
-}
-
-.overlay p{
-
-    font-size:18px;
-
-}
-
-.hero-button{
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-}
-
-@media(max-width:768px){
-
-nav{
-
-    flex-direction:column;
-
-}
-
-nav a{
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-.section-title h2{
-
-    font-size:30px;
-
-}
-
-.overlay h1{
-
-    font-size:36px;
-
-}
-
-.overlay p{
-
-    font-size:16px;
-
-}
-
-.container h2{
-
-    font-size:30px;
-
-}
-
-.news-grid,
-.service-grid,
-.stats-grid,
-.gallery-grid,
-.contact-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.map-box iframe{
-
-    height:300px;
-
-}
-
-.footer-logo{
-
-    flex-direction:column;
-
-}
-/* ==========================================
-   PETA
-========================================== */
-
-.map-section{
-
-    padding:90px 8%;
-
-    background:#ffffff;
-
-}
-
-.map-box{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.1);
-
-}
-
-.map-box iframe{
-
-    width:100%;
-
-    height:450px;
-
-    border:0;
-
-}
-
-/* ==========================================
-   KONTAK
-========================================== */
-
-.contact{
-
-    padding:90px 8%;
-
-    background:#f4f8f4;
-
-}
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-.contact-item{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.contact-item:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.contact-item i{
-
-    font-size:42px;
-
-    color:#1B5E20;
-
-    margin-bottom:20px;
-
-}
-
-.contact-item h3{
-
-    margin-bottom:15px;
-
-    color:#1B5E20;
-
-}
-
-.contact-item p{
-
-    color:#666;
-
-    line-height:1.8;
-
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-footer{
-
-    background:#12451A;
-
-    color:white;
-
-    padding:50px 20px;
-
-}
-
-.footer-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-.footer-logo{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:30px;
-
-}
-
-.footer-logo-img{
-
-    width:70px;
-
-    height:70px;
-
-    object-fit:contain;
-
-}
-
-.footer-container h2{
-
-    margin-bottom:10px;
-
-    font-size:32px;
-
-}
-
-.footer-container p{
-
-    line-height:1.8;
-
-    color:#ddd;
-
-}
-
-.footer-menu{
-
-    margin:30px 0;
-
-}
-
-.footer-menu a{
-
-    color:white;
-
-    text-decoration:none;
-
-    margin:0 15px;
-
-    transition:.3s;
-
-}
-
-.footer-menu a:hover{
-
-    color:#FFC107;
-
-}
-
-footer hr{
-
-    margin:30px auto;
-
-    width:80%;
-
-    border:none;
-
-    border-top:1px solid rgba(255,255,255,.2);
-
-}
-
-.copyright{
-
-    font-size:15px;
-
-}
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media(max-width:992px){
-
-.header-container{
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-.logo{
-
-    width:70px;
-
-    height:70px;
-
-}
-
-.title-box h1{
-
-    font-size:38px;
-
 }
 
-.title-box h2{
+.section-title{
 
-    font-size:18px;
+font-size:28px;
 
 }
 
-.title-box p{
-
-    font-size:16px;
-
-}
-
-.hero{
-
-    height:75vh;
-
-}
-
-.overlay h1{
-
-    font-size:48px;
-
-}
-
-.overlay p{
-
-    font-size:18px;
-
-}
-
-.hero-button{
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-}
-
-@media(max-width:768px){
-
-nav{
-
-    flex-direction:column;
-
-}
-
-nav a{
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-.section-title h2{
-
-    font-size:30px;
-
-}
-
-.overlay h1{
-
-    font-size:36px;
-
-}
-
-.overlay p{
-
-    font-size:16px;
-
-}
-
-.container h2{
-
-    font-size:30px;
-
-}
-
-.news-grid,
-.service-grid,
-.stats-grid,
-.gallery-grid,
-.contact-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.map-box iframe{
-
-    height:300px;
-
-}
-
-.footer-logo{
-
-    flex-direction:column;
-
-}
-
-/* ==========================================
-   PETA
-========================================== */
-
-.map-section{
-
-    padding:90px 8%;
-
-    background:#ffffff;
-
-}
-
-.map-box{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.1);
-
-}
-
-.map-box iframe{
-
-    width:100%;
-
-    height:450px;
-
-    border:0;
-
 }
+<!-- ============================= -->
+<!-- BERITA -->
+<!-- ============================= -->
 
-/* ==========================================
-   KONTAK
-========================================== */
+<section id="berita" class="py-5 bg-light">
 
-.contact{
+<div class="container">
 
-    padding:90px 8%;
+<div class="text-center mb-5" data-aos="fade-up">
 
-    background:#f4f8f4;
+<h2 class="section-title">
+Berita Terbaru
+</h2>
 
-}
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-.contact-item{
+<p class="section-subtitle">
+Informasi dan kegiatan terbaru SIGAP Hutan.
+</p>
 
-    background:#fff;
+</div>
 
-    border-radius:18px;
+<div class="row g-4">
 
-    padding:35px;
+<div class="col-lg-4" data-aos="fade-up">
 
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.contact-item:hover{
-
-    transform:translateY(-8px);
-
-}
+<div class="card h-100 shadow">
 
-.contact-item i{
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80">
 
-    font-size:42px;
+<div class="card-body">
 
-    color:#1B5E20;
+<span class="badge bg-success mb-3">
+Konservasi
+</span>
 
-    margin-bottom:20px;
+<h5 class="fw-bold">
+Monitoring Kawasan Hutan
+</h5>
 
-}
+<p>
+Monitoring kawasan hutan dilakukan menggunakan teknologi geospasial terbaru.
+</p>
 
-.contact-item h3{
+<a href="#" class="btn btn-success">
+Baca Selengkapnya
+</a>
 
-    margin-bottom:15px;
+</div>
 
-    color:#1B5E20;
+</div>
 
-}
+</div>
 
-.contact-item p{
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
 
-    color:#666;
+<div class="card h-100 shadow">
 
-    line-height:1.8;
+<img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=900&q=80">
 
-}
+<div class="card-body">
 
-/* ==========================================
-   FOOTER
-========================================== */
+<span class="badge bg-success mb-3">
+Kegiatan
+</span>
 
-footer{
+<h5 class="fw-bold">
+Penanaman Pohon Bersama
+</h5>
 
-    background:#12451A;
+<p>
+Program penghijauan bersama masyarakat sebagai bentuk kepedulian lingkungan.
+</p>
 
-    color:white;
+<a href="#" class="btn btn-success">
+Baca Selengkapnya
+</a>
 
-    padding:50px 20px;
+</div>
 
-}
+</div>
 
-.footer-container{
+</div>
 
-    max-width:1200px;
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
 
-    margin:auto;
+<div class="card h-100 shadow">
 
-    text-align:center;
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
 
-}
+<div class="card-body">
 
-.footer-logo{
+<span class="badge bg-success mb-3">
+Teknologi
+</span>
 
-    display:flex;
+<h5 class="fw-bold">
+Pengembangan Sistem SIGAP
+</h5>
 
-    justify-content:center;
+<p>
+Peningkatan fitur aplikasi untuk mendukung pengelolaan hutan digital.
+</p>
 
-    align-items:center;
+<a href="#" class="btn btn-success">
+Baca Selengkapnya
+</a>
 
-    gap:30px;
+</div>
 
-    flex-wrap:wrap;
+</div>
 
-    margin-bottom:30px;
+</div>
 
-}
+</div>
 
-.footer-logo-img{
+</div>
 
-    width:70px;
+</section>
 
-    height:70px;
+<!-- ============================= -->
+<!-- TIM -->
+<!-- ============================= -->
 
-    object-fit:contain;
+<section class="py-5">
 
-}
+<div class="container">
 
-.footer-container h2{
+<div class="text-center mb-5">
 
-    margin-bottom:10px;
+<h2 class="section-title">
+Tim Pengembang
+</h2>
 
-    font-size:32px;
+<p class="section-subtitle">
+Orang-orang di balik pengembangan SIGAP Hutan.
+</p>
 
-}
+</div>
 
-.footer-container p{
+<div class="row g-4">
 
-    line-height:1.8;
+<div class="col-lg-3 col-md-6">
 
-    color:#ddd;
+<div class="card text-center shadow">
 
-}
+<div class="card-body">
 
-.footer-menu{
+<img src="https://i.pravatar.cc/200?img=12"
+class="rounded-circle mb-3"
+width="130">
 
-    margin:30px 0;
+<h5 class="fw-bold">
+Nama Anggota
+</h5>
 
-}
+<p class="text-success">
+Project Manager
+</p>
 
-.footer-menu a{
+</div>
 
-    color:white;
+</div>
 
-    text-decoration:none;
+</div>
 
-    margin:0 15px;
+<div class="col-lg-3 col-md-6">
 
-    transition:.3s;
+<div class="card text-center shadow">
 
-}
+<div class="card-body">
 
-.footer-menu a:hover{
+<img src="https://i.pravatar.cc/200?img=15"
+class="rounded-circle mb-3"
+width="130">
 
-    color:#FFC107;
+<h5 class="fw-bold">
+Nama Anggota
+</h5>
 
-}
+<p class="text-success">
+Programmer
+</p>
 
-footer hr{
+</div>
 
-    margin:30px auto;
+</div>
 
-    width:80%;
+</div>
 
-    border:none;
+<div class="col-lg-3 col-md-6">
 
-    border-top:1px solid rgba(255,255,255,.2);
+<div class="card text-center shadow">
 
-}
+<div class="card-body">
 
-.copyright{
+<img src="https://i.pravatar.cc/200?img=25"
+class="rounded-circle mb-3"
+width="130">
 
-    font-size:15px;
+<h5 class="fw-bold">
+Nama Anggota
+</h5>
 
-}
+<p class="text-success">
+GIS Analyst
+</p>
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
+</div>
 
-@media(max-width:992px){
+</div>
 
-.header-container{
+</div>
 
-    flex-direction:column;
+<div class="col-lg-3 col-md-6">
 
-    text-align:center;
+<div class="card text-center shadow">
 
-}
+<div class="card-body">
 
-.logo{
+<img src="https://i.pravatar.cc/200?img=40"
+class="rounded-circle mb-3"
+width="130">
 
-    width:70px;
+<h5 class="fw-bold">
+Nama Anggota
+</h5>
 
-    height:70px;
+<p class="text-success">
+Administrator
+</p>
 
-}
+</div>
 
-.title-box h1{
+</div>
 
-    font-size:38px;
+</div>
 
-}
+</div>
 
-.title-box h2{
+</div>
 
-    font-size:18px;
+</section>
 
-}
+<!-- ============================= -->
+<!-- FAQ -->
+<!-- ============================= -->
 
-.title-box p{
+<section class="py-5 bg-light">
 
-    font-size:16px;
+<div class="container">
 
-}
+<div class="text-center mb-5">
 
-.hero{
+<h2 class="section-title">
 
-    height:75vh;
+Pertanyaan Umum
 
-}
+</h2>
 
-.overlay h1{
+</div>
 
-    font-size:48px;
+<div class="accordion" id="faq">
 
-}
+<div class="accordion-item">
 
-.overlay p{
+<h2 class="accordion-header">
 
-    font-size:18px;
+<button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
 
-}
+Apa itu SIGAP Hutan?
 
-.hero-button{
+</button>
 
-    flex-direction:column;
+</h2>
 
-    align-items:center;
+<div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq">
 
-}
+<div class="accordion-body">
 
-}
+SIGAP Hutan adalah sistem informasi digital yang mendukung pengelolaan dan pengawasan kawasan hutan.
 
-@media(max-width:768px){
+</div>
 
-nav{
+</div>
 
-    flex-direction:column;
+</div>
 
-}
+<div class="accordion-item">
 
-nav a{
+<h2 class="accordion-header">
 
-    width:100%;
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
 
-    text-align:center;
+Apakah data selalu diperbarui?
 
-}
+</button>
 
-.section-title h2{
+</h2>
 
-    font-size:30px;
+<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
 
-}
+<div class="accordion-body">
 
-.overlay h1{
+Ya, data diperbarui secara berkala sesuai hasil monitoring lapangan.
 
-    font-size:36px;
+</div>
 
-}
+</div>
 
-.overlay p{
+</div>
 
-    font-size:16px;
+<div class="accordion-item">
 
-}
+<h2 class="accordion-header">
 
-.container h2{
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
 
-    font-size:30px;
+Bagaimana cara mengakses peta?
 
-}
+</button>
 
-.news-grid,
-.service-grid,
-.stats-grid,
-.gallery-grid,
-.contact-grid{
+</h2>
 
-    grid-template-columns:1fr;
+<div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
 
-}
+<div class="accordion-body">
 
-.map-box iframe{
+Peta dapat diakses melalui menu Peta Interaktif pada halaman utama.
 
-    height:300px;
+</div>
 
-}
+</div>
 
-.footer-logo{
+</div>
 
-    flex-direction:column;
+</div>
 
-}
+</div>
 
+</section>
