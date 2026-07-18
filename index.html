@@ -1,399 +1,271 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SIGAP HUTAN | UPTD KPH Wilayah VIII Aceh</title>
+<title>SIGAP Hutan | Sistem Informasi Geospasial dan Pengawasan Hutan</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8f9fa;
+}
+
+.navbar{
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(15px);
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.navbar-brand{
+font-weight:700;
+color:#2e7d32!important;
+font-size:28px;
+}
+
+.nav-link{
+font-weight:500;
+margin-left:15px;
+transition:.3s;
+}
+
+.nav-link:hover{
+color:#2e7d32!important;
+}
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80');
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+color:white;
+
+}
+
+.hero h1{
+
+font-size:60px;
+font-weight:700;
+
+}
+
+.hero p{
+
+font-size:20px;
+margin-top:20px;
+margin-bottom:35px;
+
+}
+
+.btn-custom{
+
+background:#2e7d32;
+color:white;
+padding:14px 35px;
+border-radius:50px;
+font-weight:600;
+transition:.3s;
+
+}
+
+.btn-custom:hover{
+
+background:#1b5e20;
+color:white;
+transform:translateY(-3px);
+
+}
+
+.section-title{
+
+font-weight:700;
+color:#2e7d32;
+margin-bottom:15px;
+
+}
+
+.section-subtitle{
+
+color:#777;
+margin-bottom:50px;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
-<header>
-
-<div class="header-container">
-
-<div class="logo-box">
-
-<img src="images/logo-aceh.png"
-alt="Logo Pemerintah Aceh"
-class="logo">
-
-</div>
-
-<div class="title-box">
-
-<h1>SIGAP HUTAN</h1>
-
-<h2>
-Sistem Informasi Gangguan, Aduan,
-dan Pelayanan Kehutanan Terpadu
-</h2>
-
-<p>
-UPTD Kesatuan Pengelolaan Hutan
-Wilayah VIII Aceh
-</p>
-
-</div>
-
-<div class="logo-box">
-
-<img src="images/logo-KPH.png"
-alt="Logo KPH Wilayah VIII"
-class="logo">
-
-</div>
-
-</div>
-
-</header>
-
-<!-- ================= NAVBAR ================= -->
-
-<nav>
-
-<a href="index.html">
-<i class="fa-solid fa-house"></i>
-Beranda
-</a>
-
-<a href="pages/profil.html">
-<i class="fa-solid fa-building"></i>
-Profil
-</a>
-
-<a href="#">
-<i class="fa-solid fa-tree"></i>
-Edukasi
-</a>
-
-<a href="#">
-<i class="fa-solid fa-newspaper"></i>
-Informasi
-</a>
-
-<a href="#">
-<i class="fa-solid fa-circle-exclamation"></i>
-Aduan
-</a>
-
-<a href="#">
-<i class="fa-solid fa-phone"></i>
-Kontak
-</a>
-
-</nav>
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-<div class="overlay">
-
-<h4>SELAMAT DATANG DI</h4>
-
-<h1>SIGAP HUTAN</h1>
-
-<p>
-
-Platform resmi UPTD Kesatuan Pengelolaan Hutan
-Wilayah VIII Aceh untuk pelayanan kehutanan,
-pelaporan gangguan kawasan hutan,
-dan penyampaian informasi kepada masyarakat.
-
-</p>
-
-<div class="hero-button">
-
-<a href="#" class="btn">
-
-<i class="fa-solid fa-bullhorn"></i>
-
-Laporkan Gangguan
-
-</a>
-
-<a href="#" class="btn2">
-
-<i class="fa-solid fa-circle-info"></i>
-
-Lihat Informasi
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= TENTANG ================= -->
-
-<section class="about">
+<nav class="navbar navbar-expand-lg fixed-top">
 
 <div class="container">
 
-<h2>Tentang SIGAP HUTAN</h2>
+<a class="navbar-brand" href="#">SIGAP Hutan</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#beranda">Beranda</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#tentang">Tentang</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#layanan">Layanan</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#galeri">Galeri</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#berita">Berita</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#kontak">Kontak</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<section class="hero" id="beranda">
+
+<div class="container">
+
+<div data-aos="fade-up">
+
+<h1>
+SIGAP Hutan
+</h1>
 
 <p>
 
-SIGAP HUTAN merupakan sistem informasi digital
-yang dikembangkan oleh UPTD Kesatuan Pengelolaan
-Hutan Wilayah VIII Aceh sebagai media pelayanan,
-informasi, edukasi, dan pelaporan gangguan hutan.
-
-Melalui website ini masyarakat dapat memperoleh
-informasi kehutanan, menyampaikan aduan,
-serta mendukung pelestarian hutan secara bersama.
+Sistem Informasi Geospasial dan Pengawasan Hutan berbasis teknologi modern untuk mendukung pelestarian kawasan hutan Indonesia.
 
 </p>
 
-</div>
+<a href="#tentang" class="btn btn-custom me-2">
 
-</section>
+<i class="bi bi-tree-fill"></i>
 
-<!-- ================= LAYANAN ================= -->
+Jelajahi
 
-<section class="services">
+</a>
 
-<div class="section-title">
+<a href="#layanan" class="btn btn-outline-light">
 
-<h2>Layanan SIGAP HUTAN</h2>
+Layanan
 
-<p>
-Pelayanan Digital Kehutanan UPTD KPH Wilayah VIII Aceh
-</p>
-
-</div>
-
-<div class="service-grid">
-
-<div class="service-card">
-
-<div class="icon">
-
-<i class="fa-solid fa-tree"></i>
-
-</div>
-
-<h3>Gangguan Hutan</h3>
-
-<p>
-Laporkan kebakaran hutan,
-perambahan, illegal logging,
-dan gangguan kawasan hutan.
-</p>
-
-<a href="#">Selengkapnya</a>
-
-</div>
-
-<div class="service-card">
-
-<div class="icon">
-
-<i class="fa-solid fa-comments"></i>
-
-</div>
-
-<h3>Aduan</h3>
-
-<p>
-Kirim kritik, saran,
-dan pengaduan masyarakat
-secara online.
-</p>
-
-<a href="#">Selengkapnya</a>
-
-</div>
-
-<div class="service-card">
-
-<div class="icon">
-
-<i class="fa-solid fa-file-circle-check"></i>
-
-</div>
-
-<h3>Pelayanan</h3>
-
-<p>
-Informasi pelayanan
-administrasi kehutanan
-kepada masyarakat.
-</p>
-
-<a href="#">Selengkapnya</a>
-
-</div>
-
-<div class="service-card">
-
-<div class="icon">
-
-<i class="fa-solid fa-map-location-dot"></i>
-
-</div>
-
-<h3>Peta Kawasan</h3>
-
-<p>
-Lihat wilayah kerja
-UPTD KPH Wilayah VIII Aceh
-beserta informasi kawasan.
-</p>
-
-<a href="#">Selengkapnya</a>
+</a>
 
 </div>
 
 </div>
 
 </section>
+<!-- ===================== -->
+<!-- TENTANG -->
+<!-- ===================== -->
 
-<!-- ================= STATISTIK ================= -->
+<section id="tentang" class="py-5">
 
-<section class="statistics">
+<div class="container">
 
-<div class="section-title">
+<div class="text-center mb-5" data-aos="fade-up">
 
-<h2>Statistik Kehutanan</h2>
+<h2 class="section-title">
+Tentang SIGAP Hutan
+</h2>
 
-<p>Data Singkat UPTD KPH Wilayah VIII Aceh</p>
-
-</div>
-
-<div class="stats-grid">
-
-<div class="stat-box">
-
-<h1>120+</h1>
-
-<p>Laporan Gangguan</p>
+<p class="section-subtitle">
+Platform digital untuk mendukung pengelolaan, pemantauan, dan pelestarian kawasan hutan secara efektif dan transparan.
+</p>
 
 </div>
 
-<div class="stat-box">
+<div class="row align-items-center">
 
-<h1>58</h1>
+<div class="col-lg-6 mb-4" data-aos="fade-right">
 
-<p>Kegiatan Lapangan</p>
-
-</div>
-
-<div class="stat-box">
-
-<h1>24</h1>
-
-<p>Jam Pelayanan</p>
+<img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=900&q=80"
+class="img-fluid rounded shadow">
 
 </div>
 
-<div class="stat-box">
+<div class="col-lg-6" data-aos="fade-left">
 
-<h1>100%</h1>
+<h3 class="fw-bold text-success mb-3">
 
-<p>Komitmen Pelayanan</p>
+SIGAP Hutan
 
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= BERITA ================= -->
-
-<section class="news">
-
-<div class="section-title">
-
-<h2>Berita Terbaru</h2>
-
-<p>Kegiatan UPTD KPH Wilayah VIII Aceh</p>
-
-</div>
-
-<div class="news-grid">
-
-<div class="news-card">
-
-<img src="images/hero.png" alt="Berita">
-
-<div class="news-content">
-
-<h3>Patroli Pengamanan Hutan</h3>
+</h3>
 
 <p>
 
-Tim patroli melaksanakan
-pengawasan rutin guna
-mencegah perambahan
-dan pembalakan liar.
+SIGAP Hutan merupakan sistem informasi yang dirancang untuk membantu
+pengawasan kawasan hutan, penyajian data geospasial, dokumentasi kegiatan,
+serta mendukung pengambilan keputusan secara cepat dan akurat.
 
 </p>
-
-<a href="#">Baca Selengkapnya</a>
-
-</div>
-
-</div>
-
-<div class="news-card">
-
-<img src="images/hero.png" alt="Berita">
-
-<div class="news-content">
-
-<h3>Edukasi Masyarakat</h3>
 
 <p>
 
-Penyuluhan kepada masyarakat
-tentang pentingnya
-pelestarian hutan.
+Melalui pemanfaatan teknologi informasi, SIGAP Hutan mampu meningkatkan
+efektivitas pengelolaan sumber daya hutan sekaligus memperkuat upaya
+pelestarian lingkungan.
 
 </p>
 
-<a href="#">Baca Selengkapnya</a>
+<a href="#layanan" class="btn btn-success mt-3">
 
-</div>
+Pelajari Lebih Lanjut
 
-</div>
-
-<div class="news-card">
-
-<img src="images/hero.png" alt="Berita">
-
-<div class="news-content">
-
-<h3>Rehabilitasi Lahan</h3>
-
-<p>
-
-Penanaman pohon
-untuk pemulihan
-kawasan hutan.
-
-</p>
-
-<a href="#">Baca Selengkapnya</a>
+</a>
 
 </div>
 
@@ -403,119 +275,82 @@ kawasan hutan.
 
 </section>
 
-<!-- ================= GALERI ================= -->
+<!-- ===================== -->
+<!-- VISI MISI -->
+<!-- ===================== -->
 
-<section class="gallery">
+<section class="py-5 bg-light">
 
-<div class="section-title">
+<div class="container">
 
-<h2>Galeri Kegiatan</h2>
+<div class="row">
 
-<p>Dokumentasi Kegiatan UPTD KPH Wilayah VIII Aceh</p>
+<div class="col-lg-6 mb-4" data-aos="zoom-in">
 
-</div>
+<div class="card border-0 shadow-lg h-100">
 
-<div class="gallery-grid">
+<div class="card-body p-4">
 
-<img src="images/hero.png" alt="Galeri">
+<div class="mb-3">
 
-<img src="images/hero.png" alt="Galeri">
-
-<img src="images/hero.png" alt="Galeri">
-
-<img src="images/hero.png" alt="Galeri">
+<i class="bi bi-eye-fill text-success fs-1"></i>
 
 </div>
 
-</section>
+<h3 class="fw-bold">
 
-<!-- ================= PETA ================= -->
+Visi
 
-<section class="map-section">
-
-<div class="section-title">
-
-<h2>Lokasi Kantor</h2>
-
-<p>UPTD Kesatuan Pengelolaan Hutan Wilayah VIII Aceh</p>
-
-</div>
-
-<div class="map-box">
-
-<iframe
-src="https://www.google.com/maps?q=Kutacane,Aceh&output=embed"
-allowfullscreen=""
-loading="lazy">
-</iframe>
-
-</div>
-
-</section>
-
-<!-- ================= KONTAK ================= -->
-
-<section class="contact">
-
-<div class="section-title">
-
-<h2>Hubungi Kami</h2>
-
-<p>Kami siap melayani masyarakat.</p>
-
-</div>
-
-<div class="contact-grid">
-
-<div class="contact-item">
-
-<i class="fa-solid fa-location-dot"></i>
-
-<h3>Alamat</h3>
+</h3>
 
 <p>
 
-UPTD Kesatuan Pengelolaan Hutan<br>
-
-Wilayah VIII Aceh
+Menjadi sistem informasi kehutanan yang modern, transparan,
+dan terpercaya dalam mendukung pelestarian hutan Indonesia.
 
 </p>
 
 </div>
 
-<div class="contact-item">
-
-<i class="fa-solid fa-phone"></i>
-
-<h3>Telepon</h3>
-
-<p>(0643) xxxx</p>
+</div>
 
 </div>
 
-<div class="contact-item">
+<div class="col-lg-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
 
-<i class="fa-solid fa-envelope"></i>
+<div class="card border-0 shadow-lg h-100">
 
-<h3>Email</h3>
+<div class="card-body p-4">
 
-<p>sigaphutan@gmail.com</p>
+<div class="mb-3">
+
+<i class="bi bi-bullseye text-success fs-1"></i>
 
 </div>
 
-<div class="contact-item">
+<h3 class="fw-bold">
 
-<i class="fa-solid fa-clock"></i>
+Misi
 
-<h3>Jam Pelayanan</h3>
+</h3>
 
-<p>
+<ul>
 
-Senin - Jumat
+<li>Menyediakan data geospasial yang akurat.</li>
 
-08.00 - 16.30 WIB
+<li>Meningkatkan kualitas pengawasan kawasan hutan.</li>
 
-</p>
+<li>Mendukung konservasi berbasis teknologi.</li>
+
+<li>Menyajikan informasi yang mudah diakses masyarakat.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -523,68 +358,335 @@ Senin - Jumat
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ===================== -->
+<!-- STATISTIK -->
+<!-- ===================== -->
 
-<footer>
+<section class="py-5">
 
-<div class="footer-container">
+<div class="container">
 
-<div class="footer-logo">
+<div class="text-center mb-5">
 
-<img src="images/logo-aceh.png" class="footer-logo-img">
+<h2 class="section-title">
 
-<div>
+Statistik SIGAP Hutan
 
-<h2>SIGAP HUTAN</h2>
+</h2>
+
+<p class="section-subtitle">
+
+Data pengelolaan kawasan hutan secara ringkas.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-3" data-aos="fade-up">
+
+<div class="card border-0 shadow text-center p-4">
+
+<i class="bi bi-tree-fill text-success display-4"></i>
+
+<h2 class="fw-bold mt-3">
+
+150+
+
+</h2>
 
 <p>
 
-Sistem Informasi Gangguan, Aduan,
-
-dan Pelayanan Kehutanan Terpadu
+Kawasan Hutan
 
 </p>
 
 </div>
 
-<img src="images/logo-KPH.png" class="footer-logo-img">
-
 </div>
 
-<hr>
+<div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
 
-<div class="footer-menu">
+<div class="card border-0 shadow text-center p-4">
 
-<a href="#">Beranda</a>
+<i class="bi bi-map-fill text-success display-4"></i>
 
-<a href="#">Profil</a>
+<h2 class="fw-bold mt-3">
 
-<a href="#">Edukasi</a>
+340
 
-<a href="#">Informasi</a>
+</h2>
 
-<a href="#">Aduan</a>
+<p>
 
-<a href="#">Kontak</a>
-
-</div>
-
-<p class="copyright">
-
-© 2026 SIGAP HUTAN
-
-<br>
-
-UPTD Kesatuan Pengelolaan Hutan Wilayah VIII Aceh
+Peta Digital
 
 </p>
 
 </div>
 
-</footer>
+</div>
 
-<script src="js/script.js"></script>
+<div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
 
-</body>
+<div class="card border-0 shadow text-center p-4">
 
-</html>
+<i class="bi bi-people-fill text-success display-4"></i>
+
+<h2 class="fw-bold mt-3">
+
+1200+
+
+</h2>
+
+<p>
+
+Pengguna
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+
+<div class="card border-0 shadow text-center p-4">
+
+<i class="bi bi-shield-check text-success display-4"></i>
+
+<h2 class="fw-bold mt-3">
+
+98%
+
+</h2>
+
+<p>
+
+Keakuratan Data
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ===================== -->
+<!-- LAYANAN -->
+<!-- ===================== -->
+
+<section id="layanan" class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5" data-aos="fade-up">
+
+<h2 class="section-title">Layanan SIGAP Hutan</h2>
+
+<p class="section-subtitle">
+Berbagai layanan digital untuk mendukung pengelolaan kawasan hutan.
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4 col-md-6" data-aos="zoom-in">
+<div class="card border-0 shadow h-100 text-center p-4">
+
+<i class="bi bi-map-fill display-3 text-success mb-3"></i>
+
+<h4 class="fw-bold">Peta Interaktif</h4>
+
+<p>
+Menampilkan data spasial kawasan hutan secara interaktif dan mudah dipahami.
+</p>
+
+<a href="#" class="btn btn-success mt-3">
+Selengkapnya
+</a>
+
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+<div class="card border-0 shadow h-100 text-center p-4">
+
+<i class="bi bi-tree-fill display-3 text-success mb-3"></i>
+
+<h4 class="fw-bold">Monitoring Hutan</h4>
+
+<p>
+Pemantauan kondisi hutan secara berkala menggunakan teknologi digital.
+</p>
+
+<a href="#" class="btn btn-success mt-3">
+Selengkapnya
+</a>
+
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+<div class="card border-0 shadow h-100 text-center p-4">
+
+<i class="bi bi-cloud-upload-fill display-3 text-success mb-3"></i>
+
+<h4 class="fw-bold">Data Online</h4>
+
+<p>
+Penyimpanan dan pengelolaan data berbasis cloud yang aman.
+</p>
+
+<a href="#" class="btn btn-success mt-3">
+Selengkapnya
+</a>
+
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="zoom-in">
+<div class="card border-0 shadow h-100 text-center p-4">
+
+<i class="bi bi-clipboard-data-fill display-3 text-success mb-3"></i>
+
+<h4 class="fw-bold">Laporan</h4>
+
+<p>
+Menyusun laporan kegiatan lapangan secara cepat dan akurat.
+</p>
+
+<a href="#" class="btn btn-success mt-3">
+Selengkapnya
+</a>
+
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+<div class="card border-0 shadow h-100 text-center p-4">
+
+<i class="bi bi-shield-check display-3 text-success mb-3"></i>
+
+<h4 class="fw-bold">Pengawasan</h4>
+
+<p>
+Mendukung pengawasan kawasan hutan melalui sistem digital.
+</p>
+
+<a href="#" class="btn btn-success mt-3">
+Selengkapnya
+</a>
+
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+<div class="card border-0 shadow h-100 text-center p-4">
+
+<i class="bi bi-globe2 display-3 text-success mb-3"></i>
+
+<h4 class="fw-bold">Informasi Publik</h4>
+
+<p>
+Menyediakan informasi kehutanan yang mudah diakses masyarakat.
+</p>
+
+<a href="#" class="btn btn-success mt-3">
+Selengkapnya
+</a>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================== -->
+<!-- GALERI -->
+<!-- ===================== -->
+
+<section id="galeri" class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5" data-aos="fade-up">
+
+<h2 class="section-title">Galeri</h2>
+
+<p class="section-subtitle">
+Dokumentasi kegiatan dan keindahan kawasan hutan.
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+class="img-fluid rounded shadow">
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+<img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=800&q=80"
+class="img-fluid rounded shadow">
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+class="img-fluid rounded shadow">
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+<img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80"
+class="img-fluid rounded shadow">
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+class="img-fluid rounded shadow">
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+<img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=800&q=80"
+class="img-fluid rounded shadow">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================== -->
+<!-- CALL TO ACTION -->
+<!-- ===================== -->
+
+<section class="py-5 text-white" style="background:#2E7D32;">
+
+<div class="container text-center" data-aos="zoom-in">
+
+<h2 class="fw-bold mb-3">
+Mari Bersama Menjaga Kelestarian Hutan Indonesia
+</h2>
+
+<p class="mb-4">
+SIGAP Hutan hadir sebagai solusi digital untuk mendukung pengelolaan dan pelestarian kawasan hutan secara berkelanjutan.
+</p>
+
+<a href="#kontak" class="btn btn-light btn-lg">
+Hubungi Kami
+</a>
+
+</div>
+
+</section>
