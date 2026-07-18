@@ -59,20 +59,19 @@ nav a:hover{
 
 .hero{
 
-    min-height:80vh;
+    min-height:85vh;
 
     background-image:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-        url("/Sigap-Hutan/images/hero.jpg.png");
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("../images/hero.png");
 
     background-size:cover;
-    background-position:center center;
+    background-position:center;
     background-repeat:no-repeat;
 
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
 
     color:white;
 }
