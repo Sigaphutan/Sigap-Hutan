@@ -27,17 +27,22 @@ header{
 .header-container{
     max-width:1200px;
     margin:auto;
+
     display:flex;
+    flex-direction:column;
+
     justify-content:center;
     align-items:center;
-    gap:25px;
-    flex-wrap:wrap;
+
+    text-align:center;
 }
 
 .logo-group{
     display:flex;
-    gap:20px;
+    justify-content:center;
     align-items:center;
+    gap:25px;
+    margin-bottom:15px;
 }
 
 .logo-group img{
@@ -47,19 +52,18 @@ header{
 }
 
 .title-group{
-    text-align:left;
+    text-align:center;
 }
 
 .title-group h1{
-    font-size:48px;
-    margin-bottom:8px;
+    font-size:56px;
+    margin-bottom:10px;
 }
 
 .title-group p{
-    font-size:20px;
+    font-size:22px;
     line-height:1.6;
 }
-
 /* ================= MENU ================= */
 
 nav{
