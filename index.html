@@ -1,167 +1,155 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SIGAP Hutan | Sistem Informasi Geospasial dan Pengawasan Hutan</title>
 
-<link rel="stylesheet" href="css/style.css">
+<meta name="description"
+content="SIGAP Hutan merupakan Sistem Informasi Geospasial dan Pengawasan Hutan berbasis teknologi digital.">
 
+<meta name="keywords"
+content="SIGAP Hutan, GIS, Geospasial, Kehutanan, Aceh, KPH">
+
+<meta name="author" content="SIGAP Hutan">
+
+<link rel="icon" href="images/logo-kph.png">
+
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+<!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#f8f9fa;
-}
-
-.navbar{
-background:rgba(255,255,255,.95);
-backdrop-filter:blur(15px);
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.navbar-brand{
-font-weight:700;
-color:#2e7d32!important;
-font-size:28px;
-}
-
-.nav-link{
-font-weight:500;
-margin-left:15px;
-transition:.3s;
-}
-
-.nav-link:hover{
-color:#2e7d32!important;
-}
-
-.hero{
-
-height:100vh;
-
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80');
-
-background-size:cover;
-background-position:center;
-
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-
-color:white;
-
-}
-
-.hero h1{
-
-font-size:60px;
-font-weight:700;
-
-}
-
-.hero p{
-
-font-size:20px;
-margin-top:20px;
-margin-bottom:35px;
-
-}
-
-.btn-custom{
-
-background:#2e7d32;
-color:white;
-padding:14px 35px;
-border-radius:50px;
-font-weight:600;
-transition:.3s;
-
-}
-
-.btn-custom:hover{
-
-background:#1b5e20;
-color:white;
-transform:translateY(-3px);
-
-}
-
-.section-title{
-
-font-weight:700;
-color:#2e7d32;
-margin-bottom:15px;
-
-}
-
-.section-subtitle{
-
-color:#777;
-margin-bottom:50px;
-
-}
-
-</style>
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
 <nav class="navbar navbar-expand-lg fixed-top">
 
 <div class="container">
 
-<a class="navbar-brand" href="#">SIGAP Hutan</a>
+<a class="navbar-brand d-flex align-items-center" href="#">
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<img src="images/logo-aceh.png"
+width="45"
+class="me-2"
+alt="Logo Aceh">
+
+<div>
+
+<h5 class="m-0 fw-bold text-success">
+
+SIGAP Hutan
+
+</h5>
+
+<small class="text-muted">
+
+Sistem Informasi Geospasial
+
+</small>
+
+</div>
+
+<img src="images/logo-kph.png"
+width="45"
+class="ms-2"
+alt="Logo KPH">
+
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarMenu">
 
 <span class="navbar-toggler-icon"></span>
 
 </button>
 
-<div class="collapse navbar-collapse" id="menu">
+<div class="collapse navbar-collapse"
+id="navbarMenu">
 
 <ul class="navbar-nav ms-auto">
 
 <li class="nav-item">
-<a class="nav-link" href="#beranda">Beranda</a>
+
+<a class="nav-link active"
+href="#beranda">
+
+Beranda
+
+</a>
+
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#tentang">Tentang</a>
+
+<a class="nav-link"
+href="#tentang">
+
+Tentang
+
+</a>
+
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#layanan">Layanan</a>
+
+<a class="nav-link"
+href="#layanan">
+
+Layanan
+
+</a>
+
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#galeri">Galeri</a>
+
+<a class="nav-link"
+href="#galeri">
+
+Galeri
+
+</a>
+
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#berita">Berita</a>
+
+<a class="nav-link"
+href="#berita">
+
+Berita
+
+</a>
+
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#kontak">Kontak</a>
+
+<a class="nav-link"
+href="#kontak">
+
+Kontak
+
+</a>
+
 </li>
 
 </ul>
@@ -172,23 +160,36 @@ margin-bottom:50px;
 
 </nav>
 
-<section class="hero" id="beranda">
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section id="beranda" class="hero">
 
 <div class="container">
 
-<div data-aos="fade-up">
+<div class="row align-items-center">
 
-<h1>
+<div class="col-lg-6"
+data-aos="fade-right">
+  <h1 class="display-4 fw-bold text-white mb-4">
+
 SIGAP Hutan
+
 </h1>
 
-<p>
+<p class="lead text-white mb-4">
 
-Sistem Informasi Geospasial dan Pengawasan Hutan berbasis teknologi modern untuk mendukung pelestarian kawasan hutan Indonesia.
+Sistem Informasi Geospasial dan Pengawasan Hutan
+yang mendukung pengelolaan kawasan hutan secara
+modern, transparan, akurat, dan berkelanjutan.
 
 </p>
 
-<a href="#tentang" class="btn btn-custom me-2">
+<div class="d-flex flex-wrap gap-3">
+
+<a href="#tentang"
+class="btn btn-success btn-lg">
 
 <i class="bi bi-tree-fill"></i>
 
@@ -196,7 +197,10 @@ Jelajahi
 
 </a>
 
-<a href="#layanan" class="btn btn-outline-light">
+<a href="#layanan"
+class="btn btn-outline-light btn-lg">
+
+<i class="bi bi-grid"></i>
 
 Layanan
 
@@ -206,65 +210,121 @@ Layanan
 
 </div>
 
+<div class="col-lg-6 text-center"
+data-aos="fade-left">
+
+<img src="images/hero.png"
+class="img-fluid hero-image"
+alt="Hero SIGAP Hutan">
+
+</div>
+
+</div>
+
+</div>
+
 </section>
-<!-- ===================== -->
+
+<!-- ========================= -->
 <!-- TENTANG -->
-<!-- ===================== -->
+<!-- ========================= -->
 
 <section id="tentang" class="py-5">
 
 <div class="container">
 
-<div class="text-center mb-5" data-aos="fade-up">
-
-<h2 class="section-title">
-Tentang SIGAP Hutan
-</h2>
-
-<p class="section-subtitle">
-Platform digital untuk mendukung pengelolaan, pemantauan, dan pelestarian kawasan hutan secara efektif dan transparan.
-</p>
-
-</div>
-
 <div class="row align-items-center">
 
-<div class="col-lg-6 mb-4" data-aos="fade-right">
+<div class="col-lg-6"
+data-aos="fade-right">
 
-<img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=900&q=80"
-class="img-fluid rounded shadow">
+<img src="images/hero.png"
+class="img-fluid rounded-4 shadow-lg"
+alt="Tentang">
 
 </div>
 
-<div class="col-lg-6" data-aos="fade-left">
+<div class="col-lg-6"
+data-aos="fade-left">
 
-<h3 class="fw-bold text-success mb-3">
+<span class="badge bg-success mb-3">
 
-SIGAP Hutan
+Tentang Kami
 
-</h3>
+</span>
+
+<h2 class="fw-bold mb-4">
+
+Apa itu SIGAP Hutan?
+
+</h2>
 
 <p>
 
-SIGAP Hutan merupakan sistem informasi yang dirancang untuk membantu
-pengawasan kawasan hutan, penyajian data geospasial, dokumentasi kegiatan,
-serta mendukung pengambilan keputusan secara cepat dan akurat.
+SIGAP Hutan merupakan Sistem Informasi
+Geospasial dan Pengawasan Hutan yang
+dikembangkan untuk mendukung pengelolaan
+kawasan hutan secara efektif melalui
+pemanfaatan teknologi digital.
 
 </p>
 
 <p>
 
-Melalui pemanfaatan teknologi informasi, SIGAP Hutan mampu meningkatkan
-efektivitas pengelolaan sumber daya hutan sekaligus memperkuat upaya
-pelestarian lingkungan.
+Platform ini menyediakan informasi spasial,
+monitoring kawasan, dokumentasi kegiatan,
+serta berbagai layanan digital yang membantu
+pengambilan keputusan secara cepat dan akurat.
 
 </p>
 
-<a href="#layanan" class="btn btn-success mt-3">
+<div class="row mt-4">
 
-Pelajari Lebih Lanjut
+<div class="col-6">
 
-</a>
+<div class="card border-0 shadow-sm p-3 text-center">
+
+<i class="bi bi-map-fill text-success fs-1"></i>
+
+<h4 class="mt-2">
+
+340+
+
+</h4>
+
+<p class="mb-0">
+
+Peta Digital
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="card border-0 shadow-sm p-3 text-center">
+
+<i class="bi bi-tree-fill text-success fs-1"></i>
+
+<h4 class="mt-2">
+
+150+
+
+</h4>
+
+<p class="mb-0">
+
+Kawasan
+
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -274,29 +334,46 @@ Pelajari Lebih Lanjut
 
 </section>
 
-<!-- ===================== -->
-<!-- VISI MISI -->
-<!-- ===================== -->
+<!-- ========================= -->
+<!-- VISI & MISI -->
+<!-- ========================= -->
 
-<section class="py-5 bg-light">
+<section id="visi" class="py-5 bg-light">
 
 <div class="container">
 
-<div class="row">
+<div class="text-center mb-5">
 
-<div class="col-lg-6 mb-4" data-aos="zoom-in">
+<h2 class="fw-bold">
 
-<div class="card border-0 shadow-lg h-100">
+Visi & Misi
 
-<div class="card-body p-4">
+</h2>
 
-<div class="mb-3">
+<p>
 
-<i class="bi bi-eye-fill text-success fs-1"></i>
+Landasan utama dalam pengelolaan dan pelestarian kawasan hutan.
+
+</p>
 
 </div>
 
-<h3 class="fw-bold">
+<div class="row">
+<!-- ========================= -->
+<!-- VISI -->
+<!-- ========================= -->
+
+<div class="col-lg-6 mb-4" data-aos="fade-right">
+
+<div class="card border-0 shadow-lg h-100 p-4">
+
+<div class="mb-3">
+
+<i class="bi bi-eye-fill display-4 text-success"></i>
+
+</div>
+
+<h3 class="fw-bold mb-3">
 
 Visi
 
@@ -304,8 +381,9 @@ Visi
 
 <p>
 
-Menjadi sistem informasi kehutanan yang modern, transparan,
-dan terpercaya dalam mendukung pelestarian hutan Indonesia.
+Menjadi sistem informasi kehutanan yang modern,
+terintegrasi, transparan, dan terpercaya untuk
+mendukung pengelolaan hutan secara berkelanjutan.
 
 </p>
 
@@ -313,35 +391,47 @@ dan terpercaya dalam mendukung pelestarian hutan Indonesia.
 
 </div>
 
-</div>
+<!-- ========================= -->
+<!-- MISI -->
+<!-- ========================= -->
 
-<div class="col-lg-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+<div class="col-lg-6 mb-4" data-aos="fade-left">
 
-<div class="card border-0 shadow-lg h-100">
-
-<div class="card-body p-4">
+<div class="card border-0 shadow-lg h-100 p-4">
 
 <div class="mb-3">
 
-<i class="bi bi-bullseye text-success fs-1"></i>
+<i class="bi bi-bullseye display-4 text-success"></i>
 
 </div>
 
-<h3 class="fw-bold">
+<h3 class="fw-bold mb-3">
 
 Misi
 
 </h3>
 
-<ul>
+<ul class="list-group list-group-flush">
 
-<li>Menyediakan data geospasial yang akurat.</li>
+<li class="list-group-item">
+<i class="bi bi-check-circle-fill text-success me-2"></i>
+Menyediakan data geospasial yang akurat.
+</li>
 
-<li>Meningkatkan kualitas pengawasan kawasan hutan.</li>
+<li class="list-group-item">
+<i class="bi bi-check-circle-fill text-success me-2"></i>
+Meningkatkan kualitas pengawasan kawasan hutan.
+</li>
 
-<li>Mendukung konservasi berbasis teknologi.</li>
+<li class="list-group-item">
+<i class="bi bi-check-circle-fill text-success me-2"></i>
+Mendukung konservasi berbasis teknologi.
+</li>
 
-<li>Menyajikan informasi yang mudah diakses masyarakat.</li>
+<li class="list-group-item">
+<i class="bi bi-check-circle-fill text-success me-2"></i>
+Memberikan informasi yang mudah diakses masyarakat.
+</li>
 
 </ul>
 
@@ -353,13 +443,11 @@ Misi
 
 </div>
 
-</div>
-
 </section>
 
-<!-- ===================== -->
+<!-- ========================= -->
 <!-- STATISTIK -->
-<!-- ===================== -->
+<!-- ========================= -->
 
 <section class="py-5">
 
@@ -367,27 +455,27 @@ Misi
 
 <div class="text-center mb-5">
 
-<h2 class="section-title">
+<h2 class="fw-bold">
 
 Statistik SIGAP Hutan
 
 </h2>
 
-<p class="section-subtitle">
+<p>
 
-Data pengelolaan kawasan hutan secara ringkas.
+Data singkat mengenai pengelolaan kawasan hutan.
 
 </p>
 
 </div>
 
-<div class="row g-4">
+<div class="row text-center g-4">
 
-<div class="col-md-3" data-aos="fade-up">
+<div class="col-lg-3 col-md-6" data-aos="zoom-in">
 
-<div class="card border-0 shadow text-center p-4">
+<div class="card border-0 shadow p-4">
 
-<i class="bi bi-tree-fill text-success display-4"></i>
+<i class="bi bi-tree-fill display-4 text-success"></i>
 
 <h2 class="fw-bold mt-3">
 
@@ -395,21 +483,17 @@ Data pengelolaan kawasan hutan secara ringkas.
 
 </h2>
 
-<p>
-
-Kawasan Hutan
-
-</p>
+<p>Kawasan Hutan</p>
 
 </div>
 
 </div>
 
-<div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+<div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
 
-<div class="card border-0 shadow text-center p-4">
+<div class="card border-0 shadow p-4">
 
-<i class="bi bi-map-fill text-success display-4"></i>
+<i class="bi bi-map-fill display-4 text-success"></i>
 
 <h2 class="fw-bold mt-3">
 
@@ -417,21 +501,17 @@ Kawasan Hutan
 
 </h2>
 
-<p>
-
-Peta Digital
-
-</p>
+<p>Peta Digital</p>
 
 </div>
 
 </div>
 
-<div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+<div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
 
-<div class="card border-0 shadow text-center p-4">
+<div class="card border-0 shadow p-4">
 
-<i class="bi bi-people-fill text-success display-4"></i>
+<i class="bi bi-people-fill display-4 text-success"></i>
 
 <h2 class="fw-bold mt-3">
 
@@ -439,21 +519,17 @@ Peta Digital
 
 </h2>
 
-<p>
-
-Pengguna
-
-</p>
+<p>Pengguna</p>
 
 </div>
 
 </div>
 
-<div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+<div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
 
-<div class="card border-0 shadow text-center p-4">
+<div class="card border-0 shadow p-4">
 
-<i class="bi bi-shield-check text-success display-4"></i>
+<i class="bi bi-shield-check display-4 text-success"></i>
 
 <h2 class="fw-bold mt-3">
 
@@ -461,11 +537,7 @@ Pengguna
 
 </h2>
 
-<p>
-
-Keakuratan Data
-
-</p>
+<p>Keakuratan Data</p>
 
 </div>
 
@@ -476,216 +548,71 @@ Keakuratan Data
 </div>
 
 </section>
-<!-- ===================== -->
+
+<!-- ========================= -->
 <!-- LAYANAN -->
-<!-- ===================== -->
+<!-- ========================= -->
 
 <section id="layanan" class="py-5 bg-light">
 
 <div class="container">
 
-<div class="text-center mb-5" data-aos="fade-up">
+<div class="text-center mb-5">
 
-<h2 class="section-title">Layanan SIGAP Hutan</h2>
+<h2 class="fw-bold">
 
-<p class="section-subtitle">
+Layanan SIGAP Hutan
+
+</h2>
+
+<p>
+
 Berbagai layanan digital untuk mendukung pengelolaan kawasan hutan.
+
 </p>
 
 </div>
 
 <div class="row g-4">
 
-<div class="col-lg-4 col-md-6" data-aos="zoom-in">
+<div class="col-lg-4 col-md-6" data-aos="fade-up">
+
 <div class="card border-0 shadow h-100 text-center p-4">
 
 <i class="bi bi-map-fill display-3 text-success mb-3"></i>
 
-<h4 class="fw-bold">Peta Interaktif</h4>
+<h4>Peta Interaktif</h4>
 
-<p>
-Menampilkan data spasial kawasan hutan secara interaktif dan mudah dipahami.
-</p>
-
-<a href="#" class="btn btn-success mt-3">
-Selengkapnya
-</a>
+<p>Visualisasi data spasial kawasan hutan.</p>
 
 </div>
+
 </div>
 
-<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+
 <div class="card border-0 shadow h-100 text-center p-4">
 
 <i class="bi bi-tree-fill display-3 text-success mb-3"></i>
 
-<h4 class="fw-bold">Monitoring Hutan</h4>
+<h4>Monitoring Hutan</h4>
 
-<p>
-Pemantauan kondisi hutan secara berkala menggunakan teknologi digital.
-</p>
-
-<a href="#" class="btn btn-success mt-3">
-Selengkapnya
-</a>
+<p>Pemantauan kondisi kawasan secara real-time.</p>
 
 </div>
+
 </div>
 
-<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+
 <div class="card border-0 shadow h-100 text-center p-4">
 
 <i class="bi bi-cloud-upload-fill display-3 text-success mb-3"></i>
 
-<h4 class="fw-bold">Data Online</h4>
+<h4>Data Online</h4>
 
-<p>
-Penyimpanan dan pengelolaan data berbasis cloud yang aman.
-</p>
-
-<a href="#" class="btn btn-success mt-3">
-Selengkapnya
-</a>
-
-</div>
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="zoom-in">
-<div class="card border-0 shadow h-100 text-center p-4">
-
-<i class="bi bi-clipboard-data-fill display-3 text-success mb-3"></i>
-
-<h4 class="fw-bold">Laporan</h4>
-
-<p>
-Menyusun laporan kegiatan lapangan secara cepat dan akurat.
-</p>
-
-<a href="#" class="btn btn-success mt-3">
-Selengkapnya
-</a>
-
-</div>
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-<div class="card border-0 shadow h-100 text-center p-4">
-
-<i class="bi bi-shield-check display-3 text-success mb-3"></i>
-
-<h4 class="fw-bold">Pengawasan</h4>
-
-<p>
-Mendukung pengawasan kawasan hutan melalui sistem digital.
-</p>
-
-<a href="#" class="btn btn-success mt-3">
-Selengkapnya
-</a>
-
-</div>
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-<div class="card border-0 shadow h-100 text-center p-4">
-
-<i class="bi bi-globe2 display-3 text-success mb-3"></i>
-
-<h4 class="fw-bold">Informasi Publik</h4>
-
-<p>
-Menyediakan informasi kehutanan yang mudah diakses masyarakat.
-</p>
-
-<a href="#" class="btn btn-success mt-3">
-Selengkapnya
-</a>
-
-</div>
-</div>
+<p>Penyimpanan dan pengelolaan data berbasis cloud.</p>
 
 </div>
 
 </div>
-
-</section>
-
-<!-- ===================== -->
-<!-- GALERI -->
-<!-- ===================== -->
-
-<section id="galeri" class="py-5">
-
-<div class="container">
-
-<div class="text-center mb-5" data-aos="fade-up">
-
-<h2 class="section-title">Galeri</h2>
-
-<p class="section-subtitle">
-Dokumentasi kegiatan dan keindahan kawasan hutan.
-</p>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-lg-4 col-md-6" data-aos="fade-up">
-<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
-class="img-fluid rounded shadow">
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-<img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=800&q=80"
-class="img-fluid rounded shadow">
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
-class="img-fluid rounded shadow">
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="fade-up">
-<img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80"
-class="img-fluid rounded shadow">
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
-class="img-fluid rounded shadow">
-</div>
-
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-<img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=800&q=80"
-class="img-fluid rounded shadow">
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================== -->
-<!-- CALL TO ACTION -->
-<!-- ===================== -->
-
-<section class="py-5 text-white" style="background:#2E7D32;">
-
-<div class="container text-center" data-aos="zoom-in">
-
-<h2 class="fw-bold mb-3">
-Mari Bersama Menjaga Kelestarian Hutan Indonesia
-</h2>
-
-<p class="mb-4">
-SIGAP Hutan hadir sebagai solusi digital untuk mendukung pengelolaan dan pelestarian kawasan hutan secara berkelanjutan.
-</p>
-
-<a href="#kontak" class="btn btn-light btn-lg">
-Hubungi Kami
-</a>
-
-</div>
-
-</section>
