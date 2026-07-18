@@ -14,6 +14,9 @@
 body{
     background:#f5f5f5;
     color:#333;
+   html, body{
+    margin:0;
+    padding:0;
 }
 
 /* ================= HEADER ================= */
@@ -107,6 +110,9 @@ nav a:hover{
 
     text-align:center;
     color:white;
+
+    margin:0;
+    padding:0;
 
 }
 
@@ -227,17 +233,11 @@ nav a:hover{
 /* ================= FOOTER ================= */
 
 footer{
-
     background:#1B5E20;
-
     color:white;
-
     text-align:center;
-
     padding:25px;
-
-    margin-top:50px;
-
+    margin:0;
 }
 
 /* ================= RESPONSIVE ================= */
