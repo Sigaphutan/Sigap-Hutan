@@ -217,3 +217,28 @@ console.log("%cSIGAP HUTAN", "color:green;font-size:18px;font-weight:bold;");
 console.log("Sistem Informasi Gangguan, Aduan, dan Pelayanan Kehutanan Terpadu");
 console.log("UPTD KPH Wilayah VIII Aceh");
 console.log("Website berhasil dimuat.");
+/*=========================================
+    FADE ANIMATION
+=========================================*/
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("fade-up");
+
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+document.querySelectorAll("section").forEach(section=>{
+
+    observer.observe(section);
+
+});
