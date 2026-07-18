@@ -93,8 +93,7 @@ nav a:hover{
 /* ================= HERO ================= */
 
 .hero{
-
-    min-height:85vh;
+    height:calc(100vh - 150px);
 
     background-image:
     linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
@@ -110,12 +109,7 @@ nav a:hover{
 
     text-align:center;
     color:white;
-
-    margin:0;
-    padding:0;
-
 }
-
 .overlay{
 
     width:100%;
@@ -236,7 +230,7 @@ footer{
     background:#1B5E20;
     color:white;
     text-align:center;
-    padding:25px;
+    padding:20px;
     margin:0;
 }
 
