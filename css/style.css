@@ -1,9 +1,23 @@
-body{
+/* ==========================
+   SIGAP HUTAN
+   STYLE.CSS
+========================== */
+
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     font-family:Arial, Helvetica, sans-serif;
     background:#f4f7f2;
     color:#333;
 }
+
+/* ==========================
+   HEADER
+========================== */
 
 header{
     background:#1b5e20;
@@ -13,54 +27,51 @@ header{
 }
 
 header h1{
-    margin:0;
-    font-size:40px;
+    font-size:48px;
+    margin-bottom:10px;
 }
 
 header p{
-    margin-top:10px;
-    font-size:18px;
+    font-size:20px;
 }
+
+/* ==========================
+   MENU
+========================== */
 
 nav{
     background:#2e7d32;
-    padding:15px;
     text-align:center;
+    padding:18px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
     margin:0 20px;
+    font-size:18px;
     font-weight:bold;
+    transition:.3s;
 }
 
 nav a:hover{
-    color:#ffe082;
+    color:#ffd54f;
 }
 
-section{
-    max-width:1100px;
-    margin:40px auto;
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
+/* ==========================
+   HERO
+========================== */
 
-h2{
-    color:#1b5e20;
-}
-
-footer{
-    background:#1b5e20;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:50px;
 .hero{
+
+    height:650px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
     text-align:center;
-    padding:140px 20px;
 
     background:
     linear-gradient(rgba(0,0,0,.45),
@@ -69,35 +80,159 @@ footer{
 
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
 
     color:white;
+
+    padding:20px;
 }
+
+/* Judul */
 
 .hero h2{
-    font-size:48px;
-    margin-bottom:20px;
+
+    font-size:60px;
+
+    margin-bottom:25px;
+
+    color:white;
+
 }
+
+/* Paragraf */
 
 .hero p{
-    font-size:20px;
-    max-width:700px;
-    margin:auto;
-    line-height:1.7;
+
+    font-size:24px;
+
+    width:70%;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
 }
 
+/* ==========================
+   BUTTON
+========================== */
+
 .btn{
+
     display:inline-block;
-    margin-top:35px;
-    padding:15px 35px;
+
     background:#ffc107;
-    color:black;
+
+    color:#1b1b1b;
+
     text-decoration:none;
-    border-radius:8px;
+
+    padding:18px 45px;
+
+    font-size:22px;
+
     font-weight:bold;
+
+    border-radius:50px;
+
     transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.30);
+
 }
 
 .btn:hover{
+
     background:#ffca28;
-    transform:scale(1.05);
+
+    transform:translateY(-4px);
+
+}
+
+/* ==========================
+   SECTION
+========================== */
+
+section{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:60px auto;
+
+}
+
+/* ==========================
+   JUDUL SECTION
+========================== */
+
+section h2{
+
+    color:#1b5e20;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    background:#1b5e20;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    margin-top:50px;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.hero{
+
+height:500px;
+
+}
+
+.hero h2{
+
+font-size:40px;
+
+}
+
+.hero p{
+
+width:90%;
+
+font-size:18px;
+
+}
+
+.btn{
+
+font-size:18px;
+
+padding:15px 30px;
+
+}
+
+nav a{
+
+display:block;
+
+margin:10px 0;
+
+}
+
 }
