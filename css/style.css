@@ -21,40 +21,42 @@ body{
 header{
     background:#1B5E20;
     color:#fff;
-    text-align:center;
     padding:20px;
 }
 
-/* Logo */
-
-.logo-bar{
+.header-container{
+    max-width:1200px;
+    margin:auto;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:40px;
-    margin-bottom:15px;
+    gap:25px;
     flex-wrap:wrap;
 }
 
-.logo-bar img{
-    width:85px;
-    height:85px;
+.logo-group{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.logo-group img{
+    width:80px;
+    height:80px;
     object-fit:contain;
-    transition:.3s;
 }
 
-.logo-bar img:hover{
-    transform:scale(1.08);
+.title-group{
+    text-align:left;
 }
 
-header h1{
-    font-size:56px;
-    font-weight:bold;
-    margin-bottom:10px;
+.title-group h1{
+    font-size:48px;
+    margin-bottom:8px;
 }
 
-header p{
-    font-size:22px;
+.title-group p{
+    font-size:20px;
     line-height:1.6;
 }
 
