@@ -1,327 +1,879 @@
-/* ===========================
+/* ==========================================
    SIGAP HUTAN
    STYLE.CSS
-=========================== */
+========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+:root{
+
+--primary:#198754;
+--secondary:#14532d;
+--accent:#f59e0b;
+--danger:#dc3545;
+--light:#f8fafc;
+--white:#ffffff;
+--dark:#1f2937;
+--text:#555;
+--shadow:0 10px 30px rgba(0,0,0,.08);
+--radius:20px;
+
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-    scroll-behavior:smooth;
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
 body{
-    background:#f7f9f8;
-    color:#333;
-    overflow-x:hidden;
+
+font-family:'Poppins',sans-serif;
+background:#f5f7fa;
+color:var(--text);
+overflow-x:hidden;
+
 }
 
-/*=========================
- NAVBAR
-=========================*/
+section{
+
+padding:90px 0;
+
+}
+
+img{
+
+max-width:100%;
+
+}
+
+a{
+
+text-decoration:none;
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
 
-    background:#ffffff;
-
-    padding:14px 0;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-
-    transition:.4s;
-
-    z-index:999;
+background:rgba(20,83,45,.88);
+backdrop-filter:blur(15px);
+padding:15px 0;
+transition:.4s;
 
 }
 
-.navbar-brand{
+.navbar.scrolled{
 
-    display:flex;
+background:#14532d;
+box-shadow:var(--shadow);
 
-    align-items:center;
+}
 
-    gap:12px;
+.navbar-brand h5{
 
-    font-size:30px;
+margin:0;
+font-weight:700;
 
-    font-weight:700;
+}
 
-    color:#2E7D32!important;
+.navbar-brand small{
+
+color:#ddd;
 
 }
 
 .navbar-brand img{
 
-    width:48px;
-
-    height:48px;
-
-    background:#fff;
-
-    padding:6px;
-
-    border-radius:12px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
+width:55px;
+height:55px;
+object-fit:contain;
 
 }
 
 .nav-link{
 
-    color:#444!important;
-
-    font-weight:600;
-
-    margin-left:20px;
-
-    transition:.3s;
+color:#fff !important;
+font-weight:500;
+margin-left:15px;
+position:relative;
+transition:.3s;
 
 }
 
 .nav-link:hover{
 
-    color:#2E7D32!important;
+color:#ffd54f !important;
 
 }
 
-.nav-link.active{
+.nav-link::after{
 
-    color:#2E7D32!important;
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#ffd54f;
+transition:.3s;
 
 }
 
-/*=========================
+.nav-link:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
  HERO
-=========================*/
+========================= */
 
 .hero{
 
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    color:#fff;
-
-    background:
-
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-
-    url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=80");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-attachment:fixed;
+background:linear-gradient(rgba(10,70,35,.85),rgba(18,85,48,.85)),
+url("../images/hero.png") center/cover;
+min-height:100vh;
+display:flex;
+align-items:center;
 
 }
 
 .hero h1{
 
-    font-size:68px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    margin-bottom:20px;
+font-size:58px;
+font-weight:800;
+color:#fff;
 
 }
 
-.hero p{
+.hero h3{
 
-    max-width:760px;
-
-    margin:auto;
-
-    line-height:1.9;
-
-    font-size:21px;
-
-    color:#eeeeee;
-
-}
-
-.hero .btn{
-
-    margin-top:30px;
-
-}
-
-/*=========================
- BUTTON
-=========================*/
-
-.btn-custom{
-
-    background:#2E7D32;
-
-    color:#fff;
-
-    padding:15px 38px;
-
-    border-radius:50px;
-
-    border:none;
-
-    font-weight:600;
-
-    transition:.35s;
-
-}
-
-.btn-custom:hover{
-
-    background:#1B5E20;
-
-    transform:translateY(-4px);
-
-    color:white;
-
-}
-
-.btn-outline-light{
-
-    border-radius:50px;
-
-    padding:15px 35px;
-
-    font-weight:600;
-
-}
-
-/*=========================
- SECTION
-=========================*/
-
-section{
-
-    padding:90px 0;
-
-}
-
-.section-title{
-
-    color:#2E7D32;
-
-    font-size:40px;
-
-    font-weight:700;
-
-}
-
-.section-subtitle{
-
-    color:#777;
-
-    max-width:700px;
-
-    margin:auto;
-
-    margin-top:15px;
-
-    line-height:1.8;
-
-}
-
-/*=========================
- CARD
-=========================*/
-
-.card{
-
-    border:none;
-
-    border-radius:20px;
-
-    transition:.4s;
-
-}
-
-.card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
-
-}
-
-.card-body{
-
-    padding:35px;
-
-}
-
-/*=========================
- IMAGE
-=========================*/
-
-img{
-
-    max-width:100%;
-
-    border-radius:18px;
-
-}
-
-.shadow{
-
-    box-shadow:0 15px 40px rgba(0,0,0,.12)!important;
-
-}
-
-/*=========================
- RESPONSIVE
-=========================*/
-
-@media(max-width:992px){
-
-.hero h1{
-
-font-size:50px;
+font-weight:600;
+color:#ffe082;
 
 }
 
 .hero p{
 
 font-size:18px;
+line-height:1.8;
+color:#eee;
 
 }
 
-.section-title{
+.hero-image{
+
+max-width:520px;
+animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+
+}
+
+/* =========================
+ BUTTON
+========================= */
+
+.btn{
+
+border-radius:50px;
+padding:12px 28px;
+font-weight:600;
+transition:.35s;
+
+}
+
+.btn-success{
+
+background:var(--primary);
+border:none;
+
+}
+
+.btn-success:hover{
+
+background:#157347;
+transform:translateY(-3px);
+
+}
+
+.btn-danger:hover{
+
+transform:translateY(-3px);
+
+}
+
+.btn-outline-light:hover{
+
+color:#14532d;
+
+}
+
+/* =========================
+ BADGE
+========================= */
+
+.badge{
+
+font-size:14px;
+padding:10px 18px;
+border-radius:30px;
+
+}
+
+/* =========================
+ TENTANG
+========================= */
+
+#tentang img{
+
+border-radius:20px;
+box-shadow:var(--shadow);
+
+}
+
+#tentang h2{
+
+font-weight:700;
+color:#222;
+
+}
+
+#tentang p{
+
+line-height:1.9;
+color:#666;
+
+}
+
+#tentang .card{
+
+border:none;
+border-radius:20px;
+transition:.3s;
+box-shadow:var(--shadow);
+
+}
+
+#tentang .card:hover{
+
+transform:translateY(-8px);
+
+}
+
+#tentang h3{
 
 font-size:32px;
+font-weight:700;
+color:var(--primary);
+
+}
+/*=========================================
+ QUICK SERVICE
+=========================================*/
+
+#layanan{
+
+background:#f8f9fa;
 
 }
 
-}
+#layanan h2{
 
-@media(max-width:768px){
-
-.navbar-brand{
-
-font-size:24px;
+font-weight:700;
+color:#222;
 
 }
+
+#layanan .card{
+
+border:none;
+border-radius:20px;
+padding:30px 20px;
+transition:.35s;
+box-shadow:var(--shadow);
+cursor:pointer;
+background:#fff;
+
+}
+
+#layanan .card:hover{
+
+transform:translateY(-10px);
+background:var(--primary);
+color:#fff;
+
+}
+
+#layanan .card:hover i{
+
+color:#fff !important;
+transform:scale(1.15);
+
+}
+
+#layanan i{
+
+font-size:50px;
+transition:.35s;
+
+}
+
+#layanan h6{
+
+margin-top:18px;
+font-weight:600;
+
+}
+
+/*=========================================
+ BANNER PELAYANAN PUBLIK
+=========================================*/
+
+.banner-pelayanan{
+
+background:linear-gradient(135deg,#fff8dc,#fff1b8);
+border-radius:25px;
+padding:60px;
+box-shadow:var(--shadow);
+
+}
+
+.banner-pelayanan h2{
+
+font-weight:700;
+color:#222;
+
+}
+
+.banner-pelayanan p{
+
+font-size:17px;
+line-height:1.8;
+
+}
+
+.banner-pelayanan img{
+
+max-height:320px;
+
+}
+
+/*=========================================
+ PORTAL TERKAIT
+=========================================*/
+
+.portal-card{
+
+background:#fff;
+border-radius:18px;
+padding:25px;
+text-align:center;
+transition:.3s;
+box-shadow:var(--shadow);
+
+}
+
+.portal-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.portal-card img{
+
+height:70px;
+object-fit:contain;
+margin-bottom:15px;
+
+}
+
+.portal-card h6{
+
+font-weight:600;
+color:#333;
+
+}
+
+/*=========================================
+ STATISTIK PENGUNJUNG
+=========================================*/
+
+.statistik{
+
+border-radius:25px;
+overflow:hidden;
+box-shadow:var(--shadow);
+
+}
+
+.statistik-kiri{
+
+background:var(--primary);
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
+
+}
+
+.statistik-kanan{
+
+background:#fff;
+
+}
+
+.statistik-item{
+
+padding:35px;
+text-align:center;
+transition:.3s;
+
+}
+
+.statistik-item:hover{
+
+background:#f8f9fa;
+
+}
+
+.statistik-item i{
+
+font-size:45px;
+color:var(--primary);
+
+}
+
+.statistik-item h2{
+
+font-size:42px;
+font-weight:700;
+color:#222;
+
+}
+
+.statistik-item h6{
+
+margin-top:15px;
+color:#777;
+
+}
+
+/*=========================================
+ VISI MISI
+=========================================*/
+
+#visi{
+
+background:#f8fafc;
+
+}
+
+#visi .card{
+
+border:none;
+border-radius:20px;
+padding:35px;
+box-shadow:var(--shadow);
+transition:.35s;
+
+}
+
+#visi .card:hover{
+
+transform:translateY(-8px);
+
+}
+
+#visi i{
+
+font-size:55px;
+color:var(--primary);
+
+}
+
+#visi h3{
+
+font-weight:700;
+margin:20px 0;
+
+}
+
+#visi ul{
+
+padding-left:20px;
+
+}
+
+#visi li{
+
+margin-bottom:12px;
+
+}
+
+/*=========================================
+ SECTION TITLE
+=========================================*/
+
+section h2{
+
+font-weight:700;
+color:#222;
+
+}
+
+section p{
+
+line-height:1.8;
+
+}
+
+.text-center p{
+
+max-width:700px;
+margin:auto;
+
+}
+/*=========================================
+ EDUKASI
+=========================================*/
+
+#edukasi{
+
+background:#ffffff;
+
+}
+
+#edukasi .card{
+
+border:none;
+border-radius:20px;
+overflow:hidden;
+box-shadow:var(--shadow);
+transition:.35s;
+
+}
+
+#edukasi .card:hover{
+
+transform:translateY(-10px);
+
+}
+
+#edukasi .card-body{
+
+padding:30px;
+
+}
+
+#edukasi i{
+
+font-size:55px;
+margin-bottom:20px;
+display:block;
+
+}
+
+#edukasi h5{
+
+font-weight:700;
+margin-bottom:15px;
+
+}
+
+/*=========================================
+ PENGADUAN
+=========================================*/
+
+#pengaduan{
+
+background:#f8fafc;
+
+}
+
+#pengaduan form{
+
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:var(--shadow);
+
+}
+
+#pengaduan .form-control,
+#pengaduan .form-select{
+
+border-radius:12px;
+padding:14px;
+
+}
+
+#pengaduan textarea{
+
+resize:none;
+
+}
+
+#pengaduan .card{
+
+border:none;
+border-radius:20px;
+box-shadow:var(--shadow);
+
+}
+
+#pengaduan .list-group-item{
+
+padding:18px;
+border:none;
+
+}
+
+/*=========================================
+ INFORMASI
+=========================================*/
+
+#informasi .card{
+
+border:none;
+border-radius:20px;
+overflow:hidden;
+transition:.35s;
+box-shadow:var(--shadow);
+
+}
+
+#informasi .card:hover{
+
+transform:translateY(-10px);
+
+}
+
+#informasi img{
+
+height:220px;
+object-fit:cover;
+
+}
+
+#informasi .card-body{
+
+padding:25px;
+
+}
+
+#informasi h5{
+
+font-weight:700;
+
+}
+
+/*=========================================
+ PETA
+=========================================*/
+
+#peta iframe{
+
+border:0;
+border-radius:20px;
+box-shadow:var(--shadow);
+
+}
+
+/*=========================================
+ GALERI
+=========================================*/
+
+#galeri img{
+
+height:260px;
+width:100%;
+object-fit:cover;
+border-radius:18px;
+transition:.35s;
+box-shadow:var(--shadow);
+
+}
+
+#galeri img:hover{
+
+transform:scale(1.05);
+
+}
+
+/*=========================================
+ KONTAK
+=========================================*/
+
+#kontak{
+
+background:linear-gradient(135deg,#198754,#14532d);
+
+}
+
+#kontak h2{
+
+color:#fff;
+font-weight:700;
+
+}
+
+#kontak p{
+
+color:#f5f5f5;
+
+}
+
+#kontak i{
+
+color:#ffd54f;
+
+}
+
+/*=========================================
+ FOOTER
+=========================================*/
+
+footer{
+
+background:#111;
+color:#fff;
+padding:20px;
+text-align:center;
+
+}
+
+/*=========================================
+ CARD UMUM
+=========================================*/
+
+.card{
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+/*=========================================
+ SCROLLBAR
+=========================================*/
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#f1f1f1;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#198754;
+border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#14532d;
+
+}
+
+/*=========================================
+ RESPONSIVE TABLET
+=========================================*/
+
+@media(max-width:992px){
 
 .hero{
 
-padding:40px 20px;
+text-align:center;
 
 }
 
 .hero h1{
 
-font-size:38px;
+font-size:44px;
+
+}
+
+.hero-image{
+
+margin-top:40px;
+max-width:420px;
+
+}
+
+.banner-pelayanan{
+
+padding:35px;
+
+}
+
+.statistik-item h2{
+
+font-size:34px;
+
+}
+
+}
+
+/*=========================================
+ RESPONSIVE MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+section{
+
+padding:70px 0;
+
+}
+
+.hero{
+
+padding-top:100px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero h3{
+
+font-size:22px;
 
 }
 
@@ -331,355 +883,81 @@ font-size:16px;
 
 }
 
-.btn-custom{
+.navbar-brand h5{
 
-padding:12px 30px;
-
-}
-
-.section-title{
-
-font-size:28px;
+font-size:18px;
 
 }
 
+.banner-pelayanan{
+
+padding:25px;
+text-align:center;
+
 }
-<!-- ============================= -->
-<!-- BERITA -->
-<!-- ============================= -->
 
-<section id="berita" class="py-5 bg-light">
+.banner-pelayanan img{
 
-<div class="container">
+margin-top:30px;
 
-<div class="text-center mb-5" data-aos="fade-up">
+}
 
-<h2 class="section-title">
-Berita Terbaru
-</h2>
+.statistik-kiri{
 
-<p class="section-subtitle">
-Informasi dan kegiatan terbaru SIGAP Hutan.
-</p>
+padding:25px;
 
-</div>
+}
 
-<div class="row g-4">
+.statistik-item{
 
-<div class="col-lg-4" data-aos="fade-up">
+padding:25px;
 
-<div class="card h-100 shadow">
+}
 
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80">
+.statistik-item h2{
 
-<div class="card-body">
+font-size:30px;
 
-<span class="badge bg-success mb-3">
-Konservasi
-</span>
+}
 
-<h5 class="fw-bold">
-Monitoring Kawasan Hutan
-</h5>
+#galeri img{
 
-<p>
-Monitoring kawasan hutan dilakukan menggunakan teknologi geospasial terbaru.
-</p>
+height:220px;
 
-<a href="#" class="btn btn-success">
-Baca Selengkapnya
-</a>
+}
 
-</div>
+}
 
-</div>
+/*=========================================
+ ANIMATION
+=========================================*/
 
-</div>
+.fade-up{
 
-<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+animation:fadeUp 1s ease;
 
-<div class="card h-100 shadow">
+}
 
-<img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=900&q=80">
+@keyframes fadeUp{
 
-<div class="card-body">
+from{
 
-<span class="badge bg-success mb-3">
-Kegiatan
-</span>
+opacity:0;
+transform:translateY(40px);
 
-<h5 class="fw-bold">
-Penanaman Pohon Bersama
-</h5>
+}
 
-<p>
-Program penghijauan bersama masyarakat sebagai bentuk kepedulian lingkungan.
-</p>
+to{
 
-<a href="#" class="btn btn-success">
-Baca Selengkapnya
-</a>
+opacity:1;
+transform:translateY(0);
 
-</div>
+}
 
-</div>
+}
 
-</div>
+.shadow-hover:hover{
 
-<div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+box-shadow:0 20px 40px rgba(0,0,0,.15);
 
-<div class="card h-100 shadow">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
-
-<div class="card-body">
-
-<span class="badge bg-success mb-3">
-Teknologi
-</span>
-
-<h5 class="fw-bold">
-Pengembangan Sistem SIGAP
-</h5>
-
-<p>
-Peningkatan fitur aplikasi untuk mendukung pengelolaan hutan digital.
-</p>
-
-<a href="#" class="btn btn-success">
-Baca Selengkapnya
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ============================= -->
-<!-- TIM -->
-<!-- ============================= -->
-
-<section class="py-5">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="section-title">
-Tim Pengembang
-</h2>
-
-<p class="section-subtitle">
-Orang-orang di balik pengembangan SIGAP Hutan.
-</p>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center shadow">
-
-<div class="card-body">
-
-<img src="https://i.pravatar.cc/200?img=12"
-class="rounded-circle mb-3"
-width="130">
-
-<h5 class="fw-bold">
-Nama Anggota
-</h5>
-
-<p class="text-success">
-Project Manager
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center shadow">
-
-<div class="card-body">
-
-<img src="https://i.pravatar.cc/200?img=15"
-class="rounded-circle mb-3"
-width="130">
-
-<h5 class="fw-bold">
-Nama Anggota
-</h5>
-
-<p class="text-success">
-Programmer
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center shadow">
-
-<div class="card-body">
-
-<img src="https://i.pravatar.cc/200?img=25"
-class="rounded-circle mb-3"
-width="130">
-
-<h5 class="fw-bold">
-Nama Anggota
-</h5>
-
-<p class="text-success">
-GIS Analyst
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center shadow">
-
-<div class="card-body">
-
-<img src="https://i.pravatar.cc/200?img=40"
-class="rounded-circle mb-3"
-width="130">
-
-<h5 class="fw-bold">
-Nama Anggota
-</h5>
-
-<p class="text-success">
-Administrator
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ============================= -->
-<!-- FAQ -->
-<!-- ============================= -->
-
-<section class="py-5 bg-light">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="section-title">
-
-Pertanyaan Umum
-
-</h2>
-
-</div>
-
-<div class="accordion" id="faq">
-
-<div class="accordion-item">
-
-<h2 class="accordion-header">
-
-<button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
-
-Apa itu SIGAP Hutan?
-
-</button>
-
-</h2>
-
-<div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq">
-
-<div class="accordion-body">
-
-SIGAP Hutan adalah sistem informasi digital yang mendukung pengelolaan dan pengawasan kawasan hutan.
-
-</div>
-
-</div>
-
-</div>
-
-<div class="accordion-item">
-
-<h2 class="accordion-header">
-
-<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
-
-Apakah data selalu diperbarui?
-
-</button>
-
-</h2>
-
-<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
-
-<div class="accordion-body">
-
-Ya, data diperbarui secara berkala sesuai hasil monitoring lapangan.
-
-</div>
-
-</div>
-
-</div>
-
-<div class="accordion-item">
-
-<h2 class="accordion-header">
-
-<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
-
-Bagaimana cara mengakses peta?
-
-</button>
-
-</h2>
-
-<div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
-
-<div class="accordion-body">
-
-Peta dapat diakses melalui menu Peta Interaktif pada halaman utama.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
+}
