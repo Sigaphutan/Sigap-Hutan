@@ -240,62 +240,61 @@ footer{
 
 @media(max-width:768px){
 
-.logo-bar img{
-
-width:60px;
-height:60px;
-
-}
-
 header h1{
-
-font-size:36px;
-
+    font-size:36px;
 }
 
 header p{
-
-font-size:18px;
-
+    font-size:18px;
 }
 
 nav{
-
-flex-direction:column;
-
+    flex-direction:column;
 }
 
 nav a{
-
-width:100%;
-text-align:center;
-
+    width:100%;
+    text-align:center;
 }
 
 .hero{
-
-min-height:70vh;
-
+    min-height:70vh;
 }
 
 .hero h2{
-
-font-size:42px;
-
+    font-size:42px;
 }
 
 .hero p{
-
-font-size:20px;
-
+    font-size:20px;
 }
 
 .btn{
+    font-size:18px;
+    padding:15px 30px;
+}
 
-font-size:18px;
+/* Tambahkan di sini */
 
-padding:15px 30px;
+.header-container{
+    flex-direction:column;
+}
 
+.title-group{
+    text-align:center;
+}
+
+.logo-group img{
+    width:60px;
+    height:60px;
+}
+
+.title-group h1{
+    font-size:34px;
+}
+
+.title-group p{
+    font-size:17px;
 }
 
 }
