@@ -24,7 +24,7 @@ body{
 header{
     background:#1B5E20;
     color:#fff;
-    padding:20px;
+    padding:18px 30px;
 }
 
 .header-container{
@@ -32,40 +32,34 @@ header{
     margin:auto;
 
     display:flex;
-    flex-direction:column;
-
-    justify-content:center;
     align-items:center;
-
-    text-align:center;
+    justify-content:space-between;
 }
 
-.logo-group{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:25px;
-    margin-bottom:15px;
-}
-
-.logo-group img{
-    width:80px;
-    height:80px;
+.logo{
+    width:70px;
+    height:70px;
     object-fit:contain;
 }
 
 .title-group{
+    flex:1;
     text-align:center;
 }
 
 .title-group h1{
-    font-size:56px;
-    margin-bottom:10px;
+    font-size:46px;
+    margin-bottom:8px;
 }
 
 .title-group p{
-    font-size:22px;
-    line-height:1.6;
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.title-group small{
+    font-size:16px;
+    color:#d9f5d9;
 }
 /* ================= MENU ================= */
 
