@@ -6,6 +6,8 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
+console.log("pengaduan.js berhasil dimuat");
+
 // ===============================
 // DAFTAR KECAMATAN
 // ===============================
@@ -53,8 +55,11 @@ const dataKecamatan = {
 
 const kabupaten = document.getElementById("kabupaten");
 const kecamatan = document.getElementById("kecamatan");
+console.log(kabupaten);
+console.log(kecamatan);
 
 kabupaten.addEventListener("change", () => {
+    console.log("Kabupaten dipilih:", kabupaten.value);
 
     kecamatan.innerHTML =
         '<option value="">Pilih Kecamatan</option>';
