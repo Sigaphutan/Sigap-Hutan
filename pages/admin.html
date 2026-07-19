@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin SIGAP Hutan</title>
 
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+<header>
+    <h1>🌲 Dashboard Admin SIGAP Hutan</h1>
+    <p>Kelola laporan masyarakat</p>
+</header>
+
+<div style="text-align:center; margin:20px;">
+    <button onclick="loginAdmin()">Login Admin</button>
+    <button onclick="logoutAdmin()">Logout</button>
+</div>
+
+<main>
+
+    <section class="statistik">
+        <div class="card">
+            <h2 id="total">0</h2>
+            <p>Total Laporan</p>
+        </div>
+
+        <div class="card">
+            <h2 id="menunggu">0</h2>
+            <p>Menunggu</p>
+        </div>
+
+        <div class="card">
+            <h2 id="diproses">0</h2>
+            <p>Diproses</p>
+        </div>
+
+        <div class="card">
+            <h2 id="selesai">0</h2>
+            <p>Selesai</p>
+        </div>
+    </section>
+
+    <section class="tabel">
+        <table>
+            <thead>
+                <tr>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>Lokasi</th>
+                    <th>Jenis</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody id="dataLaporan">
+            </tbody>
+
+        </table>
+    </section>
+
+</main>
+
+<script type="module" src="../js/admin.js"></script>
+
+</body>
+</html>
