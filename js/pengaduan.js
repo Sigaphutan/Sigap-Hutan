@@ -11,6 +11,42 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    alert("Berhasil terhubung dengan Firebase!");
+    const data = {
+
+        nama: document.getElementById("nama").value,
+
+        kabupaten: document.getElementById("kabupaten").value,
+
+        kecamatan: document.getElementById("kecamatan").value,
+
+        lokasi: document.getElementById("lokasi").value,
+
+        jenis: document.getElementById("jenis").value,
+
+        tanggal: document.getElementById("tanggal").value,
+
+        deskripsi: document.getElementById("deskripsi").value,
+
+        status: "Menunggu",
+
+        dibuatPada: new Date()
+
+    };
+
+    try {
+
+        await addDoc(collection(db, "laporan"), data);
+
+        alert("Pengaduan berhasil dikirim.");
+
+        form.reset();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Gagal mengirim pengaduan.");
+
+    }
 
 });
