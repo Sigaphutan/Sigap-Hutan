@@ -85,6 +85,52 @@ kabupaten.addEventListener("change", () => {
 // ===============================
 
 const form = document.getElementById("formPengaduan");
+// ===============================
+// SHARE LOKASI
+// ===============================
+
+let latitude = "";
+let longitude = "";
+let mapsUrl = "";
+
+const btnLokasi = document.getElementById("btnLokasi");
+const statusLokasi = document.getElementById("statusLokasi");
+
+btnLokasi.addEventListener("click", () => {
+
+    if (!navigator.geolocation) {
+        statusLokasi.innerHTML = "❌ Browser tidak mendukung lokasi.";
+        return;
+    }
+
+    statusLokasi.innerHTML = "📍 Mengambil lokasi...";
+
+    navigator.geolocation.getCurrentPosition(
+
+        (position) => {
+
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+
+            mapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+            statusLokasi.innerHTML =
+                "✅ Lokasi berhasil dibagikan";
+
+        },
+
+        (error) => {
+
+            statusLokasi.innerHTML =
+                "❌ Gagal mengambil lokasi.";
+
+            console.error(error);
+
+        }
+
+    );
+
+});
 
 form.addEventListener("submit", async (e) => {
 
@@ -106,6 +152,11 @@ form.addEventListener("submit", async (e) => {
         kecamatan: kecamatan.value,
 
         lokasi: document.getElementById("lokasi").value,
+        latitude: latitude,
+
+longitude: longitude,
+
+mapsUrl: mapsUrl,
 
         jenis: document.getElementById("jenis").value,
 
@@ -134,7 +185,11 @@ form.addEventListener("submit", async (e) => {
 
         kecamatan.innerHTML =
             '<option value="">Pilih Kecamatan</option>';
+latitude = "";
+longitude = "";
+mapsUrl = "";
 
+statusLokasi.innerHTML = "";
     }
 
     catch (error) {
