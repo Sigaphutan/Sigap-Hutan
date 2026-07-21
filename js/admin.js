@@ -36,17 +36,17 @@ import {
 
 const firebaseConfig = {
 
-    apiKey: "ISI_API_KEY",
+    apiKey: "AIzaSyB4cX8QGigpL_hL9Wi-_HVZunkctdIGw_g",
 
-    authDomain: "ISI_AUTH_DOMAIN",
+    authDomain: "sigap-hutan-715d1.firebaseapp.com",
 
-    projectId: "ISI_PROJECT_ID",
+    projectId: "sigap-hutan-715d1",
 
-    storageBucket: "ISI_STORAGE_BUCKET",
+    storageBucket: "sigap-hutan-715d1.firebasestorage.app",
 
-    messagingSenderId: "ISI_SENDER_ID",
+    messagingSenderId: "902737210675",
 
-    appId: "ISI_APP_ID"
+    appId: "1:902737210675:web:85383221791e29f7e1e246"
 
 };
 
