@@ -217,8 +217,7 @@ function renderTable(dataLaporan) {
     console.log(dataLaporan);
 
     let html = "";
-    let html = "";
-
+ 
     let totalData = 0;
     let jmlMenunggu = 0;
     let jmlDiproses = 0;
