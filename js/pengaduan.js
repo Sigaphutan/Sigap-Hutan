@@ -173,13 +173,23 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    let fotoUrl = "";
+   let fotoUrl = "";
 
-    if (fotoInput.files.length > 0) {
+console.log("Jumlah file dipilih:", fotoInput.files.length);
 
-        fotoUrl = await uploadFoto(fotoInput.files[0]);
+if (fotoInput.files.length > 0) {
 
-    }
+    console.log("Nama file:", fotoInput.files[0].name);
+
+    fotoUrl = await uploadFoto(fotoInput.files[0]);
+
+    console.log("URL Foto:", fotoUrl);
+
+} else {
+
+    console.log("Tidak ada foto yang dipilih.");
+
+}
 
     // lanjut simpan Firestore
 
