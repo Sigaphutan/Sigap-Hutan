@@ -139,16 +139,16 @@ onAuthStateChanged(auth, (user) => {
     const loginBox = document.getElementById("loginBox");
     const adminPanel = document.getElementById("adminPanel");
 
-    if (!user) {
+   if (!user) {
 
-        if (loginBox)
-            loginBox.style.display = "block";
+    if (loginBox)
+        loginBox.style.display = "block";
 
-        if (adminPanel)
-            adminPanel.style.display = "block"; // dashboard tetap tampil
+    if (adminPanel)
+        adminPanel.style.display = "none";
 
-        return;
-    }
+    return;
+}
 
     if (loginBox)
         loginBox.style.display = "none";
@@ -166,7 +166,7 @@ onAuthStateChanged(auth, (user) => {
 
 function loadData() {
 
-    console.log("Mengambil data Firestore...");
+    console.log("===== LOAD DATA =====");
 
     const q = collection(db, "laporan");
 
@@ -176,13 +176,13 @@ function loadData() {
 
         (snapshot) => {
 
-            console.log("Jumlah Data :", snapshot.size);
+            console.log("Jumlah dokumen:", snapshot.size);
 
             semuaLaporan = [];
 
             snapshot.forEach((docSnap) => {
 
-                console.log(docSnap.data());
+                console.log("DATA:", docSnap.data());
 
                 semuaLaporan.push({
 
@@ -194,13 +194,15 @@ function loadData() {
 
             });
 
+            console.log("Semua laporan:", semuaLaporan);
+
             renderTable(semuaLaporan);
 
         },
 
         (error) => {
 
-            console.error("Firestore Error :", error);
+            console.error("Firestore Error:", error);
 
         }
 
