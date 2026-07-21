@@ -1,192 +1,211 @@
-<tr>
-    <td colspan="10" class="text-center">
-        Memuat data...
-    </td>
-</tr>
+// ===============================================
+// SIGAP HUTAN - ADMIN.JS
+// Firebase v10
+// ===============================================
 
-</tbody>
+// ======================
+// FIREBASE IMPORT
+// ======================
 
-</table>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-</div>
+import {
+    getFirestore,
+    collection,
+    onSnapshot,
+    doc,
+    updateDoc,
+    deleteDoc,
+    orderBy,
+    query
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-</section>
+import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-</main>
 
-<!-- ========================= -->
-<!-- MODAL FOTO -->
-<!-- ========================= -->
+// ===============================================
+// FIREBASE CONFIG
+// GANTI DENGAN CONFIG FIREBASE MILIK ANDA
+// ===============================================
 
-<div class="modal fade"
-     id="fotoModal"
-     tabindex="-1">
+const firebaseConfig = {
 
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    apiKey: "ISI_API_KEY",
 
-        <div class="modal-content">
+    authDomain: "ISI_AUTH_DOMAIN",
 
-            <div class="modal-header">
+    projectId: "ISI_PROJECT_ID",
 
-                <h5 class="modal-title">
-                    Foto Laporan
-                </h5>
+    storageBucket: "ISI_STORAGE_BUCKET",
 
-                <button
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
+    messagingSenderId: "ISI_SENDER_ID",
 
-            </div>
+    appId: "ISI_APP_ID"
 
-            <div class="modal-body text-center">
+};
 
-                <img
-                    id="previewFoto"
-                    class="img-fluid rounded shadow"
-                    src=""
-                    alt="Foto Laporan">
 
-            </div>
+// ===============================================
+// INISIALISASI
+// ===============================================
 
-        </div>
+const app = initializeApp(firebaseConfig);
 
-    </div>
+const db = getFirestore(app);
 
-</div>
+const auth = getAuth(app);
 
-<!-- ========================= -->
-<!-- MODAL DETAIL -->
-<!-- ========================= -->
+const provider = new GoogleAuthProvider();
 
-<div class="modal fade"
-     id="detailModal"
-     tabindex="-1">
 
-    <div class="modal-dialog modal-xl">
+// ===============================================
+// ELEMENT HTML
+// ===============================================
 
-        <div class="modal-content">
+const tbody = document.getElementById("tbody");
 
-            <div class="modal-header">
+const total = document.getElementById("total");
 
-                <h5 class="modal-title">
-                    Detail Laporan
-                </h5>
+const menunggu = document.getElementById("menunggu");
 
-                <button
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
+const diproses = document.getElementById("diproses");
 
-            </div>
+const selesai = document.getElementById("selesai");
 
-            <div class="modal-body">
+const ditolak = document.getElementById("ditolak");
 
-                <div class="row">
+const search = document.getElementById("search");
 
-                    <div class="col-md-6">
+const filterStatus = document.getElementById("filterStatus");
 
-                        <table class="table table-bordered">
+const lastUpdate = document.getElementById("lastUpdate");
 
-                            <tr>
-                                <th>Kode</th>
-                                <td id="dKode"></td>
-                            </tr>
+const btnRefresh = document.getElementById("btnRefresh");
 
-                            <tr>
-                                <th>Nama</th>
-                                <td id="dNama"></td>
-                            </tr>
 
-                            <tr>
-                                <th>Kabupaten</th>
-                                <td id="dKabupaten"></td>
-                            </tr>
+// ===============================================
+// DATA
+// ===============================================
 
-                            <tr>
-                                <th>Kecamatan</th>
-                                <td id="dKecamatan"></td>
-                            </tr>
+let semuaLaporan = [];
 
-                            <tr>
-                                <th>Jenis</th>
-                                <td id="dJenis"></td>
-                            </tr>
 
-                            <tr>
-                                <th>Status</th>
-                                <td id="dStatus"></td>
-                            </tr>
+// ===============================================
+// LOGIN ADMIN
+// ===============================================
 
-                            <tr>
-                                <th>Tanggal</th>
-                                <td id="dTanggal"></td>
-                            </tr>
+window.loginAdmin = async () => {
 
-                        </table>
+    try {
 
-                    </div>
+        await signInWithPopup(auth, provider);
 
-                    <div class="col-md-6">
+    } catch (err) {
 
-                        <img
-                            id="detailFoto"
-                            class="img-fluid rounded shadow mb-3">
+        console.error(err);
 
-                        <p>
-                            <strong>Deskripsi</strong>
-                        </p>
+        alert("Login gagal.");
 
-                        <p id="dDeskripsi"></p>
+    }
 
-                        <a
-                            id="detailMaps"
-                            target="_blank"
-                            class="btn btn-success">
+};
 
-                            📍 Lihat Google Maps
 
-                        </a>
+// ===============================================
+// LOGOUT ADMIN
+// ===============================================
 
-                    </div>
+window.logoutAdmin = async () => {
 
-                </div>
+    if (!confirm("Logout sekarang?")) return;
 
-            </div>
+    await signOut(auth);
 
-        </div>
+};
 
-    </div>
 
-</div>
+// ===============================================
+// AUTH STATE
+// ===============================================
 
-<footer class="text-center py-4">
+onAuthStateChanged(auth, (user) => {
 
-    © 2026 SIGAP Hutan
+    if (!user) {
 
-</footer>
+        document.getElementById("loginBox").style.display = "block";
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+        document.getElementById("adminPanel").style.display = "none";
 
-<script type="module" src="../js/admin.js"></script>
+        return;
 
-</body>
-</html>
-function renderTable(dataLaporan){
+    }
 
-    let html="";
+    document.getElementById("loginBox").style.display = "none";
 
-    let totalData=0;
-    let jmlMenunggu=0;
-    let jmlDiproses=0;
-    let jmlSelesai=0;
-    let jmlDitolak=0;
+    document.getElementById("adminPanel").style.display = "block";
 
-   dataLaporan.forEach((data,index)=>{
+    loadData();
 
-    totalData++;
+});
 
-        switch(data.status){
+
+// ===============================================
+// LOAD DATA FIRESTORE
+// ===============================================
+
+function loadData() {
+
+    const q = query(
+        collection(db, "laporan"),
+        orderBy("timestamp", "desc")
+    );
+
+    onSnapshot(q, (snapshot) => {
+
+        semuaLaporan = [];
+
+        snapshot.forEach((docSnap) => {
+
+            semuaLaporan.push({
+
+                id: docSnap.id,
+
+                ...docSnap.data()
+
+            });
+
+        });
+
+        renderTable(semuaLaporan);
+
+    });
+
+}
+// ===============================================
+// RENDER TABEL
+// ===============================================
+
+function renderTable(dataLaporan) {
+
+    let html = "";
+
+    let totalData = 0;
+    let jmlMenunggu = 0;
+    let jmlDiproses = 0;
+    let jmlSelesai = 0;
+    let jmlDitolak = 0;
+
+    dataLaporan.forEach((data, index) => {
+
+        totalData++;
+
+        switch (data.status) {
 
             case "Menunggu":
                 jmlMenunggu++;
@@ -203,41 +222,35 @@ function renderTable(dataLaporan){
             case "Ditolak":
                 jmlDitolak++;
                 break;
-
         }
 
-        let badge="secondary";
+        let badge = "secondary";
 
-        if(data.status==="Menunggu") badge="warning";
-        if(data.status==="Diproses") badge="primary";
-        if(data.status==="Selesai") badge="success";
-        if(data.status==="Ditolak") badge="danger";
+        if (data.status === "Menunggu") badge = "warning";
+        if (data.status === "Diproses") badge = "primary";
+        if (data.status === "Selesai") badge = "success";
+        if (data.status === "Ditolak") badge = "danger";
 
-        html+=`
+        html += `
 
 <tr>
 
-<td>${index+1}</td>
+<td>${index + 1}</td>
 
 <td>${data.kodeLaporan ?? "-"}</td>
 
-<td>${data.nama??"-"}</td>
+<td>${data.nama ?? "-"}</td>
 
 <td>
-
-${data.kabupaten??""}
-
-<br>
-
-<small>${data.kecamatan??""}</small>
-
+${data.kabupaten ?? "-"}<br>
+<small>${data.kecamatan ?? "-"}</small>
 </td>
 
-<td>${data.jenis??"-"}</td>
+<td>${data.jenis ?? "-"}</td>
 
 <td>
 
-${data.foto?
+${data.foto ?
 
 `<img
 src="${data.foto}"
@@ -247,7 +260,6 @@ height:90px;
 object-fit:cover;
 cursor:pointer;
 border-radius:10px;
-transition:.3s;
 "
 onclick="lihatFoto('${data.foto}')">`
 
@@ -255,12 +267,11 @@ onclick="lihatFoto('${data.foto}')">`
 
 </td>
 
-<td>${data.tanggal??"-"}</td>
+<td>${data.tanggal ?? "-"}</td>
 
 <td>
 
-<span
-class="badge bg-${badge} fs-6 px-3 py-2">
+<span class="badge bg-${badge} fs-6 px-3 py-2">
 
 ${data.status ?? "-"}
 
@@ -298,7 +309,7 @@ Ditolak
 
 <td>
 
-${data.mapsUrl?
+${data.mapsUrl ?
 
 `<a
 href="${data.mapsUrl}"
@@ -319,7 +330,7 @@ class="btn btn-success btn-sm">
 
 <button
 class="btn btn-primary btn-sm"
-onclick='lihatDetail(${JSON.stringify(data)})'>
+onclick="lihatDetail('${data.id}')">
 
 👁 Detail
 
@@ -343,14 +354,13 @@ onclick="hapusLaporan('${data.id}')">
 
     });
 
-    if(totalData===0){
+    if (totalData === 0) {
 
-        html=`
+        html = `
 
 <tr>
 
-<td colspan="10"
-class="text-center">
+<td colspan="10" class="text-center">
 
 Belum ada laporan.
 
@@ -362,20 +372,26 @@ Belum ada laporan.
 
     }
 
-    tbody.innerHTML=html;
+    tbody.innerHTML = html;
 
-    total.textContent=totalData;
-    menunggu.textContent=jmlMenunggu;
-    diproses.textContent=jmlDiproses;
-    selesai.textContent=jmlSelesai;
-    ditolak.textContent=jmlDitolak;
+    total.textContent = totalData;
+
+    menunggu.textContent = jmlMenunggu;
+
+    diproses.textContent = jmlDiproses;
+
+    selesai.textContent = jmlSelesai;
+
+    ditolak.textContent = jmlDitolak;
 
     updateWaktu();
 
 }
-// ===============================
+
+
+// ===============================================
 // PREVIEW FOTO
-// ===============================
+// ===============================================
 
 window.lihatFoto = (url) => {
 
@@ -387,20 +403,40 @@ window.lihatFoto = (url) => {
 
 };
 
-// ===============================
+
+// ===============================================
 // DETAIL LAPORAN
-// ===============================
+// ===============================================
 
-window.lihatDetail = (data) => {
+window.lihatDetail = (id) => {
 
-    document.getElementById("dKode").textContent = data.kodeLaporan ?? "-";
-    document.getElementById("dNama").textContent = data.nama ?? "-";
-    document.getElementById("dKabupaten").textContent = data.kabupaten ?? "-";
-    document.getElementById("dKecamatan").textContent = data.kecamatan ?? "-";
-    document.getElementById("dJenis").textContent = data.jenis ?? "-";
-    document.getElementById("dStatus").textContent = data.status ?? "-";
-    document.getElementById("dTanggal").textContent = data.tanggal ?? "-";
-    document.getElementById("dDeskripsi").textContent = data.deskripsi ?? "-";
+    const data = semuaLaporan.find(x => x.id === id);
+
+    if (!data) return;
+
+    document.getElementById("dKode").textContent =
+        data.kodeLaporan ?? "-";
+
+    document.getElementById("dNama").textContent =
+        data.nama ?? "-";
+
+    document.getElementById("dKabupaten").textContent =
+        data.kabupaten ?? "-";
+
+    document.getElementById("dKecamatan").textContent =
+        data.kecamatan ?? "-";
+
+    document.getElementById("dJenis").textContent =
+        data.jenis ?? "-";
+
+    document.getElementById("dStatus").textContent =
+        data.status ?? "-";
+
+    document.getElementById("dTanggal").textContent =
+        data.tanggal ?? "-";
+
+    document.getElementById("dDeskripsi").textContent =
+        data.deskripsi ?? "-";
 
     document.getElementById("detailFoto").src =
         data.foto || "";
@@ -425,10 +461,9 @@ window.lihatDetail = (data) => {
     ).show();
 
 };
-
-// ===============================
-// UPDATE STATUS
-// ===============================
+// ===============================================
+// UPDATE STATUS LAPORAN
+// ===============================================
 
 window.ubahStatus = async (id, statusBaru) => {
 
@@ -441,24 +476,30 @@ window.ubahStatus = async (id, statusBaru) => {
             }
         );
 
-    } catch (e) {
+        console.log("Status berhasil diubah");
 
-        alert("Gagal mengubah status");
+    } catch (err) {
 
-        console.error(e);
+        console.error(err);
+
+        alert("Gagal mengubah status.");
 
     }
 
 };
 
-// ===============================
+
+// ===============================================
 // HAPUS LAPORAN
-// ===============================
+// ===============================================
 
 window.hapusLaporan = async (id) => {
 
-    if (!confirm("Hapus laporan ini?"))
-        return;
+    const konfirmasi = confirm(
+        "Apakah Anda yakin ingin menghapus laporan ini?"
+    );
+
+    if (!konfirmasi) return;
 
     try {
 
@@ -466,51 +507,70 @@ window.hapusLaporan = async (id) => {
             doc(db, "laporan", id)
         );
 
-    } catch (e) {
+        alert("Laporan berhasil dihapus.");
 
-        alert("Gagal menghapus");
+    } catch (err) {
 
-        console.error(e);
+        console.error(err);
+
+        alert("Gagal menghapus laporan.");
 
     }
 
 };
 
-// ===============================
-// PENCARIAN
-// ===============================
 
-search.addEventListener("keyup", filterData);
+// ===============================================
+// SEARCH + FILTER
+// ===============================================
 
-filterStatus.addEventListener("change", filterData);
+if (search) {
+
+    search.addEventListener("keyup", filterData);
+
+}
+
+if (filterStatus) {
+
+    filterStatus.addEventListener("change", filterData);
+
+}
+
 
 function filterData() {
 
     const keyword =
-        search.value.toLowerCase();
+        search.value.toLowerCase().trim();
 
     const status =
         filterStatus.value;
 
     const hasil =
-        semuaLaporan.filter(item => {
+        semuaLaporan.filter((item) => {
 
-            const cocokText = (
+            const text = (
 
                 (item.kodeLaporan || "") +
+
                 (item.nama || "") +
+
                 (item.kabupaten || "") +
+
                 (item.kecamatan || "") +
-                (item.jenis || "")
+
+                (item.jenis || "") +
+
+                (item.deskripsi || "")
 
             ).toLowerCase();
 
             const cocokStatus =
+
                 status === "" ||
+
                 item.status === status;
 
-            return cocokText.includes(keyword)
-                && cocokStatus;
+            return text.includes(keyword) && cocokStatus;
 
         });
 
@@ -518,157 +578,343 @@ function filterData() {
 
 }
 
-// ===============================
+
+// ===============================================
+// REFRESH
+// ===============================================
+
+if (btnRefresh) {
+
+    btnRefresh.addEventListener("click", () => {
+
+        renderTable(semuaLaporan);
+
+    });
+
+}
+
+
+// ===============================================
 // UPDATE WAKTU
-// ===============================
+// ===============================================
 
 function updateWaktu() {
+
+    if (!lastUpdate) return;
 
     lastUpdate.textContent =
         "Update terakhir : " +
         new Date().toLocaleString("id-ID");
 
 }
-// ===============================
-// REFRESH
-// ===============================
 
-btnRefresh.addEventListener("click",()=>{
+
+// ===============================================
+// AUTO UPDATE JAM
+// ===============================================
+
+setInterval(() => {
+
+    updateWaktu();
+
+}, 1000);
+
+
+// ===============================================
+// SORT DATA
+// ===============================================
+
+window.sortData = (field) => {
+
+    semuaLaporan.sort((a, b) => {
+
+        if (a[field] > b[field]) return 1;
+
+        if (a[field] < b[field]) return -1;
+
+        return 0;
+
+    });
 
     renderTable(semuaLaporan);
 
-});
+};
 
-// ===============================
+
+// ===============================================
+// RESET FILTER
+// ===============================================
+
+window.resetFilter = () => {
+
+    if (search)
+        search.value = "";
+
+    if (filterStatus)
+        filterStatus.value = "";
+
+    renderTable(semuaLaporan);
+
+};
+
+
+// ===============================================
+// TOTAL DATA PER STATUS
+// ===============================================
+
+function hitungStatistik() {
+
+    return {
+
+        total: semuaLaporan.length,
+
+        menunggu: semuaLaporan.filter(
+            x => x.status === "Menunggu"
+        ).length,
+
+        diproses: semuaLaporan.filter(
+            x => x.status === "Diproses"
+        ).length,
+
+        selesai: semuaLaporan.filter(
+            x => x.status === "Selesai"
+        ).length,
+
+        ditolak: semuaLaporan.filter(
+            x => x.status === "Ditolak"
+        ).length
+
+    };
+
+}
+// ===============================================
 // PRINT
-// ===============================
+// ===============================================
 
-document
-.getElementById("btnPrint")
-.addEventListener("click",()=>{
+const btnPrint = document.getElementById("btnPrint");
 
-    window.print();
+if (btnPrint) {
 
-});
-// ===============================
+    btnPrint.addEventListener("click", () => {
+
+        window.print();
+
+    });
+
+}
+
+
+// ===============================================
 // EXPORT EXCEL
-// ===============================
+// ===============================================
 
-document
-.getElementById("btnExcel")
-.addEventListener("click",()=>{
+const btnExcel = document.getElementById("btnExcel");
 
-    const data = semuaLaporan.map(item=>({
+if (btnExcel) {
 
-        Kode:item.kodeLaporan,
+    btnExcel.addEventListener("click", () => {
 
-        Nama:item.nama,
+        const data = semuaLaporan.map(item => ({
 
-        Kabupaten:item.kabupaten,
+            "Kode": item.kodeLaporan || "-",
 
-        Kecamatan:item.kecamatan,
+            "Nama": item.nama || "-",
 
-        Jenis:item.jenis,
+            "Kabupaten": item.kabupaten || "-",
 
-        Status:item.status,
+            "Kecamatan": item.kecamatan || "-",
 
-        Tanggal:item.tanggal
+            "Jenis": item.jenis || "-",
 
-    }));
+            "Status": item.status || "-",
+
+            "Tanggal": item.tanggal || "-"
+
+        }));
+
+        const worksheet = XLSX.utils.json_to_sheet(data);
+
+        const workbook = XLSX.utils.book_new();
+
+        XLSX.utils.book_append_sheet(
+            workbook,
+            worksheet,
+            "Laporan"
+        );
+
+        XLSX.writeFile(
+            workbook,
+            "Laporan_SIGAP_Hutan.xlsx"
+        );
+
+    });
+
+}
 
 
-    const worksheet =
-    XLSX.utils.json_to_sheet(data);
-
-    const workbook =
-    XLSX.utils.book_new();
-
-    XLSX.utils.book_append_sheet(
-
-        workbook,
-
-        worksheet,
-
-        "Laporan"
-
-    );
-
-    XLSX.writeFile(
-
-        workbook,
-
-        "Laporan_SIGAP_Hutan.xlsx"
-
-    );
-
-});
-// ===============================
+// ===============================================
 // EXPORT PDF
-// ===============================
+// ===============================================
 
-document
-.getElementById("btnPdf")
-.addEventListener("click",()=>{
+const btnPdf = document.getElementById("btnPdf");
 
-    const { jsPDF } = window.jspdf;
+if (btnPdf) {
 
-    const pdf = new jsPDF();
+    btnPdf.addEventListener("click", () => {
 
-    pdf.setFontSize(16);
+        const { jsPDF } = window.jspdf;
 
-    pdf.text(
+        const pdf = new jsPDF({
 
-        "Laporan SIGAP Hutan",
+            orientation: "landscape"
 
-        14,
+        });
 
-        15
+        pdf.setFontSize(18);
 
-    );
+        pdf.text(
+            "Laporan SIGAP Hutan",
+            14,
+            15
+        );
 
-    const rows=[];
+        pdf.setFontSize(10);
 
-    semuaLaporan.forEach(item=>{
+        pdf.text(
+            "Tanggal Cetak : " +
+            new Date().toLocaleString("id-ID"),
+            14,
+            22
+        );
 
-        rows.push([
+        const rows = [];
 
-            item.kodeLaporan,
+        semuaLaporan.forEach(item => {
 
-            item.nama,
+            rows.push([
 
-            item.kabupaten,
+                item.kodeLaporan || "-",
 
-            item.jenis,
+                item.nama || "-",
 
-            item.status,
+                item.kabupaten || "-",
 
-            item.tanggal
+                item.kecamatan || "-",
 
-        ]);
+                item.jenis || "-",
+
+                item.status || "-",
+
+                item.tanggal || "-"
+
+            ]);
+
+        });
+
+        pdf.autoTable({
+
+            startY: 30,
+
+            head: [[
+
+                "Kode",
+
+                "Nama",
+
+                "Kabupaten",
+
+                "Kecamatan",
+
+                "Jenis",
+
+                "Status",
+
+                "Tanggal"
+
+            ]],
+
+            body: rows,
+
+            styles: {
+
+                fontSize: 9
+
+            },
+
+            headStyles: {
+
+                fillColor: [34, 139, 34]
+
+            }
+
+        });
+
+        pdf.save("Laporan_SIGAP_Hutan.pdf");
 
     });
 
-    pdf.autoTable({
+}
 
-        head:[[
-            "Kode",
-            "Nama",
-            "Kabupaten",
-            "Jenis",
-            "Status",
-            "Tanggal"
-        ]],
 
-        body:rows,
+// ===============================================
+// LOADING
+// ===============================================
 
-        startY:25
+window.showLoading = () => {
 
-    });
+    const el = document.getElementById("loading");
 
-    pdf.save(
+    if (el)
 
-        "Laporan_SIGAP_Hutan.pdf"
+        el.style.display = "flex";
 
-    );
+};
+
+window.hideLoading = () => {
+
+    const el = document.getElementById("loading");
+
+    if (el)
+
+        el.style.display = "none";
+
+};
+
+
+// ===============================================
+// FORMAT TANGGAL
+// ===============================================
+
+window.formatTanggal = (tanggal) => {
+
+    if (!tanggal) return "-";
+
+    try {
+
+        return new Date(tanggal)
+            .toLocaleDateString("id-ID");
+
+    } catch {
+
+        return tanggal;
+
+    }
+
+};
+
+
+// ===============================================
+// INIT
+// ===============================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("===================================");
+
+    console.log("SIGAP HUTAN ADMIN PANEL");
+
+    console.log("Admin.js berhasil dimuat");
+
+    console.log("===================================");
 
 });
