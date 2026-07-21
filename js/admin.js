@@ -166,30 +166,45 @@ onAuthStateChanged(auth, (user) => {
 
 function loadData() {
 
-   function loadData() {
+    console.log("Mengambil data Firestore...");
 
     const q = collection(db, "laporan");
 
-    onSnapshot(q, (snapshot) => {
+    onSnapshot(
 
-        semuaLaporan = [];
+        q,
 
-        snapshot.forEach((docSnap) => {
+        (snapshot) => {
 
-            semuaLaporan.push({
-                id: docSnap.id,
-                ...docSnap.data()
+            console.log("Jumlah Data :", snapshot.size);
+
+            semuaLaporan = [];
+
+            snapshot.forEach((docSnap) => {
+
+                console.log(docSnap.data());
+
+                semuaLaporan.push({
+
+                    id: docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
             });
 
-        });
+            renderTable(semuaLaporan);
 
-        renderTable(semuaLaporan);
+        },
 
-    }, (error) => {
+        (error) => {
 
-        console.error("Firestore Error:", error);
+            console.error("Firestore Error :", error);
 
-    });
+        }
+
+    );
 
 }
 // ===============================================
@@ -198,6 +213,10 @@ function loadData() {
 
 function renderTable(dataLaporan) {
 
+    console.log("Render Table");
+    console.log(dataLaporan);
+
+    let html = "";
     let html = "";
 
     let totalData = 0;
@@ -438,7 +457,7 @@ window.lihatDetail = (id) => {
         data.status ?? "-";
 
     document.getElementById("dTanggal").textContent =
-        data.tanggal ?? "-";
+    data.tanggalKejadian ?? "-";
 
     document.getElementById("dDeskripsi").textContent =
         data.deskripsi ?? "-";
