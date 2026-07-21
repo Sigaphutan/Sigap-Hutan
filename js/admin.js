@@ -166,10 +166,9 @@ onAuthStateChanged(auth, (user) => {
 
 function loadData() {
 
-    const q = query(
-        collection(db, "laporan"),
-        orderBy("timestamp", "desc")
-    );
+   function loadData() {
+
+    const q = collection(db, "laporan");
 
     onSnapshot(q, (snapshot) => {
 
@@ -178,16 +177,17 @@ function loadData() {
         snapshot.forEach((docSnap) => {
 
             semuaLaporan.push({
-
                 id: docSnap.id,
-
                 ...docSnap.data()
-
             });
 
         });
 
         renderTable(semuaLaporan);
+
+    }, (error) => {
+
+        console.error("Firestore Error:", error);
 
     });
 
