@@ -16,6 +16,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 // =======================
+// KONFIGURASI
+// =======================
+
+const ADMIN_EMAIL = "sigaphutan@gmail.com";
+
+// =======================
 // LOGIN ADMIN
 // =======================
 
@@ -38,25 +44,21 @@ window.logoutAdmin = async () => {
 // =======================
 
 const tbody = document.getElementById("dataLaporan");
-
 const total = document.getElementById("total");
 const menunggu = document.getElementById("menunggu");
 const diproses = document.getElementById("diproses");
 const selesai = document.getElementById("selesai");
+const search = document.getElementById("search");
+
+let semuaLaporan = [];
 
 // =======================
 // CEK LOGIN
 // =======================
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
 
-    if (user) {
-
-        console.log("Login sebagai:", user.displayName);
-
-        loadLaporan();
-
-    } else {
+    if (!user) {
 
         tbody.innerHTML = `
         <tr>
@@ -66,7 +68,21 @@ onAuthStateChanged(auth, (user) => {
         </tr>
         `;
 
+        return;
     }
+
+    if (user.email !== ADMIN_EMAIL) {
+
+        alert("Akses ditolak! Anda bukan Admin SIGAP HUTAN.");
+
+        await signOut(auth);
+
+        return;
+    }
+
+    console.log("Login sebagai:", user.displayName);
+
+    loadLaporan();
 
 });
 
@@ -78,155 +94,201 @@ async function loadLaporan() {
 
     tbody.innerHTML = `
     <tr>
-        <td colspan="7" style="text-align:center">
+        <td colspan="7" style="text-align:center;padding:20px;">
             Memuat data...
         </td>
     </tr>
     `;
 
-    const snapshot = await getDocs(collection(db, "laporan"));
+    try {
 
-    let html = "";
+        const snapshot = await getDocs(collection(db, "laporan"));
 
-    let totalData = 0;
-    let jmlMenunggu = 0;
-    let jmlDiproses = 0;
-    let jmlSelesai = 0;
+        semuaLaporan = [];
 
-    snapshot.forEach((doc) => {
+        let totalData = 0;
+        let jmlMenunggu = 0;
+        let jmlDiproses = 0;
+        let jmlSelesai = 0;
 
-        const data = doc.data();
+        let html = "";
 
-        totalData++;
+        snapshot.forEach((docSnap) => {
 
-        if (data.status === "Menunggu") jmlMenunggu++;
-        if (data.status === "Diproses") jmlDiproses++;
-        if (data.status === "Selesai") jmlSelesai++;
+            const data = docSnap.data();
 
-       html += `
-<tr>
+            semuaLaporan.push({
+                id: docSnap.id,
+                ...data
+            });
 
-    <td>${data.kodeLaporan ?? "-"}</td>
+            totalData++;
 
-    <td>${data.nama ?? "-"}</td>
+            switch (data.status) {
 
-    <td>${data.lokasi ?? "-"}</td>
+                case "Menunggu":
+                    jmlMenunggu++;
+                    break;
 
-    <td>${data.jenis ?? "-"}</td>
+                case "Diproses":
+                    jmlDiproses++;
+                    break;
 
-    <td>
+                case "Selesai":
+                    jmlSelesai++;
+                    break;
 
-        <select onchange="ubahStatus('${doc.id}', this.value)">
+            }
 
-            <option value="Menunggu" ${data.status=="Menunggu"?"selected":""}>Menunggu</option>
+            html += `
+            <tr>
 
-            <option value="Diproses" ${data.status=="Diproses"?"selected":""}>Diproses</option>
+                <td>${data.kodeLaporan ?? "-"}</td>
 
-            <option value="Selesai" ${data.status=="Selesai"?"selected":""}>Selesai</option>
+                <td>${data.nama ?? "-"}</td>
 
-        </select>
+                <td>${data.lokasi ?? "-"}</td>
 
-    </td>
+                <td>${data.jenis ?? "-"}</td>
 
-    <td>
+                <td>
+                    <select onchange="ubahStatus('${docSnap.id}', this.value)">
 
-        ${
-            data.mapsUrl
+                        <option value="Menunggu" ${data.status === "Menunggu" ? "selected" : ""}>
+                            Menunggu
+                        </option>
 
-            ?
+                        <option value="Diproses" ${data.status === "Diproses" ? "selected" : ""}>
+                            Diproses
+                        </option>
 
-            `<a href="${data.mapsUrl}" target="_blank">📍 Maps</a>`
+                        <option value="Selesai" ${data.status === "Selesai" ? "selected" : ""}>
+                            Selesai
+                        </option>
 
-            :
+                    </select>
+                </td>
 
-            "-"
+                <td>
+                    ${
+                        data.mapsUrl
+                            ? `<a href="${data.mapsUrl}" target="_blank">📍 Maps</a>`
+                            : "-"
+                    }
+                </td>
+
+                <td>
+                    <button onclick="hapusLaporan('${docSnap.id}')">
+                        🗑️ Hapus
+                    </button>
+                </td>
+
+            </tr>
+            `;
+
+        });
+
+        if (totalData === 0) {
+
+            html = `
+            <tr>
+                <td colspan="7" style="text-align:center;">
+                    Belum ada laporan.
+                </td>
+            </tr>
+            `;
 
         }
 
-    </td>
+        tbody.innerHTML = html;
 
-    <td>
+        total.textContent = totalData;
+        menunggu.textContent = jmlMenunggu;
+        diproses.textContent = jmlDiproses;
+        selesai.textContent = jmlSelesai;
 
-        <button onclick="hapusLaporan('${doc.id}')">
+    } catch (error) {
 
-            🗑️
+        console.error(error);
 
-        </button>
-
-    </td>
-
-</tr>
-`;
-
-    });
-
-    if (totalData === 0) {
-
-        html = `
+        tbody.innerHTML = `
         <tr>
-            <td colspan="7" style="text-align:center;">
-                Belum ada laporan.
+            <td colspan="7" style="text-align:center;color:red;">
+                Gagal memuat data.
             </td>
         </tr>
         `;
 
     }
 
-    tbody.innerHTML = html;
-
-    total.textContent = totalData;
-    menunggu.textContent = jmlMenunggu;
-    diproses.textContent = jmlDiproses;
-    selesai.textContent = jmlSelesai;
-
 }
+
+// =======================
+// UBAH STATUS
+// =======================
+
 window.ubahStatus = async (id, statusBaru) => {
 
-    try{
+    try {
 
-        await updateDoc(
+        await updateDoc(doc(db, "laporan", id), {
+            status: statusBaru
+        });
 
-            doc(db,"laporan",id),
+        await loadLaporan();
 
-            {
-                status:statusBaru
-            }
+    } catch (error) {
 
-        );
+        console.error(error);
 
-        loadLaporan();
-
-    }catch(error){
-
-        console.log(error);
-
-        alert("Gagal mengubah status");
+        alert("Gagal mengubah status.");
 
     }
 
 };
-window.hapusLaporan = async(id)=>{
 
-    const yakin = confirm(
-        "Yakin ingin menghapus laporan ini?"
-    );
+// =======================
+// HAPUS LAPORAN
+// =======================
 
-    if(!yakin) return;
+window.hapusLaporan = async (id) => {
 
-    try{
+    if (!confirm("Yakin ingin menghapus laporan ini?")) return;
 
-        await deleteDoc(
-            doc(db,"laporan",id)
-        );
+    try {
 
-        loadLaporan();
+        await deleteDoc(doc(db, "laporan", id));
 
-    }catch(error){
+        alert("Laporan berhasil dihapus.");
 
-        console.log(error);
+        await loadLaporan();
 
-        alert("Gagal menghapus laporan");
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Gagal menghapus laporan.");
 
     }
 
 };
+
+// =======================
+// PENCARIAN
+// =======================
+
+search.addEventListener("keyup", () => {
+
+    const keyword = search.value.toLowerCase();
+
+    const rows = document.querySelectorAll("#dataLaporan tr");
+
+    rows.forEach((row) => {
+
+        row.style.display = row.innerText.toLowerCase().includes(keyword)
+            ? ""
+            : "none";
+
+    });
+
+});
