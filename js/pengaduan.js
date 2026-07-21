@@ -16,6 +16,9 @@ const UPLOAD_PRESET = "laporan_upload";
 
 async function uploadFoto(file) {
 
+    console.log("=== Upload Cloudinary ===");
+    console.log("File:", file);
+
     const formData = new FormData();
 
     formData.append("file", file);
@@ -29,11 +32,14 @@ async function uploadFoto(file) {
         }
     );
 
-    if (!response.ok) {
-        throw new Error("Upload foto gagal.");
-    }
-
     const data = await response.json();
+
+    console.log("Status Upload:", response.status);
+    console.log("Response Cloudinary:", data);
+
+    if (!response.ok) {
+        throw new Error(data.error?.message || "Upload foto gagal.");
+    }
 
     return data.secure_url;
 }
