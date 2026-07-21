@@ -136,24 +136,29 @@ window.logoutAdmin = async () => {
 
 onAuthStateChanged(auth, (user) => {
 
+    const loginBox = document.getElementById("loginBox");
+    const adminPanel = document.getElementById("adminPanel");
+
     if (!user) {
 
-        document.getElementById("loginBox").style.display = "block";
+        if (loginBox)
+            loginBox.style.display = "block";
 
-        document.getElementById("adminPanel").style.display = "none";
+        if (adminPanel)
+            adminPanel.style.display = "block"; // dashboard tetap tampil
 
         return;
-
     }
 
-    document.getElementById("loginBox").style.display = "none";
+    if (loginBox)
+        loginBox.style.display = "none";
 
-    document.getElementById("adminPanel").style.display = "block";
+    if (adminPanel)
+        adminPanel.style.display = "block";
 
     loadData();
 
 });
-
 
 // ===============================================
 // LOAD DATA FIRESTORE
