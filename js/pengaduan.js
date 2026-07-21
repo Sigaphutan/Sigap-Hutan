@@ -233,7 +233,9 @@ jenis: document.getElementById("jenis").value,
 
        try {
 
-        await addDoc(collection(db, "laporan"), data);
+        console.log("Data yang akan disimpan:", data);
+
+await addDoc(collection(db, "laporan"), data);
 
         alert(
             "Pengaduan berhasil dikirim.\n\nKode Laporan : " +
