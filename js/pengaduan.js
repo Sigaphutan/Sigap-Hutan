@@ -1,17 +1,42 @@
-import { db, storage } from "./firebase.js";
+import { db } from "./firebase.js";
 
 import {
     collection,
     addDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-import {
-    ref,
-    uploadBytes,
-    getDownloadURL
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-storage.js";
 
 console.log("pengaduan.js berhasil dimuat");
+// ===============================
+// CLOUDINARY
+// ===============================
+
+const CLOUD_NAME = "lxfp9j8y";
+const UPLOAD_PRESET = "laporan_upload";
+
+async function uploadFoto(file) {
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
+
+    const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error("Upload foto gagal.");
+    }
+
+    const data = await response.json();
+
+    return data.secure_url;
+}
 
 // ===============================
 // DAFTAR KECAMATAN
@@ -90,6 +115,7 @@ kabupaten.addEventListener("change", () => {
 // ===============================
 
 const form = document.getElementById("formPengaduan");
+const fotoInput = document.getElementById("foto");
 // ===============================
 // SHARE LOKASI
 // ===============================
@@ -141,6 +167,16 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
+    let fotoUrl = "";
+
+    if (fotoInput.files.length > 0) {
+
+        fotoUrl = await uploadFoto(fotoInput.files[0]);
+
+    }
+
+    // lanjut simpan Firestore
+
     // Kode laporan otomatis
     const kode =
         "SGH-" +
@@ -163,7 +199,9 @@ longitude: longitude,
 
 mapsUrl: mapsUrl,
 
-        jenis: document.getElementById("jenis").value,
+foto: fotoUrl,
+
+jenis: document.getElementById("jenis").value,
 
         tanggalKejadian:
             document.getElementById("tanggal").value,
@@ -177,7 +215,7 @@ mapsUrl: mapsUrl,
 
     };
 
-    try {
+       try {
 
         await addDoc(collection(db, "laporan"), data);
 
@@ -187,21 +225,22 @@ mapsUrl: mapsUrl,
         );
 
         form.reset();
+        fotoInput.value = "";
 
         kecamatan.innerHTML =
             '<option value="">Pilih Kecamatan</option>';
-latitude = "";
-longitude = "";
-mapsUrl = "";
 
-statusLokasi.innerHTML = "";
-    }
+        latitude = "";
+        longitude = "";
+        mapsUrl = "";
 
-    catch (error) {
+        statusLokasi.innerHTML = "";
+
+    } catch (error) {
 
         console.error(error);
 
-        alert("Terjadi kesalahan.");
+        alert("Terjadi kesalahan: " + error.message);
 
     }
 
