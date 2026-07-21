@@ -2,7 +2,10 @@ import { db, auth } from "./firebase.js";
 
 import {
     collection,
-    getDocs
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 import {
@@ -100,25 +103,60 @@ async function loadLaporan() {
         if (data.status === "Diproses") jmlDiproses++;
         if (data.status === "Selesai") jmlSelesai++;
 
-        html += `
-        <tr>
+       html += `
+<tr>
 
-            <td>${data.kodeLaporan ?? "-"}</td>
+    <td>${data.kodeLaporan ?? "-"}</td>
 
-            <td>${data.nama ?? "-"}</td>
+    <td>${data.nama ?? "-"}</td>
 
-            <td>${data.lokasi ?? "-"}</td>
+    <td>${data.lokasi ?? "-"}</td>
 
-            <td>${data.jenis ?? "-"}</td>
+    <td>${data.jenis ?? "-"}</td>
 
-            <td>${data.status ?? "-"}</td>
+    <td>
 
-            <td>
-                Segera...
-            </td>
+        <select onchange="ubahStatus('${doc.id}', this.value)">
 
-        </tr>
-        `;
+            <option value="Menunggu" ${data.status=="Menunggu"?"selected":""}>Menunggu</option>
+
+            <option value="Diproses" ${data.status=="Diproses"?"selected":""}>Diproses</option>
+
+            <option value="Selesai" ${data.status=="Selesai"?"selected":""}>Selesai</option>
+
+        </select>
+
+    </td>
+
+    <td>
+
+        ${
+            data.mapsUrl
+
+            ?
+
+            `<a href="${data.mapsUrl}" target="_blank">📍 Maps</a>`
+
+            :
+
+            "-"
+
+        }
+
+    </td>
+
+    <td>
+
+        <button onclick="hapusLaporan('${doc.id}')">
+
+            🗑️
+
+        </button>
+
+    </td>
+
+</tr>
+`;
 
     });
 
@@ -142,3 +180,53 @@ async function loadLaporan() {
     selesai.textContent = jmlSelesai;
 
 }
+window.ubahStatus = async (id, statusBaru) => {
+
+    try{
+
+        await updateDoc(
+
+            doc(db,"laporan",id),
+
+            {
+                status:statusBaru
+            }
+
+        );
+
+        loadLaporan();
+
+    }catch(error){
+
+        console.log(error);
+
+        alert("Gagal mengubah status");
+
+    }
+
+};
+window.hapusLaporan = async(id)=>{
+
+    const yakin = confirm(
+        "Yakin ingin menghapus laporan ini?"
+    );
+
+    if(!yakin) return;
+
+    try{
+
+        await deleteDoc(
+            doc(db,"laporan",id)
+        );
+
+        loadLaporan();
+
+    }catch(error){
+
+        console.log(error);
+
+        alert("Gagal menghapus laporan");
+
+    }
+
+};
