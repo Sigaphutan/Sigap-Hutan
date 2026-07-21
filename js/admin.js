@@ -1,359 +1,525 @@
-import { db, auth } from "./firebase.js";
+<tr>
+    <td colspan="9" class="text-center">
+        Memuat data...
+    </td>
+</tr>
 
-import {
-    collection,
-    getDocs,
-    doc,
-    updateDoc,
-    deleteDoc
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+</tbody>
 
-import {
-    GoogleAuthProvider,
-    signInWithPopup,
-    signOut,
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+</table>
 
-// =======================
-// KONFIGURASI
-// =======================
+</div>
 
-const ADMIN_EMAIL = "sigaphutan@gmail.com";
+</section>
 
-// =======================
-// LOGIN ADMIN
-// =======================
+</main>
 
-const provider = new GoogleAuthProvider();
+<!-- ========================= -->
+<!-- MODAL FOTO -->
+<!-- ========================= -->
 
-window.loginAdmin = async () => {
-    try {
-        console.log("Mencoba login...");
+<div class="modal fade"
+     id="fotoModal"
+     tabindex="-1">
 
-        const result = await signInWithPopup(auth, provider);
+    <div class="modal-dialog modal-lg modal-dialog-centered">
 
-        console.log("Login berhasil");
-        console.log(result.user);
+        <div class="modal-content">
 
-    } catch (error) {
+            <div class="modal-header">
 
-        console.error(error);
+                <h5 class="modal-title">
+                    Foto Laporan
+                </h5>
 
-        alert(
-            "Code: " + error.code +
-            "\nMessage: " + error.message
-        );
-    }
-};
+                <button
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
 
-window.logoutAdmin = async () => {
-    ...
-};
+            </div>
 
-// =======================
-// ELEMENT HTML
-// =======================
+            <div class="modal-body text-center">
 
-const tbody = document.getElementById("dataLaporan");
-const total = document.getElementById("total");
-const menunggu = document.getElementById("menunggu");
-const diproses = document.getElementById("diproses");
-const selesai = document.getElementById("selesai");
-const search = document.getElementById("search");
+                <img
+                    id="previewFoto"
+                    class="img-fluid rounded shadow"
+                    src=""
+                    alt="Foto Laporan">
 
-// Tombol login & logout (opsional)
-const btnLogin = document.getElementById("btnLogin");
-const btnLogout = document.getElementById("btnLogout");
+            </div>
 
-let semuaLaporan = [];
+        </div>
 
-// =======================
-// CEK LOGIN
-// =======================
+    </div>
 
-onAuthStateChanged(auth, async (user) => {
+</div>
 
-    if (!user) {
+<!-- ========================= -->
+<!-- MODAL DETAIL -->
+<!-- ========================= -->
 
-        if (btnLogin) btnLogin.style.display = "inline-block";
-        if (btnLogout) btnLogout.style.display = "none";
+<div class="modal fade"
+     id="detailModal"
+     tabindex="-1">
 
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="7" style="text-align:center;padding:20px;">
-                    Silakan login sebagai Admin.
-                </td>
-            </tr>
-        `;
+    <div class="modal-dialog modal-xl">
 
-        return;
-    }
+        <div class="modal-content">
 
-    if (user.email !== ADMIN_EMAIL) {
+            <div class="modal-header">
 
-        alert("Akses ditolak! Anda bukan Admin SIGAP HUTAN.");
+                <h5 class="modal-title">
+                    Detail Laporan
+                </h5>
 
-        await signOut(auth);
+                <button
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
 
-        return;
-    }
+            </div>
 
-    if (btnLogin) btnLogin.style.display = "none";
-    if (btnLogout) btnLogout.style.display = "inline-block";
+            <div class="modal-body">
 
-    console.log("Login sebagai:", user.displayName);
+                <div class="row">
 
-    await loadLaporan();
+                    <div class="col-md-6">
 
-});
-// =======================
-// LOAD LAPORAN
-// =======================
+                        <table class="table table-bordered">
 
-async function loadLaporan() {
+                            <tr>
+                                <th>Kode</th>
+                                <td id="dKode"></td>
+                            </tr>
 
-    tbody.innerHTML = `
-        <tr>
-            <td colspan="7" style="text-align:center;padding:20px;">
-                Memuat data...
-            </td>
-        </tr>
-    `;
+                            <tr>
+                                <th>Nama</th>
+                                <td id="dNama"></td>
+                            </tr>
 
-    try {
+                            <tr>
+                                <th>Kabupaten</th>
+                                <td id="dKabupaten"></td>
+                            </tr>
 
-        const snapshot = await getDocs(collection(db, "laporan"));
+                            <tr>
+                                <th>Kecamatan</th>
+                                <td id="dKecamatan"></td>
+                            </tr>
 
-        semuaLaporan = [];
+                            <tr>
+                                <th>Jenis</th>
+                                <td id="dJenis"></td>
+                            </tr>
 
-        let totalData = 0;
-        let jmlMenunggu = 0;
-        let jmlDiproses = 0;
-        let jmlSelesai = 0;
+                            <tr>
+                                <th>Status</th>
+                                <td id="dStatus"></td>
+                            </tr>
 
-        let html = "";
+                            <tr>
+                                <th>Tanggal</th>
+                                <td id="dTanggal"></td>
+                            </tr>
 
-        snapshot.forEach((docSnap) => {
+                        </table>
 
-            const data = docSnap.data();
+                    </div>
 
-            semuaLaporan.push({
-                id: docSnap.id,
-                ...data
-            });
+                    <div class="col-md-6">
 
-            totalData++;
+                        <img
+                            id="detailFoto"
+                            class="img-fluid rounded shadow mb-3">
 
-            switch (data.status) {
-                case "Menunggu":
-                    jmlMenunggu++;
-                    break;
+                        <p>
+                            <strong>Deskripsi</strong>
+                        </p>
 
-                case "Diproses":
-                    jmlDiproses++;
-                    break;
+                        <p id="dDeskripsi"></p>
 
-                case "Selesai":
-                    jmlSelesai++;
-                    break;
-            }
+                        <a
+                            id="detailMaps"
+                            target="_blank"
+                            class="btn btn-success">
 
-            html += `
-                <tr>
+                            📍 Lihat Google Maps
 
-                    <td>${data.kodeLaporan ?? "-"}</td>
+                        </a>
 
-                    <td>${data.nama ?? "-"}</td>
+                    </div>
 
-                    <td>${data.lokasi ?? "-"}</td>
+                </div>
 
-                    <td>${data.jenis ?? "-"}</td>
+            </div>
 
-                    <td>
-                        <select onchange="ubahStatus('${docSnap.id}', this.value)">
+        </div>
 
-                            <option value="Menunggu" ${data.status === "Menunggu" ? "selected" : ""}>
-                                Menunggu
-                            </option>
+    </div>
 
-                            <option value="Diproses" ${data.status === "Diproses" ? "selected" : ""}>
-                                Diproses
-                            </option>
+</div>
 
-                            <option value="Selesai" ${data.status === "Selesai" ? "selected" : ""}>
-                                Selesai
-                            </option>
+<footer class="text-center py-4">
 
-                        </select>
-                    </td>
+    © 2026 SIGAP Hutan
 
-                    <td>
-                        ${
-                            data.mapsUrl
-                                ? `<a href="${data.mapsUrl}" target="_blank" rel="noopener noreferrer">📍 Maps</a>`
-                                : "-"
-                        }
-                    </td>
+</footer>
 
-                    <td>
-                        <button onclick="hapusLaporan('${docSnap.id}')">
-                            🗑️ Hapus
-                        </button>
-                    </td>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
-                </tr>
-            `;
+<script type="module" src="../js/admin.js"></script>
 
-        });
+</body>
+</html>
+function renderTable(dataLaporan){
 
-        if (totalData === 0) {
+    let html="";
 
-            html = `
-                <tr>
-                    <td colspan="7" style="text-align:center;padding:20px;">
-                        Belum ada laporan.
-                    </td>
-                </tr>
-            `;
+    let totalData=0;
+    let jmlMenunggu=0;
+    let jmlDiproses=0;
+    let jmlSelesai=0;
+    let jmlDitolak=0;
+
+    dataLaporan.forEach(data=>{
+
+        totalData++;
+
+        switch(data.status){
+
+            case "Menunggu":
+                jmlMenunggu++;
+                break;
+
+            case "Diproses":
+                jmlDiproses++;
+                break;
+
+            case "Selesai":
+                jmlSelesai++;
+                break;
+
+            case "Ditolak":
+                jmlDitolak++;
+                break;
 
         }
 
-        tbody.innerHTML = html;
+        let badge="secondary";
 
-        total.textContent = totalData;
-        menunggu.textContent = jmlMenunggu;
-        diproses.textContent = jmlDiproses;
-        selesai.textContent = jmlSelesai;
-updateWaktuTerakhir();
-    } catch (error) {
+        if(data.status==="Menunggu") badge="warning";
+        if(data.status==="Diproses") badge="primary";
+        if(data.status==="Selesai") badge="success";
+        if(data.status==="Ditolak") badge="danger";
 
-        console.error(error);
+        html+=`
 
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="7" style="text-align:center;color:red;padding:20px;">
-                    Gagal memuat data.
-                </td>
-            </tr>
-        `;
+<tr>
+
+<td>${data.kodeLaporan??"-"}</td>
+
+<td>${data.nama??"-"}</td>
+
+<td>
+
+${data.kabupaten??""}
+
+<br>
+
+<small>${data.kecamatan??""}</small>
+
+</td>
+
+<td>${data.jenis??"-"}</td>
+
+<td>
+
+${data.foto?
+
+`<img
+src="${data.foto}"
+style="
+width:70px;
+height:70px;
+object-fit:cover;
+cursor:pointer;
+border-radius:10px;
+"
+onclick="lihatFoto('${data.foto}')">`
+
+:"-"}
+
+</td>
+
+<td>${data.tanggal??"-"}</td>
+
+<td>
+
+<span class="badge bg-${badge}">
+${data.status??"-"}
+</span>
+
+<br><br>
+
+<select
+class="form-select form-select-sm"
+onchange="ubahStatus('${data.id}',this.value)">
+
+<option value="Menunggu"
+${data.status=="Menunggu"?"selected":""}>
+Menunggu
+</option>
+
+<option value="Diproses"
+${data.status=="Diproses"?"selected":""}>
+Diproses
+</option>
+
+<option value="Selesai"
+${data.status=="Selesai"?"selected":""}>
+Selesai
+</option>
+
+<option value="Ditolak"
+${data.status=="Ditolak"?"selected":""}>
+Ditolak
+</option>
+
+</select>
+
+</td>
+
+<td>
+
+${data.mapsUrl?
+
+`<a
+href="${data.mapsUrl}"
+target="_blank"
+class="btn btn-success btn-sm">
+
+📍 Maps
+
+</a>`
+
+:"-"}
+
+</td>
+
+<td>
+
+<div class="d-grid gap-2">
+
+<button
+class="btn btn-info btn-sm"
+onclick='lihatDetail(${JSON.stringify(data)})'>
+
+👁 Detail
+
+</button>
+
+<button
+class="btn btn-danger btn-sm"
+onclick="hapusLaporan('${data.id}')">
+
+🗑 Hapus
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+    });
+
+    if(totalData===0){
+
+        html=`
+
+<tr>
+
+<td colspan="9"
+class="text-center">
+
+Belum ada laporan.
+
+</td>
+
+</tr>
+
+`;
 
     }
 
+    tbody.innerHTML=html;
+
+    total.textContent=totalData;
+    menunggu.textContent=jmlMenunggu;
+    diproses.textContent=jmlDiproses;
+    selesai.textContent=jmlSelesai;
+    ditolak.textContent=jmlDitolak;
+
+    updateWaktu();
+
 }
-// =======================
-// UBAH STATUS
-// =======================
+// ===============================
+// PREVIEW FOTO
+// ===============================
+
+window.lihatFoto = (url) => {
+
+    document.getElementById("previewFoto").src = url;
+
+    new bootstrap.Modal(
+        document.getElementById("fotoModal")
+    ).show();
+
+};
+
+// ===============================
+// DETAIL LAPORAN
+// ===============================
+
+window.lihatDetail = (data) => {
+
+    document.getElementById("dKode").textContent = data.kodeLaporan ?? "-";
+    document.getElementById("dNama").textContent = data.nama ?? "-";
+    document.getElementById("dKabupaten").textContent = data.kabupaten ?? "-";
+    document.getElementById("dKecamatan").textContent = data.kecamatan ?? "-";
+    document.getElementById("dJenis").textContent = data.jenis ?? "-";
+    document.getElementById("dStatus").textContent = data.status ?? "-";
+    document.getElementById("dTanggal").textContent = data.tanggal ?? "-";
+    document.getElementById("dDeskripsi").textContent = data.deskripsi ?? "-";
+
+    document.getElementById("detailFoto").src =
+        data.foto || "";
+
+    if (data.mapsUrl) {
+
+        document.getElementById("detailMaps").href =
+            data.mapsUrl;
+
+        document.getElementById("detailMaps").style.display =
+            "inline-block";
+
+    } else {
+
+        document.getElementById("detailMaps").style.display =
+            "none";
+
+    }
+
+    new bootstrap.Modal(
+        document.getElementById("detailModal")
+    ).show();
+
+};
+
+// ===============================
+// UPDATE STATUS
+// ===============================
 
 window.ubahStatus = async (id, statusBaru) => {
 
     try {
 
-        await updateDoc(doc(db, "laporan", id), {
-            status: statusBaru
-        });
+        await updateDoc(
+            doc(db, "laporan", id),
+            {
+                status: statusBaru
+            }
+        );
 
-        await loadLaporan();
+    } catch (e) {
 
-        console.log("Status berhasil diperbarui.");
+        alert("Gagal mengubah status");
 
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Gagal mengubah status.");
+        console.error(e);
 
     }
 
 };
 
-// =======================
+// ===============================
 // HAPUS LAPORAN
-// =======================
+// ===============================
 
 window.hapusLaporan = async (id) => {
 
-    const yakin = confirm("Yakin ingin menghapus laporan ini?");
-
-    if (!yakin) return;
+    if (!confirm("Hapus laporan ini?"))
+        return;
 
     try {
 
-        await deleteDoc(doc(db, "laporan", id));
+        await deleteDoc(
+            doc(db, "laporan", id)
+        );
 
-        alert("Laporan berhasil dihapus.");
+    } catch (e) {
 
-        await loadLaporan();
+        alert("Gagal menghapus");
 
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Gagal menghapus laporan.");
+        console.error(e);
 
     }
 
 };
 
-// =======================
-// PENCARIAN DATA
-// =======================
+// ===============================
+// PENCARIAN
+// ===============================
 
-if (search) {
+search.addEventListener("keyup", filterData);
 
-    search.addEventListener("keyup", () => {
+filterStatus.addEventListener("change", filterData);
 
-        const keyword = search.value.trim().toLowerCase();
+function filterData() {
 
-        const rows = tbody.querySelectorAll("tr");
+    const keyword =
+        search.value.toLowerCase();
 
-        rows.forEach((row) => {
+    const status =
+        filterStatus.value;
 
-            const text = row.textContent.toLowerCase();
+    const hasil =
+        semuaLaporan.filter(item => {
 
-            row.style.display = text.includes(keyword)
-                ? ""
-                : "none";
+            const cocokText = (
+
+                (item.kodeLaporan || "") +
+                (item.nama || "") +
+                (item.kabupaten || "") +
+                (item.kecamatan || "") +
+                (item.jenis || "")
+
+            ).toLowerCase();
+
+            const cocokStatus =
+                status === "" ||
+                item.status === status;
+
+            return cocokText.includes(keyword)
+                && cocokStatus;
 
         });
 
-    });
+    renderTable(hasil);
 
 }
 
-// =======================
-// REFRESH OTOMATIS
-// =======================
+// ===============================
+// UPDATE WAKTU
+// ===============================
 
-// Refresh data setiap 30 detik
-setInterval(async () => {
-
-    if (auth.currentUser &&
-        auth.currentUser.email === ADMIN_EMAIL) {
-
-        await loadLaporan();
-
-    }
-
-}, 30000);
-// =======================
-// UPDATE TERAKHIR
-// =======================
-
-const lastUpdate = document.getElementById("lastUpdate");
-
-function updateWaktuTerakhir() {
-
-    if (!lastUpdate) return;
-
-    const sekarang = new Date();
+function updateWaktu() {
 
     lastUpdate.textContent =
-        "Update terakhir: " +
-        sekarang.toLocaleString("id-ID", {
-            dateStyle: "medium",
-            timeStyle: "medium"
-        });
+        "Update terakhir : " +
+        new Date().toLocaleString("id-ID");
 
 }
-
