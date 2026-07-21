@@ -125,6 +125,8 @@ window.loginAdmin = async () => {
 
 window.logoutAdmin = async () => {
 
+    console.log("Tombol Logout diklik");
+
     try {
 
         await signOut(auth);
@@ -133,9 +135,9 @@ window.logoutAdmin = async () => {
 
     } catch (err) {
 
-        console.error(err);
+        console.error("Logout Error:", err);
 
-        alert("Logout gagal.");
+        alert(err.message);
 
     }
 
