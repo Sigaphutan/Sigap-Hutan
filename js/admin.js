@@ -106,6 +106,8 @@ window.loginAdmin = async () => {
 
         await signInWithPopup(auth, provider);
 
+        console.log("Login berhasil");
+
     } catch (err) {
 
         console.error(err);
@@ -123,12 +125,21 @@ window.loginAdmin = async () => {
 
 window.logoutAdmin = async () => {
 
-    if (!confirm("Logout sekarang?")) return;
+    try {
 
-    await signOut(auth);
+        await signOut(auth);
+
+        console.log("Logout berhasil");
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert("Logout gagal.");
+
+    }
 
 };
-
 
 // ===============================================
 // AUTH STATE
