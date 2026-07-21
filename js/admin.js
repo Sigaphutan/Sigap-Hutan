@@ -29,20 +29,26 @@ const provider = new GoogleAuthProvider();
 
 window.loginAdmin = async () => {
     try {
-        await signInWithPopup(auth, provider);
+        console.log("Mencoba login...");
+
+        const result = await signInWithPopup(auth, provider);
+
+        console.log("Login berhasil");
+        console.log(result.user);
+
     } catch (error) {
+
         console.error(error);
-        alert("Login gagal: " + error.message);
+
+        alert(
+            "Code: " + error.code +
+            "\nMessage: " + error.message
+        );
     }
 };
 
 window.logoutAdmin = async () => {
-    try {
-        await signOut(auth);
-    } catch (error) {
-        console.error(error);
-        alert("Logout gagal.");
-    }
+    ...
 };
 
 // =======================
