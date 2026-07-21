@@ -14,20 +14,27 @@
     <p>Kelola laporan masyarakat</p>
 </header>
 
-<section class="aksi-admin">
+   <section class="aksi-admin">
 
-    <button class="btn-login" onclick="loginAdmin()">
+    <button
+        id="btnLogin"
+        class="btn-login"
+        onclick="loginAdmin()">
         🔐 Login Admin
     </button>
 
-    <button class="btn-logout" onclick="logoutAdmin()">
+    <button
+        id="btnLogout"
+        class="btn-logout"
+        onclick="logoutAdmin()">
         🚪 Logout
     </button>
 
+   
 </section>
 
 <main>
-
+    
     <section class="statistik">
         <div class="card">
             <h2 id="total">0</h2>
@@ -49,6 +56,10 @@
             <p>Selesai</p>
         </div>
     </section>
+    
+    <p id="lastUpdate" class="last-update">
+    Update terakhir: -
+</p>
     
 <section class="toolbar">
     <input
@@ -96,7 +107,13 @@
 
 </main>
 
+<footer>
+    <p>© 2026 SIGAP Hutan | Dashboard Admin</p>
+</footer>
+
 <script type="module" src="../js/admin.js"></script>
 
 </body>
 </html>
+
+
