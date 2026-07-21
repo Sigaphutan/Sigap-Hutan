@@ -31,12 +31,18 @@ window.loginAdmin = async () => {
     try {
         await signInWithPopup(auth, provider);
     } catch (error) {
-        alert(error.message);
+        console.error(error);
+        alert("Login gagal: " + error.message);
     }
 };
 
 window.logoutAdmin = async () => {
-    await signOut(auth);
+    try {
+        await signOut(auth);
+    } catch (error) {
+        console.error(error);
+        alert("Logout gagal.");
+    }
 };
 
 // =======================
@@ -50,6 +56,10 @@ const diproses = document.getElementById("diproses");
 const selesai = document.getElementById("selesai");
 const search = document.getElementById("search");
 
+// Tombol login & logout (opsional)
+const btnLogin = document.getElementById("btnLogin");
+const btnLogout = document.getElementById("btnLogout");
+
 let semuaLaporan = [];
 
 // =======================
@@ -60,12 +70,15 @@ onAuthStateChanged(auth, async (user) => {
 
     if (!user) {
 
+        if (btnLogin) btnLogin.style.display = "inline-block";
+        if (btnLogout) btnLogout.style.display = "none";
+
         tbody.innerHTML = `
-        <tr>
-            <td colspan="7" style="text-align:center;padding:20px;">
-                Silakan login sebagai Admin.
-            </td>
-        </tr>
+            <tr>
+                <td colspan="7" style="text-align:center;padding:20px;">
+                    Silakan login sebagai Admin.
+                </td>
+            </tr>
         `;
 
         return;
@@ -80,12 +93,14 @@ onAuthStateChanged(auth, async (user) => {
         return;
     }
 
+    if (btnLogin) btnLogin.style.display = "none";
+    if (btnLogout) btnLogout.style.display = "inline-block";
+
     console.log("Login sebagai:", user.displayName);
 
-    loadLaporan();
+    await loadLaporan();
 
 });
-
 // =======================
 // LOAD LAPORAN
 // =======================
@@ -93,11 +108,11 @@ onAuthStateChanged(auth, async (user) => {
 async function loadLaporan() {
 
     tbody.innerHTML = `
-    <tr>
-        <td colspan="7" style="text-align:center;padding:20px;">
-            Memuat data...
-        </td>
-    </tr>
+        <tr>
+            <td colspan="7" style="text-align:center;padding:20px;">
+                Memuat data...
+            </td>
+        </tr>
     `;
 
     try {
@@ -125,7 +140,6 @@ async function loadLaporan() {
             totalData++;
 
             switch (data.status) {
-
                 case "Menunggu":
                     jmlMenunggu++;
                     break;
@@ -137,53 +151,52 @@ async function loadLaporan() {
                 case "Selesai":
                     jmlSelesai++;
                     break;
-
             }
 
             html += `
-            <tr>
+                <tr>
 
-                <td>${data.kodeLaporan ?? "-"}</td>
+                    <td>${data.kodeLaporan ?? "-"}</td>
 
-                <td>${data.nama ?? "-"}</td>
+                    <td>${data.nama ?? "-"}</td>
 
-                <td>${data.lokasi ?? "-"}</td>
+                    <td>${data.lokasi ?? "-"}</td>
 
-                <td>${data.jenis ?? "-"}</td>
+                    <td>${data.jenis ?? "-"}</td>
 
-                <td>
-                    <select onchange="ubahStatus('${docSnap.id}', this.value)">
+                    <td>
+                        <select onchange="ubahStatus('${docSnap.id}', this.value)">
 
-                        <option value="Menunggu" ${data.status === "Menunggu" ? "selected" : ""}>
-                            Menunggu
-                        </option>
+                            <option value="Menunggu" ${data.status === "Menunggu" ? "selected" : ""}>
+                                Menunggu
+                            </option>
 
-                        <option value="Diproses" ${data.status === "Diproses" ? "selected" : ""}>
-                            Diproses
-                        </option>
+                            <option value="Diproses" ${data.status === "Diproses" ? "selected" : ""}>
+                                Diproses
+                            </option>
 
-                        <option value="Selesai" ${data.status === "Selesai" ? "selected" : ""}>
-                            Selesai
-                        </option>
+                            <option value="Selesai" ${data.status === "Selesai" ? "selected" : ""}>
+                                Selesai
+                            </option>
 
-                    </select>
-                </td>
+                        </select>
+                    </td>
 
-                <td>
-                    ${
-                        data.mapsUrl
-                            ? `<a href="${data.mapsUrl}" target="_blank">📍 Maps</a>`
-                            : "-"
-                    }
-                </td>
+                    <td>
+                        ${
+                            data.mapsUrl
+                                ? `<a href="${data.mapsUrl}" target="_blank" rel="noopener noreferrer">📍 Maps</a>`
+                                : "-"
+                        }
+                    </td>
 
-                <td>
-                    <button onclick="hapusLaporan('${docSnap.id}')">
-                        🗑️ Hapus
-                    </button>
-                </td>
+                    <td>
+                        <button onclick="hapusLaporan('${docSnap.id}')">
+                            🗑️ Hapus
+                        </button>
+                    </td>
 
-            </tr>
+                </tr>
             `;
 
         });
@@ -191,11 +204,11 @@ async function loadLaporan() {
         if (totalData === 0) {
 
             html = `
-            <tr>
-                <td colspan="7" style="text-align:center;">
-                    Belum ada laporan.
-                </td>
-            </tr>
+                <tr>
+                    <td colspan="7" style="text-align:center;padding:20px;">
+                        Belum ada laporan.
+                    </td>
+                </tr>
             `;
 
         }
@@ -206,23 +219,22 @@ async function loadLaporan() {
         menunggu.textContent = jmlMenunggu;
         diproses.textContent = jmlDiproses;
         selesai.textContent = jmlSelesai;
-
+updateWaktuTerakhir();
     } catch (error) {
 
         console.error(error);
 
         tbody.innerHTML = `
-        <tr>
-            <td colspan="7" style="text-align:center;color:red;">
-                Gagal memuat data.
-            </td>
-        </tr>
+            <tr>
+                <td colspan="7" style="text-align:center;color:red;padding:20px;">
+                    Gagal memuat data.
+                </td>
+            </tr>
         `;
 
     }
 
 }
-
 // =======================
 // UBAH STATUS
 // =======================
@@ -236,6 +248,8 @@ window.ubahStatus = async (id, statusBaru) => {
         });
 
         await loadLaporan();
+
+        console.log("Status berhasil diperbarui.");
 
     } catch (error) {
 
@@ -253,7 +267,9 @@ window.ubahStatus = async (id, statusBaru) => {
 
 window.hapusLaporan = async (id) => {
 
-    if (!confirm("Yakin ingin menghapus laporan ini?")) return;
+    const yakin = confirm("Yakin ingin menghapus laporan ini?");
+
+    if (!yakin) return;
 
     try {
 
@@ -274,21 +290,64 @@ window.hapusLaporan = async (id) => {
 };
 
 // =======================
-// PENCARIAN
+// PENCARIAN DATA
 // =======================
 
-search.addEventListener("keyup", () => {
+if (search) {
 
-    const keyword = search.value.toLowerCase();
+    search.addEventListener("keyup", () => {
 
-    const rows = document.querySelectorAll("#dataLaporan tr");
+        const keyword = search.value.trim().toLowerCase();
 
-    rows.forEach((row) => {
+        const rows = tbody.querySelectorAll("tr");
 
-        row.style.display = row.innerText.toLowerCase().includes(keyword)
-            ? ""
-            : "none";
+        rows.forEach((row) => {
+
+            const text = row.textContent.toLowerCase();
+
+            row.style.display = text.includes(keyword)
+                ? ""
+                : "none";
+
+        });
 
     });
 
-});
+}
+
+// =======================
+// REFRESH OTOMATIS
+// =======================
+
+// Refresh data setiap 30 detik
+setInterval(async () => {
+
+    if (auth.currentUser &&
+        auth.currentUser.email === ADMIN_EMAIL) {
+
+        await loadLaporan();
+
+    }
+
+}, 30000);
+// =======================
+// UPDATE TERAKHIR
+// =======================
+
+const lastUpdate = document.getElementById("lastUpdate");
+
+function updateWaktuTerakhir() {
+
+    if (!lastUpdate) return;
+
+    const sekarang = new Date();
+
+    lastUpdate.textContent =
+        "Update terakhir: " +
+        sekarang.toLocaleString("id-ID", {
+            dateStyle: "medium",
+            timeStyle: "medium"
+        });
+
+}
+
