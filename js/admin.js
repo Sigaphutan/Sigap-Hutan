@@ -1,5 +1,5 @@
 <tr>
-    <td colspan="9" class="text-center">
+    <td colspan="10" class="text-center">
         Memuat data...
     </td>
 </tr>
@@ -182,9 +182,9 @@ function renderTable(dataLaporan){
     let jmlSelesai=0;
     let jmlDitolak=0;
 
-    dataLaporan.forEach(data=>{
+   dataLaporan.forEach((data,index)=>{
 
-        totalData++;
+    totalData++;
 
         switch(data.status){
 
@@ -217,7 +217,9 @@ function renderTable(dataLaporan){
 
 <tr>
 
-<td>${data.kodeLaporan??"-"}</td>
+<td>${index+1}</td>
+
+<td>${data.kodeLaporan ?? "-"}</td>
 
 <td>${data.nama??"-"}</td>
 
@@ -240,11 +242,12 @@ ${data.foto?
 `<img
 src="${data.foto}"
 style="
-width:70px;
-height:70px;
+width:90px;
+height:90px;
 object-fit:cover;
 cursor:pointer;
 border-radius:10px;
+transition:.3s;
 "
 onclick="lihatFoto('${data.foto}')">`
 
@@ -256,8 +259,11 @@ onclick="lihatFoto('${data.foto}')">`
 
 <td>
 
-<span class="badge bg-${badge}">
-${data.status??"-"}
+<span
+class="badge bg-${badge} fs-6 px-3 py-2">
+
+${data.status ?? "-"}
+
 </span>
 
 <br><br>
@@ -299,7 +305,7 @@ href="${data.mapsUrl}"
 target="_blank"
 class="btn btn-success btn-sm">
 
-📍 Maps
+📍 Google Maps
 
 </a>`
 
@@ -312,7 +318,7 @@ class="btn btn-success btn-sm">
 <div class="d-grid gap-2">
 
 <button
-class="btn btn-info btn-sm"
+class="btn btn-primary btn-sm"
 onclick='lihatDetail(${JSON.stringify(data)})'>
 
 👁 Detail
@@ -320,7 +326,7 @@ onclick='lihatDetail(${JSON.stringify(data)})'>
 </button>
 
 <button
-class="btn btn-danger btn-sm"
+class="btn btn-outline-danger btn-sm"
 onclick="hapusLaporan('${data.id}')">
 
 🗑 Hapus
@@ -343,7 +349,7 @@ onclick="hapusLaporan('${data.id}')">
 
 <tr>
 
-<td colspan="9"
+<td colspan="10"
 class="text-center">
 
 Belum ada laporan.
@@ -523,3 +529,146 @@ function updateWaktu() {
         new Date().toLocaleString("id-ID");
 
 }
+// ===============================
+// REFRESH
+// ===============================
+
+btnRefresh.addEventListener("click",()=>{
+
+    renderTable(semuaLaporan);
+
+});
+
+// ===============================
+// PRINT
+// ===============================
+
+document
+.getElementById("btnPrint")
+.addEventListener("click",()=>{
+
+    window.print();
+
+});
+// ===============================
+// EXPORT EXCEL
+// ===============================
+
+document
+.getElementById("btnExcel")
+.addEventListener("click",()=>{
+
+    const data = semuaLaporan.map(item=>({
+
+        Kode:item.kodeLaporan,
+
+        Nama:item.nama,
+
+        Kabupaten:item.kabupaten,
+
+        Kecamatan:item.kecamatan,
+
+        Jenis:item.jenis,
+
+        Status:item.status,
+
+        Tanggal:item.tanggal
+
+    }));
+
+
+    const worksheet =
+    XLSX.utils.json_to_sheet(data);
+
+    const workbook =
+    XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+
+        workbook,
+
+        worksheet,
+
+        "Laporan"
+
+    );
+
+    XLSX.writeFile(
+
+        workbook,
+
+        "Laporan_SIGAP_Hutan.xlsx"
+
+    );
+
+});
+// ===============================
+// EXPORT PDF
+// ===============================
+
+document
+.getElementById("btnPdf")
+.addEventListener("click",()=>{
+
+    const { jsPDF } = window.jspdf;
+
+    const pdf = new jsPDF();
+
+    pdf.setFontSize(16);
+
+    pdf.text(
+
+        "Laporan SIGAP Hutan",
+
+        14,
+
+        15
+
+    );
+
+    const rows=[];
+
+    semuaLaporan.forEach(item=>{
+
+        rows.push([
+
+            item.kodeLaporan,
+
+            item.nama,
+
+            item.kabupaten,
+
+            item.jenis,
+
+            item.status,
+
+            item.tanggal
+
+        ]);
+
+    });
+
+    pdf.autoTable({
+
+        head:[[
+            "Kode",
+            "Nama",
+            "Kabupaten",
+            "Jenis",
+            "Status",
+            "Tanggal"
+        ]],
+
+        body:rows,
+
+        startY:25
+
+    });
+
+    pdf.save(
+
+        "Laporan_SIGAP_Hutan.pdf"
+
+    );
+
+});
