@@ -961,3 +961,52 @@ transform:translateY(0);
 box-shadow:0 20px 40px rgba(0,0,0,.15);
 
 }
+/*=====================================
+ HERO EDUKASI
+======================================*/
+
+.hero-edukasi{
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(25,135,84,.90) 0%,
+        rgba(25,135,84,.82) 40%,
+        rgba(25,135,84,.35) 70%,
+        rgba(25,135,84,.05) 100%
+    ),
+    url("../images/hero-edukasi-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 620px;
+
+    display:flex;
+    align-items:center;
+
+    color:#fff;
+
+}
+
+.hero-edukasi h1{
+
+    font-size:60px;
+    font-weight:800;
+
+}
+
+.hero-edukasi p{
+
+    font-size:20px;
+    line-height:1.9;
+    max-width:650px;
+
+}
+
+.hero-edukasi .btn{
+
+    margin-top:15px;
+
+}
