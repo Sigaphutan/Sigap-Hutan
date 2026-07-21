@@ -14,10 +14,17 @@
     <p>Kelola laporan masyarakat</p>
 </header>
 
-<div style="text-align:center; margin:20px;">
-    <button onclick="loginAdmin()">Login Admin</button>
-    <button onclick="logoutAdmin()">Logout</button>
-</div>
+<section class="aksi-admin">
+
+    <button class="btn-login" onclick="loginAdmin()">
+        🔐 Login Admin
+    </button>
+
+    <button class="btn-logout" onclick="logoutAdmin()">
+        🚪 Logout
+    </button>
+
+</section>
 
 <main>
 
@@ -42,31 +49,50 @@
             <p>Selesai</p>
         </div>
     </section>
+    
 <section class="toolbar">
     <input
         type="text"
         id="search"
-        placeholder="🔍 Cari kode, nama, lokasi atau jenis laporan...">
+        placeholder="🔍 Cari kode, nama, lokasi atau jenis laporan..."
+        autocomplete="off">
 </section>
-    <section class="tabel">
-        <table>
-            <thead>
-               <tr>
-    <th>Kode</th>
-    <th>Nama</th>
-    <th>Lokasi</th>
-    <th>Jenis</th>
-    <th>Status</th>
-    <th>Maps</th>
-    <th>Aksi</th>
-</tr>
-            </thead>
+    
+  <section class="tabel">
 
-            <tbody id="dataLaporan">
-            </tbody>
+    <h2>Daftar Laporan</h2>
 
-        </table>
-    </section>
+   <div class="table-responsive">
+
+    <table>
+
+        <caption style="display:none;">
+            Daftar laporan masyarakat
+        </caption>
+
+        <thead>
+
+            <tr>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>Lokasi</th>
+                <th>Jenis</th>
+                <th>Status</th>
+                <th>Maps</th>
+                <th>Aksi</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="dataLaporan">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</section>
 
 </main>
 
