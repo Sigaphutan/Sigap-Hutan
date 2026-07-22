@@ -644,14 +644,15 @@ function filterData() {
     const keyword = search.value.toLowerCase();
     const status = filterStatus.value;
     const jenis = filterJenis.value;
-    const jenis = filterJenis.value;
 
 console.log("Jenis dipilih:", jenis);
     const sort = sortDataSelect.value;
 
     let hasil = semuaLaporan.filter(item => {
 
-        const text = (
+    console.log("Data Firestore:", item.jenis);
+
+    const text = (
             (item.kodeLaporan || "") +
             (item.nama || "") +
             (item.kabupaten || "") +
