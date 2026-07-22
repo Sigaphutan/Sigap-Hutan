@@ -94,7 +94,33 @@ const btnRefresh = document.getElementById("btnRefresh");
 // ===============================================
 
 let semuaLaporan = [];
+// ===============================================
+// SUARA NOTIFIKASI
+// ===============================================
 
+let jumlahLaporanSebelumnya = 0;
+
+function bunyiNotifikasi() {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    oscillator.type = "sine";
+    oscillator.frequency.value = 900;
+
+    gainNode.gain.value = 0.2;
+
+    oscillator.start();
+
+    setTimeout(() => {
+        oscillator.stop();
+        audioCtx.close();
+    }, 250);
+}
 
 // ===============================================
 // LOGIN ADMIN
@@ -209,7 +235,27 @@ function loadData() {
 
             console.log("Semua laporan:", semuaLaporan);
 
-            renderTable(semuaLaporan);
+            if (
+    jumlahLaporanSebelumnya !== 0 &&
+    snapshot.size > jumlahLaporanSebelumnya
+){
+
+    bunyiNotifikasi();
+
+    const toast = new bootstrap.Toast(
+        document.getElementById("toastLaporanBaru"),
+        {
+            delay:5000
+        }
+    );
+
+    toast.show();
+
+}
+
+jumlahLaporanSebelumnya = snapshot.size;
+
+renderTable(semuaLaporan);
 
         },
 
