@@ -768,13 +768,35 @@ Seluruh Hak Cipta Dilindungi.
 <!-- ADMIN JS -->
 <!-- ========================================= -->
 
-<script
-type="module"
-src="../js/admin.js">
+<!-- Toast Notifikasi -->
+<div class="position-fixed top-0 end-0 p-3" style="z-index:9999">
+    <div id="toastLaporanBaru"
+         class="toast border-0 shadow"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true">
 
-</script>
+        <div class="toast-header bg-success text-white">
+            <strong class="me-auto">🔔 SIGAP HUTAN</strong>
+            <small>Baru saja</small>
+
+            <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="toast">
+            </button>
+        </div>
+
+        <div class="toast-body">
+            <strong>Laporan baru berhasil diterima.</strong><br>
+            Silakan periksa dashboard admin.
+        </div>
+
+    </div>
+</div>
+
+<!-- ADMIN JS -->
+<script type="module" src="../js/admin.js"></script>
 
 </body>
-
 </html>
-    
