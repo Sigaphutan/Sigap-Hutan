@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sigaphutan.github.io/Sigap-Hutan/sitemap.xml
