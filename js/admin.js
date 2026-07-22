@@ -305,7 +305,7 @@ onclick="lihatFoto('${data.foto}')">`
 
 </td>
 
-<td>${data.tanggalKejadian ?? "-"}</td>
+<td>${formatTanggal(data.tanggalKejadian)}</td>
 
 <td>
 
@@ -471,7 +471,7 @@ window.lihatDetail = (id) => {
         data.status ?? "-";
 
     document.getElementById("dTanggal").textContent =
-    data.tanggalKejadian ?? "-";
+    formatTanggal(data.tanggalKejadian);
 
     document.getElementById("dDeskripsi").textContent =
         data.deskripsi ?? "-";
@@ -766,7 +766,7 @@ if (btnExcel) {
 
             "Status": item.status || "-",
 
-            "Tanggal": item.tanggalKejadian || "-"
+            "Tanggal": formatTanggal(item.tanggalKejadian)
 
         }));
 
@@ -843,7 +843,7 @@ if (btnPdf) {
 
     item.status || "-",
 
-    item.tanggalKejadian || "-"
+    formatTanggal(item.tanggalKejadian)
 
 ]);
 
