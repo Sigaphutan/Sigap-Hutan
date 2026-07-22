@@ -184,49 +184,61 @@ onclick="logoutAdmin()">
 <!-- PENCARIAN & FILTER -->
 <!-- ========================= -->
 
-<div class="row mt-4 mb-3">
+<div class="row g-3 mt-3 mb-4">
 
-    <div class="col-lg-6">
-
+    <!-- Pencarian -->
+    <div class="col-lg-3">
         <input
             type="text"
             id="search"
             class="form-control"
-            placeholder="🔍 Cari kode, nama, lokasi atau jenis laporan...">
-
+            placeholder="🔍 Cari laporan...">
     </div>
 
-    <div class="col-lg-3">
-
-        <select
-            id="filterStatus"
-            class="form-select">
-
-            <option value="">Semua Status</option>
-            <option value="Menunggu">🟡 Menunggu</option>
-            <option value="Diproses">🔵 Diproses</option>
-            <option value="Selesai">🟢 Selesai</option>
-            <option value="Ditolak">🔴 Ditolak</option>
-
+    <!-- Jenis -->
+    <div class="col-lg-2">
+        <select id="filterJenis" class="form-select">
+            <option value="">🌲 Semua Jenis</option>
+            <option value="Penebangan Liar">Penebangan Liar</option>
+            <option value="Karhutla">Karhutla</option>
+            <option value="Perambahan Hutan">Perambahan Hutan</option>
+            <option value="Perburuan Satwa">Perburuan Satwa</option>
+            <option value="Pencemaran">Pencemaran</option>
+            <option value="Lainnya">Lainnya</option>
         </select>
-
     </div>
 
-    <div class="col-lg-3 text-end">
+    <!-- Status -->
+    <div class="col-lg-2">
+        <select id="filterStatus" class="form-select">
+            <option value="">📌 Semua Status</option>
+            <option value="Menunggu">Menunggu</option>
+            <option value="Diproses">Diproses</option>
+            <option value="Selesai">Selesai</option>
+            <option value="Ditolak">Ditolak</option>
+        </select>
+    </div>
 
+    <!-- Urutkan -->
+    <div class="col-lg-2">
+        <select id="sortData" class="form-select">
+            <option value="terbaru">📅 Tanggal Terbaru</option>
+            <option value="terlama">📅 Tanggal Terlama</option>
+            <option value="namaAZ">👤 Nama A-Z</option>
+            <option value="namaZA">👤 Nama Z-A</option>
+        </select>
+    </div>
+
+    <!-- Reset -->
+    <div class="col-lg-3">
         <button
-            id="btnRefresh"
-            class="btn btn-primary">
-
-            🔄 Refresh
-
+            class="btn btn-outline-secondary w-100"
+            onclick="resetFilter()">
+            🔄 Reset Filter
         </button>
-
     </div>
 
 </div>
-
-
 <!-- ========================= -->
 <!-- TOMBOL AKSI -->
 <!-- ========================= -->
