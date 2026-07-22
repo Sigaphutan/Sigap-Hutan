@@ -664,11 +664,11 @@ console.log("Jenis dipilih:", jenis);
         const cocokStatus =
             status === "" || item.status === status;
 
-      const cocokJenis =
+const cocokJenis =
     jenis === "" ||
-    (item.jenis || "").trim().toLowerCase() ===
-    jenis.trim().toLowerCase();
-
+    (item.jenis || "")
+        .toLowerCase()
+        .includes(jenis.toLowerCase());
         return text.includes(keyword)
             && cocokStatus
             && cocokJenis;
