@@ -96,9 +96,9 @@ color:#ddd;
 
 .navbar-brand img{
 
-width:55px;
-height:55px;
-object-fit:contain;
+width:42px;
+
+height:42px;
 
 }
 
@@ -145,20 +145,15 @@ width:100%;
 
 background:linear-gradient(rgba(10,70,35,.85),rgba(18,85,48,.85)),
 url("../images/hero.png") center/cover;
-min-height:100vh;
+min-height:90vh;
 display:flex;
 align-items:center;
 
 }
 
 .hero h1{
-
-font-size:58px;
-font-weight:800;
-color:#fff;
-
+    font-size:clamp(2.3rem,5vw,3.8rem);
 }
-
 .hero h3{
 
 font-weight:600;
@@ -175,10 +170,9 @@ color:#eee;
 }
 
 .hero-image{
-
-max-width:520px;
-animation:float 4s ease-in-out infinite;
-
+    width:100%;
+    max-width:520px;
+    animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
@@ -903,9 +897,7 @@ padding:70px 0;
 }
 
 .hero{
-
-padding-top:100px;
-
+    min-height:90vh;
 }
 
 .hero h1{
@@ -1034,10 +1026,7 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 .hero-edukasi h1{
-
-    font-size:60px;
-    font-weight:800;
-
+    font-size:clamp(2.5rem,5vw,4rem);
 }
 
 .hero-edukasi p{
@@ -1051,5 +1040,64 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 .hero-edukasi .btn{
 
     margin-top:15px;
+
+}
+/*=========================================
+  EXTRA RESPONSIVE HP
+=========================================*/
+
+@media (max-width:576px){
+
+    .navbar{
+        padding:10px 0;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:120px 0 80px;
+    }
+
+    .hero h1{
+        font-size:2rem;
+    }
+
+    .hero h3{
+        font-size:1.3rem;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .hero-edukasi{
+        min-height:auto;
+        padding:120px 0 80px;
+    }
+
+    .hero-edukasi h1{
+        font-size:2rem;
+    }
+
+    .hero-edukasi p{
+        font-size:15px;
+    }
+
+    .hero-image{
+        width:90%;
+        margin:auto;
+    }
+
+    .navbar-brand img{
+        width:42px;
+        height:42px;
+    }
+
+    .gallery-card img{
+        height:200px;
+    }
+
+    .banner-pelayanan{
+        padding:20px;
+    }
 
 }
