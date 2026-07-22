@@ -457,9 +457,11 @@ Belum ada laporan.
 `;
 
     }
+console.log("Total Data :", totalData);
+console.log(html);
 
-    tbody.innerHTML = html;
-
+tbody.innerHTML = html;
+    
     total.textContent = totalData;
 
     menunggu.textContent = jmlMenunggu;
@@ -663,8 +665,7 @@ console.log("Jenis dipilih:", jenis);
 
         const cocokStatus =
             status === "" || item.status === status;
-console.log("Filter dipilih :", jenis);
-console.log("Data Firestore :", item.jenis);
+
 const cocokJenis =
     jenis === "" ||
     (item.jenis || "")
