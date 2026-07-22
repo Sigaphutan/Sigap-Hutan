@@ -660,9 +660,10 @@ function filterData() {
         const cocokStatus =
             status === "" || item.status === status;
 
-       const cocokJenis =
+      const cocokJenis =
     jenis === "" ||
-    (item.jenis || "").toLowerCase().includes(jenis.toLowerCase());
+    (item.jenis || "").trim().toLowerCase() ===
+    jenis.trim().toLowerCase();
 
         return text.includes(keyword)
             && cocokStatus
