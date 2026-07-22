@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,12 +17,14 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
+
         <div class="container">
 
             <a class="navbar-brand fw-bold" href="../index.html">
@@ -33,23 +36,25 @@
             </a>
 
         </div>
+
     </nav>
 
     <!-- Header -->
-    <section class="py-5 bg-light">
+    <section class="bg-success text-white py-5">
+
         <div class="container text-center">
 
-            <i class="bi bi-search display-1 text-success"></i>
-
-            <h1 class="fw-bold mt-3">
+            <h1 class="fw-bold">
+                <i class="bi bi-search"></i>
                 Cek Status Pengaduan
             </h1>
 
-            <p class="text-muted">
-                Masukkan nomor laporan untuk melihat perkembangan pengaduan Anda.
+            <p class="mb-0">
+                Masukkan kode laporan untuk mengetahui perkembangan pengaduan Anda.
             </p>
 
         </div>
+
     </section>
 
     <!-- Form -->
@@ -57,26 +62,35 @@
 
         <div class="container">
 
-            <div class="row justify-content-center">
+            <div class="card shadow border-0">
 
-                <div class="col-lg-8">
+                <div class="card-body">
 
-                    <div class="card shadow border-0">
+                    <div class="row g-3">
 
-                        <div class="card-body p-4">
+                        <div class="col-md-9">
 
                             <label class="form-label fw-bold">
-                                Nomor Laporan
+                                Kode Laporan
                             </label>
 
                             <input
                                 type="text"
+                                id="kodeLaporan"
                                 class="form-control"
-                                placeholder="Contoh : SGH-2026-001">
+                                placeholder="Contoh : SGH-12345678">
 
-                            <button class="btn btn-success mt-3 w-100">
+                        </div>
+
+                        <div class="col-md-3 d-grid align-items-end">
+
+                            <button
+                                id="btnCari"
+                                class="btn btn-success mt-md-4">
+
                                 <i class="bi bi-search"></i>
                                 Cek Status
+
                             </button>
 
                         </div>
@@ -96,75 +110,112 @@
 
         <div class="container">
 
-            <div class="row justify-content-center">
+            <div
+                id="hasilStatus"
+                class="card shadow border-0"
+                style="display:none;">
 
-                <div class="col-lg-8">
+                <div class="card-header bg-success text-white">
 
-                    <div class="card border-0 shadow">
-
-                        <div class="card-header bg-success text-white">
-                            <h5 class="mb-0">
-                                Hasil Pengecekan
-                            </h5>
-                        </div>
-
-                        <div class="card-body">
-
-                            <table class="table">
-
-                                <tr>
-                                    <th width="35%">Nomor Laporan</th>
-                                    <td>SGH-2026-001</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Tanggal Lapor</th>
-                                    <td>22 Juli 2026</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Jenis Gangguan</th>
-                                    <td>Pembalakan Liar</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Lokasi</th>
-                                    <td>Aceh Tenggara</td>
-                                </tr>
-
-                                <tr>
-                                    <th>Status</th>
-                                    <td>
-                                        <span class="badge bg-warning text-dark">
-                                            Sedang Diproses
-                                        </span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th>Keterangan</th>
-                                    <td>
-                                        Laporan telah diterima dan sedang diverifikasi oleh petugas.
-                                    </td>
-                                </tr>
-
-                            </table>
-
-                        </div>
-
-                    </div>
-
-                    <div class="text-center mt-4">
-
-                        <a href="../index.html" class="btn btn-outline-success">
-                            <i class="bi bi-arrow-left"></i>
-                            Kembali ke Beranda
-                        </a>
-
-                    </div>
+                    <h5 class="mb-0">
+                        Hasil Pengecekan
+                    </h5>
 
                 </div>
 
+                <div class="card-body">
+
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <th width="30%">Kode Laporan</th>
+                            <td id="hasilKode"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Nama Pelapor</th>
+                            <td id="hasilNama"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Kabupaten</th>
+                            <td id="hasilKabupaten"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Kecamatan</th>
+                            <td id="hasilKecamatan"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Lokasi</th>
+                            <td id="hasilLokasi"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Jenis Gangguan</th>
+                            <td id="hasilJenis"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Tanggal Kejadian</th>
+                            <td id="hasilTanggal"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Status</th>
+                            <td id="hasilStatusBadge"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Deskripsi</th>
+                            <td id="hasilDeskripsi"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Foto</th>
+                            <td>
+
+                                <img
+                                    id="hasilFoto"
+                                    class="img-fluid rounded"
+                                    style="max-height:300px;">
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Lokasi Maps</th>
+
+                            <td>
+
+                                <a
+                                    id="hasilMaps"
+                                    target="_blank"
+                                    class="btn btn-primary">
+
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    Lihat Lokasi
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <!-- Pesan -->
+            <div
+                id="pesan"
+                class="alert alert-warning mt-4"
+                style="display:none;">
             </div>
 
         </div>
@@ -173,12 +224,28 @@
 
     <!-- Footer -->
     <footer class="bg-success text-white text-center py-3">
-        <small>
-            © 2026 SIGAP HUTAN - UPTD KPH Wilayah VIII Aceh
-        </small>
+
+        <div class="container">
+
+            <small>
+
+                © 2026 SIGAP HUTAN<br>
+
+                Sistem Informasi Pengaduan Gangguan Kehutanan<br>
+
+                UPTD KPH Wilayah VIII Aceh
+
+            </small>
+
+        </div>
+
     </footer>
 
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Firebase -->
+    <script type="module" src="../js/status.js"></script>
 
 </body>
 
