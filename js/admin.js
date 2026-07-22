@@ -766,7 +766,7 @@ if (btnExcel) {
 
             "Status": item.status || "-",
 
-            "Tanggal": item.tanggal || "-"
+            "Tanggal": item.tanggalKejadian || "-"
 
         }));
 
@@ -829,23 +829,23 @@ if (btnPdf) {
 
         semuaLaporan.forEach(item => {
 
-            rows.push([
+           rows.push([
 
-                item.kodeLaporan || "-",
+    item.kodeLaporan || "-",
 
-                item.nama || "-",
+    item.nama || "-",
 
-                item.kabupaten || "-",
+    item.kabupaten || "-",
 
-                item.kecamatan || "-",
+    item.kecamatan || "-",
 
-                item.jenis || "-",
+    item.jenis || "-",
 
-                item.status || "-",
+    item.status || "-",
 
-                item.tanggal || "-"
+    item.tanggalKejadian || "-"
 
-            ]);
+]);
 
         });
 
