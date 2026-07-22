@@ -257,7 +257,7 @@ function loadData() {
 
 jumlahLaporanSebelumnya = snapshot.size;
 
-renderTable(semuaLaporan);
+filterData();
 
         },
 
@@ -610,6 +610,17 @@ window.hapusLaporan = async (id) => {
 // SEARCH + FILTER
 // ===============================================
 
+function getTanggal(item) {
+
+    if (!item.tanggalKejadian) return 0;
+
+    const t = new Date(item.tanggalKejadian);
+
+    if (isNaN(t)) return 0;
+
+    return t.getTime();
+
+}
 if (search) {
 
     search.addEventListener("keyup", filterData);
@@ -617,18 +628,16 @@ if (search) {
 }
 
 if (filterStatus) {
-
     filterStatus.addEventListener("change", filterData);
-    if (filterJenis) {
+}
+
+if (filterJenis) {
     filterJenis.addEventListener("change", filterData);
 }
 
 if (sortDataSelect) {
     sortDataSelect.addEventListener("change", filterData);
 }
-
-}
-
 
 function filterData() {
 
@@ -651,8 +660,9 @@ function filterData() {
         const cocokStatus =
             status === "" || item.status === status;
 
-        const cocokJenis =
-            jenis === "" || item.jenis === jenis;
+       const cocokJenis =
+    jenis === "" ||
+    (item.jenis || "").toLowerCase().includes(jenis.toLowerCase());
 
         return text.includes(keyword)
             && cocokStatus
@@ -660,30 +670,34 @@ function filterData() {
 
     });
 
-    switch (sort) {
+   switch (sort) {
 
-        case "namaAZ":
-            hasil.sort((a,b)=>a.nama.localeCompare(b.nama));
-            break;
+    case "namaAZ":
+        hasil.sort((a, b) =>
+            (a.nama || "").localeCompare(b.nama || "")
+        );
+        break;
 
-        case "namaZA":
-            hasil.sort((a,b)=>b.nama.localeCompare(a.nama));
-            break;
+    case "namaZA":
+        hasil.sort((a, b) =>
+            (b.nama || "").localeCompare(a.nama || "")
+        );
+        break;
 
-        case "terlama":
-            hasil.sort((a,b)=>
-                new Date(a.tanggalKejadian)-new Date(b.tanggalKejadian));
-            break;
+    case "terlama":
+        hasil.sort((a, b) =>
+            getTanggal(a) - getTanggal(b)
+        );
+        break;
 
-        default:
-            hasil.sort((a,b)=>
-                new Date(b.tanggalKejadian)-new Date(a.tanggalKejadian));
-    }
-
-    renderTable(hasil);
+    default:
+        hasil.sort((a, b) =>
+            getTanggal(b) - getTanggal(a)
+        );
 
 }
-
+    renderTable(hasil);
+}
 
 // ===============================================
 // REFRESH
@@ -742,7 +756,7 @@ window.sortData = (field) => {
 
     });
 
-    renderTable(semuaLaporan);
+    filterData();
 
 };
 
@@ -753,16 +767,14 @@ window.sortData = (field) => {
 
 window.resetFilter = () => {
 
-    if (search)
-        search.value = "";
+    if (search) search.value = "";
+    if (filterStatus) filterStatus.value = "";
+    if (filterJenis) filterJenis.value = "";
+    if (sortDataSelect) sortDataSelect.value = "terbaru";
 
-    if (filterStatus)
-        filterStatus.value = "";
-
-    renderTable(semuaLaporan);
+    filterData();
 
 };
-
 
 // ===============================================
 // TOTAL DATA PER STATUS
