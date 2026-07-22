@@ -305,7 +305,7 @@ onclick="lihatFoto('${data.foto}')">`
 
 </td>
 
-"Tanggal": item.tanggalKejadian || "-"
+<td>${data.tanggalKejadian ?? "-"}</td>
 
 <td>
 
