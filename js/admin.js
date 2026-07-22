@@ -83,6 +83,8 @@ const ditolak = document.getElementById("ditolak");
 const search = document.getElementById("search");
 
 const filterStatus = document.getElementById("filterStatus");
+const filterJenis = document.getElementById("filterJenis");
+const sortDataSelect = document.getElementById("sortData");
 
 const lastUpdate = document.getElementById("lastUpdate");
 
@@ -617,46 +619,66 @@ if (search) {
 if (filterStatus) {
 
     filterStatus.addEventListener("change", filterData);
+    if (filterJenis) {
+    filterJenis.addEventListener("change", filterData);
+}
+
+if (sortDataSelect) {
+    sortDataSelect.addEventListener("change", filterData);
+}
 
 }
 
 
 function filterData() {
 
-    const keyword =
-        search.value.toLowerCase().trim();
+    const keyword = search.value.toLowerCase();
+    const status = filterStatus.value;
+    const jenis = filterJenis.value;
+    const sort = sortDataSelect.value;
 
-    const status =
-        filterStatus.value;
+    let hasil = semuaLaporan.filter(item => {
 
-    const hasil =
-        semuaLaporan.filter((item) => {
+        const text = (
+            (item.kodeLaporan || "") +
+            (item.nama || "") +
+            (item.kabupaten || "") +
+            (item.kecamatan || "") +
+            (item.jenis || "") +
+            (item.deskripsi || "")
+        ).toLowerCase();
 
-            const text = (
+        const cocokStatus =
+            status === "" || item.status === status;
 
-                (item.kodeLaporan || "") +
+        const cocokJenis =
+            jenis === "" || item.jenis === jenis;
 
-                (item.nama || "") +
+        return text.includes(keyword)
+            && cocokStatus
+            && cocokJenis;
 
-                (item.kabupaten || "") +
+    });
 
-                (item.kecamatan || "") +
+    switch (sort) {
 
-                (item.jenis || "") +
+        case "namaAZ":
+            hasil.sort((a,b)=>a.nama.localeCompare(b.nama));
+            break;
 
-                (item.deskripsi || "")
+        case "namaZA":
+            hasil.sort((a,b)=>b.nama.localeCompare(a.nama));
+            break;
 
-            ).toLowerCase();
+        case "terlama":
+            hasil.sort((a,b)=>
+                new Date(a.tanggalKejadian)-new Date(b.tanggalKejadian));
+            break;
 
-            const cocokStatus =
-
-                status === "" ||
-
-                item.status === status;
-
-            return text.includes(keyword) && cocokStatus;
-
-        });
+        default:
+            hasil.sort((a,b)=>
+                new Date(b.tanggalKejadian)-new Date(a.tanggalKejadian));
+    }
 
     renderTable(hasil);
 
