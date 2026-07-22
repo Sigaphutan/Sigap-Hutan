@@ -825,30 +825,26 @@ if (btnPdf) {
             22
         );
 
-        const rows = [];
+       const rows = [];
 
-      semuaLaporan.forEach(item => {
+semuaLaporan.forEach(item => {
+
+    console.log("Jenis Asli:", item.jenis);
 
     const jenis = (item.jenis || "-")
         .replace(/[^\x20-\x7E]/g, "")
         .trim();
 
+    console.log("Jenis Bersih:", jenis);
+
     rows.push([
-
         item.kodeLaporan || "-",
-
         item.nama || "-",
-
         item.kabupaten || "-",
-
         item.kecamatan || "-",
-
         jenis,
-
         item.status || "-",
-
         formatTanggal(item.tanggalKejadian)
-
     ]);
 
 });
