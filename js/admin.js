@@ -827,27 +827,31 @@ if (btnPdf) {
 
         const rows = [];
 
-        semuaLaporan.forEach(item => {
+      semuaLaporan.forEach(item => {
 
-           rows.push([
+    const jenis = (item.jenis || "-")
+        .replace(/[^\x20-\x7E]/g, "")
+        .trim();
 
-    item.kodeLaporan || "-",
+    rows.push([
 
-    item.nama || "-",
+        item.kodeLaporan || "-",
 
-    item.kabupaten || "-",
+        item.nama || "-",
 
-    item.kecamatan || "-",
+        item.kabupaten || "-",
 
-    item.jenis || "-",
+        item.kecamatan || "-",
 
-    item.status || "-",
+        jenis,
 
-    formatTanggal(item.tanggalKejadian)
+        item.status || "-",
 
-]);
+        formatTanggal(item.tanggalKejadian)
 
-        });
+    ]);
+
+});
 
         pdf.autoTable({
 
