@@ -1074,44 +1074,43 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 ========================= */
 
 .running-text{
-    display:flex;
-    align-items:center;
-    background:linear-gradient(90deg,#0b5d2a,#198754,#0b5d2a);
-    color:#fff;
-    height:50px;
-    padding:0 18px;
-    border-top:3px solid #ffc107;
-    border-bottom:3px solid #ffc107;
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
-    overflow:hidden;
-}
-
-.running-icon{
-    width:34px;
-    height:34px;
-    min-width:34px;
-    border-radius:50%;
-    background:#ffc107;
-    color:#14532d;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:18px;
-    margin-right:15px;
-}
-
-.running-text marquee{
     width:100%;
-    margin:0;
+    height:45px;
+    background:#198754;
+    color:#fff;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    border-top:2px solid #ffc107;
+    border-bottom:2px solid #ffc107;
+}
+
+.running-content{
+    display:flex;
+    align-items:center;
+    white-space:nowrap;
+    animation:jalan 20s linear infinite;
+}
+
+.running-content i{
+    color:#ffc107;
+    font-size:20px;
+    margin-right:12px;
+}
+
+.running-content span{
     font-size:15px;
     font-weight:600;
-    letter-spacing:.4px;
 }
 
-.running-text strong{
-    color:#ffd54f;
+@keyframes jalan{
+    from{
+        transform:translateX(100%);
+    }
+    to{
+        transform:translateX(-100%);
+    }
 }
-
 /*=========================================
   EXTRA RESPONSIVE HP
 =========================================*/
