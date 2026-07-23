@@ -1074,17 +1074,34 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 ========================= */
 
 .running-text{
-    background:#14532d;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(90deg,#0b5d2a,#198754);
     color:#fff;
-    padding:8px 0;
+    padding:10px 18px;
+    border-top:2px solid #ffc107;
+    border-bottom:2px solid #ffc107;
+    font-size:15px;
     font-weight:600;
-    overflow:hidden;
-    border-top:1px solid rgba(255,255,255,.2);
-    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.running-icon{
+    width:42px;
+    height:42px;
+    background:#ffc107;
+    color:#14532d;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-right:15px;
+    font-size:20px;
+    flex-shrink:0;
 }
 
 .running-text marquee{
     margin:0;
+    width:100%;
 }
 
 /*=========================================
