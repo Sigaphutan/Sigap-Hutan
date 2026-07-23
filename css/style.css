@@ -160,13 +160,12 @@ width:100%;
 }
 
 .running-content{
-    display:inline-flex;
-    align-items:center;
-    white-space:nowrap;
-    width:max-content;
-    flex-shrink:0;
-    padding-left:100%;
-    animation:jalan 25s linear infinite;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    min-width: max-content;
+    padding-left: 100%;
+    animation: jalan 30s linear infinite;
 }
 
 .running-content i{
@@ -181,11 +180,12 @@ width:100%;
 }
 
 @keyframes jalan{
-    from{
-        transform:translateX(0);
+    0%{
+        transform: translateX(100%);
     }
-    to{
-        transform:translateX(-100%);
+
+    100%{
+        transform: translateX(-100%);
     }
 }
 /* =========================
