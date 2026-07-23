@@ -6,7 +6,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
 
 import {
     getAuth,
-    signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup,
     signOut
@@ -18,7 +17,7 @@ import {
 // ================================
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB4cX8QGigpL_hL9Wi-_HVZunkctdIGw_g",
+    apiKey: "AIzaSyB4cXGigpL_hL9Wi-_HVZunkctdIGw_g",
     authDomain: "sigap-hutan-715d1.firebaseapp.com",
     projectId: "sigap-hutan-715d1",
     storageBucket: "sigap-hutan-715d1.firebasestorage.app",
@@ -28,7 +27,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
 const provider = new GoogleAuthProvider();
 
 
@@ -36,53 +34,37 @@ const provider = new GoogleAuthProvider();
 // LOGIN ID ADMIN
 // ================================
 
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
+document.getElementById("loginForm").addEventListener("submit", (e) => {
 
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
-
     const password = document.getElementById("password").value.trim();
-
     const remember = document.getElementById("remember").checked;
 
+    if (
+        username === "sigaphutankph8" &&
+        password === "uptdkph8"
+    ) {
 
-    // Login menggunakan ID Admin
-    if (username === "sigaphutankph8" && password === "uptdkph8") {
+        // Login lokal
+        sessionStorage.setItem("adminLogin", "true");
+        sessionStorage.setItem("adminName", "Administrator");
 
-        try {
-
-            // Login ke Firebase menggunakan akun admin
-            await signInWithEmailAndPassword(
-                auth,
-                "sigaphutan@gmail.com",
-                "uptdkph8"
-            );
-
-            // Simpan data jika Remember Me dicentang
-            if (remember) {
-
-                localStorage.setItem("username", username);
-                localStorage.setItem("password", password);
-
-            } else {
-
-                localStorage.removeItem("username");
-                localStorage.removeItem("password");
-
-            }
-
-            window.location.href = "admin.html";
-
-        } catch (error) {
-
-            alert("Gagal login.\n\n" + error.message);
-
+        // Remember Me
+        if (remember) {
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+        } else {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
         }
+
+        window.location.href = "admin.html";
 
     } else {
 
-        alert("ID Admin atau Password salah!");
+        alert("❌ ID Admin atau Password salah!");
 
     }
 
@@ -99,21 +81,27 @@ document.getElementById("googleLogin").addEventListener("click", async () => {
 
         const result = await signInWithPopup(auth, provider);
 
+        // Hanya email ini yang boleh login
         if (result.user.email !== "sigaphutan@gmail.com") {
 
             await signOut(auth);
 
-            alert("Akun Google ini tidak memiliki akses.");
+            alert("❌ Akun Google ini tidak memiliki akses.");
 
             return;
 
         }
 
+        sessionStorage.setItem("adminLogin", "true");
+        sessionStorage.setItem("adminName", result.user.displayName);
+
         window.location.href = "admin.html";
 
     } catch (error) {
 
-        alert(error.message);
+        console.error(error);
+
+        alert("Gagal login dengan Google.\n\n" + error.message);
 
     }
 
@@ -127,15 +115,12 @@ document.getElementById("googleLogin").addEventListener("click", async () => {
 window.addEventListener("load", () => {
 
     const username = localStorage.getItem("username");
-
     const password = localStorage.getItem("password");
 
     if (username && password) {
 
         document.getElementById("username").value = username;
-
         document.getElementById("password").value = password;
-
         document.getElementById("remember").checked = true;
 
     }
