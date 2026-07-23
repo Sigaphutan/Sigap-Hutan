@@ -160,10 +160,11 @@ width:100%;
 }
 
 .running-content{
-    display: inline-flex;
+    display: flex;
     align-items: center;
     white-space: nowrap;
-    animation: jalan 18s linear infinite;
+    width: max-content;
+    animation: jalan 25s linear infinite;
 }
 
 .running-content i{
@@ -171,8 +172,9 @@ width:100%;
     font-size:20px;
     margin-right:12px;
 }
-
 .running-content span{
+    display: inline-block;
+    padding-right: 120px;
     font-size:15px;
     font-weight:600;
 }
