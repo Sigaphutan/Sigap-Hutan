@@ -45,7 +45,7 @@ overflow-x:hidden;
 
 section{
 
-padding:90px 0;
+padding:60px 0;
 
 }
 
@@ -349,6 +349,7 @@ color:var(--primary);
 #layanan{
 
 background:#f8f9fa;
+   padding-top:0;
 
 }
 
