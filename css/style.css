@@ -148,7 +148,7 @@ url("../images/hero.png") center/cover;
 min-height:90vh;
 display:flex;
 align-items:center;
-
+padding-top:70px;
 }
 
 .hero h1{
@@ -1042,6 +1042,51 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     margin-top:15px;
 
 }
+
+/* =========================
+   LOGO BARU
+========================= */
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff;
+    padding:6px 12px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.logo-aceh{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+}
+
+.logo-kph{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
+
+/* =========================
+   RUNNING TEXT
+========================= */
+
+.running-text{
+    background:#14532d;
+    color:#fff;
+    padding:8px 0;
+    font-weight:600;
+    overflow:hidden;
+    border-top:1px solid rgba(255,255,255,.2);
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.running-text marquee{
+    margin:0;
+}
+
 /*=========================================
   EXTRA RESPONSIVE HP
 =========================================*/
