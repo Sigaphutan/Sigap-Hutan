@@ -66,12 +66,9 @@ text-decoration:none;
 ========================= */
 
 .navbar{
-
-background:rgba(20,83,45,.88);
-backdrop-filter:blur(15px);
-padding:15px 0;
-transition:.4s;
-
+    background:rgba(20,83,45,.92);
+    backdrop-filter:blur(12px);
+    padding:8px 0;
 }
 
 .navbar.scrolled{
@@ -106,12 +103,27 @@ height:42px;
 
 color:#fff !important;
 font-weight:500;
-margin-left:15px;
+.nav-link{
+    margin-left:8px;
+    font-size:15px;
+    font-weight:600;
+}
 position:relative;
 transition:.3s;
 
 }
+.navbar-brand h5{
+    font-size:20px;
+}
 
+.navbar-brand small{
+    font-size:12px;
+}
+
+.navbar-nav{
+    align-items:center;
+    gap:4px;
+}
 .nav-link:hover{
 
 color:#ffd54f !important;
@@ -1099,22 +1111,22 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 .logo-box{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
     background:#fff;
-    padding:6px 12px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    padding:4px 8px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
 .logo-aceh{
-    width:50px;
-    height:50px;
+    width:36px;
+    height:36px;
     object-fit:contain;
 }
 
 .logo-kph{
-    width:80px;
-    height:80px;
+    width:50px;
+    height:50px;
     object-fit:contain;
 }
 
