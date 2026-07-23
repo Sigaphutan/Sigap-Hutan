@@ -1086,10 +1086,13 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 .running-content{
-    display:flex;
+    display:inline-flex;
     align-items:center;
     white-space:nowrap;
-    animation:jalan 20s linear infinite;
+    width:max-content;
+    flex-shrink:0;
+    padding-left:100%;
+    animation:jalan 25s linear infinite;
 }
 
 .running-content i{
@@ -1105,7 +1108,7 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 
 @keyframes jalan{
     from{
-        transform:translateX(100%);
+        transform:translateX(0);
     }
     to{
         transform:translateX(-100%);
