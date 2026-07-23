@@ -435,39 +435,25 @@ max-height:320px;
 }
 
 /*=========================================
- PORTAL TERKAIT
+DASAR HUKUM
 =========================================*/
 
-.portal-card{
-
-background:#fff;
-border-radius:18px;
-padding:25px;
-text-align:center;
-transition:.3s;
-box-shadow:var(--shadow);
-
+.dasar-hukum .card{
+    transition:all .3s ease;
+    border-radius:20px;
 }
 
-.portal-card:hover{
-
-transform:translateY(-8px);
-
+.dasar-hukum .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.18)!important;
 }
 
-.portal-card img{
-
-height:70px;
-object-fit:contain;
-margin-bottom:15px;
-
+.dasar-hukum i{
+    transition:.3s;
 }
 
-.portal-card h6{
-
-font-weight:600;
-color:#333;
-
+.dasar-hukum .card:hover i{
+    transform:scale(1.1);
 }
 
 /*=========================================
