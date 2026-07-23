@@ -1078,9 +1078,16 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     height:45px;
     background:#198754;
     color:#fff;
+
+    position:fixed;
+    top:78px;
+    left:0;
+    z-index:999;
+
     overflow:hidden;
     display:flex;
     align-items:center;
+
     border-top:2px solid #ffc107;
     border-bottom:2px solid #ffc107;
 }
