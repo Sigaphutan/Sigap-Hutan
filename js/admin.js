@@ -125,79 +125,58 @@ function bunyiNotifikasi() {
 }
 
 // ===============================================
-// LOGIN ADMIN
-// ===============================================
-
-window.loginAdmin = async () => {
-
-    try {
-
-        await signInWithPopup(auth, provider);
-
-        console.log("Login berhasil");
-
-    } catch (err) {
-
-        console.error(err);
-
-        alert("Login gagal.");
-
-    }
-
-};
-
-
-// ===============================================
 // LOGOUT ADMIN
 // ===============================================
 
 window.logoutAdmin = async () => {
 
-    console.log("Tombol Logout diklik");
-
     try {
 
-        await signOut(auth);
+        sessionStorage.removeItem("adminLogin");
+        sessionStorage.removeItem("adminName");
 
-        console.log("Logout berhasil");
+        if (auth.currentUser) {
+            await signOut(auth);
+        }
+
+        window.location.href = "login.html";
 
     } catch (err) {
 
-        console.error("Logout Error:", err);
-
-        alert(err.message);
+        console.error(err);
 
     }
 
 };
 
+
+
 // ===============================================
 // AUTH STATE
 // ===============================================
 
-onAuthStateChanged(auth, (user) => {
+// ===============================================
+// CEK LOGIN
+// ===============================================
 
-    const loginBox = document.getElementById("loginBox");
-    const adminPanel = document.getElementById("adminPanel");
+document.addEventListener("DOMContentLoaded", () => {
 
-   if (!user) {
+    const btnLogin = document.getElementById("btnLogin");
+    const btnLogout = document.getElementById("btnLogout");
 
-    if (loginBox)
-        loginBox.style.display = "block";
+    if (sessionStorage.getItem("adminLogin") === "true") {
 
-    if (adminPanel)
-        adminPanel.style.display = "none";
+        if (btnLogin) btnLogin.style.display = "none";
+        if (btnLogout) btnLogout.style.display = "inline-block";
 
-    return;
-}
+        loadData();
 
-    if (loginBox)
-        loginBox.style.display = "none";
+    } else {
 
-    if (adminPanel)
-        adminPanel.style.display = "block";
+        if (btnLogin) btnLogin.style.display = "inline-block";
+        if (btnLogout) btnLogout.style.display = "none";
 
-    loadData();
+    }
 
 });
 
