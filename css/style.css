@@ -147,7 +147,7 @@ width:100%;
     color:#fff;
 
     position:fixed;
-    top:78px;
+    top:95px;
     left:0;
     z-index:999;
 
@@ -198,7 +198,7 @@ width:100%;
     min-height:90vh;
     display:flex;
     align-items:center;
-    padding-top:140px;
+    padding-top:165px;
 }
 
 .hero h1{
