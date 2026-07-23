@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-    <loc>https://sigaphutan.github.io/Sigap-Hutan/</loc>
-    <priority>1.0</priority>
-</url>
+    <url>
+        <loc>https://sigaphutan.github.io/Sigap-Hutan/</loc>
+        <lastmod>2026-07-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
 
-<url>
-    <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/profil.html</loc>
-</url>
+    <url>
+        <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/profil.html</loc>
+        <lastmod>2026-07-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-<url>
-    <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/edukasi.html</loc>
-</url>
+    <url>
+        <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/edukasi.html</loc>
+        <lastmod>2026-07-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-<url>
-    <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/pengaduan.html</loc>
-</url>
+    <url>
+        <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/pengaduan.html</loc>
+        <lastmod>2026-07-23</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-<url>
-    <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/status.html</loc>
-</url>
+    <url>
+        <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/status.html</loc>
+        <lastmod>2026-07-23</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-<url>
-    <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/cara-melapor.html</loc>
-</url>
+    <url>
+        <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/cara-melapor.html</loc>
+        <lastmod>2026-07-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-<url>
-    <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/kontak.html</loc>
-</url>
+    <url>
+        <loc>https://sigaphutan.github.io/Sigap-Hutan/pages/kontak.html</loc>
+        <lastmod>2026-07-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 
 </urlset>
