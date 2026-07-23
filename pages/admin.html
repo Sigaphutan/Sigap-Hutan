@@ -1,3 +1,8 @@
+<script>
+if (sessionStorage.getItem("adminLogin") !== "true") {
+    window.location.href = "login.html";
+}
+</script>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -52,18 +57,6 @@ Sistem Informasi Pengaduan Gangguan Kehutanan
 </div>
 
 <div>
-
-<button
-
-id="btnLogin"
-
-class="btn btn-light"
-
-onclick="loginAdmin()">
-
-🔐 Login Admin
-
-</button>
 
 <button
 
