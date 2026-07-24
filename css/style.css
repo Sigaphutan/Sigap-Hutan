@@ -1454,3 +1454,333 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     }
 
 }
+/* ===================================================
+   DESAIN MODERN SIGAP HUTAN
+===================================================*/
+
+/* Smooth Scroll */
+html{
+    scroll-behavior:smooth;
+}
+
+/* Section */
+section{
+    position:relative;
+    padding:90px 0;
+    overflow:hidden;
+}
+
+/* Background Dekorasi */
+section::before{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:rgba(25,135,84,.05);
+    top:-120px;
+    right:-120px;
+    animation:float1 12s ease-in-out infinite;
+}
+
+section::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(25,135,84,.05);
+    bottom:-80px;
+    left:-80px;
+    animation:float2 15s ease-in-out infinite;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+}
+
+/* Animasi Background */
+
+@keyframes float1{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(30px);
+}
+
+}
+
+@keyframes float2{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-25px);
+}
+
+}
+
+/* Judul */
+
+.section-title{
+
+font-weight:700;
+margin-bottom:50px;
+position:relative;
+
+}
+
+.section-title::after{
+
+content:"";
+display:block;
+width:80px;
+height:4px;
+background:#198754;
+margin:15px auto 0;
+border-radius:20px;
+
+}
+
+/* Card */
+
+.card{
+
+border:none;
+border-radius:20px;
+overflow:hidden;
+transition:.35s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.18);
+
+}
+
+/* Gambar */
+
+.card img{
+
+transition:.5s;
+
+}
+
+.card:hover img{
+
+transform:scale(1.08);
+
+}
+
+/* Tombol */
+
+.btn{
+
+border-radius:50px;
+padding:12px 28px;
+font-weight:600;
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* Hero */
+
+.hero-edukasi{
+
+background:linear-gradient(135deg,#198754,#2fb36d);
+color:white;
+position:relative;
+overflow:hidden;
+
+}
+
+.hero-edukasi::before{
+
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+top:-250px;
+right:-250px;
+
+}
+
+.hero-edukasi::after{
+
+content:"";
+position:absolute;
+width:400px;
+height:400px;
+background:rgba(255,255,255,.05);
+border-radius:50%;
+bottom:-180px;
+left:-180px;
+
+}
+
+/* Hero Image */
+
+.hero-edukasi img{
+
+border-radius:25px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+transition:.4s;
+
+}
+
+.hero-edukasi img:hover{
+
+transform:scale(1.03);
+
+}
+
+/* Icon */
+
+.icon-box{
+
+width:80px;
+height:80px;
+border-radius:50%;
+background:#e9f7ef;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+font-size:35px;
+color:#198754;
+margin-bottom:20px;
+transition:.3s;
+
+}
+
+.card:hover .icon-box{
+
+background:#198754;
+color:white;
+transform:rotate(8deg) scale(1.1);
+
+}
+
+/* Tabel */
+
+.table{
+
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+/* Footer */
+
+footer{
+
+border-top:5px solid #198754;
+
+}
+
+/* Hover Link */
+
+a{
+
+transition:.3s;
+
+}
+
+a:hover{
+
+text-decoration:none;
+
+}
+
+/* List */
+
+.list-group-item{
+
+border:none;
+margin-bottom:10px;
+border-radius:15px;
+transition:.3s;
+
+}
+
+.list-group-item:hover{
+
+background:#198754;
+color:white;
+padding-left:25px;
+
+}
+
+/* Efek Fade */
+
+.fade-up{
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero-edukasi{
+
+text-align:center;
+
+}
+
+.hero-edukasi img{
+
+margin-top:30px;
+
+}
+
+.section-title{
+
+font-size:28px;
+
+}
+
+.card{
+
+margin-bottom:20px;
+
+}
+
+}
