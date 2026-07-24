@@ -1595,56 +1595,6 @@ transform:translateY(-3px);
 
 }
 
-/* Hero */
-
-.hero-edukasi{
-
-background:
-linear-gradient(
-rgba(25,135,84,.88),
-rgba(20,83,45,.75)
-),
-url("../images/hero-edukasi-bg.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-background-repeat:no-repeat;
-
-color:white;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.hero-edukasi::before{
-
-content:"";
-position:absolute;
-width:600px;
-height:600px;
-background:rgba(255,255,255,.08);
-border-radius:50%;
-top:-250px;
-right:-250px;
-
-}
-
-.hero-edukasi::after{
-
-content:"";
-position:absolute;
-width:400px;
-height:400px;
-background:rgba(255,255,255,.05);
-border-radius:50%;
-bottom:-180px;
-left:-180px;
-
-}
 
 /* Hero Image */
 
