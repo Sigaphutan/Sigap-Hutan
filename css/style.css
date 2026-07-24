@@ -2009,3 +2009,250 @@ margin:auto;
 color:#666;
 
 }
+/*==================================================
+    INFORMASI PAGE FIX
+==================================================*/
+
+/* Background Section */
+.profil-section,
+.section-light{
+    background:#f8fafc;
+}
+
+/* Info Card */
+.info-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+    height:100%;
+}
+
+.info-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+.info-card i{
+    font-size:40px;
+    color:#198754;
+    margin-bottom:12px;
+}
+
+.info-card h3{
+    font-size:32px;
+    font-weight:700;
+    color:#14532d;
+    margin-bottom:5px;
+}
+
+.info-card span{
+    color:#666;
+    font-size:15px;
+}
+
+/* Modern Card */
+.modern-card{
+    background:#fff;
+    border-radius:22px;
+    padding:35px;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    transition:.35s;
+    height:100%;
+}
+
+.modern-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+/* Icon Circle */
+.icon-circle{
+    width:80px;
+    height:80px;
+    margin:auto auto 25px;
+    border-radius:50%;
+    background:#eaf8ef;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.icon-circle i{
+    font-size:36px;
+    color:#198754;
+}
+
+/* Feature Card */
+.feature-card{
+    background:#fff;
+    border-radius:22px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    transition:.35s;
+    height:100%;
+}
+
+.feature-card:hover{
+    background:#198754;
+    color:#fff;
+    transform:translateY(-10px);
+}
+
+.feature-card i{
+    font-size:48px;
+    color:#198754;
+    margin-bottom:20px;
+    transition:.35s;
+}
+
+.feature-card:hover i{
+    color:#fff;
+    transform:scale(1.15);
+}
+
+.feature-card h4{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+/* Timeline */
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:32px;
+    top:0;
+    bottom:0;
+    width:4px;
+    background:#198754;
+}
+
+.timeline-item{
+    position:relative;
+    display:flex;
+    gap:25px;
+    margin-bottom:40px;
+}
+
+.timeline-icon{
+    width:65px;
+    height:65px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:#198754;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:28px;
+    z-index:2;
+}
+
+.timeline-content{
+    flex:1;
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.timeline-content h4{
+    color:#14532d;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+/* List Modern */
+.list-modern{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.list-modern li{
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.list-modern li:last-child{
+    border-bottom:none;
+}
+
+.list-modern i{
+    color:#198754;
+    margin-top:3px;
+}
+
+/* Footer */
+.footer{
+    background:#111827;
+    color:#fff;
+    padding:60px 0 25px;
+}
+
+.footer h3,
+.footer h5{
+    color:#fff;
+}
+
+.footer a{
+    color:#d9d9d9;
+    transition:.3s;
+}
+
+.footer a:hover{
+    color:#9be15d;
+}
+
+.footer hr{
+    border-color:rgba(255,255,255,.15);
+}
+
+.footer p{
+    color:#ddd;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+.timeline::before{
+    left:25px;
+}
+
+.timeline-item{
+    gap:15px;
+}
+
+.timeline-icon{
+    width:50px;
+    height:50px;
+    font-size:20px;
+}
+
+.timeline-content{
+    padding:20px;
+}
+
+.modern-card,
+.feature-card,
+.info-card{
+    padding:25px;
+}
+
+.hero-card{
+    margin-bottom:20px;
+}
+
+}
