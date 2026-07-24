@@ -200,11 +200,11 @@ width:100%;
 
 .hero{
     background:linear-gradient(rgba(10,70,35,.85),rgba(18,85,48,.85)),
-               url("../images/hero.png") center/cover;
-    min-height:75vh;
+               url("../images/hero.png") center center/cover no-repeat;
+    min-height:100vh;
     display:flex;
     align-items:center;
-    padding:120px 0 60px;
+    padding:150px 0 100px;
 }
 
 .hero h1{
@@ -348,10 +348,8 @@ color:var(--primary);
 =========================================*/
 
 #layanan{
-
-background:#f8f9fa;
-   padding-top:0;
-
+    background:#f8f9fa;
+    padding-top:60px;
 }
 
 #layanan h2{
