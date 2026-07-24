@@ -1602,9 +1602,23 @@ transform:translateY(-3px);
 
 .hero-edukasi{
 
-background:linear-gradient(135deg,#198754,#2fb36d);
+background:
+linear-gradient(
+rgba(25,135,84,.88),
+rgba(20,83,45,.75)
+),
+url("../images/hero-edukasi-bg.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
 color:white;
+
 position:relative;
+
 overflow:hidden;
 
 }
