@@ -1,1552 +1,1802 @@
+/* ==========================================
+   SIGAP HUTAN
+   STYLE.CSS
+========================================== */
 
-hari ini 11.27
-image(296).png
-bagimn agar kalau buka website sigp hutn muncul sigap hutan keseluruhan bukan hanya profil dn ada logi sigap hutn bukn hany logo interene dan jug agar kalau nyari nya keywordnya hanya sigap hutan kph VIII atu sigap hutan saja bukan sig hutan github
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+:root{
 
-Teks yang ditempel (1)(128).txt
-Dokumen
-apa yang diganti disini
+--primary:#198754;
+--secondary:#14532d;
+--accent:#f59e0b;
+--danger:#dc3545;
+--light:#f8fafc;
+--white:#ffffff;
+--dark:#1f2937;
+--text:#555;
+--shadow:0 10px 30px rgba(0,0,0,.08);
+--radius:20px;
 
+}
 
-Teks yang ditempel (1)(129).txt
-Dokumen
+*{
 
+margin:0;
+padding:0;
+box-sizing:border-box;
 
-Teks yang ditempel (2).txt
-Dokumen
-cek dulu guys gaad <link rel="icon" href="images/logo-kph.png"> ini di index
+}
 
-logo.png
-ini
+html{
 
-Gambar yang dibuat: Panduan favicon untuk SIGAP HUTAN
+scroll-behavior:smooth;
 
+}
 
-Edit
+body{
 
+font-family:'Poppins',sans-serif;
+background:#f5f7fa;
+color:var(--text);
+overflow-x:hidden;
 
-Gambar yang dibuat: Desain Favicon SIGAP HUTAN
+}
 
-Edit
+section{
 
+padding:60px 0;
 
-Gambar yang dibuat: Panduan pembuatan favicon SIGAP HUTAN
-
-Edit
-
-
-
-Teks yang ditempel (1)(131).txt
-Dokumen
-di edukasi tak da
-
-
-Teks yang ditempel (1)(132).txt
-Dokumen
-apakah sudah benr
-
-
-Teks yang ditempel (1)(133).txt
-Dokumen
-
-
-Teks yang ditempel (1)(134).txt
-Dokumen
-
-
-Teks yang ditempel (1)(135).txt
-Dokumen
-
-image(299).png
-semaam sudh di daftrakan apa daftarkan lagi
-
-image(300).png
-semalam juga udah kirim site mp apa perlu kirim lagi
-
-image(301).png
-oke sekarang tampilan website tidak rpi di laptop dan hp hanya komputer laya besar dan 75% ukuran layar kala 100% dia tidk bagus
-
-
-Teks yang ditempel (1)(136).txt
-Dokumen
-
-
-Teks yang ditempel (1)(137).txt
-Dokumen
-
-
-Teks yang ditempel (1)(138).txt
-Dokumen
-
-
-Teks yang ditempel (1)(139).txt
-Dokumen
-
-
-Teks yang ditempel (1)(140).txt
-Dokumen
-
-
-Teks yang ditempel (1)(141).txt
-Dokumen
-
-image(303).png
-bagusny tentang ini ubah jadi apa ya
-
-image(304).png
-ini sj ubh j jadi informsi
-
-WhatsApp Image 2026-07-24 at 13.45.58.jpeg
-struktur 
-
-
-Teks yang ditempel (1)(142).txt
-Dokumen
-
-image(305).png
-tomblnya but aja disini
-
-
-Teks yang ditempel (1)(143).txt
-Dokumen
-apa yng dignti 
-
-
-Teks yang ditempel (1)(144).txt
-Dokumen
-cek
-
-image(306).png
-tentang tk ush dihpu sy kan tombolny disini
-
-
-Teks yang ditempel (1)(145).txt
-Dokumen
-cek aja
-
-image(307).png
-sttus terhung kesini
-
-image(308).png
-
-
-Teks yang ditempel (1)(146).txt
-Dokumen
-cek aja semunya say
-
-
-Teks yang ditempel (1)(147).txt
-Dokumen
-
-
-Teks yang ditempel (1)(148).txt
-Dokumen
-
-
-Teks yang ditempel (1)(149).txt
-Dokumen
-coba cek say apkah sudh bena
-
-
-Teks yang ditempel (1)(150).txt
-Dokumen
-
-image(309).png
-ini kok berubh gambar ini harisnya jdi kantor kph j
-
-WhatsApp Image 2026-07-24 at 13.45.58(1).jpeg
-buatkan struktu otgansis biar cantik
-
-Gambar yang dibuat: Struktur organisasi UPTD KPH Aceh
-
-
-Edit
-
-
-image(310).png
-
-image(311).png
-buatkan kantor kph yang diserti peta untuk hero di informasiv] UPTD KPH Wilayah VIII memiliki wilayah kerja seluas 361.874 hektare yang meliputi Kabupaten Gayo Lues seluas 277.526 hektare dan Unit IX Kabupaten Aceh Tenggara seluas 84.348 hektare. Kawasan di Unit IX didominasi oleh Hutan Lindung seluas 83.969 hektare dan Hutan Produksi seluas 379 hektare, petany sesuai ini
-
-Gambar yang dibuat: Peta wilayah UPTD KPH Wilayah VIII Aceh
-
-
-Edit
-
-
-Gambar yang dibuat: Pemerintah Aceh dan peta wilayah
-
-
-Edit
-
-
-Gambar yang dibuat: Halaman utama UPTD KPH Wilayah VIII
-
-
-Edit
-
-
-image(312).png
-pokonya nanti dia di informasi kayak gini ubah codenya gimana
-
-Gambar yang dibuat: Infografis UPTD KPH Wilayah VIII
-
-
-Edit
-
-
-image(313).png
-gak pas say lag ga teratur
-
-
-Teks yang ditempel (1)(151).txt
-Dokumen
-
-Gambar yang dibuat: Infografik pengelolaan hutan Aceh
-
-
-Edit
-
-
-image(319).png
-sinya ttg ini aja
-
-
-Teks yang ditempel (1)(156).txt
-Dokumen
-
-
-Teks yang ditempel (1)(157).txt
-Dokumen
-ada yang diubah dari css ini
-
-
-Teks yang ditempel (1)(158).txt
-Dokumen
-ada yang salah ini tampilan website jadi berntakan
-
-image(320).png
-halam utama jadi gini
-
-Dari screenshot, ini bukan masalah HTML. Ini hampir pasti karena CSS global di style.css tertimpa.
-
-Gejala yang terlihat:
-
-Logo Aceh dan logo KPH menjadi sangat besar.
-
-Hero menjadi berantakan.
-
-Layout bergeser.
-
-Tulisan berjalan menempel di atas.
-
-Ini biasanya terjadi karena ada aturan seperti:
+}
 
 img{
-    width:100%;
-}
-atau
 
-.logo{
-    width:300px;
+max-width:100%;
+
 }
-atau
+
+a{
+
+text-decoration:none;
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    background:rgba(20,83,45,.92);
+    backdrop-filter:blur(12px);
+    padding:8px 0;
+}
+
+.navbar.scrolled{
+
+background:#14532d;
+box-shadow:var(--shadow);
+
+}
+
+.navbar-brand h5{
+
+margin:0;
+font-weight:700;
+
+}
+
+.navbar-brand small{
+
+color:#ddd;
+
+}
+
+.navbar-brand img{
+
+width:42px;
+
+height:42px;
+
+}
+
+.nav-link{
+    color:#fff !important;
+    font-weight:600;
+    font-size:15px;
+    margin-left:8px;
+    position:relative;
+    transition:.3s;
+}
+.navbar-brand h5{
+    font-size:20px;
+}
+
+.navbar-brand small{
+    font-size:12px;
+}
+
+.navbar-nav{
+    align-items:center;
+    gap:4px;
+}
+.nav-link:hover{
+
+color:#ffd54f !important;
+
+}
+
+.nav-link::after{
+
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#ffd54f;
+transition:.3s;
+
+}
+
+.nav-link:hover::after{
+
+width:100%;
+
+}
+/* =========================
+   RUNNING TEXT
+========================= */
+
+.running-text{
+    width:100%;
+    height:45px;
+    background:#198754;
+    color:#fff;
+
+    position:fixed;
+    top:78px;
+    left:0;
+    z-index:999;
+
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+
+    border-top:2px solid #ffc107;
+    border-bottom:2px solid #ffc107;
+}
+
+.running-content{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    width: max-content;
+    animation: jalan 40s linear infinite;
+}
+
+.running-content i{
+    color:#ffc107;
+    font-size:20px;
+    margin-right:12px;
+}
+.running-content span{
+    display: inline-block;
+    padding-right: 120px;
+    font-size:15px;
+    font-weight:600;
+}
+
+@keyframes jalan{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+/* =========================
+ HERO
+========================= */
 
 .hero{
+    background:linear-gradient(rgba(10,70,35,.85),rgba(18,85,48,.85)),
+               url("../images/hero.png") center center/cover no-repeat;
+    min-height:100vh;
     display:flex;
-    ...
+    align-items:center;
+    padding:150px 0 100px;
 }
-atau saya sebelumnya memberikan CSS seperti:
 
-.navbar { ... }
-.hero { ... }
-body { ... }
-section { ... }
-Class-class tersebut sama dengan yang dipakai halaman utama, sehingga halaman utama ikut berubah.
+.hero h1{
+    font-size:clamp(2.3rem,5vw,3.8rem);
+}
+.hero h3{
 
-Yang saya butuhkan sekarang
-Tolong kirim isi file css/style.css (bukan index.html).
+font-weight:600;
+color:#ffe082;
 
-Atau upload file style.css.
+}
 
-Dengan begitu saya bisa menunjukkan:
+.hero p{
 
-bagian mana yang harus dihapus,
+font-size:18px;
+line-height:1.8;
+color:#eee;
 
-bagian mana yang harus dipindahkan ke informasi.css,
+}
 
-tanpa merusak tampilan website.
+.hero-image{
+    width:100%;
+    max-width:520px;
+    animation:float 4s ease-in-out infinite;
+}
 
-Kemungkinan besar yang harus dihapus
-Kalau Anda menyalin CSS yang saya kirim sebelumnya ke style.css, hapus semua bagian yang diawali seperti berikut:
+.hero .img-fluid{
+    width:100%;
+    max-width:700px;
+    height:auto;
+    display:block;
+    margin:auto;
+}
 
-:root{...}
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
 
-body{...}
+/* =========================
+ BUTTON
+========================= */
 
-.navbar{...}
+.btn{
 
-.hero{...}
+border-radius:50px;
+padding:12px 28px;
+font-weight:600;
+transition:.35s;
 
-section{...}
+}
 
-.logo{...}
+.btn-success{
 
-.nav-link{...}
+background:var(--primary);
+border:none;
 
-.quick-card{...}
+}
 
-.card-modern{...}
+.btn-success:hover{
 
-.timeline{...}
+background:#157347;
+transform:translateY(-3px);
 
-.info-box{...}
-Karena itu memang akan mengubah seluruh website, bukan hanya halaman Informasi.
+}
 
-Upload css/style.css saja, nanti saya tandai baris yang harus dihapus. Itu jauh lebih aman daripada menebak-nebak.
+.btn-danger:hover{
 
+transform:translateY(-3px);
 
+}
 
-Teks yang ditempel (1)(159).txt
-Dokumen
-cek css nya sy
+.btn-outline-light:hover{
 
-Saya cek file yang Anda upload, ternyata bukan style.css, melainkan informasi.html lagi. Terlihat dari baris awal file yang berisi:
+color:#14532d;
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-dan ada tag:
+}
 
-<link rel="stylesheet" href="../css/style.css">
-Jadi saya belum bisa memeriksa CSS karena file CSS-nya belum terunggah. 
+/* =========================
+ BADGE
+========================= */
 
+.badge{
 
-Tolong upload yang benar
-Yang saya butuhkan adalah file:
+font-size:14px;
+padding:10px 18px;
+border-radius:30px;
 
-css/style.css
-Bukan index.html atau informasi.html.
+}
 
-Cara paling mudah
-Buka folder proyek Sigap-Hutan
+/* =========================
+ TENTANG
+========================= */
 
-Buka folder css
+#tentang img{
 
-Pilih style.css
+border-radius:20px;
+box-shadow:var(--shadow);
 
-Drag & drop file tersebut ke chat ini
+}
 
-Atau buka style.css, salin seluruh isinya, lalu tempel di sini.
+#tentang h2{
 
-Dari screenshot yang Anda kirim sebelumnya, saya hampir yakin ada aturan CSS global yang tertimpa (misalnya .hero, .navbar, .logo, img, section, atau body). Begitu saya melihat isi style.css, saya bisa langsung menunjukkan:
+font-weight:700;
+color:#222;
 
-bagian yang menyebabkan tampilan berantakan,
+}
 
-baris yang harus dihapus atau dipindahkan,
+#tentang p{
 
-dan mengembalikan tampilan website seperti semula.
+line-height:1.9;
+color:#666;
 
+}
 
-iya itulahg udah terubah skrg gimana ya 
+#tentang .card{
 
-Tidak apa-apa, ini masih bisa diperbaiki. Yang terjadi kemungkinan besar adalah style.css asli sudah tertimpa dengan CSS yang saya buat. Karena itu seluruh halaman (Beranda, Hero, Navbar, Logo, dll.) ikut berubah.
+border:none;
+border-radius:20px;
+transition:.3s;
+box-shadow:var(--shadow);
 
-Namun, saya tidak bisa mengembalikan style.css hanya dari informasi.html, karena file yang Anda unggah memang berisi HTML, bukan isi CSS. 
+}
 
+#tentang .card:hover{
 
-Ada 2 cara memperbaikinya
-Cara 1 (Paling cepat) ⭐
-Kalau proyek Anda menggunakan GitHub, kita bisa mengembalikan style.css ke versi sebelum diubah.
+transform:translateY(-8px);
 
-Buka repository GitHub.
+}
 
-Pilih css/style.css.
+#tentang h3{
 
-Klik History atau lihat commit sebelumnya.
+font-size:32px;
+font-weight:700;
+color:var(--primary);
 
-Kembalikan isi file ke versi sebelum perubahan.
+}
+/*=========================================
+ QUICK SERVICE
+=========================================*/
 
-Cara 2
-Kalau Anda masih punya salinan proyek di komputer (backup, folder lama, atau ZIP yang pernah disimpan), ambil css/style.css dari sana lalu ganti file yang sekarang.
+#layanan{
+    background:#f8f9fa;
+    padding-top:60px;
+}
 
-Kalau tidak punya backup?
-Saya bisa membuat ulang style.css sesuai website SIGAP HUTAN yang sekarang, tetapi itu membutuhkan isi file CSS yang rusak agar saya bisa memperbaikinya.
+#layanan h2{
 
-Yang saya perlukan sekarang
-Mohon kirim isi style.css yang sekarang dengan salah satu cara berikut:
+font-weight:700;
+color:#222;
 
-Buka css/style.css, lalu Ctrl + A → Ctrl + C → Ctrl + V ke chat.
+}
 
-Atau upload file style.css (bukan index.html atau informasi.html).
+#layanan .card{
 
-Begitu saya melihat isinya, saya akan:
+border:none;
+border-radius:20px;
+padding:30px 20px;
+transition:.35s;
+box-shadow:var(--shadow);
+cursor:pointer;
+background:#fff;
 
-Menghapus bagian CSS yang menyebabkan konflik.
+}
 
-Mengembalikan tampilan Beranda seperti semula.
+#layanan .card:hover{
 
-Memindahkan CSS khusus halaman Informasi ke informasi.css agar tidak mengganggu halaman lain.
+transform:translateY(-10px);
+background:var(--primary);
+color:#fff;
 
-Kita masih bisa menyelamatkan tampilannya, hanya saja saya perlu file CSS yang benar, bukan HTML.
+}
 
+#layanan .card:hover i{
 
-<!DOCTYPE html>
+color:#fff !important;
+transform:scale(1.15);
 
-<html lang="id"> <head>
+}
 
-<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#layanan i{
 
-<title>Informasi | SIGAP HUTAN</title>
+font-size:50px;
+transition:.35s;
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+}
 
-<link rel="stylesheet" href="../css/style.css">
+#layanan h6{
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+margin-top:18px;
+font-weight:600;
 
-</head>
+}
 
-<body>
+/*=========================================
+ BANNER PELAYANAN PUBLIK
+=========================================*/
 
-<!-- HERO -->
+.banner-pelayanan{
 
-<section class="hero-informasi">
+background:linear-gradient(135deg,#fff8dc,#fff1b8);
+border-radius:25px;
+padding:60px;
+box-shadow:var(--shadow);
 
-<div class="hero">
+}
 
-<div class="container">
+.banner-pelayanan h2{
 
-<div class="row align-items-center">
+font-weight:700;
+color:#222;
 
-<div class="col-lg-6 fade-up">
+}
 
-<span class="badge bg-warning text-dark mb-3">
+.banner-pelayanan p{
 
-<i class="fa-solid fa-tree"></i>
+font-size:17px;
+line-height:1.8;
 
-UPTD KPH Wilayah VIII Aceh
+}
 
-</span>
+.banner-pelayanan img{
 
-<h1 class="text-white fw-bold mb-4">
+max-height:320px;
 
-Informasi UPTD KPH Wilayah VIII Aceh
+}
 
-</h1>
+/*=========================================
+DASAR HUKUM
+=========================================*/
 
-<p class="text-light mb-4">
+.dasar-hukum .card{
+    transition:all .3s ease;
+    border-radius:20px;
+}
 
-Pusat informasi mengenai profil, sejarah, visi dan misi,
-struktur organisasi, wilayah kerja, serta tugas dan fungsi
-UPTD Kesatuan Pengelolaan Hutan Wilayah VIII Aceh.
+.dasar-hukum .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.18)!important;
+}
 
-</p>
+.dasar-hukum i{
+    transition:.3s;
+}
 
-<a href="#menuInformasi" class="btn btn-success btn-lg">
+.dasar-hukum .card:hover i{
+    transform:scale(1.1);
+}
 
-<i class="fa-solid fa-circle-down"></i>
+/*=========================================
+ STATISTIK PENGUNJUNG
+=========================================*/
 
-Jelajahi Informasi
+.statistik{
 
-</a>
+border-radius:25px;
+overflow:hidden;
+box-shadow:var(--shadow);
 
-</div>
+}
 
-<div class="col-lg-6 text-center">
+.statistik-kiri{
 
-<img src="../images/informasi.png"
+background:var(--primary);
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
 
-class="img-fluid hero-image"
+}
 
-alt="Informasi">
+.statistik-kanan{
 
-</div>
+background:#fff;
 
-</div>
+}
 
-</div>
+.statistik-item{
 
-</div>
+padding:35px;
+text-align:center;
+transition:.3s;
 
-</section>
+}
 
-<!-- MENU -->
+.statistik-item:hover{
 
-<section id="menuInformasi">
+background:#f8f9fa;
 
-<div class="container">
+}
 
-<div class="text-center mb-5">
+.statistik-item i{
 
-<h2 class="section-title">
+font-size:45px;
+color:var(--primary);
 
-Menu Informasi
+}
 
-</h2>
+.statistik-item h2{
 
-<p>
+font-size:42px;
+font-weight:700;
+color:#222;
 
-Pilih informasi yang ingin Anda ketahui mengenai
-UPTD KPH Wilayah VIII Aceh.
+}
 
-</p>
+.statistik-item h6{
 
-</div>
+margin-top:15px;
+color:#777;
 
-<div class="row g-4">
+}
 
-<div class="col-lg-4 col-md-6">
+/*=========================================
+ VISI MISI
+=========================================*/
 
-<div class="card h-100 text-center p-4">
+#visi{
 
-<div class="icon-box">
+background:#f8fafc;
 
-<i class="fa-solid fa-building"></i>
+}
 
-</div>
+#visi .card{
 
-<h4>Profil</h4>
+border:none;
+border-radius:20px;
+padding:35px;
+box-shadow:var(--shadow);
+transition:.35s;
 
-<p>
+}
 
-Informasi umum mengenai
-UPTD KPH Wilayah VIII Aceh.
+#visi .card:hover{
 
-</p>
+transform:translateY(-8px);
 
-<a href="#profil"
+}
 
-class="btn btn-success">
+#visi i{
 
-Lihat
+font-size:55px;
+color:var(--primary);
 
-</a>
+}
 
-</div>
+#visi h3{
 
-</div>
+font-weight:700;
+margin:20px 0;
 
-<div class="col-lg-4 col-md-6">
+}
 
-<div class="card h-100 text-center p-4">
+#visi ul{
 
-<div class="icon-box">
+padding-left:20px;
 
-<i class="fa-solid fa-landmark"></i>
+}
 
-</div>
+#visi li{
 
-<h4>Sejarah</h4>
+margin-bottom:12px;
 
-<p>
+}
 
-Sejarah pembentukan
-UPTD KPH Wilayah VIII Aceh.
+/*=========================================
+ SECTION TITLE
+=========================================*/
 
-</p>
+section h2{
 
-<a href="#sejarah"
+font-weight:700;
+color:#222;
 
-class="btn btn-success">
+}
 
-Lihat
+section p{
 
-</a>
+line-height:1.8;
 
-</div>
+}
 
-</div>
+.text-center p{
 
-<div class="col-lg-4 col-md-6">
+max-width:700px;
+margin:auto;
 
-<div class="card h-100 text-center p-4">
+}
+/*=========================================
+ EDUKASI
+=========================================*/
 
-<div class="icon-box">
+#edukasi{
 
-<i class="fa-solid fa-bullseye"></i>
+background:#ffffff;
 
-</div>
+}
 
-<h4>Visi & Misi</h4>
+#edukasi .card{
 
-<p>
+border:none;
+border-radius:20px;
+overflow:hidden;
+box-shadow:var(--shadow);
+transition:.35s;
 
-Visi dan misi organisasi
-dalam pengelolaan hutan.
+}
 
-</p>
+#edukasi .card:hover{
 
-<a href="#visi"
+transform:translateY(-10px);
 
-class="btn btn-success">
+}
 
-Lihat
+#edukasi .card-body{
 
-</a>
+padding:30px;
 
-</div>
+}
 
-</div>
+#edukasi i{
 
-<div class="col-lg-4 col-md-6">
+font-size:55px;
+margin-bottom:20px;
+display:block;
 
-<div class="card h-100 text-center p-4">
+}
 
-<div class="icon-box">
+#edukasi h5{
 
-<i class="fa-solid fa-scale-balanced"></i>
+font-weight:700;
+margin-bottom:15px;
 
-</div>
+}
 
-<h4>Tugas & Fungsi</h4>
+/*=========================================
+ PENGADUAN
+=========================================*/
 
-<p>
+#pengaduan{
 
-Tugas pokok dan fungsi
-UPTD KPH Wilayah VIII Aceh.
+background:#f8fafc;
 
-</p>
+}
 
-<a href="#tugas"
+#pengaduan form{
 
-class="btn btn-success">
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:var(--shadow);
 
-Lihat
+}
 
-</a>
+#pengaduan .form-control,
+#pengaduan .form-select{
 
-</div>
+border-radius:12px;
+padding:14px;
 
-</div>
+}
 
-<div class="col-lg-4 col-md-6">
+#pengaduan textarea{
 
-<div class="card h-100 text-center p-4">
+resize:none;
 
-<div class="icon-box">
+}
 
-<i class="fa-solid fa-map-location-dot"></i>
+#pengaduan .card{
 
-</div>
+border:none;
+border-radius:20px;
+box-shadow:var(--shadow);
 
-<h4>Wilayah Kerja</h4>
+}
 
-<p>
+#pengaduan .list-group-item{
 
-Wilayah pengelolaan
-UPTD KPH Wilayah VIII Aceh.
+padding:18px;
+border:none;
 
-</p>
+}
 
-<a href="#wilayah"
+/*=========================================
+ INFORMASI
+=========================================*/
 
-class="btn btn-success">
+#informasi .card{
 
-Lihat
+border:none;
+border-radius:20px;
+overflow:hidden;
+transition:.35s;
+box-shadow:var(--shadow);
 
-</a>
+}
 
-</div>
+#informasi .card:hover{
 
-</div>
+transform:translateY(-10px);
 
-<div class="col-lg-4 col-md-6">
+}
 
-<div class="card h-100 text-center p-4">
+#informasi img{
 
-<div class="icon-box">
+height:220px;
+object-fit:cover;
 
-<i class="fa-solid fa-sitemap"></i>
+}
 
-</div>
+#informasi .card-body{
 
-<h4>Struktur Organisasi</h4>
+padding:25px;
 
-<p>
+}
 
-Struktur organisasi beserta
-susunan jabatan.
+#informasi h5{
 
-</p>
+font-weight:700;
 
-<a href="#struktur"
+}
 
-class="btn btn-success">
+/*=========================================
+ PETA
+=========================================*/
 
-Lihat
+#peta iframe{
 
-</a>
+border:0;
+border-radius:20px;
+box-shadow:var(--shadow);
 
-</div>
+}
 
-</div>
+/*=========================================
+    GALERI MODERN
+=========================================*/
 
-</div>
+#galeri{
+    background:#f8fafc;
+}
 
-</div>
+#galeri .section-title{
+    font-size:42px;
+    font-weight:700;
+    color:var(--secondary);
+    text-align:center;
+}
 
-</section> <!-- ===================================================== --> <!-- PROFIL --> <!-- ===================================================== -->
+#galeri .section-subtitle{
+    text-align:center;
+    color:#666;
+    max-width:650px;
+    margin:10px auto 50px;
+}
 
-<section id="profil">
+.gallery-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    transition:.35s;
+    height:100%;
+}
 
-<div class="container">
+.gallery-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
 
-<div class="row align-items-center">
+.gallery-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:.5s;
+}
 
-<div class="col-lg-5 mb-4">
+.gallery-card:hover img{
+    transform:scale(1.08);
+}
 
-<img src="../images/kantor-kph.jpg" class="img-fluid rounded shadow" alt="Kantor KPH">
+.gallery-body{
+    padding:20px;
+}
 
-</div>
+.gallery-body h5{
+    color:var(--secondary);
+    font-weight:700;
+    margin-bottom:10px;
+}
 
-<div class="col-lg-7">
+.gallery-body p{
+    color:#666;
+    font-size:15px;
+    line-height:1.6;
+    margin:0;
+}
 
-<span class="badge bg-success mb-3">
+/*=========================================
+ KONTAK
+=========================================*/
 
-<i class="fa-solid fa-building"></i>
+#kontak{
 
-Profil
+background:linear-gradient(135deg,#198754,#14532d);
 
-</span>
+}
 
-<h2 class="section-title text-start">
+#kontak h2{
 
-Profil UPTD KPH Wilayah VIII Aceh
+color:#fff;
+font-weight:700;
 
-</h2>
+}
 
-<p>
+#kontak p{
 
-UPTD Kesatuan Pengelolaan Hutan (KPH) Wilayah VIII Aceh merupakan Unit
-Pelaksana Teknis Daerah yang mempunyai tugas melaksanakan pengelolaan
-kawasan hutan secara lestari, perlindungan hutan, pemberdayaan masyarakat,
-serta pelayanan publik di bidang kehutanan.
+color:#f5f5f5;
 
-</p>
+}
 
-<p>
+#kontak i{
 
-Melalui website SIGAP HUTAN, masyarakat dapat memperoleh informasi
-kehutanan, menyampaikan pengaduan, serta mengakses berbagai layanan
-secara cepat, mudah, dan transparan.
+color:#ffd54f;
 
-</p>
+}
 
-<div class="row mt-4">
+/*=========================================
+ FOOTER
+=========================================*/
 
-<div class="col-6">
+footer{
 
-<div class="card p-3 text-center">
+background:#111;
+color:#fff;
+padding:20px;
+text-align:center;
 
-<h2 class="text-success">1</h2>
+}
 
-<p>KPH</p>
+/*=========================================
+ CARD UMUM
+=========================================*/
 
-</div>
+.card{
 
-</div>
+transition:.35s;
 
-<div class="col-6">
+}
 
-<div class="card p-3 text-center">
+.card:hover{
 
-<h2 class="text-success">100%</h2>
+transform:translateY(-8px);
 
-<p>Pelayanan Digital</p>
+}
 
-</div>
+/*=========================================
+ SCROLLBAR
+=========================================*/
 
-</div>
+::-webkit-scrollbar{
 
-</div>
+width:10px;
 
-</div>
+}
 
-</div>
+::-webkit-scrollbar-track{
 
-</div>
+background:#f1f1f1;
 
-</section>
+}
 
+::-webkit-scrollbar-thumb{
 
+background:#198754;
+border-radius:10px;
 
-<!-- ===================================================== -->
+}
 
-<!-- SEJARAH -->
+::-webkit-scrollbar-thumb:hover{
 
-<!-- ===================================================== -->
+background:#14532d;
 
-<section id="sejarah" class="bg-light">
+}
 
-<div class="container">
+/*=========================================
+ RESPONSIVE TABLET
+=========================================*/
 
-<div class="text-center mb-5">
+@media(max-width:992px){
 
-<h2 class="section-title">
+.hero{
 
-Sejarah Singkat
+text-align:center;
 
-</h2>
+}
 
-<p>
+.hero h1{
 
-Perjalanan terbentuknya UPTD KPH Wilayah VIII Aceh.
+font-size:44px;
 
-</p>
+}
 
-</div>
+.hero-image{
 
-<div class="row">
+margin-top: 0;
+max-width:420px;
 
-<div class="col-lg-4">
+}
 
-<div class="card h-100 p-4">
+.banner-pelayanan{
 
-<div class="icon-box">
+padding:35px;
 
-<i class="fa-solid fa-calendar"></i>
+}
 
-</div>
+.statistik-item h2{
 
-<h4>Pembentukan</h4>
+font-size:34px;
 
-<p>
+}
 
-UPTD KPH Wilayah VIII Aceh dibentuk sebagai unit pengelolaan kawasan
-hutan yang bertanggung jawab terhadap pengelolaan sumber daya hutan.
+}
 
-</p>
+/*=========================================
+ RESPONSIVE MOBILE
+=========================================*/
 
-</div>
+@media(max-width:768px){
 
-</div>
+section{
 
-<div class="col-lg-4">
+padding:70px 0;
 
-<div class="card h-100 p-4">
+}
 
-<div class="icon-box">
+.hero{
+    min-height:80vh;
+}
 
-<i class="fa-solid fa-tree"></i>
+.hero h1{
 
-</div>
+font-size:34px;
 
-<h4>Pengelolaan</h4>
+}
 
-<p>
+.hero h3{
 
-Melaksanakan perlindungan, konservasi,
-rehabilitasi serta pemanfaatan kawasan hutan
-secara lestari.
+font-size:22px;
 
-</p>
+}
 
-</div>
+.hero p{
 
-</div>
+font-size:16px;
 
-<div class="col-lg-4">
+}
 
-<div class="card h-100 p-4">
+.navbar-brand h5{
 
-<div class="icon-box">
+font-size:18px;
 
-<i class="fa-solid fa-users"></i>
+}
 
-</div>
+.banner-pelayanan{
 
-<h4>Pelayanan</h4>
+padding:25px;
+text-align:center;
 
-<p>
+}
 
-Memberikan pelayanan informasi,
-pengaduan masyarakat serta edukasi
-kehutanan berbasis digital.
+.banner-pelayanan img{
 
-</p>
+margin-top:30px;
 
-</div>
+}
 
-</div>
+.statistik-kiri{
 
-</div>
+padding:25px;
 
-</div>
+}
 
-</section>
+.statistik-item{
 
+padding:25px;
 
+}
 
-<!-- ===================================================== -->
+.statistik-item h2{
 
-<!-- VISI MISI -->
+font-size:30px;
 
-<!-- ===================================================== -->
+}
 
-<section id="visi">
+#galeri img{
 
-<div class="container">
+height:220px;
 
-<div class="text-center mb-5">
+}
 
-<h2 class="section-title">
+}
 
-Visi dan Misi
+/*=========================================
+ ANIMATION
+=========================================*/
 
-</h2>
+.fade-up{
 
-</div>
+animation:fadeUp 1s ease;
 
-<div class="row g-4">
+}
 
-<div class="col-lg-6">
+@keyframes fadeUp{
 
-<div class="card h-100">
+from{
 
-<div class="card-body">
+opacity:0;
+transform:translateY(40px);
 
-<div class="icon-box">
+}
 
-<i class="fa-solid fa-bullseye"></i>
+to{
 
-</div>
+opacity:1;
+transform:translateY(0);
 
-<h3 class="text-center">
+}
 
-Visi
+}
 
-</h3>
+.shadow-hover:hover{
 
-<p class="text-center">
+box-shadow:0 20px 40px rgba(0,0,0,.15);
 
-Menjadi pengelola hutan yang profesional,
-berkelanjutan, transparan, serta mampu
-mewujudkan kelestarian hutan untuk
-kesejahteraan masyarakat.
+}
+/*=====================================
+ HERO EDUKASI
+======================================*/
 
-</p>
+.hero-edukasi{
 
-</div>
+    background:
+    linear-gradient(
+        90deg,
+        rgba(25,135,84,.90) 0%,
+        rgba(25,135,84,.82) 40%,
+        rgba(25,135,84,.35) 70%,
+        rgba(25,135,84,.05) 100%
+    ),
+    url("../images/hero-edukasi-bg.jpg");
 
-</div>
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-</div>
+    min-height: 620px;
 
-<div class="col-lg-6">
+    display:flex;
+    align-items:center;
 
-<div class="card h-100">
+    color:#fff;
 
-<div class="card-body">
+}
 
-<div class="icon-box">
+.hero-edukasi h1{
+    font-size:clamp(2.5rem,5vw,4rem);
+}
 
-<i class="fa-solid fa-list-check"></i>
+.hero-edukasi p{
 
-</div>
+    font-size:20px;
+    line-height:1.9;
+    max-width:650px;
 
-<h3 class="text-center">
+}
 
-Misi
+.hero-edukasi .btn{
 
-</h3>
+    margin-top:15px;
 
-<ul>
+}
 
-<li>Mengelola kawasan hutan secara lestari.</li>
+/* =========================
+   LOGO BARU
+========================= */
 
-<li>Meningkatkan perlindungan hutan.</li>
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#fff;
+    padding:4px 8px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
 
-<li>Meningkatkan pelayanan publik.</li>
+.logo-aceh{
+    width:36px;
+    height:36px;
+    object-fit:contain;
+}
 
-<li>Mendorong partisipasi masyarakat.</li>
+.logo-kph{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+}
 
-<li>Mengembangkan teknologi informasi.</li>
 
-</ul>
+/*=========================================
+  EXTRA RESPONSIVE HP
+=========================================*/
 
-</div>
+@media (max-width:576px){
 
-</div>
+    .navbar{
+        padding:10px 0;
+    }
 
-</div>
+    .hero{
+        min-height:auto;
+        padding:120px 0 80px;
+    }
 
-</div>
+    .hero h1{
+        font-size:2rem;
+    }
 
-</div>
+    .hero h3{
+        font-size:1.3rem;
+    }
 
-</section>
+    .hero p{
+        font-size:15px;
+    }
 
+    .hero-edukasi{
+        min-height:auto;
+        padding:120px 0 80px;
+    }
 
+    .hero-edukasi h1{
+        font-size:2rem;
+    }
 
-<!-- ===================================================== -->
+    .hero-edukasi p{
+        font-size:15px;
+    }
 
-<!-- TUGAS & FUNGSI -->
+    .hero-image{
+        width:90%;
+        margin:auto;
+    }
 
-<!-- ===================================================== -->
+   .navbar-brand img{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+}
 
-<section id="tugas" class="bg-light">
+    .gallery-card img{
+        height:200px;
+    }
 
-<div class="container">
+    .banner-pelayanan{
+        padding:20px;
+    }
 
-<div class="text-center mb-5">
+}
+/* =======================================================
+   RESPONSIVE FINAL SIGAP HUTAN
+   ======================================================= */
 
-<h2 class="section-title">
+/* ---------- Laptop 1200px ---------- */
+@media (max-width:1200px){
 
-Tugas dan Fungsi
+    .navbar-brand h5{
+        font-size:22px;
+    }
 
-</h2>
+    .navbar-brand small{
+        font-size:13px;
+    }
 
-<p>
+    .nav-link{
+        font-size:14px;
+        margin-left:2px;
+        padding:8px 10px !important;
+    }
 
-Pelaksanaan tugas UPTD KPH Wilayah VIII Aceh.
+    .hero{
+        min-height:75vh;
+    }
 
-</p>
+    .hero h1{
+        font-size:3.3rem;
+    }
 
-</div>
+    .hero h3{
+        font-size:2rem;
+    }
 
-<div class="row g-4">
+    .hero p{
+        font-size:17px;
+    }
 
-<div class="col-lg-3 col-md-6">
+    .hero img{
+        max-width:95%;
+    }
 
-<div class="card text-center p-4 h-100">
+}
 
-<div class="icon-box">
+/* ---------- Laptop 992px ---------- */
+@media (max-width:992px){
 
-<i class="fa-solid fa-tree"></i>
+    .navbar{
+        padding:10px 0;
+    }
 
-</div>
+    .navbar-collapse{
+        background:#14532d;
+        margin-top:15px;
+        padding:20px;
+        border-radius:15px;
+    }
 
-<h5>
+    .navbar-nav{
+        gap:8px;
+        text-align:center;
+    }
 
-Pengelolaan Hutan
+    .nav-link{
+        padding:10px;
+    }
 
-</h5>
+    .running-text{
+        top:74px;
+    }
 
-<p>
+    .hero{
 
-Mengelola kawasan hutan secara berkelanjutan.
+        text-align:center;
 
-</p>
+        padding-top:150px;
 
-</div>
+        min-height:auto;
 
-</div>
+    }
 
-<div class="col-lg-3 col-md-6">
+    .hero .row{
+        flex-direction:column-reverse;
+    }
 
-<div class="card text-center p-4 h-100">
+    .hero img{
 
-<div class="icon-box">
+        max-width:500px;
 
-<i class="fa-solid fa-shield-halved"></i>
+        margin:40px auto 0;
 
-</div>
+    }
 
-<h5>
+    .hero .btn{
 
-Perlindungan
+        width:100%;
 
-</h5>
+        margin-bottom:12px;
 
-<p>
+    }
 
-Mencegah kerusakan kawasan dan gangguan hutan.
+}
 
-</p>
+/* ---------- Tablet ---------- */
 
-</div>
+@media (max-width:768px){
 
-</div>
+    .logo-box{
 
-<div class="col-lg-3 col-md-6">
+        transform:scale(.90);
 
-<div class="card text-center p-4 h-100">
+    }
 
-<div class="icon-box">
+    .navbar-brand h5{
 
-<i class="fa-solid fa-seedling"></i>
+        font-size:18px;
 
-</div>
+    }
 
-<h5>
+    .navbar-brand small{
 
-Rehabilitasi
+        font-size:11px;
 
-</h5>
+    }
 
-<p>
+    .running-text{
 
-Melaksanakan rehabilitasi kawasan hutan.
+        height:40px;
 
-</p>
+        top:70px;
 
-</div>
+    }
 
-</div>
+    .running-content span{
 
-<div class="col-lg-3 col-md-6">
+        font-size:13px;
 
-<div class="card text-center p-4 h-100">
+    }
 
-<div class="icon-box">
+    .hero{
 
-<i class="fa-solid fa-handshake"></i>
+        padding-top:150px;
 
-</div>
+    }
 
-<h5>
+    .hero h1{
 
-Pelayanan Publik
+        font-size:2.4rem;
 
-</h5>
+    }
 
-<p>
+    .hero h3{
 
-Memberikan pelayanan informasi dan pengaduan.
+        font-size:1.5rem;
 
-</p>
+    }
 
-</div>
+    .hero p{
 
-</div>
+        font-size:15px;
 
-</div>
+        line-height:1.7;
 
-</div>
+    }
 
-</section> <!-- ===================================================== --> <!-- PROFIL --> <!-- ===================================================== -->
+    .hero img{
 
-<section id="profil">
+        width:100%;
 
-<div class="container">
+    }
 
-<div class="row align-items-center">
+    .btn{
 
-<div class="col-lg-5 mb-4">
+        width:100%;
 
-<img src="../images/kantor-kph.jpg" class="img-fluid rounded shadow" alt="Kantor KPH">
+    }
 
-</div>
+    .card{
 
-<div class="col-lg-7">
+        margin-bottom:20px;
 
-<span class="badge bg-success mb-3">
+    }
 
-<i class="fa-solid fa-building"></i>
+}
 
-Profil
+/* ---------- HP ---------- */
 
-</span>
+@media (max-width:576px){
 
-<h2 class="section-title text-start">
+    .logo-box{
 
-Profil UPTD KPH Wilayah VIII Aceh
+        gap:4px;
 
-</h2>
+        padding:4px;
 
-<p>
+    }
 
-UPTD Kesatuan Pengelolaan Hutan (KPH) Wilayah VIII Aceh merupakan Unit
-Pelaksana Teknis Daerah yang mempunyai tugas melaksanakan pengelolaan
-kawasan hutan secara lestari, perlindungan hutan, pemberdayaan masyarakat,
-serta pelayanan publik di bidang kehutanan.
+    .logo-aceh{
 
-</p>
+        width:28px;
 
-<p>
+        height:28px;
 
-Melalui website SIGAP HUTAN, masyarakat dapat memperoleh informasi
-kehutanan, menyampaikan pengaduan, serta mengakses berbagai layanan
-secara cepat, mudah, dan transparan.
+    }
 
-</p>
+    .logo-kph{
 
-<div class="row mt-4">
+        width:38px;
 
-<div class="col-6">
+        height:38px;
 
-<div class="card p-3 text-center">
+    }
 
-<h2 class="text-success">1</h2>
+    .navbar-brand h5{
 
-<p>KPH</p>
+        font-size:16px;
 
-</div>
+    }
 
-</div>
+    .navbar-brand small{
 
-<div class="col-6">
+        display:block;
 
-<div class="card p-3 text-center">
+        font-size:10px;
 
-<h2 class="text-success">100%</h2>
+    }
 
-<p>Pelayanan Digital</p>
+    .running-text{
 
-</div>
+        height:36px;
 
-</div>
+    }
 
-</div>
+    .running-content span{
 
-</div>
+        font-size:12px;
 
-</div>
+    }
 
-</div>
+    .hero{
 
-</section>
+        padding-top:145px;
 
+        padding-bottom:70px;
 
+    }
 
-<!-- ===================================================== -->
+    .hero h1{
 
-<!-- SEJARAH -->
+        font-size:2rem;
 
-<!-- ===================================================== -->
+    }
 
-<section id="sejarah" class="bg-light">
+    .hero h3{
 
-<div class="container">
+        font-size:1.25rem;
 
-<div class="text-center mb-5">
+    }
 
-<h2 class="section-title">
+    .hero p{
 
-Sejarah Singkat
+        font-size:14px;
 
-</h2>
+    }
 
-<p>
+    .hero .btn{
 
-Perjalanan terbentuknya UPTD KPH Wilayah VIII Aceh.
+        width:100%;
 
-</p>
+    }
 
-</div>
+    section{
 
-<div class="row">
+        padding:60px 0;
 
-<div class="col-lg-4">
+    }
 
-<div class="card h-100 p-4">
+}
+/* ===================================================
+   DESAIN MODERN SIGAP HUTAN
+===================================================*/
 
-<div class="icon-box">
+/* Smooth Scroll */
+html{
+    scroll-behavior:smooth;
+}
 
-<i class="fa-solid fa-calendar"></i>
+/* Section */
+section{
+    position:relative;
+    padding:90px 0;
+    overflow:hidden;
+}
 
-</div>
+/* Background Dekorasi */
+section::before{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:rgba(25,135,84,.05);
+    top:-120px;
+    right:-120px;
+    animation:float1 12s ease-in-out infinite;
+}
 
-<h4>Pembentukan</h4>
+section::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(25,135,84,.05);
+    bottom:-80px;
+    left:-80px;
+    animation:float2 15s ease-in-out infinite;
+}
 
-<p>
+.container{
+    position:relative;
+    z-index:2;
+}
 
-UPTD KPH Wilayah VIII Aceh dibentuk sebagai unit pengelolaan kawasan
-hutan yang bertanggung jawab terhadap pengelolaan sumber daya hutan.
+/* Animasi Background */
 
-</p>
+@keyframes float1{
 
-</div>
+0%,100%{
+transform:translateY(0);
+}
 
-</div>
+50%{
+transform:translateY(30px);
+}
 
-<div class="col-lg-4">
+}
 
-<div class="card h-100 p-4">
+@keyframes float2{
 
-<div class="icon-box">
+0%,100%{
+transform:translateY(0);
+}
 
-<i class="fa-solid fa-tree"></i>
+50%{
+transform:translateY(-25px);
+}
 
-</div>
+}
 
-<h4>Pengelolaan</h4>
+/* Judul */
 
-<p>
+.section-title{
 
-Melaksanakan perlindungan, konservasi,
-rehabilitasi serta pemanfaatan kawasan hutan
-secara lestari.
+font-weight:700;
+margin-bottom:50px;
+position:relative;
 
-</p>
+}
 
-</div>
+.section-title::after{
 
-</div>
+content:"";
+display:block;
+width:80px;
+height:4px;
+background:#198754;
+margin:15px auto 0;
+border-radius:20px;
 
-<div class="col-lg-4">
+}
 
-<div class="card h-100 p-4">
+/* Card */
 
-<div class="icon-box">
+.card{
 
-<i class="fa-solid fa-users"></i>
+border:none;
+border-radius:20px;
+overflow:hidden;
+transition:.35s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 
-</div>
+}
 
-<h4>Pelayanan</h4>
+.card:hover{
 
-<p>
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.18);
 
-Memberikan pelayanan informasi,
-pengaduan masyarakat serta edukasi
-kehutanan berbasis digital.
+}
 
-</p>
+/* Gambar */
 
-</div>
+.card img{
 
-</div>
+transition:.5s;
 
-</div>
+}
 
-</div>
+.card:hover img{
 
-</section>
+transform:scale(1.08);
 
+}
 
+/* Tombol */
 
-<!-- ===================================================== -->
+.btn{
 
-<!-- VISI MISI -->
+border-radius:50px;
+padding:12px 28px;
+font-weight:600;
+transition:.3s;
 
-<!-- ===================================================== -->
+}
 
-<section id="visi">
+.btn:hover{
 
-<div class="container">
+transform:translateY(-3px);
 
-<div class="text-center mb-5">
+}
 
-<h2 class="section-title">
+/* Hero */
 
-Visi dan Misi
+.hero-edukasi{
 
-</h2>
+background:linear-gradient(135deg,#198754,#2fb36d);
+color:white;
+position:relative;
+overflow:hidden;
 
-</div>
+}
 
-<div class="row g-4">
+.hero-edukasi::before{
 
-<div class="col-lg-6">
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+top:-250px;
+right:-250px;
 
-<div class="card h-100">
+}
 
-<div class="card-body">
+.hero-edukasi::after{
 
-<div class="icon-box">
+content:"";
+position:absolute;
+width:400px;
+height:400px;
+background:rgba(255,255,255,.05);
+border-radius:50%;
+bottom:-180px;
+left:-180px;
 
-<i class="fa-solid fa-bullseye"></i>
+}
 
-</div>
+/* Hero Image */
 
-<h3 class="text-center">
+.hero-edukasi img{
 
-Visi
+border-radius:25px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+transition:.4s;
 
-</h3>
+}
 
-<p class="text-center">
+.hero-edukasi img:hover{
 
-Menjadi pengelola hutan yang profesional,
-berkelanjutan, transparan, serta mampu
-mewujudkan kelestarian hutan untuk
-kesejahteraan masyarakat.
+transform:scale(1.03);
 
-</p>
+}
 
-</div>
+/* Icon */
 
-</div>
+.icon-box{
 
-</div>
+width:80px;
+height:80px;
+border-radius:50%;
+background:#e9f7ef;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+font-size:35px;
+color:#198754;
+margin-bottom:20px;
+transition:.3s;
 
-<div class="col-lg-6">
+}
 
-<div class="card h-100">
+.card:hover .icon-box{
 
-<div class="card-body">
+background:#198754;
+color:white;
+transform:rotate(8deg) scale(1.1);
 
-<div class="icon-box">
+}
 
-<i class="fa-solid fa-list-check"></i>
+/* Tabel */
 
-</div>
+.table{
 
-<h3 class="text-center">
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
 
-Misi
+}
 
-</h3>
+/* Footer */
 
-<ul>
+footer{
 
-<li>Mengelola kawasan hutan secara lestari.</li>
+border-top:5px solid #198754;
 
-<li>Meningkatkan perlindungan hutan.</li>
+}
 
-<li>Meningkatkan pelayanan publik.</li>
+/* Hover Link */
 
-<li>Mendorong partisipasi masyarakat.</li>
+a{
 
-<li>Mengembangkan teknologi informasi.</li>
+transition:.3s;
 
-</ul>
+}
 
-</div>
+a:hover{
 
-</div>
+text-decoration:none;
 
-</div>
+}
 
-</div>
+/* List */
 
-</div>
+.list-group-item{
 
-</section>
+border:none;
+margin-bottom:10px;
+border-radius:15px;
+transition:.3s;
 
+}
 
+.list-group-item:hover{
 
-<!-- ===================================================== -->
+background:#198754;
+color:white;
+padding-left:25px;
 
-<!-- TUGAS & FUNGSI -->
+}
 
-<!-- ===================================================== -->
+/* Efek Fade */
 
-<section id="tugas" class="bg-light">
+.fade-up{
 
-<div class="container">
+animation:fadeUp .8s ease;
 
-<div class="text-center mb-5">
+}
 
-<h2 class="section-title">
+@keyframes fadeUp{
 
-Tugas dan Fungsi
+from{
 
-</h2>
+opacity:0;
+transform:translateY(40px);
 
-<p>
+}
 
-Pelaksanaan tugas UPTD KPH Wilayah VIII Aceh.
+to{
 
-</p>
+opacity:1;
+transform:translateY(0);
 
-</div>
+}
 
-<div class="row g-4">
+}
 
-<div class="col-lg-3 col-md-6">
+/* Responsive */
 
-<div class="card text-center p-4 h-100">
+@media(max-width:768px){
 
-<div class="icon-box">
+.hero-edukasi{
 
-<i class="fa-solid fa-tree"></i>
+text-align:center;
 
-</div>
+}
 
-<h5>
+.hero-edukasi img{
 
-Pengelolaan Hutan
+margin-top:30px;
 
-</h5>
+}
 
-<p>
+.section-title{
 
-Mengelola kawasan hutan secara berkelanjutan.
+font-size:28px;
 
-</p>
+}
 
-</div>
+.card{
 
-</div>
+margin-bottom:20px;
 
-<div class="col-lg-3 col-md-6">
+}
 
-<div class="card text-center p-4 h-100">
+}
+/* ========================================= */
+/* HERO INFORMASI */
+/* ========================================= */
 
-<div class="icon-box">
+.hero-informasi{
+    width:100%;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+}
 
-<i class="fa-solid fa-shield-halved"></i>
-
-</div>
-
-<h5>
-
-Perlindungan
-
-</h5>
-
-<p>
-
-Mencegah kerusakan kawasan dan gangguan hutan.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center p-4 h-100">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-seedling"></i>
-
-</div>
-
-<h5>
-
-Rehabilitasi
-
-</h5>
-
-<p>
-
-Melaksanakan rehabilitasi kawasan hutan.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center p-4 h-100">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-handshake"></i>
-
-</div>
-
-<h5>
-
-Pelayanan Publik
-
-</h5>
-
-<p>
-
-Memberikan pelayanan informasi dan pengaduan.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
+.hero-banner{
+    width:100%;
+    display:block;
+    object-fit:cover;
+}
