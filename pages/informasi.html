@@ -1,329 +1,520 @@
-/* ==========================================
-             HALAMAN INFORMASI
-==========================================*/
+<!DOCTYPE html>
+<html lang="id">
+<head>
 
-section{
-    position:relative;
-    overflow:hidden;
-    padding:90px 0;
-}
-
-/* Background animasi */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-section::before{
-    content:"";
-    position:absolute;
-    width:450px;
-    height:450px;
-    background:rgba(25,135,84,.06);
-    border-radius:50%;
-    top:-180px;
-    right:-120px;
-    animation:float1 10s ease-in-out infinite;
-}
+<title>Informasi | SIGAP HUTAN</title>
 
-section::after{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:rgba(25,135,84,.05);
-    border-radius:50%;
-    bottom:-120px;
-    left:-80px;
-    animation:float2 12s ease-in-out infinite;
-}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-@keyframes float1{
+<link rel="stylesheet" href="../css/style.css">
 
-0%{
-transform:translateY(0px);
-}
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-50%{
-transform:translateY(30px) translateX(-20px);
-}
+</head>
 
-100%{
-transform:translateY(0px);
-}
+<body>
 
-}
+<!-- NAVBAR -->
 
-@keyframes float2{
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
 
-0%{
-transform:translateY(0px);
-}
+<div class="container">
 
-50%{
-transform:translateY(-25px) translateX(20px);
-}
+<a class="navbar-brand fw-bold" href="../index.html">
+🌳 SIGAP HUTAN
+</a>
 
-100%{
-transform:translateY(0px);
-}
+</div>
 
-}
+</nav>
 
-/* ================================= */
+<!-- HERO -->
 
-.container{
-    position:relative;
-    z-index:2;
-}
+<section class="hero-edukasi">
 
-/* ================================= */
+<div class="container">
 
-.section-title{
+<div class="row align-items-center">
 
-font-size:36px;
-font-weight:700;
-margin-bottom:20px;
-position:relative;
+<div class="col-lg-6">
 
-}
+<span class="badge bg-warning text-dark mb-3">
+INFORMASI
+</span>
 
-.section-title::after{
+<h1 class="fw-bold display-5">
+UPTD KPH Wilayah VIII Aceh
+</h1>
 
-content:"";
-display:block;
-width:80px;
-height:5px;
-background:#198754;
-border-radius:20px;
-margin:15px auto 0;
+<p class="lead">
 
-}
+Pusat informasi resmi mengenai profil, sejarah, visi misi,
+tugas dan fungsi, wilayah kerja serta struktur organisasi
+UPTD KPH Wilayah VIII Aceh.
 
-/* ================================= */
+</p>
 
-.card{
+<a href="#profil" class="btn btn-warning btn-lg">
 
-border:none;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 35px rgba(0,0,0,.08);
-transition:.4s;
+<i class="bi bi-arrow-down-circle"></i>
 
-}
+Lihat Informasi
 
-.card:hover{
+</a>
 
-transform:translateY(-10px);
+</div>
 
-box-shadow:0 20px 40px rgba(0,0,0,.18);
+<div class="col-lg-6 text-center">
 
-}
+<img src="../images/kator kph.jpg"
+class="img-fluid rounded-4 shadow">
 
-/* ================================= */
+</div>
 
-.card-body{
+</div>
 
-padding:35px;
+</div>
 
-}
+</section>
 
-/* ================================= */
+<!-- PROFIL -->
 
-.icon-box{
+<section id="profil" class="py-5">
 
-width:85px;
-height:85px;
-margin:auto;
-border-radius:50%;
-background:#eaf7ef;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:38px;
-color:#198754;
-margin-bottom:20px;
-transition:.4s;
+<div class="container">
 
-}
+<h2 class="text-center fw-bold mb-5">
 
-.card:hover .icon-box{
+Profil UPTD KPH Wilayah VIII Aceh
 
-transform:rotate(10deg) scale(1.15);
+</h2>
 
-background:#198754;
+<div class="row align-items-center">
 
-color:#fff;
+<div class="col-lg-6">
 
-}
+<p>
 
-/* ================================= */
+UPTD Kesatuan Pengelolaan Hutan (KPH) Wilayah VIII Aceh merupakan Unit Pelaksana Teknis Daerah di bawah Dinas Lingkungan Hidup dan Kehutanan Aceh yang bertugas melaksanakan pengelolaan kawasan hutan secara lestari, perlindungan hutan, pembinaan masyarakat, serta pelayanan publik di bidang kehutanan.
 
-img{
+</p>
 
-transition:.5s;
+</div>
 
-}
+<div class="col-lg-6">
 
-img:hover{
+<div class="card shadow border-0">
 
-transform:scale(1.04);
+<div class="card-body">
 
-}
+<h5 class="fw-bold">
 
-/* ================================= */
+Wilayah Kerja
 
-.btn{
+</h5>
 
-border-radius:50px;
-padding:12px 28px;
-font-weight:600;
-transition:.35s;
+<ul>
 
-}
+<li>Kabupaten Gayo Lues</li>
 
-.btn:hover{
+<li>Kabupaten Aceh Tenggara</li>
 
-transform:translateY(-3px);
+</ul>
 
-}
+</div>
 
-/* ================================= */
+</div>
 
-table{
+</div>
 
-border-radius:15px;
-overflow:hidden;
+</div>
 
-}
+</div>
 
-/* ================================= */
+</section>
 
-footer{
+<!-- SEJARAH -->
 
-border-top:5px solid #198754;
-}
+<section class="py-5 bg-light">
 
-/* ================================= */
+<div class="container">
 
-.bg-light{
+<h2 class="fw-bold mb-4">
 
-background:#f8faf9 !important;
+Sejarah
 
-}
+</h2>
 
-/* ================================= */
+<p>
 
-h2{
+UPTD KPH Wilayah VIII Aceh dibentuk berdasarkan Peraturan Gubernur Aceh Nomor 1 Tahun 2024. Sebelumnya wilayah ini merupakan bagian dari UPTD KPH Wilayah V berdasarkan Pergub Aceh Nomor 46 Tahun 2018. Perubahan tersebut bertujuan meningkatkan efektivitas pengelolaan hutan pada wilayah Kabupaten Gayo Lues dan Kabupaten Aceh Tenggara.
 
-font-weight:700;
+</p>
 
-}
+</div>
 
-h4{
+</section>
 
-font-weight:600;
+<!-- VISI MISI -->
 
-}
+<section class="py-5">
 
-/* ================================= */
+<div class="container">
 
-p{
+<h2 class="text-center fw-bold mb-5">
 
-line-height:1.9;
+Visi & Misi
 
-}
+</h2>
 
-/* ================================= */
+<div class="row">
 
-.list-group-item{
+<div class="col-lg-6">
 
-border:none;
-margin-bottom:10px;
-border-radius:15px;
-transition:.3s;
+<div class="card shadow h-100">
 
-}
+<div class="card-body">
 
-.list-group-item:hover{
+<h4 class="text-success">
 
-background:#198754;
-color:white;
-padding-left:30px;
+Visi
 
-}
+</h4>
 
-/* ================================= */
-/* Background daun */
-/* ================================= */
+<p>
 
-.leaf-bg{
+Menjadi pengelola hutan yang profesional, berkelanjutan, dan berorientasi pada pelayanan publik guna mewujudkan kelestarian hutan serta meningkatkan kesejahteraan masyarakat.
 
-position:absolute;
-opacity:.05;
-font-size:170px;
-color:#198754;
-animation:leafMove 18s linear infinite;
+</p>
 
-}
+</div>
 
-.leaf1{
+</div>
 
-top:60px;
-left:60px;
+</div>
 
-}
+<div class="col-lg-6">
 
-.leaf2{
+<div class="card shadow h-100">
 
-bottom:80px;
-right:100px;
-animation-delay:5s;
+<div class="card-body">
 
-}
+<h4 class="text-success">
 
-@keyframes leafMove{
+Misi
 
-0%{
+</h4>
 
-transform:translateY(0px) rotate(0deg);
+<ul>
 
-}
+<li>Mengelola kawasan hutan secara lestari.</li>
 
-50%{
+<li>Memberikan pelayanan publik yang cepat dan transparan.</li>
 
-transform:translateY(-25px) rotate(15deg);
+<li>Meningkatkan perlindungan kawasan hutan.</li>
 
-}
+<li>Memberdayakan masyarakat sekitar hutan.</li>
 
-100%{
+<li>Mendukung pembangunan kehutanan berkelanjutan.</li>
 
-transform:translateY(0px) rotate(0deg);
+</ul>
 
-}
+</div>
 
-}
+</div>
 
-/* ================================= */
+</div>
 
-.fade-section{
+</div>
 
-animation:fadeUp .9s;
+</div>
 
-}
+</section>
 
-@keyframes fadeUp{
+<!-- TUGAS -->
 
-from{
+<section class="py-5 bg-light">
 
-opacity:0;
+<div class="container">
 
-transform:translateY(40px);
+<h2 class="text-center fw-bold mb-5">
 
-}
+Tugas dan Fungsi
 
-to{
+</h2>
 
-opacity:1;
+<div class="row">
 
-transform:translateY(0);
+<div class="col-md-6">
 
-}
+<div class="card shadow h-100">
 
-}
+<div class="card-body">
+
+<h4 class="text-success">
+
+Tugas
+
+</h4>
+
+<ul>
+
+<li>Pengelolaan kawasan hutan.</li>
+
+<li>Perlindungan kawasan hutan.</li>
+
+<li>Pelayanan publik bidang kehutanan.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card shadow h-100">
+
+<div class="card-body">
+
+<h4 class="text-success">
+
+Fungsi
+
+</h4>
+
+<ul>
+
+<li>Perencanaan pengelolaan hutan.</li>
+
+<li>Pembinaan kehutanan.</li>
+
+<li>Perlindungan hutan.</li>
+
+<li>Administrasi dan tata usaha.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WILAYAH -->
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center fw-bold mb-5">
+
+Wilayah Kerja
+
+</h2>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="card shadow text-center p-4">
+
+<i class="bi bi-geo-alt-fill fs-1 text-success"></i>
+
+<h4 class="mt-3">
+
+Unit VIII
+
+</h4>
+
+<p>
+
+Kabupaten Gayo Lues
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card shadow text-center p-4">
+
+<i class="bi bi-geo-alt-fill fs-1 text-success"></i>
+
+<h4 class="mt-3">
+
+Unit IX
+
+</h4>
+
+<p>
+
+Kabupaten Aceh Tenggara
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STRUKTUR -->
+
+<section class="py-5 bg-light">
+
+<div class="container text-center">
+
+<h2 class="fw-bold mb-5">
+
+Struktur Organisasi
+
+</h2>
+
+<img src="../images/struktur-organisasi.png"
+
+class="img-fluid rounded shadow">
+
+</div>
+
+</section>
+
+<!-- SDM -->
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center fw-bold mb-5">
+
+Sumber Daya Manusia
+
+</h2>
+
+<p class="text-center">
+
+UPTD KPH Wilayah VIII Aceh didukung oleh ASN dan PPPK yang ditempatkan pada tiga bagian utama.
+
+</p>
+
+<div class="row g-4 mt-3">
+
+<div class="col-lg-4">
+
+<div class="card shadow h-100">
+
+<div class="card-body text-center">
+
+<i class="bi bi-shield-fill-check fs-1 text-success"></i>
+
+<h5 class="mt-3">
+
+Seksi Perlindungan Hutan
+
+</h5>
+
+<p>
+
+Melaksanakan perlindungan dan pengamanan kawasan hutan serta penanganan gangguan kehutanan.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card shadow h-100">
+
+<div class="card-body text-center">
+
+<i class="bi bi-tree-fill fs-1 text-success"></i>
+
+<h5 class="mt-3">
+
+Seksi Perencanaan dan Pembinaan Hutan
+
+</h5>
+
+<p>
+
+Melaksanakan penyusunan rencana pengelolaan, pembinaan, monitoring dan evaluasi kehutanan.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card shadow h-100">
+
+<div class="card-body text-center">
+
+<i class="bi bi-folder-fill fs-1 text-success"></i>
+
+<h5 class="mt-3">
+
+Subbagian Tata Usaha
+
+</h5>
+
+<p>
+
+Melaksanakan administrasi umum, kepegawaian, keuangan, persuratan dan pelayanan administrasi.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-center text-white p-4">
+
+© 2026 SIGAP HUTAN
+
+<br>
+
+UPTD KPH Wilayah VIII Aceh
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
