@@ -1789,14 +1789,32 @@ margin-bottom:20px;
 /* ========================================= */
 
 .hero-informasi{
-    width:100%;
-    overflow:hidden;
+
+    width:100vw;
     margin:0;
-    padding:0;
+    padding:0 !important;
+    overflow:hidden;
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+    background:#fff;
+
+}
+
+
+.hero-informasi::before,
+.hero-informasi::after{
+
+    display:none;
+
 }
 
 .hero-banner{
+
     width:100%;
+    height:auto;
     display:block;
-    object-fit:cover;
+
 }
