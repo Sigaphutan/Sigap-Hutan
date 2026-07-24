@@ -100,17 +100,12 @@ height:42px;
 }
 
 .nav-link{
-
-color:#fff !important;
-font-weight:500;
-.nav-link{
-    margin-left:8px;
-    font-size:15px;
+    color:#fff !important;
     font-weight:600;
-}
-position:relative;
-transition:.3s;
-
+    font-size:15px;
+    margin-left:8px;
+    position:relative;
+    transition:.3s;
 }
 .navbar-brand h5{
     font-size:20px;
@@ -206,10 +201,13 @@ width:100%;
 .hero{
     background:linear-gradient(rgba(10,70,35,.85),rgba(18,85,48,.85)),
     url("../images/hero.png") center/cover;
-    min-height:90vh;
+   
     display:flex;
+
     align-items:center;
-    padding-top:100px;
+
+    padding:130px 0 70px;
+
 }
 
 .hero h1{
@@ -234,6 +232,12 @@ color:#eee;
     width:100%;
     max-width:520px;
     animation:float 4s ease-in-out infinite;
+.hero .img-fluid{
+    width:100%;
+    max-width:700px;
+    height:auto;
+    display:block;
+    margin:auto;
 }
 
 @keyframes float{
@@ -945,7 +949,7 @@ padding:70px 0;
 }
 
 .hero{
-    min-height:90vh;
+    min-height:80vh;
 }
 
 .hero h1{
@@ -1163,10 +1167,11 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
         margin:auto;
     }
 
-    .navbar-brand img{
-        width:42px;
-        height:42px;
-    }
+   .navbar-brand img{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+}
 
     .gallery-card img{
         height:200px;
@@ -1174,6 +1179,283 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 
     .banner-pelayanan{
         padding:20px;
+    }
+
+}
+/* =======================================================
+   RESPONSIVE FINAL SIGAP HUTAN
+   ======================================================= */
+
+/* ---------- Laptop 1200px ---------- */
+@media (max-width:1200px){
+
+    .navbar-brand h5{
+        font-size:22px;
+    }
+
+    .navbar-brand small{
+        font-size:13px;
+    }
+
+    .nav-link{
+        font-size:14px;
+        margin-left:2px;
+        padding:8px 10px !important;
+    }
+
+    .hero{
+        min-height:85vh;
+    }
+
+    .hero h1{
+        font-size:3.3rem;
+    }
+
+    .hero h3{
+        font-size:2rem;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .hero img{
+        max-width:95%;
+    }
+
+}
+
+/* ---------- Laptop 992px ---------- */
+@media (max-width:992px){
+
+    .navbar{
+        padding:10px 0;
+    }
+
+    .navbar-collapse{
+        background:#14532d;
+        margin-top:15px;
+        padding:20px;
+        border-radius:15px;
+    }
+
+    .navbar-nav{
+        gap:8px;
+        text-align:center;
+    }
+
+    .nav-link{
+        padding:10px;
+    }
+
+    .running-text{
+        top:74px;
+    }
+
+    .hero{
+
+        text-align:center;
+
+        padding-top:150px;
+
+        min-height:auto;
+
+    }
+
+    .hero .row{
+        flex-direction:column-reverse;
+    }
+
+    .hero img{
+
+        max-width:500px;
+
+        margin:40px auto 0;
+
+    }
+
+    .hero .btn{
+
+        width:100%;
+
+        margin-bottom:12px;
+
+    }
+
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:768px){
+
+    .logo-box{
+
+        transform:scale(.90);
+
+    }
+
+    .navbar-brand h5{
+
+        font-size:18px;
+
+    }
+
+    .navbar-brand small{
+
+        font-size:11px;
+
+    }
+
+    .running-text{
+
+        height:40px;
+
+        top:70px;
+
+    }
+
+    .running-content span{
+
+        font-size:13px;
+
+    }
+
+    .hero{
+
+        padding-top:150px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.4rem;
+
+    }
+
+    .hero h3{
+
+        font-size:1.5rem;
+
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+        line-height:1.7;
+
+    }
+
+    .hero img{
+
+        width:100%;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .card{
+
+        margin-bottom:20px;
+
+    }
+
+}
+
+/* ---------- HP ---------- */
+
+@media (max-width:576px){
+
+    .logo-box{
+
+        gap:4px;
+
+        padding:4px;
+
+    }
+
+    .logo-aceh{
+
+        width:28px;
+
+        height:28px;
+
+    }
+
+    .logo-kph{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .navbar-brand h5{
+
+        font-size:16px;
+
+    }
+
+    .navbar-brand small{
+
+        display:block;
+
+        font-size:10px;
+
+    }
+
+    .running-text{
+
+        height:36px;
+
+    }
+
+    .running-content span{
+
+        font-size:12px;
+
+    }
+
+    .hero{
+
+        padding-top:145px;
+
+        padding-bottom:70px;
+
+    }
+
+    .hero h1{
+
+        font-size:2rem;
+
+    }
+
+    .hero h3{
+
+        font-size:1.25rem;
+
+    }
+
+    .hero p{
+
+        font-size:14px;
+
+    }
+
+    .hero .btn{
+
+        width:100%;
+
+    }
+
+    section{
+
+        padding:60px 0;
+
     }
 
 }
