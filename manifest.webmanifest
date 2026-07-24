@@ -1,0 +1,22 @@
+{
+  "name": "SIGAP HUTAN",
+  "short_name": "SIGAP HUTAN",
+  "description": "Sistem Informasi Gangguan, Aduan dan Pelayanan Kehutanan Terpadu UPTD KPH Wilayah VIII Aceh.",
+  "start_url": "/Sigap-Hutan/",
+  "scope": "/Sigap-Hutan/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#198754",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
