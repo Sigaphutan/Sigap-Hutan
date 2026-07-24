@@ -1051,9 +1051,9 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     background:
         linear-gradient(
             90deg,
-            rgba(15,90,45,.70) 0%,
-            rgba(15,90,45,.45) 40%,
-            rgba(15,90,45,.15) 70%,
+            rgba(15,90,45,.55) 0%,
+            rgba(15,90,45,.30) 40%,
+            rgba(15,90,45,.08) 70%,
             rgba(15,90,45,0) 100%
         ),
         url("../images/hero-edukasi-bg.jpg");
@@ -1062,13 +1062,12 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     background-position: center;
     background-repeat: no-repeat;
 
-    min-height: 620px;
-    display: flex;
-    align-items: center;
-    color: #fff;
-}
-    position: relative;
-    overflow: hidden;
+    min-height:620px;
+    display:flex;
+    align-items:center;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
 }
 
 .hero-edukasi h1{
