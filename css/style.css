@@ -1784,3 +1784,19 @@ margin-bottom:20px;
 }
 
 }
+/* ========================================= */
+/* HERO INFORMASI */
+/* ========================================= */
+
+.hero-informasi{
+    width:100%;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+}
+
+.hero-banner{
+    width:100%;
+    display:block;
+    object-fit:cover;
+}
