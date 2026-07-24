@@ -1,87 +1,975 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informasi UPTD KPH Wilayah VIII Aceh</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<title>Informasi | SIGAP HUTAN</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="../css/informasi.css">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 </head>
+
 <body>
 
-<!-- HERO -->
-<section class="info-hero">
-    <div class="overlay"></div>
+<!-- ================= NAVBAR ================= -->
 
-    <div class="hero-content">
-        <span>UPTD KPH Wilayah VIII Aceh</span>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
-        <h1>Informasi UPTD KPH Wilayah VIII Aceh</h1>
+<div class="container">
 
-        <p>
-            Menyajikan informasi mengenai profil, sejarah, visi, misi,
-            struktur organisasi, wilayah kerja, tugas dan fungsi
-            UPTD KPH Wilayah VIII Aceh.
-        </p>
+<a class="navbar-brand d-flex align-items-center" href="../index.html">
 
-        <a href="#menuInformasi" class="btn-info">
-            <i class="fa-solid fa-circle-down"></i>
-            Lihat Informasi
-        </a>
-    </div>
+<img src="../images/logo.png" alt="Logo" class="logo">
 
-</section>
+<div class="ms-2">
 
+<h5 class="mb-0">
+SIGAP HUTAN
+</h5>
 
-<section class="informasi" id="menuInformasi">
+<small>
+Sistem Informasi Gangguan, Aduan dan Pelayanan Kehutanan Terpadu
+</small>
 
-<h2>Menu Informasi</h2>
+</div>
 
-<div class="card-container">
-
-<a href="profil.html" class="card">
-<i class="fas fa-building"></i>
-<h3>Profil</h3>
-<p>Profil lengkap UPTD KPH Wilayah VIII Aceh.</p>
 </a>
 
-<a href="sejarah.html" class="card">
-<i class="fas fa-landmark"></i>
-<h3>Sejarah</h3>
-<p>Sejarah singkat berdirinya UPTD KPH Wilayah VIII Aceh.</p>
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarMenu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse"
+id="navbarMenu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="../index.html">
+Beranda
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="#">
+Informasi
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="edukasi.html">
+Edukasi
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pengaduan.html">
+Pengaduan
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="kontak.html">
+Kontak
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-overlay">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-7"
+data-aos="fade-right">
+
+<span class="hero-badge">
+
+UPTD KPH WILAYAH VIII ACEH
+
+</span>
+
+<h1>
+
+Informasi
+<span>
+SIGAP HUTAN
+</span>
+
+</h1>
+
+<p>
+
+Halaman ini menyajikan informasi mengenai
+UPTD Kesatuan Pengelolaan Hutan Wilayah VIII Aceh,
+meliputi profil organisasi, sejarah, visi dan misi,
+tugas dan fungsi, wilayah kerja,
+struktur organisasi,
+serta sumber daya manusia.
+
+</p>
+
+<div class="mt-4">
+
+<a href="#profil"
+
+class="btn btn-warning btn-lg rounded-pill">
+
+<i class="bi bi-arrow-down-circle"></i>
+
+Lihat Informasi
+
 </a>
 
-<a href="visi-misi.html" class="card">
-<i class="fas fa-bullseye"></i>
-<h3>Visi & Misi</h3>
-<p>Visi dan misi dalam pengelolaan hutan.</p>
+<a href="../index.html"
+
+class="btn btn-outline-light btn-lg rounded-pill ms-2">
+
+<i class="bi bi-house-door"></i>
+
+Beranda
+
 </a>
 
-<a href="tugas.html" class="card">
-<i class="fas fa-briefcase"></i>
-<h3>Tugas & Fungsi</h3>
-<p>Tugas pokok dan fungsi organisasi.</p>
-</a>
+</div>
 
-<a href="wilayah.html" class="card">
-<i class="fas fa-map-marked-alt"></i>
-<h3>Wilayah Kerja</h3>
-<p>Cakupan wilayah pengelolaan KPH VIII.</p>
-</a>
+</div>
 
-<a href="struktur.html" class="card">
-<i class="fas fa-sitemap"></i>
-<h3>Struktur Organisasi</h3>
-<p>Struktur organisasi beserta jabatan.</p>
-</a>
+<div class="col-lg-5"
+
+data-aos="fade-left">
+
+<img src="../images/hero-informasi.png"
+
+class="img-fluid hero-image"
+
+alt="Hero Informasi">
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
+<!-- ================= QUICK MENU ================= -->
+
+<section class="quick-menu">
+
+<div class="container">
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<a href="#profil" class="quick-card">
+
+<i class="bi bi-building"></i>
+
+<h5>Profil</h5>
+
+<p>Mengenal UPTD KPH Wilayah VIII Aceh</p>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<a href="#sejarah" class="quick-card">
+
+<i class="bi bi-clock-history"></i>
+
+<h5>Sejarah</h5>
+
+<p>Perjalanan pembentukan organisasi</p>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<a href="#visi" class="quick-card">
+
+<i class="bi bi-bullseye"></i>
+
+<h5>Visi & Misi</h5>
+
+<p>Arah pembangunan organisasi</p>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<a href="#struktur" class="quick-card">
+
+<i class="bi bi-diagram-3"></i>
+
+<h5>Struktur</h5>
+
+<p>Susunan organisasi UPTD</p>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PROFIL ================= -->
+
+<section id="profil">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="subtitle">
+
+Tentang Kami
+
+</span>
+
+<h2 class="section-title">
+
+Profil UPTD KPH Wilayah VIII Aceh
+
+</h2>
+
+<p class="section-desc">
+
+Unit Pelaksana Teknis Daerah yang bertugas melaksanakan
+pengelolaan kawasan hutan secara lestari,
+perlindungan hutan,
+pelayanan publik,
+serta pemberdayaan masyarakat
+di wilayah Kabupaten Gayo Lues
+dan Kabupaten Aceh Tenggara.
+
+</p>
+
+</div>
+
+<div class="row align-items-center g-5">
+
+<div class="col-lg-6">
+
+<img src="../images/kator-kph.jpg"
+
+class="img-fluid rounded-4 shadow-lg"
+
+alt="Kantor KPH">
+
+</div>
+
+<div class="col-lg-6">
+
+<h3 class="mb-4">
+
+UPTD KPH Wilayah VIII Aceh
+
+</h3>
+
+<p>
+
+UPTD Kesatuan Pengelolaan Hutan Wilayah VIII Aceh
+merupakan Unit Pelaksana Teknis Daerah
+di bawah Dinas Lingkungan Hidup dan Kehutanan Aceh.
+
+Organisasi ini dibentuk untuk melaksanakan
+pengelolaan hutan,
+perlindungan kawasan,
+pelayanan publik,
+serta pembinaan masyarakat
+agar pemanfaatan sumber daya hutan
+dapat berlangsung secara lestari.
+
+</p>
+
+<div class="row mt-4">
+
+<div class="col-6">
+
+<div class="info-box">
+
+<h2>2</h2>
+
+<span>Kabupaten</span>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="info-box">
+
+<h2>361.874</h2>
+
+<span>Hektare</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+    <!-- ================= SEJARAH ================= -->
+
+<section id="sejarah" class="section-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="subtitle">Sejarah</span>
+
+<h2 class="section-title">Perjalanan UPTD KPH Wilayah VIII Aceh</h2>
+
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item" data-aos="fade-up">
+
+<div class="timeline-icon">
+<i class="bi bi-calendar-event"></i>
+</div>
+
+<div class="timeline-content">
+
+<h4>Pergub Aceh No. 46 Tahun 2018</h4>
+
+<p>
+UPTD Kesatuan Pengelolaan Hutan dibentuk sebagai bagian dari
+pengelolaan kawasan hutan di Provinsi Aceh.
+Pada saat itu wilayah kerja dikenal sebagai
+<strong>KPH Wilayah V</strong>.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item" data-aos="fade-up">
+
+<div class="timeline-icon">
+<i class="bi bi-arrow-repeat"></i>
+</div>
+
+<div class="timeline-content">
+
+<h4>Perubahan Organisasi</h4>
+
+<p>
+Melalui penyesuaian struktur organisasi Pemerintah Aceh,
+terjadi perubahan pembagian wilayah kerja
+untuk meningkatkan efektivitas pelayanan
+dan pengelolaan hutan.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item" data-aos="fade-up">
+
+<div class="timeline-icon">
+<i class="bi bi-building"></i>
+</div>
+
+<div class="timeline-content">
+
+<h4>Pergub Aceh No. 1 Tahun 2024</h4>
+
+<p>
+
+UPTD ini resmi menjadi
+<strong>UPTD KPH Wilayah VIII Aceh</strong>
+yang melaksanakan pengelolaan kawasan hutan
+di Kabupaten Gayo Lues
+dan Kabupaten Aceh Tenggara.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= VISI MISI ================= -->
+
+<section id="visi">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="subtitle">
+Visi & Misi
+</span>
+
+<h2 class="section-title">
+
+Visi dan Misi Organisasi
+
+</h2>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-6">
+
+<div class="card-modern">
+
+<div class="icon-circle">
+
+<i class="bi bi-eye-fill"></i>
+
+</div>
+
+<h3>Visi</h3>
+
+<p>
+
+Terwujudnya pengelolaan hutan yang lestari,
+produktif,
+serta mampu meningkatkan kesejahteraan masyarakat.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="card-modern">
+
+<div class="icon-circle">
+
+<i class="bi bi-flag-fill"></i>
+
+</div>
+
+<h3>Misi</h3>
+
+<ul>
+
+<li>Melaksanakan pengelolaan hutan secara lestari.</li>
+
+<li>Meningkatkan perlindungan kawasan hutan.</li>
+
+<li>Meningkatkan pelayanan publik berbasis digital.</li>
+
+<li>Mendorong pemberdayaan masyarakat sekitar hutan.</li>
+
+<li>Mewujudkan tata kelola pemerintahan yang baik.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= TUGAS ================= -->
+
+<section id="tugas" class="section-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="subtitle">
+Tugas & Fungsi
+</span>
+
+<h2 class="section-title">
+
+Tugas dan Fungsi
+
+</h2>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="feature-card">
+
+<i class="bi bi-tree-fill"></i>
+
+<h4>Pengelolaan Hutan</h4>
+
+<p>
+
+Melaksanakan pengelolaan kawasan hutan secara
+lestari dan berkelanjutan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="feature-card">
+
+<i class="bi bi-shield-check"></i>
+
+<h4>Perlindungan Hutan</h4>
+
+<p>
+
+Melakukan pencegahan gangguan hutan,
+kebakaran,
+dan perambahan kawasan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="feature-card">
+
+<i class="bi bi-people-fill"></i>
+
+<h4>Pelayanan Publik</h4>
+
+<p>
+
+Memberikan pelayanan informasi,
+pengaduan,
+dan edukasi kepada masyarakat.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= WILAYAH ================= -->
+
+<section id="wilayah">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="subtitle">
+Wilayah Kerja
+</span>
+
+<h2 class="section-title">
+
+Cakupan Wilayah
+
+</h2>
+
+</div>
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<img src="../images/peta-wilayah.png"
+
+class="img-fluid rounded-4 shadow"
+
+alt="Wilayah Kerja">
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="card-modern">
+
+<h3>Kabupaten yang Dilayani</h3>
+
+<ul>
+
+<li>Kabupaten Gayo Lues</li>
+
+<li>Kabupaten Aceh Tenggara</li>
+
+</ul>
+
+<p>
+
+Wilayah kerja UPTD KPH Wilayah VIII Aceh
+mencakup pengelolaan kawasan hutan,
+perlindungan,
+pelayanan publik,
+dan pemberdayaan masyarakat
+pada dua kabupaten tersebut.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+    <!-- ================= STRUKTUR ORGANISASI ================= -->
+
+<section id="struktur" class="section-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="subtitle">
+Struktur Organisasi
+</span>
+
+<h2 class="section-title">
+Struktur Organisasi UPTD KPH Wilayah VIII Aceh
+</h2>
+
+<p class="section-desc">
+
+Struktur organisasi UPTD KPH Wilayah VIII Aceh berdasarkan
+Peraturan Gubernur Aceh Nomor 1 Tahun 2024.
+
+</p>
+
+</div>
+
+<div class="row justify-content-center">
+
+<div class="col-lg-10">
+
+<div class="card-modern text-center">
+
+<img src="../images/struktur-organisasi.png"
+class="img-fluid rounded shadow-lg"
+alt="Struktur Organisasi">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SDM ================= -->
+
+<section id="sdm">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="subtitle">
+
+Sumber Daya Manusia
+
+</span>
+
+<h2 class="section-title">
+
+Pegawai UPTD KPH Wilayah VIII Aceh
+
+</h2>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="card-modern text-center">
+
+<i class="bi bi-person-badge-fill display-4 text-success"></i>
+
+<h4 class="mt-3">
+
+Subbagian Tata Usaha
+
+</h4>
+
+<p>
+
+Mengelola administrasi umum,
+keuangan,
+kepegawaian,
+serta pelayanan administrasi.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card-modern text-center">
+
+<i class="bi bi-tree-fill display-4 text-success"></i>
+
+<h4 class="mt-3">
+
+Seksi Perencanaan dan Pembinaan Hutan
+
+</h4>
+
+<p>
+
+Melaksanakan perencanaan,
+inventarisasi,
+pemanfaatan,
+serta pembinaan kawasan hutan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card-modern text-center">
+
+<i class="bi bi-shield-check display-4 text-success"></i>
+
+<h4 class="mt-3">
+
+Seksi Pembinaan Teknis dan Perlindungan Hutan
+
+</h4>
+
+<p>
+
+Melaksanakan perlindungan kawasan,
+pengamanan hutan,
+serta pembinaan teknis kehutanan.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row mt-5">
+
+<div class="col-lg-6">
+
+<div class="info-box">
+
+<h2>ASN</h2>
+
+<span>Aparatur Sipil Negara</span>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="info-box">
+
+<h2>PPPK</h2>
+
+<span>Pegawai Pemerintah dengan Perjanjian Kerja</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<h4>
+
+SIGAP HUTAN
+
+</h4>
+
+<p>
+
+Sistem Informasi Gangguan,
+Aduan dan Pelayanan Kehutanan Terpadu.
+
+Website resmi UPTD KPH Wilayah VIII Aceh.
+
+</p>
+
+</div>
+
+<div class="col-lg-3">
+
+<h5>
+
+Menu
+
+</h5>
+
+<ul class="list-unstyled">
+
+<li><a href="../index.html">Beranda</a></li>
+
+<li><a href="#profil">Profil</a></li>
+
+<li><a href="#visi">Visi & Misi</a></li>
+
+<li><a href="#struktur">Struktur</a></li>
+
+</ul>
+
+</div>
+
+<div class="col-lg-3">
+
+<h5>
+
+Kontak
+
+</h5>
+
+<p>
+
+<i class="bi bi-geo-alt-fill"></i>
+
+Kutacane,
+Aceh Tenggara
+
+</p>
+
+<p>
+
+<i class="bi bi-envelope-fill"></i>
+
+sigaphutan@gmail.com
+
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="text-center">
+
+<p>
+
+© 2026 SIGAP HUTAN |
+UPTD KPH Wilayah VIII Aceh
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+duration:900,
+
+once:true
+
+});
+
+</script>
+
 </body>
+
 </html>
+
+</section>
