@@ -1050,8 +1050,8 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 .hero-edukasi{
     background:
         linear-gradient(
-            rgba(15,90,45,.40),
-            rgba(15,90,45,.20)
+            rgba(25,135,84,.28),
+            rgba(20,83,45,.18)
         ),
         url("../images/hero-edukasi-bg.jpg");
 
@@ -1063,26 +1063,26 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     display: flex;
     align-items: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-edukasi h1{
-    font-size:clamp(2.5rem,5vw,4rem);
+    font-size: clamp(2.5rem,5vw,4rem);
+    font-weight: 800;
+    text-shadow: 0 4px 12px rgba(0,0,0,.35);
 }
 
 .hero-edukasi p{
-
-    font-size:20px;
-    line-height:1.9;
-    max-width:650px;
-
+    font-size: 20px;
+    line-height: 1.9;
+    max-width: 650px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.30);
 }
 
 .hero-edukasi .btn{
-
-    margin-top:15px;
-
+    margin-top: 15px;
 }
-
 /* =========================
    LOGO BARU
 ========================= */
