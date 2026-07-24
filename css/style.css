@@ -1,9 +1,403 @@
+
+hari ini 11.27
+image(296).png
+bagimn agar kalau buka website sigp hutn muncul sigap hutan keseluruhan bukan hanya profil dn ada logi sigap hutn bukn hany logo interene dan jug agar kalau nyari nya keywordnya hanya sigap hutan kph VIII atu sigap hutan saja bukan sig hutan github
+
+
+Teks yang ditempel (1)(128).txt
+Dokumen
+apa yang diganti disini
+
+
+Teks yang ditempel (1)(129).txt
+Dokumen
+
+
+Teks yang ditempel (2).txt
+Dokumen
+cek dulu guys gaad <link rel="icon" href="images/logo-kph.png"> ini di index
+
+logo.png
+ini
+
+Gambar yang dibuat: Panduan favicon untuk SIGAP HUTAN
+
+
+Edit
+
+
+Gambar yang dibuat: Desain Favicon SIGAP HUTAN
+
+Edit
+
+
+Gambar yang dibuat: Panduan pembuatan favicon SIGAP HUTAN
+
+Edit
+
+
+
+Teks yang ditempel (1)(131).txt
+Dokumen
+di edukasi tak da
+
+
+Teks yang ditempel (1)(132).txt
+Dokumen
+apakah sudah benr
+
+
+Teks yang ditempel (1)(133).txt
+Dokumen
+
+
+Teks yang ditempel (1)(134).txt
+Dokumen
+
+
+Teks yang ditempel (1)(135).txt
+Dokumen
+
+image(299).png
+semaam sudh di daftrakan apa daftarkan lagi
+
+image(300).png
+semalam juga udah kirim site mp apa perlu kirim lagi
+
+image(301).png
+oke sekarang tampilan website tidak rpi di laptop dan hp hanya komputer laya besar dan 75% ukuran layar kala 100% dia tidk bagus
+
+
+Teks yang ditempel (1)(136).txt
+Dokumen
+
+
+Teks yang ditempel (1)(137).txt
+Dokumen
+
+
+Teks yang ditempel (1)(138).txt
+Dokumen
+
+
+Teks yang ditempel (1)(139).txt
+Dokumen
+
+
+Teks yang ditempel (1)(140).txt
+Dokumen
+
+
+Teks yang ditempel (1)(141).txt
+Dokumen
+
+image(303).png
+bagusny tentang ini ubah jadi apa ya
+
+image(304).png
+ini sj ubh j jadi informsi
+
+WhatsApp Image 2026-07-24 at 13.45.58.jpeg
+struktur 
+
+
+Teks yang ditempel (1)(142).txt
+Dokumen
+
+image(305).png
+tomblnya but aja disini
+
+
+Teks yang ditempel (1)(143).txt
+Dokumen
+apa yng dignti 
+
+
+Teks yang ditempel (1)(144).txt
+Dokumen
+cek
+
+image(306).png
+tentang tk ush dihpu sy kan tombolny disini
+
+
+Teks yang ditempel (1)(145).txt
+Dokumen
+cek aja
+
+image(307).png
+sttus terhung kesini
+
+image(308).png
+
+
+Teks yang ditempel (1)(146).txt
+Dokumen
+cek aja semunya say
+
+
+Teks yang ditempel (1)(147).txt
+Dokumen
+
+
+Teks yang ditempel (1)(148).txt
+Dokumen
+
+
+Teks yang ditempel (1)(149).txt
+Dokumen
+coba cek say apkah sudh bena
+
+
+Teks yang ditempel (1)(150).txt
+Dokumen
+
+image(309).png
+ini kok berubh gambar ini harisnya jdi kantor kph j
+
+WhatsApp Image 2026-07-24 at 13.45.58(1).jpeg
+buatkan struktu otgansis biar cantik
+
+Gambar yang dibuat: Struktur organisasi UPTD KPH Aceh
+
+
+Edit
+
+
+image(310).png
+
+image(311).png
+buatkan kantor kph yang diserti peta untuk hero di informasiv] UPTD KPH Wilayah VIII memiliki wilayah kerja seluas 361.874 hektare yang meliputi Kabupaten Gayo Lues seluas 277.526 hektare dan Unit IX Kabupaten Aceh Tenggara seluas 84.348 hektare. Kawasan di Unit IX didominasi oleh Hutan Lindung seluas 83.969 hektare dan Hutan Produksi seluas 379 hektare, petany sesuai ini
+
+Gambar yang dibuat: Peta wilayah UPTD KPH Wilayah VIII Aceh
+
+
+Edit
+
+
+Gambar yang dibuat: Pemerintah Aceh dan peta wilayah
+
+
+Edit
+
+
+Gambar yang dibuat: Halaman utama UPTD KPH Wilayah VIII
+
+
+Edit
+
+
+image(312).png
+pokonya nanti dia di informasi kayak gini ubah codenya gimana
+
+Gambar yang dibuat: Infografis UPTD KPH Wilayah VIII
+
+
+Edit
+
+
+image(313).png
+gak pas say lag ga teratur
+
+
+Teks yang ditempel (1)(151).txt
+Dokumen
+
+Gambar yang dibuat: Infografik pengelolaan hutan Aceh
+
+
+Edit
+
+
+image(319).png
+sinya ttg ini aja
+
+
+Teks yang ditempel (1)(156).txt
+Dokumen
+
+
+Teks yang ditempel (1)(157).txt
+Dokumen
+ada yang diubah dari css ini
+
+
+Teks yang ditempel (1)(158).txt
+Dokumen
+ada yang salah ini tampilan website jadi berntakan
+
+image(320).png
+halam utama jadi gini
+
+Dari screenshot, ini bukan masalah HTML. Ini hampir pasti karena CSS global di style.css tertimpa.
+
+Gejala yang terlihat:
+
+Logo Aceh dan logo KPH menjadi sangat besar.
+
+Hero menjadi berantakan.
+
+Layout bergeser.
+
+Tulisan berjalan menempel di atas.
+
+Ini biasanya terjadi karena ada aturan seperti:
+
+img{
+    width:100%;
+}
+atau
+
+.logo{
+    width:300px;
+}
+atau
+
+.hero{
+    display:flex;
+    ...
+}
+atau saya sebelumnya memberikan CSS seperti:
+
+.navbar { ... }
+.hero { ... }
+body { ... }
+section { ... }
+Class-class tersebut sama dengan yang dipakai halaman utama, sehingga halaman utama ikut berubah.
+
+Yang saya butuhkan sekarang
+Tolong kirim isi file css/style.css (bukan index.html).
+
+Atau upload file style.css.
+
+Dengan begitu saya bisa menunjukkan:
+
+bagian mana yang harus dihapus,
+
+bagian mana yang harus dipindahkan ke informasi.css,
+
+tanpa merusak tampilan website.
+
+Kemungkinan besar yang harus dihapus
+Kalau Anda menyalin CSS yang saya kirim sebelumnya ke style.css, hapus semua bagian yang diawali seperti berikut:
+
+:root{...}
+
+body{...}
+
+.navbar{...}
+
+.hero{...}
+
+section{...}
+
+.logo{...}
+
+.nav-link{...}
+
+.quick-card{...}
+
+.card-modern{...}
+
+.timeline{...}
+
+.info-box{...}
+Karena itu memang akan mengubah seluruh website, bukan hanya halaman Informasi.
+
+Upload css/style.css saja, nanti saya tandai baris yang harus dihapus. Itu jauh lebih aman daripada menebak-nebak.
+
+
+
+Teks yang ditempel (1)(159).txt
+Dokumen
+cek css nya sy
+
+Saya cek file yang Anda upload, ternyata bukan style.css, melainkan informasi.html lagi. Terlihat dari baris awal file yang berisi:
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+dan ada tag:
+
+<link rel="stylesheet" href="../css/style.css">
+Jadi saya belum bisa memeriksa CSS karena file CSS-nya belum terunggah. 
+
+
+Tolong upload yang benar
+Yang saya butuhkan adalah file:
+
+css/style.css
+Bukan index.html atau informasi.html.
+
+Cara paling mudah
+Buka folder proyek Sigap-Hutan
+
+Buka folder css
+
+Pilih style.css
+
+Drag & drop file tersebut ke chat ini
+
+Atau buka style.css, salin seluruh isinya, lalu tempel di sini.
+
+Dari screenshot yang Anda kirim sebelumnya, saya hampir yakin ada aturan CSS global yang tertimpa (misalnya .hero, .navbar, .logo, img, section, atau body). Begitu saya melihat isi style.css, saya bisa langsung menunjukkan:
+
+bagian yang menyebabkan tampilan berantakan,
+
+baris yang harus dihapus atau dipindahkan,
+
+dan mengembalikan tampilan website seperti semula.
+
+
+iya itulahg udah terubah skrg gimana ya 
+
+Tidak apa-apa, ini masih bisa diperbaiki. Yang terjadi kemungkinan besar adalah style.css asli sudah tertimpa dengan CSS yang saya buat. Karena itu seluruh halaman (Beranda, Hero, Navbar, Logo, dll.) ikut berubah.
+
+Namun, saya tidak bisa mengembalikan style.css hanya dari informasi.html, karena file yang Anda unggah memang berisi HTML, bukan isi CSS. 
+
+
+Ada 2 cara memperbaikinya
+Cara 1 (Paling cepat) ⭐
+Kalau proyek Anda menggunakan GitHub, kita bisa mengembalikan style.css ke versi sebelum diubah.
+
+Buka repository GitHub.
+
+Pilih css/style.css.
+
+Klik History atau lihat commit sebelumnya.
+
+Kembalikan isi file ke versi sebelum perubahan.
+
+Cara 2
+Kalau Anda masih punya salinan proyek di komputer (backup, folder lama, atau ZIP yang pernah disimpan), ambil css/style.css dari sana lalu ganti file yang sekarang.
+
+Kalau tidak punya backup?
+Saya bisa membuat ulang style.css sesuai website SIGAP HUTAN yang sekarang, tetapi itu membutuhkan isi file CSS yang rusak agar saya bisa memperbaikinya.
+
+Yang saya perlukan sekarang
+Mohon kirim isi style.css yang sekarang dengan salah satu cara berikut:
+
+Buka css/style.css, lalu Ctrl + A → Ctrl + C → Ctrl + V ke chat.
+
+Atau upload file style.css (bukan index.html atau informasi.html).
+
+Begitu saya melihat isinya, saya akan:
+
+Menghapus bagian CSS yang menyebabkan konflik.
+
+Mengembalikan tampilan Beranda seperti semula.
+
+Memindahkan CSS khusus halaman Informasi ke informasi.css agar tidak mengganggu halaman lain.
+
+Kita masih bisa menyelamatkan tampilannya, hanya saja saya perlu file CSS yang benar, bukan HTML.
+
+
+<!DOCTYPE html>
+
+<html lang="id"> <head>
+
+<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Informasi | SIGAP HUTAN</title>
 
@@ -11,8 +405,7 @@
 
 <link rel="stylesheet" href="../css/style.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
@@ -295,10 +688,7 @@ Lihat
 
 </div>
 
-</section>
-<!-- ===================================================== -->
-<!-- PROFIL -->
-<!-- ===================================================== -->
+</section> <!-- ===================================================== --> <!-- PROFIL --> <!-- ===================================================== -->
 
 <section id="profil">
 
@@ -308,9 +698,7 @@ Lihat
 
 <div class="col-lg-5 mb-4">
 
-<img src="../images/kantor-kph.jpg"
-class="img-fluid rounded shadow"
-alt="Kantor KPH">
+<img src="../images/kantor-kph.jpg" class="img-fluid rounded shadow" alt="Kantor KPH">
 
 </div>
 
@@ -386,7 +774,9 @@ secara cepat, mudah, dan transparan.
 
 
 <!-- ===================================================== -->
+
 <!-- SEJARAH -->
+
 <!-- ===================================================== -->
 
 <section id="sejarah" class="bg-light">
@@ -491,7 +881,9 @@ kehutanan berbasis digital.
 
 
 <!-- ===================================================== -->
+
 <!-- VISI MISI -->
+
 <!-- ===================================================== -->
 
 <section id="visi">
@@ -590,7 +982,438 @@ Misi
 
 
 <!-- ===================================================== -->
+
 <!-- TUGAS & FUNGSI -->
+
+<!-- ===================================================== -->
+
+<section id="tugas" class="bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="section-title">
+
+Tugas dan Fungsi
+
+</h2>
+
+<p>
+
+Pelaksanaan tugas UPTD KPH Wilayah VIII Aceh.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card text-center p-4 h-100">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-tree"></i>
+
+</div>
+
+<h5>
+
+Pengelolaan Hutan
+
+</h5>
+
+<p>
+
+Mengelola kawasan hutan secara berkelanjutan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card text-center p-4 h-100">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+</div>
+
+<h5>
+
+Perlindungan
+
+</h5>
+
+<p>
+
+Mencegah kerusakan kawasan dan gangguan hutan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card text-center p-4 h-100">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-seedling"></i>
+
+</div>
+
+<h5>
+
+Rehabilitasi
+
+</h5>
+
+<p>
+
+Melaksanakan rehabilitasi kawasan hutan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card text-center p-4 h-100">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-handshake"></i>
+
+</div>
+
+<h5>
+
+Pelayanan Publik
+
+</h5>
+
+<p>
+
+Memberikan pelayanan informasi dan pengaduan.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section> <!-- ===================================================== --> <!-- PROFIL --> <!-- ===================================================== -->
+
+<section id="profil">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-5 mb-4">
+
+<img src="../images/kantor-kph.jpg" class="img-fluid rounded shadow" alt="Kantor KPH">
+
+</div>
+
+<div class="col-lg-7">
+
+<span class="badge bg-success mb-3">
+
+<i class="fa-solid fa-building"></i>
+
+Profil
+
+</span>
+
+<h2 class="section-title text-start">
+
+Profil UPTD KPH Wilayah VIII Aceh
+
+</h2>
+
+<p>
+
+UPTD Kesatuan Pengelolaan Hutan (KPH) Wilayah VIII Aceh merupakan Unit
+Pelaksana Teknis Daerah yang mempunyai tugas melaksanakan pengelolaan
+kawasan hutan secara lestari, perlindungan hutan, pemberdayaan masyarakat,
+serta pelayanan publik di bidang kehutanan.
+
+</p>
+
+<p>
+
+Melalui website SIGAP HUTAN, masyarakat dapat memperoleh informasi
+kehutanan, menyampaikan pengaduan, serta mengakses berbagai layanan
+secara cepat, mudah, dan transparan.
+
+</p>
+
+<div class="row mt-4">
+
+<div class="col-6">
+
+<div class="card p-3 text-center">
+
+<h2 class="text-success">1</h2>
+
+<p>KPH</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="card p-3 text-center">
+
+<h2 class="text-success">100%</h2>
+
+<p>Pelayanan Digital</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+
+<!-- SEJARAH -->
+
+<!-- ===================================================== -->
+
+<section id="sejarah" class="bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="section-title">
+
+Sejarah Singkat
+
+</h2>
+
+<p>
+
+Perjalanan terbentuknya UPTD KPH Wilayah VIII Aceh.
+
+</p>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<div class="card h-100 p-4">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-calendar"></i>
+
+</div>
+
+<h4>Pembentukan</h4>
+
+<p>
+
+UPTD KPH Wilayah VIII Aceh dibentuk sebagai unit pengelolaan kawasan
+hutan yang bertanggung jawab terhadap pengelolaan sumber daya hutan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card h-100 p-4">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-tree"></i>
+
+</div>
+
+<h4>Pengelolaan</h4>
+
+<p>
+
+Melaksanakan perlindungan, konservasi,
+rehabilitasi serta pemanfaatan kawasan hutan
+secara lestari.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card h-100 p-4">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-users"></i>
+
+</div>
+
+<h4>Pelayanan</h4>
+
+<p>
+
+Memberikan pelayanan informasi,
+pengaduan masyarakat serta edukasi
+kehutanan berbasis digital.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+
+<!-- VISI MISI -->
+
+<!-- ===================================================== -->
+
+<section id="visi">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="section-title">
+
+Visi dan Misi
+
+</h2>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-6">
+
+<div class="card h-100">
+
+<div class="card-body">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-bullseye"></i>
+
+</div>
+
+<h3 class="text-center">
+
+Visi
+
+</h3>
+
+<p class="text-center">
+
+Menjadi pengelola hutan yang profesional,
+berkelanjutan, transparan, serta mampu
+mewujudkan kelestarian hutan untuk
+kesejahteraan masyarakat.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="card h-100">
+
+<div class="card-body">
+
+<div class="icon-box">
+
+<i class="fa-solid fa-list-check"></i>
+
+</div>
+
+<h3 class="text-center">
+
+Misi
+
+</h3>
+
+<ul>
+
+<li>Mengelola kawasan hutan secara lestari.</li>
+
+<li>Meningkatkan perlindungan hutan.</li>
+
+<li>Meningkatkan pelayanan publik.</li>
+
+<li>Mendorong partisipasi masyarakat.</li>
+
+<li>Mengembangkan teknologi informasi.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+
+<!-- TUGAS & FUNGSI -->
+
 <!-- ===================================================== -->
 
 <section id="tugas" class="bg-light">
@@ -724,431 +1547,6 @@ Memberikan pelayanan informasi dan pengaduan.
 </div>
 
 </section>
-<!-- ===================================================== -->
-<!-- PROFIL -->
-<!-- ===================================================== -->
 
-<section id="profil">
 
-<div class="container">
 
-<div class="row align-items-center">
-
-<div class="col-lg-5 mb-4">
-
-<img src="../images/kantor-kph.jpg"
-class="img-fluid rounded shadow"
-alt="Kantor KPH">
-
-</div>
-
-<div class="col-lg-7">
-
-<span class="badge bg-success mb-3">
-
-<i class="fa-solid fa-building"></i>
-
-Profil
-
-</span>
-
-<h2 class="section-title text-start">
-
-Profil UPTD KPH Wilayah VIII Aceh
-
-</h2>
-
-<p>
-
-UPTD Kesatuan Pengelolaan Hutan (KPH) Wilayah VIII Aceh merupakan Unit
-Pelaksana Teknis Daerah yang mempunyai tugas melaksanakan pengelolaan
-kawasan hutan secara lestari, perlindungan hutan, pemberdayaan masyarakat,
-serta pelayanan publik di bidang kehutanan.
-
-</p>
-
-<p>
-
-Melalui website SIGAP HUTAN, masyarakat dapat memperoleh informasi
-kehutanan, menyampaikan pengaduan, serta mengakses berbagai layanan
-secara cepat, mudah, dan transparan.
-
-</p>
-
-<div class="row mt-4">
-
-<div class="col-6">
-
-<div class="card p-3 text-center">
-
-<h2 class="text-success">1</h2>
-
-<p>KPH</p>
-
-</div>
-
-</div>
-
-<div class="col-6">
-
-<div class="card p-3 text-center">
-
-<h2 class="text-success">100%</h2>
-
-<p>Pelayanan Digital</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ===================================================== -->
-<!-- SEJARAH -->
-<!-- ===================================================== -->
-
-<section id="sejarah" class="bg-light">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="section-title">
-
-Sejarah Singkat
-
-</h2>
-
-<p>
-
-Perjalanan terbentuknya UPTD KPH Wilayah VIII Aceh.
-
-</p>
-
-</div>
-
-<div class="row">
-
-<div class="col-lg-4">
-
-<div class="card h-100 p-4">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-calendar"></i>
-
-</div>
-
-<h4>Pembentukan</h4>
-
-<p>
-
-UPTD KPH Wilayah VIII Aceh dibentuk sebagai unit pengelolaan kawasan
-hutan yang bertanggung jawab terhadap pengelolaan sumber daya hutan.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="card h-100 p-4">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-tree"></i>
-
-</div>
-
-<h4>Pengelolaan</h4>
-
-<p>
-
-Melaksanakan perlindungan, konservasi,
-rehabilitasi serta pemanfaatan kawasan hutan
-secara lestari.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="card h-100 p-4">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-users"></i>
-
-</div>
-
-<h4>Pelayanan</h4>
-
-<p>
-
-Memberikan pelayanan informasi,
-pengaduan masyarakat serta edukasi
-kehutanan berbasis digital.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ===================================================== -->
-<!-- VISI MISI -->
-<!-- ===================================================== -->
-
-<section id="visi">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="section-title">
-
-Visi dan Misi
-
-</h2>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-lg-6">
-
-<div class="card h-100">
-
-<div class="card-body">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-bullseye"></i>
-
-</div>
-
-<h3 class="text-center">
-
-Visi
-
-</h3>
-
-<p class="text-center">
-
-Menjadi pengelola hutan yang profesional,
-berkelanjutan, transparan, serta mampu
-mewujudkan kelestarian hutan untuk
-kesejahteraan masyarakat.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-6">
-
-<div class="card h-100">
-
-<div class="card-body">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-list-check"></i>
-
-</div>
-
-<h3 class="text-center">
-
-Misi
-
-</h3>
-
-<ul>
-
-<li>Mengelola kawasan hutan secara lestari.</li>
-
-<li>Meningkatkan perlindungan hutan.</li>
-
-<li>Meningkatkan pelayanan publik.</li>
-
-<li>Mendorong partisipasi masyarakat.</li>
-
-<li>Mengembangkan teknologi informasi.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ===================================================== -->
-<!-- TUGAS & FUNGSI -->
-<!-- ===================================================== -->
-
-<section id="tugas" class="bg-light">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="section-title">
-
-Tugas dan Fungsi
-
-</h2>
-
-<p>
-
-Pelaksanaan tugas UPTD KPH Wilayah VIII Aceh.
-
-</p>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center p-4 h-100">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-tree"></i>
-
-</div>
-
-<h5>
-
-Pengelolaan Hutan
-
-</h5>
-
-<p>
-
-Mengelola kawasan hutan secara berkelanjutan.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center p-4 h-100">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-</div>
-
-<h5>
-
-Perlindungan
-
-</h5>
-
-<p>
-
-Mencegah kerusakan kawasan dan gangguan hutan.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center p-4 h-100">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-seedling"></i>
-
-</div>
-
-<h5>
-
-Rehabilitasi
-
-</h5>
-
-<p>
-
-Melaksanakan rehabilitasi kawasan hutan.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-lg-3 col-md-6">
-
-<div class="card text-center p-4 h-100">
-
-<div class="icon-box">
-
-<i class="fa-solid fa-handshake"></i>
-
-</div>
-
-<h5>
-
-Pelayanan Publik
-
-</h5>
-
-<p>
-
-Memberikan pelayanan informasi dan pengaduan.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
