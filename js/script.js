@@ -242,3 +242,31 @@ document.querySelectorAll("section").forEach(section=>{
     observer.observe(section);
 
 });
+const emojis = document.querySelectorAll(".emoji");
+const ratingText = document.getElementById("ratingText");
+
+const pesan = {
+    5: "😍 Sangat Puas",
+    4: "😊 Puas",
+    3: "😐 Cukup",
+    2: "😕 Kurang Puas",
+    1: "😡 Tidak Puas"
+};
+
+let rating = 0;
+
+emojis.forEach(emoji => {
+
+    emoji.addEventListener("click", () => {
+
+        emojis.forEach(e=>e.classList.remove("active"));
+
+        emoji.classList.add("active");
+
+        rating = emoji.dataset.rating;
+
+        ratingText.innerHTML = pesan[rating];
+
+    });
+
+});
