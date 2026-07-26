@@ -114,6 +114,8 @@ orderBy("createdAt","desc")
 );
 
 onSnapshot(q, (snapshot) => {
+    console.log("Snapshot jalan");
+console.log("Jumlah data:", snapshot.size);
 
     // Hitung jumlah tiap rating
     let jumlah1 = 0;
