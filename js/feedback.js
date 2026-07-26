@@ -8,15 +8,10 @@ import {
 
 let rating = 0;
 
-// ===========================
-// PILIH EMOJI
-// ===========================
-
 const emojis = document.querySelectorAll(".emoji");
-
 const ratingText = document.getElementById("ratingText");
 
-const teks = {
+const pesan = {
     1: "😡 Sangat Tidak Puas",
     2: "😕 Kurang Puas",
     3: "😐 Cukup",
@@ -26,7 +21,7 @@ const teks = {
 
 emojis.forEach((emoji) => {
 
-    emoji.addEventListener("click", () => {
+    emoji.onclick = () => {
 
         emojis.forEach(e => e.classList.remove("active"));
 
@@ -34,24 +29,21 @@ emojis.forEach((emoji) => {
 
         rating = Number(emoji.dataset.rating);
 
-        ratingText.innerHTML = teks[rating];
+        ratingText.innerHTML = pesan[rating];
 
-    });
+    };
 
 });
 
-// ===========================
-// KIRIM PENILAIAN
-// ===========================
+const form = document.getElementById("feedbackForm");
 
-document.getElementById("feedbackForm")
-.addEventListener("submit", async (e)=>{
+form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    if(rating===0){
+    if (rating === 0) {
 
-        alert("Silakan pilih emoji terlebih dahulu.");
+        alert("Silakan pilih emoji.");
 
         return;
 
@@ -59,43 +51,39 @@ document.getElementById("feedbackForm")
 
     let nama = document.getElementById("nama").value.trim();
 
-    let komentar = document.getElementById("komentar").value.trim();
+    if (nama === "") nama = "Anonim";
 
-    if(nama===""){
+    const komentar = document.getElementById("komentar").value.trim();
 
-        nama="Anonim";
+    try {
 
-    }
+        await addDoc(collection(db, "feedback"), {
 
-    try{
+            nama,
 
-        await addDoc(collection(db,"feedback"),{
+            komentar,
 
-            nama:nama,
+            rating,
 
-            komentar:komentar,
-
-            rating:rating,
-
-            createdAt:serverTimestamp()
+            createdAt: serverTimestamp()
 
         });
 
         alert("Terima kasih atas penilaian Anda 😊");
 
-        document.getElementById("feedbackForm").reset();
+        form.reset();
 
-        emojis.forEach(e=>e.classList.remove("active"));
+        emojis.forEach(e => e.classList.remove("active"));
 
-        ratingText.innerHTML="Silakan pilih emoji";
+        ratingText.innerHTML = "Silakan pilih emoji";
 
-        rating=0;
+        rating = 0;
 
     }
 
-    catch(error){
+    catch (err) {
 
-        console.error(error);
+        console.log(err);
 
         alert("Gagal mengirim penilaian.");
 
