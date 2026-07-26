@@ -114,10 +114,11 @@ orderBy("createdAt","desc")
 );
 
 onSnapshot(q, (snapshot) => {
-    console.log("Snapshot jalan");
-console.log("Jumlah data:", snapshot.size);
 
-    // Hitung jumlah tiap rating
+    // ========================
+    // HITUNG JUMLAH RATING
+    // ========================
+
     let jumlah1 = 0;
     let jumlah2 = 0;
     let jumlah3 = 0;
@@ -125,6 +126,7 @@ console.log("Jumlah data:", snapshot.size);
     let jumlah5 = 0;
 
     snapshot.forEach((doc) => {
+
         const r = doc.data().rating;
 
         if (r == 1) jumlah1++;
@@ -132,80 +134,131 @@ console.log("Jumlah data:", snapshot.size);
         if (r == 3) jumlah3++;
         if (r == 4) jumlah4++;
         if (r == 5) jumlah5++;
+
     });
 
-    const total = snapshot.size || 1;
+    const total = snapshot.size;
 
     function persen(jumlah) {
+
+        if (total === 0) return 0;
+
         return Math.round((jumlah / total) * 100);
+
     }
 
+    // ========================
+    // JUDUL ULASAN
+    // ========================
+
     reviewList.innerHTML = `
-        <h3>💬 Ulasan Masyarakat</h3>
+        <h3 class="fw-bold mb-4">
+            💬 Ulasan Masyarakat
+        </h3>
+    `;
+
+    // ========================
+    // TAMPILKAN ULASAN
+    // ========================
+
+    snapshot.forEach((doc) => {
+
+        const data = doc.data();
+
+        reviewList.innerHTML += `
+
+        <div class="review-card mb-4">
+
+            <div class="review-header d-flex justify-content-between align-items-center">
+
+                <strong>${data.nama}</strong>
+
+                <span style="font-size:22px;">
+                    ${emojiMap[data.rating]}
+                </span>
+
+            </div>
+
+            <p class="mb-0 mt-2">
+                ${data.komentar}
+            </p>
+
+        </div>
+
+        `;
+
+    });
+
+    // ========================
+    // STATISTIK DI BAWAH
+    // ========================
+
+    reviewList.innerHTML += `
+
+        <hr class="my-5">
+
+        <h3 class="fw-bold text-success mb-4">
+            📊 Statistik Penilaian
+        </h3>
 
         <div class="rating-summary">
 
-            <p>😍 Sangat Puas : ${persen(jumlah5)}% (${jumlah5})</p>
+            <p class="mb-2">
+                😍 Sangat Puas : <strong>${persen(jumlah5)}%</strong> (${jumlah5})
+            </p>
 
-            <div class="progress mb-2">
+            <div class="progress mb-4" style="height:18px;">
                 <div class="progress-bar bg-success"
                     style="width:${persen(jumlah5)}%">
                 </div>
             </div>
 
-            <p>😊 Puas : ${persen(jumlah4)}% (${jumlah4})</p>
 
-            <div class="progress mb-2">
+            <p class="mb-2">
+                😊 Puas : <strong>${persen(jumlah4)}%</strong> (${jumlah4})
+            </p>
+
+            <div class="progress mb-4" style="height:18px;">
                 <div class="progress-bar bg-info"
                     style="width:${persen(jumlah4)}%">
                 </div>
             </div>
 
-            <p>😐 Cukup : ${persen(jumlah3)}% (${jumlah3})</p>
 
-            <div class="progress mb-2">
+            <p class="mb-2">
+                😐 Cukup : <strong>${persen(jumlah3)}%</strong> (${jumlah3})
+            </p>
+
+            <div class="progress mb-4" style="height:18px;">
                 <div class="progress-bar bg-warning"
                     style="width:${persen(jumlah3)}%">
                 </div>
             </div>
 
-            <p>😕 Kurang Puas : ${persen(jumlah2)}% (${jumlah2})</p>
 
-            <div class="progress mb-2">
+            <p class="mb-2">
+                😕 Kurang Puas : <strong>${persen(jumlah2)}%</strong> (${jumlah2})
+            </p>
+
+            <div class="progress mb-4" style="height:18px;">
                 <div class="progress-bar"
-                    style="width:${persen(jumlah2)}%;background:#fd7e14;">
+                    style="background:#fd7e14;width:${persen(jumlah2)}%">
                 </div>
             </div>
 
-            <p>😡 Sangat Tidak Puas : ${persen(jumlah1)}% (${jumlah1})</p>
 
-            <div class="progress mb-4">
+            <p class="mb-2">
+                😡 Sangat Tidak Puas : <strong>${persen(jumlah1)}%</strong> (${jumlah1})
+            </p>
+
+            <div class="progress" style="height:18px;">
                 <div class="progress-bar bg-danger"
                     style="width:${persen(jumlah1)}%">
                 </div>
             </div>
 
         </div>
+
     `;
-
-    // Tampilkan semua ulasan
-    snapshot.forEach((doc) => {
-
-        const data = doc.data();
-
-        reviewList.innerHTML += `
-            <div class="review-card">
-
-                <div class="review-header">
-                    <strong>${data.nama}</strong>
-                    <span>${emojiMap[data.rating]}</span>
-                </div>
-
-                <p>${data.komentar}</p>
-
-            </div>
-        `;
-
-    });
 
 });
