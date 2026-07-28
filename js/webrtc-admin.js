@@ -2,11 +2,12 @@ import { db } from "./firebase.js";
 
 import {
     doc,
+    getDoc,
+    updateDoc,
     collection,
     addDoc,
-    updateDoc,
     onSnapshot
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 // =========================
 // STUN SERVER
@@ -40,6 +41,9 @@ const localVideo = document.getElementById("localVideo");
 const remoteVideo = document.getElementById("remoteVideo");
 
 const btnAccept = document.getElementById("btnAccept");
+const btnReject = document.getElementById("btnReject");
+
+const ringtone = document.getElementById("ringtone");
 
 // =========================
 // FIRESTORE
@@ -68,28 +72,26 @@ const answerCandidates = collection(
 async function startCamera() {
 
     localStream = await navigator.mediaDevices.getUserMedia({
-
         video: true,
         audio: true
-
     });
 
     localVideo.srcObject = localStream;
 
     localStream.getTracks().forEach(track => {
-
         peer.addTrack(track, localStream);
-
     });
 
 }
 
+// =========================
+// REMOTE VIDEO
+// =========================
+
 peer.ontrack = (event) => {
 
     event.streams[0].getTracks().forEach(track => {
-
         remoteStream.addTrack(track);
-
     });
 
     remoteVideo.srcObject = remoteStream;
@@ -97,37 +99,70 @@ peer.ontrack = (event) => {
 };
 
 // =========================
-// ICE ADMIN
+// ICE
 // =========================
 
 peer.onicecandidate = async (event) => {
 
-    if (event.candidate) {
+    if (!event.candidate) return;
 
-        await addDoc(
-            answerCandidates,
-            event.candidate.toJSON()
-        );
-
-    }
+    await addDoc(
+        answerCandidates,
+        event.candidate.toJSON()
+    );
 
 };
 
 // =========================
-// TERIMA PANGGILAN
+// DENGARKAN PANGGILAN MASUK
+// =========================
+
+onSnapshot(callRef, async (snap) => {
+
+    if (!snap.exists()) return;
+
+    const data = snap.data();
+
+    if (data.status === "calling") {
+
+        console.log("Ada panggilan masuk");
+
+        if (ringtone) {
+
+            ringtone.currentTime = 0;
+
+            ringtone.play().catch(() => {});
+
+        }
+
+        btnAccept.style.display = "inline-block";
+        btnReject.style.display = "inline-block";
+
+    }
+
+});
+
+// =========================
+// TERIMA
 // =========================
 
 btnAccept.addEventListener("click", async () => {
 
+    if (ringtone) {
+
+        ringtone.pause();
+        ringtone.currentTime = 0;
+
+    }
+
+    btnAccept.style.display = "none";
+    btnReject.style.display = "none";
+
     await startCamera();
 
-    const call = (await onSnapshot);
+    const snap = await getDoc(callRef);
 
-    const snap = await new Promise(resolve => {
-
-        onSnapshot(callRef, resolve);
-
-    });
+    if (!snap.exists()) return;
 
     const data = snap.data();
 
@@ -155,18 +190,50 @@ btnAccept.addEventListener("click", async () => {
 });
 
 // =========================
+// TOLAK
+// =========================
+
+btnReject.addEventListener("click", async () => {
+
+    if (ringtone) {
+
+        ringtone.pause();
+        ringtone.currentTime = 0;
+
+    }
+
+    btnAccept.style.display = "none";
+    btnReject.style.display = "none";
+
+    await updateDoc(callRef, {
+
+        status: "rejected"
+
+    });
+
+});
+
+// =========================
 // ICE USER
 // =========================
 
-onSnapshot(offerCandidates, (snapshot) => {
+onSnapshot(offerCandidates, snapshot => {
 
     snapshot.docChanges().forEach(async change => {
 
         if (change.type === "added") {
 
-            await peer.addIceCandidate(
-                new RTCIceCandidate(change.doc.data())
-            );
+            try {
+
+                await peer.addIceCandidate(
+                    new RTCIceCandidate(change.doc.data())
+                );
+
+            } catch (e) {
+
+                console.error(e);
+
+            }
 
         }
 
