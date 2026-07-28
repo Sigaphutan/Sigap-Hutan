@@ -2256,32 +2256,3 @@ color:#666;
     padding:12px 35px;
     border-radius:50px;
     font-weight:bold;
-}
-/* ==========================
-   CALL CENTER
-========================== */
-
-.service-card{
-    transition:0.3s;
-}
-
-.service-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 40px rgba(0,0,0,.15)!important;
-}
-
-.service-card i{
-    transition:.3s;
-}
-
-.service-card:hover i{
-    transform:scale(1.15);
-}
-
-#call-center{
-    background:#f8faf8;
-}
-
-#ratingText{
-    font-size:18px;
-}
