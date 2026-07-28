@@ -112,3 +112,42 @@ btnOffline.addEventListener("click", async () => {
     });
 
 });
+btnAccept.addEventListener("click", async () => {
+
+    try {
+
+        await updateDoc(callRef, {
+            status: "accepted"
+        });
+
+        console.log("Panggilan diterima");
+
+    } catch (e) {
+
+        console.error(e);
+
+        alert("Gagal menerima panggilan.");
+
+    }
+
+});
+
+btnReject.addEventListener("click", async () => {
+
+    try {
+
+        await updateDoc(callRef, {
+            status: "rejected"
+        });
+
+        console.log("Panggilan ditolak");
+
+    } catch (e) {
+
+        console.error(e);
+
+        alert("Gagal menolak panggilan.");
+
+    }
+
+});
