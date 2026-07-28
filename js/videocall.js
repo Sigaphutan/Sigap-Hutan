@@ -1,93 +1,29 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-    getFirestore,
-    doc,
-    onSnapshot,
-    updateDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { startCamera, remoteStream } from "./webrtc-user.js";
 
-// =======================
-// Firebase
-// =======================
-const firebaseConfig = {
-    apiKey: "AIzaSyB4cX8QGigpL_hL9Wi-_HVZunkctdIGw_g",
-    authDomain: "sigap-hutan-715d1.firebaseapp.com",
-    projectId: "sigap-hutan-715d1",
-    storageBucket: "sigap-hutan-715d1.firebasestorage.app",
-    messagingSenderId: "902737210675",
-    appId: "1:902737210675:web:85383221791e29f7e1e246"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const callRef = doc(db, "callcenter", "current");
-
-// =======================
-// Elemen
-// =======================
 const btnVideoCall = document.getElementById("btnVideoCall");
 const startCall = document.getElementById("startCall");
-const adminStatus = document.getElementById("adminStatus");
+const endCall = document.getElementById("endCall");
+
+const localVideo = document.getElementById("localVideo");
+const remoteVideo = document.getElementById("remoteVideo");
 
 const modal = new bootstrap.Modal(
     document.getElementById("videoCallModal")
 );
 
-// =======================
-// Status Admin
-// =======================
-onSnapshot(callRef, (snap) => {
-
-    if (!snap.exists()) return;
-
-    const data = snap.data();
-
-    if (data.status === "online") {
-
-        adminStatus.innerHTML = "🟢 Online";
-
-    } else {
-
-        adminStatus.innerHTML = "🔴 Offline";
-
-    }
-
-});
-
-// =======================
-// Buka Popup
-// =======================
-btnVideoCall.addEventListener("click", (e) => {
+btnVideoCall.addEventListener("click", async (e) => {
 
     e.preventDefault();
 
     modal.show();
 
-});
-
-// =======================
-// Hubungi Admin
-// =======================
-startCall.addEventListener("click", async () => {
-
     try {
 
-        await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: true
-        });
+        const stream = await startCamera();
 
-        await updateDoc(callRef, {
+        localVideo.srcObject = stream;
 
-            status: "calling",
-            caller: "Masyarakat"
-
-        });
-
-        alert("Permintaan video call telah dikirim.\nSilakan tunggu admin menerima.");
-
-        modal.hide();
+        remoteVideo.srcObject = remoteStream;
 
     } catch (err) {
 
@@ -95,6 +31,33 @@ startCall.addEventListener("click", async () => {
 
         console.error(err);
 
+        modal.hide();
+
     }
+
+});
+
+startCall.addEventListener("click", async () => {
+
+    alert("Menghubungi petugas...\n\n(Fungsi WebRTC akan dibuat pada Paket 2 & 3)");
+
+});
+
+endCall.addEventListener("click", () => {
+
+    if (localVideo.srcObject) {
+
+        localVideo.srcObject.getTracks().forEach(track => {
+
+            track.stop();
+
+        });
+
+    }
+
+    localVideo.srcObject = null;
+    remoteVideo.srcObject = null;
+
+    modal.hide();
 
 });
