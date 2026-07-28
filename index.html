@@ -1013,8 +1013,9 @@ Rimba AI
 Chat dengan Asisten Virtual SIGAP HUTAN selama 24 jam.
 </p>
 
-<button class="btn btn-success">
-💬 Mulai Chat
+<button id="btnChat" class="btn btn-success btn-lg">
+<i class="bi bi-chat-dots-fill"></i>
+Mulai Chat
 </button>
 
 </div>
@@ -1403,6 +1404,22 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!-- End of Tawk.to Script -->
+    <script>
+
+Tawk_API = Tawk_API || {};
+
+Tawk_API.onLoad = function () {
+
+    document.getElementById("btnChat").addEventListener("click", function () {
+
+        Tawk_API.maximize();
+
+    });
+
+};
+
+</script>
 </body>
 
 </html>
+    
