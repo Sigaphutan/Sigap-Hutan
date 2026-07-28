@@ -41,6 +41,8 @@ console.log("✅ Call Center SIGAP HUTAN aktif");
 const btnOnline = document.getElementById("btnOnline");
 const btnOffline = document.getElementById("btnOffline");
 const callStatus = document.getElementById("callStatus");
+const btnAccept = document.getElementById("btnAccept");
+const btnReject = document.getElementById("btnReject");
 
 onSnapshot(callRef, (snap) => {
 
@@ -49,9 +51,48 @@ onSnapshot(callRef, (snap) => {
     const data = snap.data();
 
     if (data.status === "online") {
+
         callStatus.innerHTML = "🟢 Online";
-    } else {
+
+        btnAccept.style.display = "none";
+        btnReject.style.display = "none";
+
+    }
+
+    else if (data.status === "offline") {
+
         callStatus.innerHTML = "🔴 Offline";
+
+        btnAccept.style.display = "none";
+        btnReject.style.display = "none";
+
+    }
+
+    else if (data.status === "calling") {
+
+        callStatus.innerHTML = "📞 Ada Panggilan Masuk";
+
+        btnAccept.style.display = "block";
+        btnReject.style.display = "block";
+
+    }
+
+    else if (data.status === "accepted") {
+
+        callStatus.innerHTML = "🎥 Sedang Video Call";
+
+        btnAccept.style.display = "none";
+        btnReject.style.display = "none";
+
+    }
+
+    else if (data.status === "rejected") {
+
+        callStatus.innerHTML = "❌ Panggilan Ditolak";
+
+        btnAccept.style.display = "none";
+        btnReject.style.display = "none";
+
     }
 
 });
