@@ -1,4 +1,9 @@
-import { startCamera, remoteStream } from "./webrtc-user.js";
+import {
+    startCamera,
+    createOffer,
+    closeCall,
+    remoteStream
+} from "./webrtc-user.js";
 
 const btnVideoCall = document.getElementById("btnVideoCall");
 const startCall = document.getElementById("startCall");
@@ -22,15 +27,12 @@ btnVideoCall.addEventListener("click", async (e) => {
         const stream = await startCamera();
 
         localVideo.srcObject = stream;
-
         remoteVideo.srcObject = remoteStream;
 
     } catch (err) {
 
         alert("Kamera atau mikrofon tidak diizinkan.");
-
         console.error(err);
-
         modal.hide();
 
     }
@@ -39,24 +41,35 @@ btnVideoCall.addEventListener("click", async (e) => {
 
 startCall.addEventListener("click", async () => {
 
-    alert("Menghubungi petugas...\n\n(Fungsi WebRTC akan dibuat pada Paket 2 & 3)");
+    startCall.disabled = true;
+    startCall.innerHTML = "Menghubungi...";
 
-});
+    try {
 
-endCall.addEventListener("click", () => {
+        await createOffer();
 
-    if (localVideo.srcObject) {
+    } catch (err) {
 
-        localVideo.srcObject.getTracks().forEach(track => {
+        console.error(err);
 
-            track.stop();
+        alert("Gagal memulai panggilan.");
 
-        });
+        startCall.disabled = false;
+        startCall.innerHTML = "📞 Hubungi Sekarang";
 
     }
 
+});
+
+endCall.addEventListener("click", async () => {
+
+    await closeCall();
+
     localVideo.srcObject = null;
     remoteVideo.srcObject = null;
+
+    startCall.disabled = false;
+    startCall.innerHTML = "📞 Hubungi Sekarang";
 
     modal.hide();
 
