@@ -182,20 +182,16 @@ export function closeCall() {
 
     if (localStream) {
 
-        localStream.getTracks().forEach(track => {
+        localStream.getTracks().forEach(track => track.stop());
 
-            track.stop();
-
-        });
+        localStream = null;
 
     }
 
     remoteStream.getTracks().forEach(track => {
 
-        track.stop();
+        remoteStream.removeTrack(track);
 
     });
-
-    peer.close();
 
 }
