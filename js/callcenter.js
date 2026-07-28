@@ -27,5 +27,14 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const callRef = doc(db, "callcenter", "current");
+onSnapshot(callRef, (snap) => {
+
+    if (!snap.exists()) return;
+
+    const data = snap.data();
+
+    console.log("Call Center:", data);
+
+});
 
 console.log("✅ Call Center SIGAP HUTAN aktif");
