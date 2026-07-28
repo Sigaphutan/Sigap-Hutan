@@ -1,113 +1,175 @@
 import { db } from "./firebase.js";
 
 import {
-doc,
-onSnapshot,
-updateDoc
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    doc,
+    collection,
+    addDoc,
+    updateDoc,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// =========================
+// STUN SERVER
+// =========================
+
+const servers = {
+    iceServers: [
+        {
+            urls: [
+                "stun:stun.l.google.com:19302",
+                "stun:stun1.l.google.com:19302"
+            ]
+        }
+    ]
+};
+
+// =========================
+// PEER
+// =========================
+
+const peer = new RTCPeerConnection(servers);
+
+let localStream = null;
+const remoteStream = new MediaStream();
+
+// =========================
+// ELEMENT
+// =========================
+
+const localVideo = document.getElementById("localVideo");
+const remoteVideo = document.getElementById("remoteVideo");
+
+const btnAccept = document.getElementById("btnAccept");
+
+// =========================
+// FIRESTORE
+// =========================
 
 const callRef = doc(db, "callcenter", "current");
 
-const statusText = document.getElementById("statusAdmin");
-const btnOnline = document.getElementById("btnOnline");
-const btnOffline = document.getElementById("btnOffline");
+const offerCandidates = collection(
+    db,
+    "callcenter",
+    "current",
+    "offerCandidates"
+);
 
-const btnAccept = document.getElementById("btnAccept");
-const btnReject = document.getElementById("btnReject");
+const answerCandidates = collection(
+    db,
+    "callcenter",
+    "current",
+    "answerCandidates"
+);
 
-const ringtone = document.getElementById("ringtone");
+// =========================
+// CAMERA
+// =========================
 
-let status = "offline";
+async function startCamera() {
 
-// ==========================
-// ONLINE
-// ==========================
+    localStream = await navigator.mediaDevices.getUserMedia({
 
-btnOnline.onclick = async () => {
-
-    status = "online";
-
-    await updateDoc(callRef, {
-
-        status: "online"
-
-    });
-
-};
-
-// ==========================
-// OFFLINE
-// ==========================
-
-btnOffline.onclick = async () => {
-
-    status = "offline";
-
-    await updateDoc(callRef, {
-
-        status: "offline"
+        video: true,
+        audio: true
 
     });
 
+    localVideo.srcObject = localStream;
+
+    localStream.getTracks().forEach(track => {
+
+        peer.addTrack(track, localStream);
+
+    });
+
+}
+
+peer.ontrack = (event) => {
+
+    event.streams[0].getTracks().forEach(track => {
+
+        remoteStream.addTrack(track);
+
+    });
+
+    remoteVideo.srcObject = remoteStream;
+
 };
 
-// ==========================
-// LISTENER
-// ==========================
+// =========================
+// ICE ADMIN
+// =========================
 
-onSnapshot(callRef, (snap) => {
+peer.onicecandidate = async (event) => {
 
-    if (!snap.exists()) return;
+    if (event.candidate) {
 
-    const data = snap.data();
-
-    statusText.innerHTML = data.status;
-
-    if (data.status === "calling") {
-
-        ringtone.play();
-
-        btnAccept.disabled = false;
-
-        btnReject.disabled = false;
+        await addDoc(
+            answerCandidates,
+            event.candidate.toJSON()
+        );
 
     }
 
-});
+};
 
-// ==========================
-// TERIMA
-// ==========================
+// =========================
+// TERIMA PANGGILAN
+// =========================
 
-btnAccept.onclick = async () => {
+btnAccept.addEventListener("click", async () => {
 
-    ringtone.pause();
+    await startCamera();
 
-    ringtone.currentTime = 0;
+    const call = (await onSnapshot);
+
+    const snap = await new Promise(resolve => {
+
+        onSnapshot(callRef, resolve);
+
+    });
+
+    const data = snap.data();
+
+    if (!data.offer) return;
+
+    await peer.setRemoteDescription(
+        new RTCSessionDescription(data.offer)
+    );
+
+    const answer = await peer.createAnswer();
+
+    await peer.setLocalDescription(answer);
 
     await updateDoc(callRef, {
+
+        answer: {
+            type: answer.type,
+            sdp: answer.sdp
+        },
 
         status: "accepted"
 
     });
 
-};
+});
 
-// ==========================
-// TOLAK
-// ==========================
+// =========================
+// ICE USER
+// =========================
 
-btnReject.onclick = async () => {
+onSnapshot(offerCandidates, (snapshot) => {
 
-    ringtone.pause();
+    snapshot.docChanges().forEach(async change => {
 
-    ringtone.currentTime = 0;
+        if (change.type === "added") {
 
-    await updateDoc(callRef, {
+            await peer.addIceCandidate(
+                new RTCIceCandidate(change.doc.data())
+            );
 
-        status: "rejected"
+        }
 
     });
 
-};
+});
