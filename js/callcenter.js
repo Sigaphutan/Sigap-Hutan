@@ -38,3 +38,36 @@ onSnapshot(callRef, (snap) => {
 });
 
 console.log("✅ Call Center SIGAP HUTAN aktif");
+const btnOnline = document.getElementById("btnOnline");
+const btnOffline = document.getElementById("btnOffline");
+const callStatus = document.getElementById("callStatus");
+
+onSnapshot(callRef, (snap) => {
+
+    if (!snap.exists()) return;
+
+    const data = snap.data();
+
+    if (data.status === "online") {
+        callStatus.innerHTML = "🟢 Online";
+    } else {
+        callStatus.innerHTML = "🔴 Offline";
+    }
+
+});
+
+btnOnline.addEventListener("click", async () => {
+
+    await updateDoc(callRef, {
+        status: "online"
+    });
+
+});
+
+btnOffline.addEventListener("click", async () => {
+
+    await updateDoc(callRef, {
+        status: "offline"
+    });
+
+});
