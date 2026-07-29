@@ -19,7 +19,7 @@ document.getElementById("startCall").onclick = function () {
 
     zp.joinRoom({
 
-        container: document.querySelector("#videoCallModal .modal-body"),
+        container: document.getElementById("zegoCallContainer"),
 
         scenario: {
             mode: ZegoUIKitPrebuilt.OneONoneCall,
