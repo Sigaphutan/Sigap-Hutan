@@ -236,6 +236,32 @@ jenis: document.getElementById("jenis").value,
         console.log("Data yang akan disimpan:", data);
 
 await addDoc(collection(db, "laporan"), data);
+           // Kirim notifikasi Telegram
+const pesan = `🚨 LAPORAN BARU SIGAP HUTAN
+
+🆔 Kode : ${kode}
+👤 Nama : ${data.nama}
+🏞 Kabupaten : ${data.kabupaten}
+🏘 Kecamatan : ${data.kecamatan}
+🌳 Jenis : ${data.jenis}
+📝 Deskripsi : ${data.deskripsi}
+📍 Maps : ${data.mapsUrl || "-"}
+`;
+
+try {
+    await fetch("https://api.telegram.org/botTOKEN_BOT_ANDA/sendMessage", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            chat_id: "1314892858",
+            text: pesan
+        })
+    });
+} catch (e) {
+    console.error("Gagal kirim Telegram:", e);
+}
 
         alert(
             "Pengaduan berhasil dikirim.\n\nKode Laporan : " +
@@ -263,3 +289,4 @@ await addDoc(collection(db, "laporan"), data);
     }
 
 });
+
