@@ -249,7 +249,7 @@ const pesan = `🚨 LAPORAN BARU SIGAP HUTAN
 `;
 
 try {
-    await fetch("https://api.telegram.org/botTOKEN_BOT_ANDA/sendMessage", {
+    await fetch("https://api.telegram.org/bot8674721908:AAER6Vgc2D2k79diyt_exVMjIbCgCC4k5j0/sendMessage", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
