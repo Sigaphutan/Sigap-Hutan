@@ -1,76 +1,40 @@
-import {
-    startCamera,
-    createOffer,
-    closeCall,
-    remoteStream
-} from "./webrtc-user.js";
+const appID = 1421040360;
+const serverSecret = "743794df71d7e8d7f03b98d7c00bd73d";
 
-const btnVideoCall = document.getElementById("btnVideoCall");
-const startCall = document.getElementById("startCall");
-const endCall = document.getElementById("endCall");
+const roomID = "sigaphutan-call";
+const userID = "user_" + Math.floor(Math.random() * 100000);
+const userName = "Pengunjung";
 
-const localVideo = document.getElementById("localVideo");
-const remoteVideo = document.getElementById("remoteVideo");
-
-const modal = new bootstrap.Modal(
-    document.getElementById("videoCallModal")
+const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
+    appID,
+    serverSecret,
+    roomID,
+    userID,
+    userName
 );
 
-btnVideoCall.addEventListener("click", async (e) => {
+const zp = ZegoUIKitPrebuilt.create(kitToken);
 
-    e.preventDefault();
+document.getElementById("startCall").onclick = function () {
 
-    modal.show();
+    zp.joinRoom({
 
-    try {
+        container: document.querySelector("#videoCallModal .modal-body"),
 
-        const stream = await startCamera();
+        scenario: {
+            mode: ZegoUIKitPrebuilt.OneONoneCall,
+        },
 
-        localVideo.srcObject = stream;
-        remoteVideo.srcObject = remoteStream;
+        turnOnMicrophoneWhenJoining: true,
+        turnOnCameraWhenJoining: true,
 
-    } catch (err) {
+        showMicrophoneToggleButton: true,
+        showCameraToggleButton: true,
+        showScreenSharingButton: false,
+        showTextChat: true,
+        showUserList: false,
+        showLeavingView: true
 
-        alert("Kamera atau mikrofon tidak diizinkan.");
-        console.error(err);
-        modal.hide();
+    });
 
-    }
-
-});
-
-startCall.addEventListener("click", async () => {
-
-    startCall.disabled = true;
-    startCall.innerHTML = "Menghubungi...";
-
-    try {
-
-        await createOffer();
-
-    } catch (err) {
-
-        console.error(err);
-
-        alert("Gagal memulai panggilan.");
-
-        startCall.disabled = false;
-        startCall.innerHTML = "📞 Hubungi Sekarang";
-
-    }
-
-});
-
-endCall.addEventListener("click", async () => {
-
-    await closeCall();
-
-    localVideo.srcObject = null;
-    remoteVideo.srcObject = null;
-
-    startCall.disabled = false;
-    startCall.innerHTML = "📞 Hubungi Sekarang";
-
-    modal.hide();
-
-});
+};
