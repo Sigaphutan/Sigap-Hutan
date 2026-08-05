@@ -400,7 +400,7 @@ ${data.komentar || "-"}
 
     });
 
-    renderPagination(data.length);
+    renderPagination(tampil.length === 0 ? 0 : data.length);
 
 }
     
