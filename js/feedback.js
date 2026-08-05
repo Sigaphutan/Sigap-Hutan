@@ -20,7 +20,7 @@ let currentPage = 1;
 
 const perPage = 5;
 
-let allReviews = [];
+let reviews = [];
 // =======================
 // EMOJI
 // =======================
@@ -219,13 +219,7 @@ orderBy("createdAt","desc")
 // PAGINATION & FILTER
 // =========================
 
-let reviews = [];
 
-let currentPage = 1;
-
-const perPage = 5;
-
-let currentFilter = 0;
 onSnapshot(q, (snapshot) => {
 reviews = [];
 
@@ -272,15 +266,15 @@ id:doc.id,
 
     }
 
-    // ========================
-    // JUDUL ULASAN
-    // ========================
+   // ========================
+// TAMPILKAN ULASAN
+// ========================
 
+reviewList.innerHTML = "";
+
+renderReviews();
     reviewList.innerHTML = `
-        <h3 class="fw-bold mb-4">
-            💬 Ulasan Masyarakat
-        </h3>
-    `;
+        
 
     // ========================
     // TAMPILKAN ULASAN
@@ -322,6 +316,7 @@ persen(jumlah2)+"%";
 
 document.getElementById("bar1").style.width =
 persen(jumlah1)+"%";
+    });
 function renderReviews() {
 
     reviewList.innerHTML = "";
@@ -417,42 +412,30 @@ ${data.komentar || "-"}
     renderPagination(data.length);
 
 }
-    function renderPagination(total) {
+    
+    function renderPagination(totalReview) {
 
     const pagination = document.getElementById("pagination");
 
     pagination.innerHTML = "";
 
-    const totalPage = Math.ceil(total / perPage);
+    const totalPage = Math.ceil(totalReview / perPage);
+
+    if (totalPage <= 1) return;
 
     for (let i = 1; i <= totalPage; i++) {
 
         pagination.innerHTML += `
-
-<li class="page-item ${i===currentPage ? 'active' : ''}">
-
-<a class="page-link"
-
-href="#"
-
-onclick="gotoPage(${i});return false;">
-
-${i}
-
-</a>
-
-</li>
-
-`;
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link"
+                   href="#"
+                   onclick="gotoPage(${i}); return false;">
+                   ${i}
+                </a>
+            </li>
+        `;
 
     }
-
-}
-    window.gotoPage = function(page){
-
-    currentPage = page;
-
-    renderReviews();
 
 }
    // =========================
@@ -483,3 +466,10 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     });
 
 });
+window.gotoPage = function(page){
+
+    currentPage = page;
+
+    renderReviews();
+
+}
