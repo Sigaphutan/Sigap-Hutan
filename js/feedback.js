@@ -325,77 +325,38 @@ ${data.komentar || "-"}
 `;
 
 });
-
     // ========================
-    // STATISTIK DI BAWAH
-    // ========================
+// UPDATE PANEL RINGKASAN
+// ========================
 
-    reviewList.innerHTML += `
+const rata =
+total === 0
+? 0
+:
+(
+(jumlah1*1)+(jumlah2*2)+(jumlah3*3)+(jumlah4*4)+(jumlah5*5)
+)
+/total;
 
-        <hr class="my-5">
+document.getElementById("avgRating").innerHTML =
+rata.toFixed(1);
 
-        <h3 class="fw-bold text-success mb-4">
-            📊 Statistik Penilaian
-        </h3>
+document.getElementById("totalReview").innerHTML =
+total + " Ulasan";
 
-        <div class="rating-summary">
+document.getElementById("bar5").style.width =
+persen(jumlah5)+"%";
 
-            <p class="mb-2">
-                😍 Sangat Puas : <strong>${persen(jumlah5)}%</strong> (${jumlah5})
-            </p>
+document.getElementById("bar4").style.width =
+persen(jumlah4)+"%";
 
-            <div class="progress mb-4" style="height:18px;">
-                <div class="progress-bar bg-success"
-                    style="width:${persen(jumlah5)}%">
-                </div>
-            </div>
+document.getElementById("bar3").style.width =
+persen(jumlah3)+"%";
 
+document.getElementById("bar2").style.width =
+persen(jumlah2)+"%";
 
-            <p class="mb-2">
-                😊 Puas : <strong>${persen(jumlah4)}%</strong> (${jumlah4})
-            </p>
+document.getElementById("bar1").style.width =
+persen(jumlah1)+"%";
 
-            <div class="progress mb-4" style="height:18px;">
-                <div class="progress-bar bg-info"
-                    style="width:${persen(jumlah4)}%">
-                </div>
-            </div>
-
-
-            <p class="mb-2">
-                😐 Cukup : <strong>${persen(jumlah3)}%</strong> (${jumlah3})
-            </p>
-
-            <div class="progress mb-4" style="height:18px;">
-                <div class="progress-bar bg-warning"
-                    style="width:${persen(jumlah3)}%">
-                </div>
-            </div>
-
-
-            <p class="mb-2">
-                😕 Kurang Puas : <strong>${persen(jumlah2)}%</strong> (${jumlah2})
-            </p>
-
-            <div class="progress mb-4" style="height:18px;">
-                <div class="progress-bar"
-                    style="background:#fd7e14;width:${persen(jumlah2)}%">
-                </div>
-            </div>
-
-
-            <p class="mb-2">
-                😡 Sangat Tidak Puas : <strong>${persen(jumlah1)}%</strong> (${jumlah1})
-            </p>
-
-            <div class="progress" style="height:18px;">
-                <div class="progress-bar bg-danger"
-                    style="width:${persen(jumlah1)}%">
-                </div>
-            </div>
-
-        </div>
-
-    `;
-
-});
+   
