@@ -276,7 +276,7 @@ emojis.forEach(emoji => {
 
 let deferredPrompt;
 
-const installBtn = document.getElementById("installApp");
+const installBtn = document.getElementById("installBtn");
 
 window.addEventListener("beforeinstallprompt", (e) => {
 
@@ -292,13 +292,11 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
 if (installBtn) {
 
-    installBtn.addEventListener("click", async (e) => {
-
-        e.preventDefault();
+    installBtn.addEventListener("click", async () => {
 
         if (!deferredPrompt) {
 
-            alert("Fitur install belum tersedia pada browser ini.");
+            alert("Aplikasi belum dapat diinstal pada browser ini.");
 
             return;
 
@@ -306,7 +304,9 @@ if (installBtn) {
 
         deferredPrompt.prompt();
 
-        await deferredPrompt.userChoice;
+        const { outcome } = await deferredPrompt.userChoice;
+
+        console.log("Install:", outcome);
 
         deferredPrompt = null;
 
