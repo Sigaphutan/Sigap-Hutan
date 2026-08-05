@@ -2256,10 +2256,7 @@ color:#666;
     padding:12px 35px;
     border-radius:50px;
     font-weight:bold;
-/* ==========================================
-   HERO BUTTONS SIGAP HUTAN
-========================================== */
-
+}
 .hero-buttons{
     display:flex;
     flex-wrap:wrap;
@@ -2292,7 +2289,8 @@ color:#666;
 }
 
 .hero-buttons .btn span{
-    line-height:1;
+    display:inline-block;
+    margin-top:-2px;
 }
 
 @media(max-width:768px){
@@ -2305,4 +2303,16 @@ color:#666;
     width:100%;
 }
 
+}
+.hero-buttons .btn i{
+    margin-right:8px;
+    font-size:18px;
+}
+
+.hero-buttons .btn-success{
+    background:#198754;
+}
+
+.hero-buttons .btn-danger{
+    background:#dc3545;
 }
