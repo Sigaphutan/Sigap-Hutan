@@ -2256,3 +2256,53 @@ color:#666;
     padding:12px 35px;
     border-radius:50px;
     font-weight:bold;
+/* ==========================================
+   HERO BUTTONS SIGAP HUTAN
+========================================== */
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:25px;
+}
+
+.hero-buttons .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    min-width:230px;
+    height:58px;
+
+    padding:0 28px;
+
+    border-radius:50px;
+
+    font-size:18px;
+    font-weight:700;
+
+    white-space:nowrap;
+}
+
+.hero-buttons .btn i{
+    font-size:20px;
+    line-height:1;
+}
+
+.hero-buttons .btn span{
+    line-height:1;
+}
+
+@media(max-width:768px){
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.hero-buttons .btn{
+    width:100%;
+}
+
+}
