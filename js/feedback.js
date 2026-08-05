@@ -8,37 +8,99 @@ import {
     orderBy,
     onSnapshot
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-//========================
-// EMOJI
-//========================
+// =======================
+// GLOBAL
+// =======================
 
 let rating = 0;
 
+let currentFilter = 0;
+
+let currentPage = 1;
+
+const perPage = 5;
+
+let allReviews = [];
+// =======================
+// EMOJI
+// =======================
+
 const emojis = document.querySelectorAll(".emoji");
+
 const ratingText = document.getElementById("ratingText");
 
 const teks = {
-    1:"😡 Sangat Tidak Puas",
-    2:"😕 Kurang Puas",
-    3:"😐 Cukup",
-    4:"😊 Puas",
-    5:"😍 Sangat Puas"
+
+1:"😡 Sangat Tidak Puas",
+
+2:"😕 Kurang Puas",
+
+3:"😐 Cukup",
+
+4:"😊 Puas",
+
+5:"😍 Sangat Puas"
+
 };
 
 emojis.forEach((emoji)=>{
 
-    emoji.onclick=()=>{
+emoji.onclick=()=>{
 
-        emojis.forEach(e=>e.classList.remove("active"));
+emojis.forEach(e=>e.classList.remove("active"));
 
-        emoji.classList.add("active");
+emoji.classList.add("active");
 
-        rating=Number(emoji.dataset.rating);
+rating=Number(emoji.dataset.rating);
 
-        ratingText.innerHTML=teks[rating];
+ratingText.innerHTML=teks[rating];
 
-    }
+};
+
+});
+// =======================
+// RATING BINTANG
+// =======================
+
+const aspekRating = {};
+
+document.querySelectorAll(".rating-stars").forEach(box=>{
+
+const nama = box.dataset.name;
+
+aspekRating[nama]=0;
+
+for(let i=1;i<=5;i++){
+
+const star=document.createElement("i");
+
+star.className="bi bi-star-fill";
+
+star.dataset.value=i;
+
+star.onclick=()=>{
+
+aspekRating[nama]=i;
+
+box.querySelectorAll("i").forEach((s,index)=>{
+
+if(index<i){
+
+s.classList.add("active");
+
+}else{
+
+s.classList.remove("active");
+
+}
+
+});
+
+};
+
+box.appendChild(star);
+
+}
 
 });
 
@@ -48,52 +110,70 @@ emojis.forEach((emoji)=>{
 
 const form=document.getElementById("feedbackForm");
 
+
 form.addEventListener("submit",async(e)=>{
 
-    e.preventDefault();
+e.preventDefault();
 
-    if(rating===0){
+if(rating===0){
 
-        alert("Silakan pilih emoji.");
+alert("Silakan pilih emoji.");
 
-        return;
+return;
 
-    }
+}
 
-    let nama=document.getElementById("nama").value.trim();
+let nama=document.getElementById("nama").value.trim();
 
-    if(nama===""){
+if(nama===""){
 
-        nama="Anonim";
+nama="Anonim";
 
-    }
+}
 
-    const komentar=document.getElementById("komentar").value.trim();
+const komentar=document.getElementById("komentar").value.trim();
 
-    await addDoc(collection(db,"feedback"),{
+await addDoc(collection(db,"feedback"),{
 
-        nama,
+nama,
 
-        komentar,
+komentar,
 
-        rating,
+rating,
 
-        createdAt:serverTimestamp()
+kemudahan:aspekRating.kemudahan || rating,
 
-    });
+kecepatan:aspekRating.kecepatan || rating,
 
-    alert("Terima kasih atas penilaian Anda.");
+pelayanan:aspekRating.pelayanan || rating,
 
-    form.reset();
+keramahan:aspekRating.keramahan || rating,
 
-    emojis.forEach(e=>e.classList.remove("active"));
+pengaduan:aspekRating.pengaduan || rating,
 
-    ratingText.innerHTML="Silakan pilih emoji";
+keseluruhan:aspekRating.keseluruhan || rating,
 
-    rating=0;
+createdAt:serverTimestamp()
 
 });
 
+alert("Terima kasih atas penilaian Anda.");
+
+form.reset();
+
+rating=0;
+
+ratingText.innerHTML="Silakan pilih emoji";
+
+emojis.forEach(e=>e.classList.remove("active"));
+
+document.querySelectorAll(".rating-stars i").forEach(star=>{
+
+star.classList.remove("active");
+
+});
+
+});
 //========================
 // TAMPILKAN ULASAN
 //========================
@@ -107,7 +187,30 @@ const emojiMap={
 4:"😊",
 5:"😍"
 };
+const badgeMap = {
+    1: "Sangat Tidak Puas",
+    2: "Kurang Puas",
+    3: "Cukup",
+    4: "Puas",
+    5: "Sangat Puas"
+};
 
+function avatarHuruf(nama) {
+    if (!nama) return "?";
+    return nama.charAt(0).toUpperCase();
+}
+
+function formatTanggal(timestamp) {
+    if (!timestamp) return "-";
+
+    const tanggal = timestamp.toDate();
+
+    return tanggal.toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+}
 const q=query(
 collection(db,"feedback"),
 orderBy("createdAt","desc")
@@ -161,33 +264,67 @@ onSnapshot(q, (snapshot) => {
     // TAMPILKAN ULASAN
     // ========================
 
-    snapshot.forEach((doc) => {
+    snapshot.forEach((doc)=>{
 
-        const data = doc.data();
+const data = doc.data();
 
-        reviewList.innerHTML += `
+reviewList.innerHTML += `
 
-        <div class="review-card mb-4">
+<div class="review-card">
 
-            <div class="review-header d-flex justify-content-between align-items-center">
+<div class="review-header">
 
-                <strong>${data.nama}</strong>
+<div class="review-user">
 
-                <span style="font-size:22px;">
-                    ${emojiMap[data.rating]}
-                </span>
+<div class="avatar">
 
-            </div>
+${avatarHuruf(data.nama)}
 
-            <p class="mb-0 mt-2">
-                ${data.komentar}
-            </p>
+</div>
 
-        </div>
+<div>
 
-        `;
+<strong>${data.nama}</strong>
 
-    });
+<br>
+
+<small class="text-muted">
+
+${formatTanggal(data.createdAt)}
+
+</small>
+
+<br>
+
+<span class="review-badge">
+
+${badgeMap[data.rating]}
+
+</span>
+
+</div>
+
+</div>
+
+<div style="font-size:28px">
+
+${emojiMap[data.rating]}
+
+</div>
+
+</div>
+
+<p class="mt-3 mb-0">
+
+${data.komentar || "-"}
+
+</p>
+
+</div>
+
+`;
+
+});
 
     // ========================
     // STATISTIK DI BAWAH
