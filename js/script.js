@@ -270,3 +270,48 @@ emojis.forEach(emoji => {
     });
 
 });
+/*=========================================
+    INSTALL PWA
+=========================================*/
+
+let deferredPrompt;
+
+const installBtn = document.getElementById("installApp");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    if (installBtn) {
+        installBtn.style.display = "inline-flex";
+    }
+
+});
+
+if (installBtn) {
+
+    installBtn.addEventListener("click", async (e) => {
+
+        e.preventDefault();
+
+        if (!deferredPrompt) {
+
+            alert("Fitur install belum tersedia pada browser ini.");
+
+            return;
+
+        }
+
+        deferredPrompt.prompt();
+
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+
+        installBtn.style.display = "none";
+
+    });
+
+}
