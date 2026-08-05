@@ -284,34 +284,49 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
     deferredPrompt = e;
 
-    if (installBtn) {
-        installBtn.style.display = "inline-flex";
-    }
+    console.log("PWA siap diinstal.");
 
 });
 
-if (installBtn) {
+installBtn?.addEventListener("click", async () => {
 
-    installBtn.addEventListener("click", async () => {
-
-        if (!deferredPrompt) {
-
-            alert("Aplikasi belum dapat diinstal pada browser ini.");
-
-            return;
-
-        }
+    // Jika browser mendukung install langsung
+    if (deferredPrompt) {
 
         deferredPrompt.prompt();
 
         const { outcome } = await deferredPrompt.userChoice;
 
-        console.log("Install:", outcome);
+        console.log("Hasil install:", outcome);
 
         deferredPrompt = null;
 
-        installBtn.style.display = "none";
+        return;
+    }
 
-    });
+    // Jika browser hanya menampilkan ikon install
+    const chrome = /Chrome/.test(navigator.userAgent);
 
-}
+    if (chrome) {
+
+        alert(
+`Untuk menginstal SIGAP HUTAN:
+
+1. Klik ikon Install (⬇️) di sebelah kanan bilah alamat browser.
+2. Pilih Install.
+3. Tunggu beberapa detik hingga aplikasi terpasang.
+
+Ikon tersebut sudah tersedia di browser Anda.`
+        );
+
+    } else {
+
+        alert(
+`Browser ini belum mendukung instalasi aplikasi secara langsung.
+
+Silakan gunakan Google Chrome atau Microsoft Edge.`
+        );
+
+    }
+
+});
