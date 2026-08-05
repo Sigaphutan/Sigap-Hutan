@@ -1121,46 +1121,103 @@ allowfullscreen>
 
 <div class="container">
 
-<div class="row justify-content-center">
+<div class="row g-4">
 
-<div class="col-lg-8">
+    <!-- ================= LEFT ================= -->
 
-<div class="card shadow border-0 rounded-4">
+    <div class="col-lg-8">
 
-<div class="card-body p-5">
+        <div class="card border-0 shadow-lg rounded-4">
 
-<h2 class="text-center fw-bold text-success">
-😊 Survei Kepuasan Masyarakat
-</h2>
+            <div class="card-body p-4">
 
-<p class="text-center text-muted">
-Bagaimana pengalaman Anda menggunakan website SIGAP HUTAN?
-</p>
+                <h2 class="fw-bold text-success mb-2">
+                    😊 Survei Kepuasan Masyarakat
+                </h2>
 
-<form id="feedbackForm">
+                <p class="text-muted">
+                    Bagaimana pengalaman Anda menggunakan website SIGAP HUTAN?
+                </p>
 
-<div class="emoji-rating text-center my-4">
+                <!-- Emoji -->
 
-<span class="emoji" data-rating="5">😍</span>
+                <div class="emoji-rating text-center my-4">
 
-<span class="emoji" data-rating="4">😊</span>
+                    <span class="emoji" data-rating="5">😍</span>
 
-<span class="emoji" data-rating="3">😐</span>
+                    <span class="emoji" data-rating="4">😊</span>
 
-<span class="emoji" data-rating="2">😕</span>
+                    <span class="emoji" data-rating="3">🙂</span>
 
-<span class="emoji" data-rating="1">😡</span>
+                    <span class="emoji" data-rating="2">😐</span>
+
+                    <span class="emoji" data-rating="1">😡</span>
+
+                </div>
+
+                <p id="ratingText" class="text-center fw-bold text-success">
+
+                    Silakan pilih emoji
+
+                </p>
+
+                <form id="feedbackForm">
+                    <h5 class="fw-bold mb-3">
+⭐ Penilaian Layanan
+</h5>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Kemudahan Website</label>
+
+<div class="rating-stars" data-name="kemudahan"></div>
 
 </div>
 
-<p id="ratingText"
-class="text-center fw-bold text-success">
+<div class="col-md-6 mb-3">
 
-Silakan pilih emoji
+<label>Kecepatan Akses</label>
 
-</p>
+<div class="rating-stars" data-name="kecepatan"></div>
 
-<div class="mb-3">
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Pelayanan Informasi</label>
+
+<div class="rating-stars" data-name="pelayanan"></div>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Keramahan Pelayanan</label>
+
+<div class="rating-stars" data-name="keramahan"></div>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Kemudahan Pengaduan</label>
+
+<div class="rating-stars" data-name="pengaduan"></div>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Kepuasan Keseluruhan</label>
+
+<div class="rating-stars" data-name="keseluruhan"></div>
+
+</div>
+
+</div>
+                    <div class="mb-3">
 
 <input
 type="text"
@@ -1175,16 +1232,16 @@ placeholder="Nama (Opsional)">
 <textarea
 id="komentar"
 class="form-control"
-rows="5"
+rows="4"
 maxlength="300"
-placeholder="Tuliskan saran atau masukan Anda..."></textarea>
+placeholder="Tuliskan pengalaman Anda menggunakan SIGAP HUTAN..."></textarea>
 
 </div>
 
 <div class="text-center">
 
 <button
-class="btn btn-success btn-lg"
+class="btn btn-success btn-lg px-5"
 type="submit">
 
 <i class="bi bi-send-fill"></i>
@@ -1196,19 +1253,131 @@ Kirim Penilaian
 </div>
 
 </form>
-    <hr class="my-5">
-
-<div id="reviewList" class="review-list">
-
-    <h3 class="text-center text-success mb-4">
-        💬 Ulasan Pengguna
-    </h3>
-
-    <p class="text-center text-muted">
-        Belum ada ulasan.
-    </p>
 
 </div>
+
+</div>
+
+</div>
+    <div class="col-12 mt-4">
+
+<div class="card border-0 shadow-lg rounded-4">
+
+<div class="card-body">
+
+<h3 class="fw-bold mb-4">
+
+💬 Ulasan Masyarakat
+
+</h3>
+
+<div class="d-flex flex-wrap gap-2 mb-4">
+
+<button class="btn btn-success">
+
+Semua
+
+</button>
+
+<button class="btn btn-outline-success">
+
+⭐⭐⭐⭐⭐ (120)
+
+</button>
+
+<button class="btn btn-outline-success">
+
+⭐⭐⭐⭐ (50)
+
+</button>
+
+<button class="btn btn-outline-success">
+
+⭐⭐⭐ (20)
+
+</button>
+
+<button class="btn btn-outline-success">
+
+⭐⭐ (8)
+
+</button>
+
+<button class="btn btn-outline-success">
+
+⭐ (2)
+
+</button>
+
+</div>
+
+<div id="reviewList">
+
+<p class="text-center text-muted">
+
+Belum ada ulasan.
+
+</p>
+
+</div>
+
+<nav class="mt-4">
+
+<ul class="pagination justify-content-center">
+
+<li class="page-item disabled">
+
+<a class="page-link">
+
+Sebelumnya
+
+</a>
+
+</li>
+
+<li class="page-item active">
+
+<a class="page-link">
+
+1
+
+</a>
+
+</li>
+
+<li class="page-item">
+
+<a class="page-link">
+
+2
+
+</a>
+
+</li>
+
+<li class="page-item">
+
+<a class="page-link">
+
+3
+
+</a>
+
+</li>
+
+<li class="page-item">
+
+<a class="page-link">
+
+Berikut
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
 
 </div>
 
@@ -1221,6 +1390,7 @@ Kirim Penilaian
 </div>
 
 </section>
+
 <!-- ====================================== -->
 <!-- KONTAK -->
 <!-- ====================================== -->
