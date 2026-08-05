@@ -273,7 +273,7 @@ id:doc.id,
 reviewList.innerHTML = "";
 
 renderReviews();
-    reviewList.innerHTML = `
+   
         
 
     // ========================
