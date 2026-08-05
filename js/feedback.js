@@ -274,15 +274,6 @@ reviewList.innerHTML = "";
 
 renderReviews();
    
-        
-
-    // ========================
-    // TAMPILKAN ULASAN
-    // ========================
-
-   reviewList.innerHTML = "";
-
-renderReviews();
     // ========================
 // UPDATE PANEL RINGKASAN
 // ========================
