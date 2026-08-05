@@ -215,9 +215,31 @@ const q=query(
 collection(db,"feedback"),
 orderBy("createdAt","desc")
 );
+// =========================
+// PAGINATION & FILTER
+// =========================
 
+let reviews = [];
+
+let currentPage = 1;
+
+const perPage = 5;
+
+let currentFilter = 0;
 onSnapshot(q, (snapshot) => {
+reviews = [];
 
+snapshot.forEach(doc=>{
+
+reviews.push({
+
+id:doc.id,
+
+...doc.data()
+
+});
+
+});
     // ========================
     // HITUNG JUMLAH RATING
     // ========================
@@ -264,17 +286,83 @@ onSnapshot(q, (snapshot) => {
     // TAMPILKAN ULASAN
     // ========================
 
-    snapshot.forEach((doc)=>{
+   reviewList.innerHTML = "";
 
-const data = doc.data();
+renderReviews();
+    // ========================
+// UPDATE PANEL RINGKASAN
+// ========================
 
-reviewList.innerHTML += `
+const rata =
+total === 0
+? 0
+:
+(
+(jumlah1*1)+(jumlah2*2)+(jumlah3*3)+(jumlah4*4)+(jumlah5*5)
+)
+/total;
 
-<div class="review-card">
+document.getElementById("avgRating").innerHTML =
+rata.toFixed(1);
 
-<div class="review-header">
+document.getElementById("totalReview").innerHTML =
+total + " Ulasan";
 
-<div class="review-user">
+document.getElementById("bar5").style.width =
+persen(jumlah5)+"%";
+
+document.getElementById("bar4").style.width =
+persen(jumlah4)+"%";
+
+document.getElementById("bar3").style.width =
+persen(jumlah3)+"%";
+
+document.getElementById("bar2").style.width =
+persen(jumlah2)+"%";
+
+document.getElementById("bar1").style.width =
+persen(jumlah1)+"%";
+function renderReviews() {
+
+    reviewList.innerHTML = "";
+
+    let data = [...reviews];
+
+    // Filter rating
+    if (currentFilter !== 0) {
+        data = data.filter(r => r.rating === currentFilter);
+    }
+
+    // Pagination
+    const start = (currentPage - 1) * perPage;
+    const end = start + perPage;
+
+    const tampil = data.slice(start, end);
+
+    if (tampil.length === 0) {
+
+        reviewList.innerHTML = `
+        <div class="text-center py-5">
+            <i class="bi bi-chat-square-text display-4 text-muted"></i>
+            <p class="mt-3 text-muted">
+                Belum ada ulasan.
+            </p>
+        </div>
+        `;
+
+        renderPagination(0);
+        return;
+    }
+
+    tampil.forEach(data => {
+
+        reviewList.innerHTML += `
+
+<div class="review-card mb-3">
+
+<div class="review-header d-flex justify-content-between">
+
+<div class="review-user d-flex">
 
 <div class="avatar">
 
@@ -282,7 +370,7 @@ ${avatarHuruf(data.nama)}
 
 </div>
 
-<div>
+<div class="ms-3">
 
 <strong>${data.nama}</strong>
 
@@ -324,39 +412,47 @@ ${data.komentar || "-"}
 
 `;
 
-});
-    // ========================
-// UPDATE PANEL RINGKASAN
-// ========================
+    });
 
-const rata =
-total === 0
-? 0
-:
-(
-(jumlah1*1)+(jumlah2*2)+(jumlah3*3)+(jumlah4*4)+(jumlah5*5)
-)
-/total;
+    renderPagination(data.length);
 
-document.getElementById("avgRating").innerHTML =
-rata.toFixed(1);
+}
+    function renderPagination(total) {
 
-document.getElementById("totalReview").innerHTML =
-total + " Ulasan";
+    const pagination = document.getElementById("pagination");
 
-document.getElementById("bar5").style.width =
-persen(jumlah5)+"%";
+    pagination.innerHTML = "";
 
-document.getElementById("bar4").style.width =
-persen(jumlah4)+"%";
+    const totalPage = Math.ceil(total / perPage);
 
-document.getElementById("bar3").style.width =
-persen(jumlah3)+"%";
+    for (let i = 1; i <= totalPage; i++) {
 
-document.getElementById("bar2").style.width =
-persen(jumlah2)+"%";
+        pagination.innerHTML += `
 
-document.getElementById("bar1").style.width =
-persen(jumlah1)+"%";
+<li class="page-item ${i===currentPage ? 'active' : ''}">
 
+<a class="page-link"
+
+href="#"
+
+onclick="gotoPage(${i});return false;">
+
+${i}
+
+</a>
+
+</li>
+
+`;
+
+    }
+
+}
+    window.gotoPage = function(page){
+
+    currentPage = page;
+
+    renderReviews();
+
+}
    
