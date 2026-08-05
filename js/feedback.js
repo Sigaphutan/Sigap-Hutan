@@ -455,4 +455,31 @@ ${i}
     renderReviews();
 
 }
-   
+   // =========================
+// FILTER RATING
+// =========================
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        currentFilter = Number(btn.dataset.filter);
+
+        currentPage = 1;
+
+        // Ubah warna tombol aktif
+        document.querySelectorAll(".filter-btn").forEach(b => {
+
+            b.classList.remove("btn-success");
+            b.classList.add("btn-outline-success");
+
+        });
+
+        btn.classList.remove("btn-outline-success");
+        btn.classList.add("btn-success");
+
+        renderReviews();
+
+    });
+
+});
