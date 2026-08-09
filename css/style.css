@@ -1013,28 +1013,36 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     margin-top: 15px;
 }
 /* =========================
-   LOGO NAVBAR FINAL
+   LOGO NAVBAR - RAPAT & PROPORSIONAL
 ========================= */
 
 .logo-box{
     display:flex;
     align-items:center;
-    gap:5px;
+    justify-content:center;
+    gap:8px;
+
     background:#fff;
-    padding:1px 4px;
-    border-radius:8px;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
+
+    width:170px;
+    height:90px;
+
+    padding:5px 8px;
+
+    border-radius:10px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
 }
 
 .logo-aceh{
-    width:50px !important;
-    height:50px !important;
+    width:52px !important;
+    height:52px !important;
     object-fit:contain !important;
 }
 
 .logo-kph{
-    width:90px !important;
-    height:90px !important;
+    width:68px !important;
+    height:68px !important;
     object-fit:contain !important;
 }
 /*=========================================
