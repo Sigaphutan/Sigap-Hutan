@@ -1068,15 +1068,15 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 .logo-aceh{
-    width:60px !important;
-    height:60px !important;
-    object-fit:contain;
+    width:50px !important;
+    height:50px !important;
+    object-fit:contain !important;
 }
 
 .logo-kph{
-    width:80px !important;
-    height:80px !important;
-    object-fit:contain;
+    width:90px !important;
+    height:90px !important;
+    object-fit:contain !important;
 }
 /*=========================================
   EXTRA RESPONSIVE HP
@@ -1205,7 +1205,7 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     }
 
     .running-text{
-        top:103px;
+       
     }
 
     .hero{
@@ -1263,10 +1263,7 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     }
 
     .running-text{
-
         height:40px;
-
-        top:103px;
 
     }
 
@@ -1355,8 +1352,7 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 .running-text{
-    height:36px;
-    top:103px !important;
+    height:36px;   
 }
 
 .running-content span{
@@ -2266,29 +2262,4 @@ color:#666;
 
 .hero-buttons .btn-danger{
     background:#dc3545;
-}
-/* =========================
-   LOGO NAVBAR FINAL
-========================= */
-
-.logo-box{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:#fff;
-    padding:6px 10px;
-    border-radius:12px;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
-}
-
-.logo-aceh{
-    width:60px !important;
-    height:60px !important;
-    object-fit:contain !important;
-}
-
-.logo-kph{
-    width:80px !important;
-    height:80px !important;
-    object-fit:contain !important;
 }
