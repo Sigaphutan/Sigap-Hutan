@@ -110,52 +110,61 @@ transition:.3s;
 width:100%;
 
 }
-/* =========================
-   RUNNING TEXT
-========================= */
+/* =========================================
+   RUNNING TEXT - FINAL FIX
+========================================= */
 
-.running-text{
-    display:flex !important;
-    width:100% !important;
-    height:40px !important;
-    background:#198754 !important;
-    color:#fff !important;
-    position:relative !important;
-    margin-top:106px !important;
-    z-index:9999 !important;
-    overflow:hidden !important;
-    align-items:center !important;
-    visibility:visible !important;
-    opacity:1 !important;
-}
-.running-content{
-    display:flex !important;
-    width:max-content !important;
-    white-space:nowrap !important;
-    align-items:center !important;
-    animation:jalan 30s linear infinite !important;
-}
-.running-item{
-    display:inline-block !important;
-    padding-right:100px !important;
-    font-size:14px !important;
-    font-weight:600 !important;
-    color:#fff !important;
-}
-.running-content span{
-    display: inline-block;
-    padding-right: 120px;
-    font-size:15px;
-    font-weight:600;
+.running-text {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #198754 !important;
+    color: #ffffff !important;
+
+    overflow: hidden !important;
+    align-items: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1000 !important;
 }
 
-@keyframes jalan{
-    0%{
+.running-content {
+    display: flex !important;
+    align-items: center !important;
+    width: max-content !important;
+
+    white-space: nowrap !important;
+
+    animation: jalan 25s linear infinite !important;
+}
+
+.running-item {
+    display: inline-block !important;
+
+    padding-right: 120px !important;
+
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+
+    white-space: nowrap !important;
+}
+
+@keyframes jalan {
+
+    0% {
         transform: translateX(100vw);
     }
-    100%{
+
+    100% {
         transform: translateX(-100%);
     }
+
 }
 /* =========================
  HERO
@@ -164,10 +173,12 @@ width:100%;
 .hero{
     background:linear-gradient(rgba(10,70,35,.85),rgba(18,85,48,.85)),
                url("../images/hero.png") center center/cover no-repeat;
+
     min-height:100vh;
     display:flex;
     align-items:center;
-    padding:150px 0 100px;
+
+    padding:190px 0 100px;
 }
 
 .hero h1{
