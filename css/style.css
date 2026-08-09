@@ -1060,10 +1060,10 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 .logo-box{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
     background:#fff;
-    padding:6px 10px;
-    border-radius:12px;
+    padding:3px 7px;
+    border-radius:10px;
     box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
