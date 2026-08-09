@@ -36,6 +36,13 @@ box-sizing:border-box;
     background:rgba(20,83,45,.92);
     backdrop-filter:blur(12px);
     padding:8px 0;
+   height:106px !important;
+
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+    width:100% !important;
+    z-index:1000000 !important;
 }
 
 .navbar.scrolled{
@@ -2222,7 +2229,7 @@ color:#666;
 
 .running-text {
     position: fixed !important;
-    top: 122px !important;
+    top: 106px !important;
     left: 0 !important;
     width: 100% !important;
     height: 40px !important;
