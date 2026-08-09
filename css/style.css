@@ -1350,25 +1350,18 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
     }
 
     .navbar-brand small{
+    display:block;
+    font-size:10px;
+}
 
-        display:block;
+.running-text{
+    height:36px;
+    top:103px !important;
+}
 
-        font-size:10px;
-
-    }
-
-    .running-text{
-
-        height:36px;
-
-    }
-
-    .running-content span{
-
-        font-size:12px;
-
-    }
-
+.running-content span{
+    font-size:12px;
+}
     .hero{
 
         padding-top:145px;
