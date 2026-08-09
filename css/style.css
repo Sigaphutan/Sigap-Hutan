@@ -1068,8 +1068,8 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 .logo-aceh{
-    width:80px !important;
-    height:80px !important;
+    width:60px !important;
+    height:60px !important;
     object-fit:contain;
 }
 
@@ -2275,84 +2275,24 @@ color:#666;
     background:#dc3545;
 }
 /* =========================================
-   PERBAIKAN LOGO ACEH & TULISAN BERJALAN
+   PENYESUAIAN LOGO NAVBAR
 ========================================= */
 
-/* Logo Aceh dan logo KPH harus selalu terlihat */
-.logo-box{
-    display:flex !important;
-    align-items:center !important;
-    visibility:visible !important;
-    opacity:1 !important;
-}
-
-.logo-box img{
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-}
-
-.logo-aceh{
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    width:42px !important;
-    height:42px !important;
+.navbar-brand img{
+    width:60px !important;
+    height:60px !important;
     object-fit:contain !important;
 }
 
 .logo-kph{
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
     width:80px !important;
     height:80px !important;
     object-fit:contain !important;
 }
 
-
-/* TULISAN BERJALAN */
-.running-text{
+/* Logo tetap rapi sejajar */
+.logo-box{
     display:flex !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    position:fixed !important;
-    top:78px !important;
-    left:0 !important;
-    width:100% !important;
-    height:45px !important;
-    z-index:9999 !important;
-    overflow:hidden !important;
-}
-
-.running-content{
-    display:flex !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    white-space:nowrap !important;
-    width:max-content !important;
-    animation:jalan 40s linear infinite !important;
-}
-
-.running-content span{
-    display:inline-block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-}
-@media (max-width:576px){
-
-    .logo-aceh{
-        width:34px !important;
-        height:34px !important;
-    }
-
-    .logo-kph{
-        width:60px !important;
-        height:60px !important;
-    }
-
-    .running-text{
-        top:70px !important;
-        height:36px !important;
-    }
+    align-items:center !important;
+    gap:10px !important;
 }
